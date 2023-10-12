@@ -1,0 +1,67 @@
+<div id="<%= dom_id park %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= park.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= park.city %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">State:</strong>
+    <%= park.state %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Country:</strong>
+    <%= park.country %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= park.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Directions:</strong>
+    <%= park.directions %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Lat:</strong>
+    <%= park.lat %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Lon:</strong>
+    <%= park.lon %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Activities:</strong>
+    <%= park.activities %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Url:</strong>
+    <%= park.url %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Thumbnail:</strong>
+    <%= park.thumbnail %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Itinerary:</strong>
+    <%= park.itinerary_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this park", park, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this park", edit_park_path(park), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
