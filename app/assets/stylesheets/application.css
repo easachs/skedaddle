@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+ .background-image {
+   width: auto;
+   background-image: url("mountains.jpg");
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   z-index: -1;
+ }
+
+ img {
+   float: left;
+   width: 800px;
+   height: 600px;
+   object-fit: cover;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   border-radius: 0;
+ }
+
+ a:hover {
+   color: black;
+ }
+
+ button:hover {
+   color: black;
+ }
+
+ #image-format {
+   width: 150px;
+   height: 150px;
+   object-fit: contain;
+   float: right;
+ }
+
+ .opaque-bg {
+   background: rgb(255, 255, 255);
+   color: rgb(0, 0, 0);
+   opacity: .7;
+ }
