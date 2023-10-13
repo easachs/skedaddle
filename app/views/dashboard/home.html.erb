@@ -1,0 +1,45 @@
+<div class="row g-0 align-items-center">
+  <div class="col-lg-6 mb-5 mb-lg-0">
+    <div class="opaque-bg">
+      <div class="p-5 text-center">
+        <h1 class="text-3xl">Welcome to <b>Skedaddle!</b></h1>
+          <br>
+        <p >We're a community of people who love to travel and explore the world. We're here to help you find the best places to visit and to plan your next trip. </p>
+          <br>
+        <p>If you're new, login using your <b>Google account</b>.</p>
+        <p>If you've traveled with us before, welcome back!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 mb-5 mb-lg-0" data-controller="carousel">
+    <div class="carousel-inner">
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-1.jpg', class: 'd-block w-100' %>
+      <% end %>
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-2.jpg', class: 'd-block w-100' %>
+      <% end %>
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-3.jpg', class: 'd-block w-100' %>
+      <% end %>
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-4.jpg', class: 'd-block w-100' %>
+      <% end %>
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-5.jpg', class: 'd-block w-100' %>
+      <% end %>
+      <%= content_tag :div, class: 'carousel-item', data: { carousel_target: 'photo' } do %>
+        <%= image_tag 'slide-6.jpg', class: 'd-block w-100' %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" role="button" data-slide="prev" data-action="click->carousel#prevSlide">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" role="button" data-slide="next" data-action="click->carousel#nextSlide">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

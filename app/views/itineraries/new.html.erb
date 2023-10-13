@@ -1,7 +1,26 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New itinerary</h1>
+<div class="row opaque-bg">
+  <div class="col-lg p-4">
+  
+    <h1><b><%= "#{params[:search].upcase} Itinerary" %></b></h1><br>
 
-  <%= render "form", itinerary: @itinerary %>
+    <% if @found_parks.count > 0 %>
+      <h3><b>Parks</b></h3>
+      <div id="parks"><% @found_parks.each do |park| %>
+        <%= render ParkComponent.new park: park %>
+      <% end %></div>
+    <% end %>
 
-  <%= link_to "Back to itineraries", itineraries_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% if @found_restaurants.count > 0 %>
+    <h3><b>Restaurants</b></h3>
+      <div id="restaurants"><% @found_restaurants.each do |restaurant| %>
+        <%= render RestaurantComponent.new restaurant: restaurant %>
+      <% end %></div>
+    <% end %>
+
+    <%= form_with url: itineraries_path, method: :post do |f| %>
+      <%= f.hidden_field :search, value: @search %>
+      <p><%= f.submit 'Save Itinerary' %></p>
+    <% end %>
+    <%= link_to 'Search Again', dashboard_path %>
+  </div>
 </div>

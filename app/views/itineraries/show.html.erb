@@ -1,15 +1,22 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div class="row opaque-bg">
+  <div class="col-lg p-4">
+
+    <h1><b><%= "#{@itinerary.search.upcase} Itinerary" %></b></h1><br>
+
+    <% if @itinerary.parks.count > 0 %>
+      <h3><b>Parks</b></h3>
+      <div id="parks"><% @itinerary.parks.each do |park| %>
+        <%= render ParkComponent.new park: park, saved: true %>
+      <% end %></div>
     <% end %>
 
-    <%= render @itinerary %>
+    <% if @itinerary.restaurants.count > 0 %>
+      <div id="restaurants"><h3><b>Restaurants</b></h3>
+      <% @itinerary.restaurants.each do |restaurant| %>
+        <%= render RestaurantComponent.new restaurant: restaurant, saved: true %>
+      <% end %></div>
+    <% end %>
 
-    <%= link_to "Edit this itinerary", edit_itinerary_path(@itinerary), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this itinerary", itinerary_path(@itinerary), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to "Back to itineraries", itineraries_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= button_to 'Delete Itinerary', itinerary_path(@itinerary), method: :delete %><br>
   </div>
 </div>

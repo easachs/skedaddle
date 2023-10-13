@@ -1,0 +1,43 @@
+<h1 class="text-3xl font-bold mb-4">Skedaddle</h1>
+<div class="row opaque-bg">
+  <div class="col-lg p-4">
+    <p><b>Skedaddle</b> is a travel app that allows users to search for destinations and create a trip itinerary.</p>
+    <p>Your trip itinerary will include both hiking trails and nearby restaraunts.</p><br>
+    <%= form_with url: new_itinerary_path, method: :get, local: true do |f| %>
+      <%= f.text_field :search, placeholder: 'Enter a destination' %>
+      <%= f.submit 'Skedaddle', name: nil %>
+      <br><br><p>Where would you like to go?<p>
+      <p><%= check_box_tag(:park) %>
+      <%= label_tag(:park, "Visit a park") %></p>
+      <p><%= check_box_tag(:museum) %>
+      <%= label_tag(:museum, "Visit a museum") %></p>
+      <br><p>Where would you like to eat?<p>
+      <p><%= radio_button_tag(:resto, "any") %>
+      <%= label_tag(:resto_any, "Anywhere") %></p>
+      <p><%= radio_button_tag(:resto, "bars") %>
+      <%= label_tag(:resto_bars, "Bars & Pubs") %></p>
+      <p><%= radio_button_tag(:resto, "bistro") %>
+      <%= label_tag(:resto_bistro, "Bistros") %></p>
+      <p><%= radio_button_tag(:resto, "brewery") %>
+      <%= label_tag(:resto_brewery, "Breweries") %></p>
+      <p><%= radio_button_tag(:resto, "burger") %>
+      <%= label_tag(:resto_burger, "Burger Joint") %></p>
+      <p><%= radio_button_tag(:resto, "cafes") %>
+      <%= label_tag(:resto_cafes, "Cafes") %></p>
+      <p><%= radio_button_tag(:resto, "casual") %>
+      <%= label_tag(:resto_casual, "Casual Dining") %></p>
+      <p><%= radio_button_tag(:resto, "diner") %>
+      <%= label_tag(:resto_diner, "Diners") %></p>
+      <p><%= radio_button_tag(:resto, "fast") %>
+      <%= label_tag(:resto_fast, "Fast Food") %></p>
+      <p><%= radio_button_tag(:resto, "fine") %>
+      <%= label_tag(:resto_fine, "Fine Dining") %></p>
+      <p><%= radio_button_tag(:resto, "truck") %>
+      <%= label_tag(:resto_truck, "Food Trucks") %></p>
+      <p><%= radio_button_tag(:resto, "mexican") %>
+      <%= label_tag(:resto_mexican, "Mexican") %></p>
+      <p><%= radio_button_tag(:resto, "pizza") %>
+      <%= label_tag(:resto_pizza, "Pizzerias") %></p>
+    <% end %>
+  </div>
+</div>

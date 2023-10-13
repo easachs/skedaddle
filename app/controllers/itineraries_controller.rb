@@ -1,71 +1,61 @@
 # frozen_string_literal: true
 
 class ItinerariesController < ApplicationController
-  before_action :set_itinerary, only: %i[show edit update destroy]
+  before_action :search, :find_parks, :find_restaurants, only: %i[new create]
+  before_action :not_logged_in
 
-  # GET /itineraries or /itineraries.json
   def index
-    @itineraries = Itinerary.all
+    @itineraries = current_user.itineraries
   end
 
-  # GET /itineraries/1 or /itineraries/1.json
-  def show; end
+  def show
+    @itinerary = find_itinerary
+    redirect_to itineraries_path if @itinerary.user_id != current_user.id
+  rescue StandardError
+    redirect_to itineraries_path
+  end
 
-  # GET /itineraries/new
   def new
-    @itinerary = Itinerary.new
+    return unless params[:search].blank? || (@found_parks.empty? && @found_restaurants.empty?)
+
+    redirect_to dashboard_path
+    flash[:error] = 'No results found.'
   end
 
-  # GET /itineraries/1/edit
-  def edit; end
-
-  # POST /itineraries or /itineraries.json
   def create
-    @itinerary = Itinerary.new(itinerary_params)
+    itinerary = current_user.itineraries.new(itinerary_params)
+    return unless itinerary.save
 
-    respond_to do |format|
-      if @itinerary.save
-        format.html { redirect_to itinerary_url(@itinerary), notice: 'Itinerary was successfully created.' }
-        format.json { render :show, status: :created, location: @itinerary }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @itinerary.errors, status: :unprocessable_entity }
-      end
-    end
+    @found_parks.each { |park| itinerary.parks.create!(park.serialized) }
+    @found_restaurants.each { |restaurant| itinerary.restaurants.create!(restaurant.serialized) }
+    flash[:success] = 'New itinerary saved.'
+    redirect_to itinerary_path(itinerary.id)
   end
 
-  # PATCH/PUT /itineraries/1 or /itineraries/1.json
-  def update
-    respond_to do |format|
-      if @itinerary.update(itinerary_params)
-        format.html { redirect_to itinerary_url(@itinerary), notice: 'Itinerary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @itinerary }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @itinerary.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /itineraries/1 or /itineraries/1.json
   def destroy
-    @itinerary.destroy
-
-    respond_to do |format|
-      format.html { redirect_to itineraries_url, notice: 'Itinerary was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    find_itinerary.destroy!
+    redirect_to itineraries_path
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_itinerary
-    @itinerary = Itinerary.find(params[:id])
+  def itinerary_params
+    params.permit(:search)
   end
 
-  # Only allow a list of trusted parameters through.
-  def itinerary_params
-    params.require(:itinerary).permit(:search, :user_id)
+  def find_itinerary
+    Itinerary.find(params[:id])
+  end
+
+  def search
+    @search = itinerary_params[:search].upcase.delete("'")
+  end
+
+  def find_parks
+    @found_parks = ParkFacade.parks_near(@search)
+  end
+
+  def find_restaurants
+    @found_restaurants = RestaurantFacade.restaurants_near(@search)
   end
 end

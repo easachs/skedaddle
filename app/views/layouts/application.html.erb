@@ -9,11 +9,30 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9P6HMG7EM9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9P6HMG7EM9');
+    </script>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <%# <main class="container mx-auto mt-28 px-5 flex"> %>
+      <div class="background-image"></div>
+
+      <%= render DashboardComponent.new logged_in: current_user %>
+
+      <div class="container mx-auto p-20">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: name %>
+        <% end %>
+        
+        <%= yield %>
+      </div>
+    <%# </main> %>
   </body>
 </html>
