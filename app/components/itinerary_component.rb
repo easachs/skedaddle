@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class ItineraryComponent < ViewComponent::Base
-  attr_reader :id, :label, :parks, :businesses
+  attr_reader :id, :label, :locality, :parks, :businesses
 
-  def initialize(label:, parks:, businesses:, id: nil, **options)
+  def initialize(label:, locality:, parks:, businesses:, id: nil, **options)
     @id = id
     @label = label
+    @locality = locality
     @parks = parks
     @businesses = businesses
     @options = options

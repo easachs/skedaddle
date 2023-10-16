@@ -12,11 +12,9 @@ RSpec.describe User, type: :model do
   end
 
   describe 'class methods' do
-    it '#from_omniauth' do
-      response = {
-        uid: '123456', info:         { name: 'John Doe',
-                                       email: 'johndoe@example.com' }
-      }
+    it 'from_omniauth' do
+      response = { uid: '123456', info: { name: 'John Doe',
+                                          email: 'johndoe@example.com' } }
 
       described_class.from_omniauth(response)
 

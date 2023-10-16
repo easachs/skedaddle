@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'ParkFacade' do
-  it 'returns instances of parks', vcr: 'denver_parks' do
+  it 'returns parks', vcr: 'denver_parks' do
     parks = ParkFacade.parks_near({ lat: 39.740959, lon: -104.985798 })
     expect(parks).to be_a(Array)
     expect(parks).to be_all(ParkPoro)

@@ -23,7 +23,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    itinerary = current_user.itineraries.new(@geocode)
+    itinerary = current_user.itineraries.create!(@geocode)
     return unless itinerary.save
 
     @parks.each { |park| itinerary.parks.create!(park.serialized) }

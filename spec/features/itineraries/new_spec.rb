@@ -17,13 +17,13 @@ RSpec.describe 'New Itinerary' do
         } }
     )
     visit root_path
-
     click_on('Log In')
   end
 
-  it 'has search location and parks/businesses displayed', vcr: 'denver_search' do
+  it 'displays new itinerary', vcr: 'denver_search' do
     visit '/itineraries/new?search=Denver'
-    expect(page).to have_content('Denver, CO, USA Itinerary')
+    expect(page).to have_content('Denver Itinerary')
+
     within '#parks' do
       expect(page).to have_content('Apex Park')
       expect(page).to have_content('Bear Creek Regional Park')
@@ -31,39 +31,56 @@ RSpec.describe 'New Itinerary' do
     end
 
     within '#businesses' do
-      expect(page).to have_content('Rating:')
-      expect(page).to have_content('Price:')
-      expect(page).to have_content('Categories:')
-      expect(page).to have_content('Location:')
-      expect(page).to have_content('Phone:')
+      expect(page).to have_content('Meadow Lark Farm Dinners')
+      expect(page).to have_content('Fanwich Food Truck')
+      expect(page).to have_content('Little Bodega')
     end
+
     click_on('Save')
-    expect(page).to have_content('Denver, CO, USA Itinerary')
+
+    expect(page).to have_content('Denver Itinerary')
+
     within '#parks' do
       expect(page).to have_content('Apex Park')
       expect(page).to have_content('Bear Creek Regional Park')
       expect(page).to have_content('Black Forest Regional Park')
+
+      click_on('Remove Black Forest Regional Park')
+
+      expect(page).to have_content('Apex Park')
+      expect(page).to have_content('Bear Creek Regional Park')
+      expect(page).not_to have_content('Black Forest Regional Park')
     end
 
     within '#businesses' do
-      expect(page).to have_content('Rating:')
-      expect(page).to have_content('Price:')
-      expect(page).to have_content('Categories:')
-      expect(page).to have_content('Location:')
-      expect(page).to have_content('Phone:')
+      expect(page).to have_content('Meadow Lark Farm Dinners')
+      expect(page).to have_content('Fanwich Food Truck')
+      expect(page).to have_content('Little Bodega')
+      click_on('Remove Little Bodega')
+
+      expect(page).to have_content('Meadow Lark Farm Dinners')
+      expect(page).to have_content('Fanwich Food Truck')
+      expect(page).not_to have_content('Little Bodega')
     end
+
     click_on('Itineraries')
+
     expect(page).to have_current_path(itineraries_path)
-    expect(page).to have_content('My Itineraries')
-    expect(page).to have_content('DENVER')
-    click_on('DENVER')
-    expect(page).to have_content('Denver, CO, USA Itinerary')
+    expect(page).to have_content('Itineraries')
+    expect(page).to have_content('Denver')
+
+    click_on('Denver')
+
+    expect(page).to have_content('Denver Itinerary')
+
     click_on('Delete')
+
     expect(page).to have_current_path(itineraries_path)
-    expect(page).not_to have_content('DENVER, CO, USA')
+    expect(page).not_to have_content('Denver')
 
     click_on('Log Out')
     visit itineraries_path
+
     expect(page).to have_content('Must be logged in.')
     expect(page).to have_current_path(root_path)
   end

@@ -1,14 +1,13 @@
-<h1 class="text-3xl font-bold mb-4">My Itineraries</h1>
-<div>
-  <% @itineraries.each do |itinerary| %>
-    <hr class="p-2">
-    <div class="opaque-bg p-4">
-      <h5 class="text-xl font-semibold text-gray-500">
-        <a href="<%= itinerary_path(itinerary) %>"><%= itinerary.locality.upcase %></a>
-      </h5>
-      <p class="text-sm text-gray-500">
-        Created <%= itinerary.created_at.strftime('%m/%d/%y') %>
-      </p>
-    </div>
-  <% end %>
-</div>
+<h1 class="text-3xl font-bold mb-4">Itineraries</h1>
+
+<% @itineraries.each do |itinerary| %>
+  <div class="opaque-bg p-4">
+    <h5 class="text-xl font-semibold text-gray-500">
+      <a href="<%= itinerary_path(itinerary) %>"><%= itinerary.locality %></a>
+    </h5>
+    <p class="text-sm text-gray-500">
+      Created <%= itinerary.date %>
+    </p>
+  </div>
+  <hr class="p-2">
+<% end %>

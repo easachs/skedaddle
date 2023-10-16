@@ -1,38 +1,22 @@
-<h1 class="text-3xl font-bold">Contact Us</h1>
-<p class="text-xl m-2 mb-4">Do you have any questions? Please do not hesitate to contact us directly.</p>
+<h1 class="text-3xl font-bold">Contact</h1>
+<p class="text-xl m-2 mb-4">Do you have any questions? Please don't hesitate to contact us directly.</p>
 
-<%= form_with model: @contact, url: contact_path, method: 'post', class: 'p-4 opaque-bg' do |form| %>
-  <div class="row">
-
-    <% if @contact.errors.any? %>
-      <div class="text-sm p-2">
-        <div class="alert alert-danger">
-          The form contains <%= pluralize(@contact.errors.count, "error") %>.
-        </div>
-        <ul class="m-2">
-          <% @contact.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="col-md-6">
-      <%= form.label :name, class: 'block font-semibold mt-2' %>
-      <%= form.text_field :name, class: 'w-full form-input' %>
-    </div>
-    <div class="col-md-6">
-      <%= form.label :email, class: 'block font-semibold mt-2' %>
-      <%= form.email_field :email, class: 'w-full form-input' %>
-    </div>
+<%= form_with url: contact_path, method: 'post', class: 'p-4 opaque-bg' do |form| %>
+  <div>
+    <%= form.label :name, class: 'font-bold' %>
+    <%= form.text_field :name, class: 'w-full mb-2' %>
   </div>
   <div>
-    <%= form.label :subject, class: 'block font-semibold mt-2' %>
-    <%= form.text_field :subject, class: 'w-full form-input' %>
+    <%= form.label :email, class: 'font-bold' %>
+    <%= form.email_field :email, class: 'w-full mb-2' %>
   </div>
   <div>
-    <%= form.label :message, class: 'block font-semibold mt-2' %>
-    <%= form.text_area :message, rows: 6, class: 'w-full form-input' %>
+    <%= form.label :subject, class: 'font-bold' %>
+    <%= form.text_field :subject, class: 'w-full mb-2' %>
+  </div>
+  <div>
+    <%= form.label :message, class: 'font-bold' %>
+    <%= form.text_area :message, rows: 5, class: 'w-full mb-2' %>
   </div>
   <div class="text-center mt-2">
     <%= form.submit "Send", class: 'btn' %>

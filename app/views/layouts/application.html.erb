@@ -26,7 +26,7 @@
 
       <%= render DashboardComponent.new logged_in: current_user %>
 
-      <div class="container mx-auto p-20">
+      <div class="container mx-auto p-10">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, class: name %>
         <% end %>
