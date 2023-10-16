@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
     return unless user.valid?
 
     session[:user_id] = user.id
-    redirect_to dashboard_url
+    redirect_to root_path
   end
 
   def destroy
     session.clear
-    redirect_to root_url
+    redirect_to root_path
   end
 end

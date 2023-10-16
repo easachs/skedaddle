@@ -13,7 +13,7 @@ RSpec.describe GeocodeService do
     end
   end
 
-  it 'can SAD PATH', vcr: 'bad_geocode' do
+  it 'can sad path', vcr: 'bad_geocode' do
     response = described_class.geocode('Nonexistent')
     expect(response).to eq({ data: [] })
   end

@@ -3,7 +3,7 @@
 
   * This iteration of **Skedaddle** combines the group project's front end and back end service-oriented architecture into a single monolith application.
 
-  * It consumes API endpoints from **Yelp** (restaurants), **TrailAPI** (trails/parks), and **PositionStack** (geocoding).
+  * It consumes API endpoints from **Yelp** (businesses), **TrailAPI** (trails/parks), and **PositionStack** (geocoding).
     
   * This app creates a <i>custom itinerary</i> with three trails and three restaurants based on geodata.
 
@@ -18,10 +18,10 @@
   Targeted towards budget/ecotourism travelers, etc. people who want to travel but need help deciding where to go, or just someone interested in learning more about a given place.
 
 ## Problem
-  This app will be a one stop shop of travel information and create a short recommended itinerary. Could be budget/ecotourism/outdoors/cultural/etc themed. Restaurants recommended by budget, parks/museums/trails/etc could be recommended based on search criteria as well.
+  This app will be a one stop shop of travel information and create a short recommended itinerary. Could be budget/ecotourism/outdoors/cultural/etc themed. Businesses recommended by budget, parks/museums/trails/etc could be recommended based on search criteria as well.
 
 ## MVP
-  A user will be able to register with a username, email and password and login with a username and password (with sad paths) from the homepage. They will have a dashboard with a nav bar (“my itineraries”, “skedaddle/search”, and “logout”). On the user dashboard a user can see their saved itineraries with links to their show pages and to delete them. On the search page a user can search by location and receive a generated weekend itinerary with 3 nearby restaurants and 3 nearby parks/trails, which is added to that user’s itineraries.
+  A user will be able to register with a username, email and password and login with a username and password (with sad paths) from the homepage. They will have a dashboard with a nav bar (“my itineraries”, “skedaddle/search”, and “logout”). On the user dashboard a user can see their saved itineraries with links to their show pages and to delete them. On the search page a user can search by location and receive a generated weekend itinerary with 3 nearby businesses and 3 nearby parks/trails, which is added to that user’s itineraries.
 
 ## Stretch
   A user can edit an itinerary (selecting what they like, removing unwanted recommendations, adding new restaurants or parks/hikes) and invite other users/friends to view and edit it. They can search for restaurants by budget, distance, and/or rating, or hikes and parks by activities or difficulty. The app could include top books/poetry/movies/music/historical information for a city/country, and COL/pricing info. More pictures and links. Users can randomize a search.
@@ -73,7 +73,6 @@
   | Rails Routes  |  |  |
   | ------------- | ------------- | ------------- |
   | get  | /  | dashboard#home  |
-  | get  | /dashboard  | dashboard#dashboard  |
   | get  | /about  | dashboard#about  |
   | get  | /contact  | contact#new  |
   | get  | /itineraries  | itineraries#index  |

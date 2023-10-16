@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :restaurant do
-    name { Faker::Restaurant.name }
+  factory :business do
+    name { Faker::Business.name }
     rating { rand(5) }
     price { '$' }
     thumbnail { Faker::Lorem.word }

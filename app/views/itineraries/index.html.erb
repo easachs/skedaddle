@@ -4,7 +4,7 @@
     <hr class="p-2">
     <div class="opaque-bg p-4">
       <h5 class="text-xl font-semibold text-gray-500">
-        <a href="<%= itinerary_path(itinerary) %>"><%= itinerary.search.upcase %></a>
+        <a href="<%= itinerary_path(itinerary) %>"><%= itinerary.locality.upcase %></a>
       </h5>
       <p class="text-sm text-gray-500">
         Created <%= itinerary.created_at.strftime('%m/%d/%y') %>

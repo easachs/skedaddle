@@ -2,11 +2,10 @@
 
 class ParkService
   def self.parks_near(location)
-    geocode = GeocodeFacade.geocode(location)
     response = conn.get('/activity/') do |route|
       route.params['limit'] = '5'
-      route.params['lat'] = geocode[:lat]
-      route.params['lon'] = geocode[:lon]
+      route.params['lat'] = location[:lat]
+      route.params['lon'] = location[:lon]
       route.params['radius'] = '100'
     end
     parse_json(response)

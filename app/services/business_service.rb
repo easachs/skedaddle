@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-class RestaurantService
-  def self.restaurants_near(location)
-    geocode = GeocodeFacade.geocode(location)
+class BusinessService
+  def self.businesses_near(location)
     response = conn.get('search') do |route|
       route.params['limit'] = '5'
-      route.params['latitude'] = geocode[:lat]
-      route.params['longitude'] = geocode[:lon]
+      route.params['latitude'] = location[:lat]
+      route.params['longitude'] = location[:lon]
       route.params['sort_by'] = 'rating'
       route.params['category'] = 'food'
     end

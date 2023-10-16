@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe RestaurantPoro do
+RSpec.describe BusinessPoro do
   before do
     @attributes = {
       "id": 'eCkWoMKHh5PoNqYvdyviRA',
@@ -53,33 +53,33 @@ RSpec.describe RestaurantPoro do
       "distance": 101.23958944836664
     }
 
-    @restaurant = described_class.new(@attributes)
+    @business = described_class.new(@attributes)
   end
 
   it 'exists' do
-    expect(@restaurant).to be_a(described_class)
+    expect(@business).to be_a(described_class)
   end
 
   it 'has attributes' do
-    expect(@restaurant.name).to eq("Spinelli's Market")
-    expect(@restaurant.rating).to eq(4.5)
-    expect(@restaurant.price).to eq('$$')
-    expect(@restaurant.thumbnail).to eq('https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg')
-    expect(@restaurant.url).to include('https://www.yelp.com/biz/spinellis-market-denver')
-    expect(@restaurant.categories).to eq('Delis, Specialty Food, Grocery')
-    expect(@restaurant.address).to eq('4621 E 23rd Ave, Denver, CO 80207')
-    expect(@restaurant.phone).to eq('(303) 329-8143')
+    expect(@business.name).to eq("Spinelli's Market")
+    expect(@business.rating).to eq(4.5)
+    expect(@business.price).to eq('$$')
+    expect(@business.thumbnail).to eq('https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg')
+    expect(@business.url).to include('https://www.yelp.com/biz/spinellis-market-denver')
+    expect(@business.categories).to eq('Delis, Specialty Food, Grocery')
+    expect(@business.address).to eq('4621 E 23rd Ave, Denver, CO 80207')
+    expect(@business.phone).to eq('(303) 329-8143')
   end
 
   it 'errors gracefully' do
-    bad_restaurant = described_class.new({})
-    expect(bad_restaurant.name).to be_nil
-    expect(bad_restaurant.rating).to be_nil
-    expect(bad_restaurant.price).to be_nil
-    expect(bad_restaurant.thumbnail).to be_nil
-    expect(bad_restaurant.url).to be_nil
-    expect(bad_restaurant.categories).to be_nil
-    expect(bad_restaurant.address).to be_nil
-    expect(bad_restaurant.phone).to be_nil
+    bad_business = described_class.new({})
+    expect(bad_business.name).to be_nil
+    expect(bad_business.rating).to be_nil
+    expect(bad_business.price).to be_nil
+    expect(bad_business.thumbnail).to be_nil
+    expect(bad_business.url).to be_nil
+    expect(bad_business.categories).to be_nil
+    expect(bad_business.address).to be_nil
+    expect(bad_business.phone).to be_nil
   end
 end

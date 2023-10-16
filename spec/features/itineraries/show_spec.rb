@@ -21,13 +21,13 @@ RSpec.describe 'Show Itinerary' do
     click_on('Log In')
   end
 
-  it 'can delete parks and restaurants', vcr: 'denver_search' do
-    expect(page).to have_current_path(dashboard_path)
+  it 'can delete parks and businesses', vcr: 'denver_search' do
+    expect(page).to have_current_path(root_path)
     visit '/itineraries/new?search=Denver'
-    expect(page).to have_content('DENVER Itinerary')
+    expect(page).to have_content('Denver, CO, USA Itinerary')
     click_on('Save')
 
-    expect(page).to have_content('DENVER Itinerary')
+    expect(page).to have_content('Denver, CO, USA Itinerary')
     within '#parks' do
       expect(page).to have_content('Apex Park')
       expect(page).to have_content('Bear Creek Regional Park')
@@ -39,7 +39,7 @@ RSpec.describe 'Show Itinerary' do
       expect(page).not_to have_content('Black Forest Regional Park')
     end
 
-    within '#restaurants' do
+    within '#businesses' do
       expect(page).to have_content('Meadow Lark Farm Dinners')
       expect(page).to have_content('Fanwich Food Truck')
       expect(page).to have_content('Little Bodega')

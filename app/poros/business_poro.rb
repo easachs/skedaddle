@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RestaurantPoro
+class BusinessPoro
   attr_reader :name,
               :rating,
               :price,

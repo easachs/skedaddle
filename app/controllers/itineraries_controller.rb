@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItinerariesController < ApplicationController
-  before_action :search, :find_parks, :find_restaurants, only: %i[new create]
+  before_action :geocode, :find_parks, :find_businesses, only: %i[new create]
   before_action :not_logged_in
 
   def index
@@ -16,20 +16,19 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    return unless params[:search].blank? || (@found_parks.empty? && @found_restaurants.empty?)
+    return unless params[:search].blank? || (@parks.empty? && @businesses.empty?)
 
-    redirect_to dashboard_path
+    redirect_to root_path
     flash[:error] = 'No results found.'
   end
 
   def create
-    itinerary = current_user.itineraries.new(itinerary_params)
+    itinerary = current_user.itineraries.new(@geocode)
     return unless itinerary.save
 
-    @found_parks.each { |park| itinerary.parks.create!(park.serialized) }
-    @found_restaurants.each { |restaurant| itinerary.restaurants.create!(restaurant.serialized) }
-    flash[:success] = 'New itinerary saved.'
-    redirect_to itinerary_path(itinerary.id)
+    @parks.each { |park| itinerary.parks.create!(park.serialized) }
+    @businesses.each { |business| itinerary.businesses.create!(business.serialized) }
+    redirect_to itinerary_path(itinerary)
   end
 
   def destroy
@@ -39,23 +38,19 @@ class ItinerariesController < ApplicationController
 
   private
 
-  def itinerary_params
-    params.permit(:search)
-  end
-
   def find_itinerary
     Itinerary.find(params[:id])
   end
 
-  def search
-    @search = itinerary_params[:search].upcase.delete("'")
+  def geocode
+    @geocode = GeocodeFacade.geocode(params[:search].delete("'"))
   end
 
   def find_parks
-    @found_parks = ParkFacade.parks_near(@search)
+    @parks = ParkFacade.parks_near(@geocode)
   end
 
-  def find_restaurants
-    @found_restaurants = RestaurantFacade.restaurants_near(@search)
+  def find_businesses
+    @businesses = BusinessFacade.businesses_near(@geocode)
   end
 end

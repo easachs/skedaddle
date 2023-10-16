@@ -1,22 +1,5 @@
-<div class="row opaque-bg">
-  <div class="col-lg p-4">
-
-    <h1><b><%= "#{@itinerary.search.upcase} Itinerary" %></b></h1><br>
-
-    <% if @itinerary.parks.count > 0 %>
-      <h3><b>Parks</b></h3>
-      <div id="parks"><% @itinerary.parks.each do |park| %>
-        <%= render ParkComponent.new park: park, saved: true %>
-      <% end %></div>
-    <% end %>
-
-    <% if @itinerary.restaurants.count > 0 %>
-      <div id="restaurants"><h3><b>Restaurants</b></h3>
-      <% @itinerary.restaurants.each do |restaurant| %>
-        <%= render RestaurantComponent.new restaurant: restaurant, saved: true %>
-      <% end %></div>
-    <% end %>
-
-    <%= button_to 'Delete Itinerary', itinerary_path(@itinerary), method: :delete %><br>
-  </div>
-</div>
+<%= render ItineraryComponent.new id: @itinerary.id,
+                                  label: @itinerary.label,
+                                  parks: @itinerary.parks,
+                                  businesses: @itinerary.businesses,
+                                  saved: true %>

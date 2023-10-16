@@ -18,7 +18,7 @@ RSpec.describe ParkService do
     end
   end
 
-  it 'can SAD PATH', vcr: 'bad_parks' do
+  it 'can sad path', vcr: 'bad_parks' do
     response = described_class.parks_near({ lat: nil, lon: nil })
     expect(response).to eq({
                              code: 'invalid_input',

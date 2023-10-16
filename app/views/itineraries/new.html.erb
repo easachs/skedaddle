@@ -1,26 +1,3 @@
-<div class="row opaque-bg">
-  <div class="col-lg p-4">
-  
-    <h1><b><%= "#{params[:search].upcase} Itinerary" %></b></h1><br>
-
-    <% if @found_parks.count > 0 %>
-      <h3><b>Parks</b></h3>
-      <div id="parks"><% @found_parks.each do |park| %>
-        <%= render ParkComponent.new park: park %>
-      <% end %></div>
-    <% end %>
-
-    <% if @found_restaurants.count > 0 %>
-    <h3><b>Restaurants</b></h3>
-      <div id="restaurants"><% @found_restaurants.each do |restaurant| %>
-        <%= render RestaurantComponent.new restaurant: restaurant %>
-      <% end %></div>
-    <% end %>
-
-    <%= form_with url: itineraries_path, method: :post do |f| %>
-      <%= f.hidden_field :search, value: @search %>
-      <p><%= f.submit 'Save Itinerary' %></p>
-    <% end %>
-    <%= link_to 'Search Again', dashboard_path %>
-  </div>
-</div>
+<%= render ItineraryComponent.new label: @geocode[:label],
+                                  parks: @parks,
+                                  businesses: @businesses %>

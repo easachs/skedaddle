@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Restaurant < ApplicationRecord
+class Business < ApplicationRecord
   belongs_to :itinerary
 end

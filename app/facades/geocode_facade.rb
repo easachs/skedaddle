@@ -6,7 +6,7 @@ class GeocodeFacade
     if geocode[:error] || geocode[:data]&.empty?
       { lat: nil, lon: nil }
     else
-      { lat: geocode[:data].first[:latitude], lon: geocode[:data].first[:longitude] }
+      GeocodePoro.new(geocode[:data].first).serialized
     end
   end
 end
