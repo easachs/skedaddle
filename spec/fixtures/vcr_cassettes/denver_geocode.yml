@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:48:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip
+      Cache-Control:
+      - no-cache, private
+      X-Apilayer-Transaction-Id:
+      - dc2e70ef-c37f-456f-bf8e-eabfe05771f7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Quota-Limit:
+      - '25000'
+      X-Quota-Remaining:
+      - '24674'
+      X-Increment-Usage:
+      - '1'
+      X-Request-Time:
+      - '0.140'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=b%2FimyxWJOj0moWOtXDSJx%2B1UxuE9lJ8mNewu13DYrDmnGT%2FBee8EhVfAKZlGv6buuik%2F0Or8QfdqNNghTBGeshNYcDJ1zC%2BDZou3goNKaRl3HnYziL9xmzH25O%2FUvdS3sZUStx9CMUSIxMaWohZeze7UwBU%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 816cfc238bcb1f35-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
+        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
+        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver City,
+        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
+        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
+        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
+        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"}]}'
+  recorded_at: Mon, 16 Oct 2023 02:48:48 GMT
+recorded_with: VCR 6.2.0

@@ -1,0 +1,1047 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=DENVER
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip
+      Cache-Control:
+      - no-cache, private
+      X-Apilayer-Transaction-Id:
+      - 0fb76793-cfc7-4aeb-8c3f-e49e5bfe1f9f
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Quota-Limit:
+      - '25000'
+      X-Quota-Remaining:
+      - '24668'
+      X-Increment-Usage:
+      - '1'
+      X-Request-Time:
+      - '0.183'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=gJJVpursMSpvtjmAGU%2Bxmff3nfDpN69nqaza1Tpf3D5XvX8Bm0T6p54pRL1BNN110awRpS2%2FcDUh18gF023%2FxmeZmDR1B7VdM5jmXUF3O%2Fia7TQH5UlwM2EEGOX133ABjsX5Uz%2B3yAoiOtVFhgtxciyBWTw%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 816d00dc397a5207-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
+        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
+        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver City,
+        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
+        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
+        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
+        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"}]}'
+  recorded_at: Mon, 16 Oct 2023 02:52:01 GMT
+- request:
+    method: get
+    uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<TRAIL_API_KEY>"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:02 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '11030'
+      Connection:
+      - keep-alive
+      Expires:
+      - Tue, 15 Oct 2024 02:52:02 GMT
+      Cache-Control:
+      - max-age=31536000, no-cache="set-cookie"
+      Link:
+      - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
+      Cf-Ray:
+      - 816d00e04a7bc535-SEA
+      Cf-Cache-Status:
+      - BYPASS
+      Cf-Edge-Cache:
+      - cache,platform=wordpress
+      Set-Cookie:
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      Access-Control-Allow-Headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      Vary:
+      - Origin,Accept-Encoding
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Q3j%2FBl7mox22J7eKQYW%2F4KOMl6FN0MxKUU7bucYTbf2ccutSRLFMYmqVYkQ8xEYESQwIicZbS75zR6iuxlLYawrym3vM%2FvfJ5GtSl7jq40FawnOjXfR%2FeqyxkuvN4A6LkXhDT1Hl"}],"group":"cf-nel","max_age":604800}'
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Referrer-Policy:
+      - same-origin
+      X-Robots-Tag:
+      - noindex
+      Cf-Apo-Via:
+      - origin,header
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      Access-Control-Allow-Origin:
+      - "*"
+      Allow:
+      - GET
+      X-Ratelimit-Map-Data-Limit:
+      - '10'
+      X-Ratelimit-Map-Data-Remaining:
+      - '10'
+      X-Ratelimit-Map-Data-Reset:
+      - '2153'
+      X-Ratelimit-Regular-Requests-Limit:
+      - '500'
+      X-Ratelimit-Regular-Requests-Remaining:
+      - '500'
+      X-Ratelimit-Regular-Requests-Reset:
+      - '2153'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - us-west-2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
+        States","description":"From the Heritage Square parking lot, take Apex trail
+        west into Apex gulch. Take a right onto the first trail that branches off
+        about a mile up. This is the Pick n'' Sledgetrail. Follow this for 0.9 miles
+        until it branches with the Grubstakeloop. Take a right onto Grubstake and
+        follow it as it winds aroundthe mountain and you start going south again.
+        When you see the Sluiceboxtrail, take it down to Apex trail. Once back on
+        Apex, take a rightand go up the gulch. Once you get to the Enchanted forest
+        trailhead,you have 2 options. This point is the bottom of a loop, so you caneither
+        keep going up Apex and decend the Enchanted Forest, or doit in reverse. Either
+        way there are steep uphills and fun downhills.  Once you finish the loop,
+        get back on Apex and decend to the parking lot.","directions":"From the I-25
+        and 6th Ave. intersection in Denver, go west on 6th. As you get close to the
+        foothills, you will drive under I-70.After the underpass, take your first
+        left at the stoplight.You will be turning onto Hwy. 40. Drive on 40 for about
+        a mile.  Pull into the Heritage Square parking lot on your right, and park
+        on the north side next to the trailhead.","lat":"39.7165","lon":"-105.2092","parent_id":"0","place_id":"684","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=3","length":"8","description":"From
+        the Heritage Square parking lot, take Apex trail west into Apex gulch. Take
+        a right onto the first trail that branches off about a mile up. This is the
+        Pick n'' Sledgetrail. Follow this for 0.9 miles until it branches with the
+        Grubstakeloop. Take a right onto Grubstake and follow it as it winds aroundthe
+        mountain and you start going south again. When you see the Sluiceboxtrail,
+        take it down to Apex trail. Once back on Apex, take a rightand go up the gulch.
+        Once you get to the Enchanted forest trailhead,you have 2 options. This point
+        is the bottom of a loop, so you caneither keep going up Apex and decend the
+        Enchanted Forest, or doit in reverse. Either way there are steep uphills and
+        fun downhills.  Once you finish the loop, get back on Apex and decend to the
+        parking lot.","name":"Apex Park","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2014\/10\/G0057937.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"8","nightride":"1"},"place_activity_id":"936395"}}},"685":{"name":"Bear
+        Creek Regional Park","city":"Colorado Springs","state":"Colorado","country":"United
+        States","description":"This place has some good hills and wide trails. Alot
+        of hikers and joggers use these trails, not to mention the people with the
+        dogs. There is some singletrack here that is closed to bikes but is well worth
+        the ride if you are feeling gnarley. Use these trails to connect with Gold
+        Camp Rd. and Captain Jack''s for a nice long ride.&lt;BR&gt;&lt;BR&gt;","directions":"From
+        I-25, exit at US 24 West, Cimmaron St. Head west. At the second stoplight
+        (21st St.), turn left.The trail is on the right after the big hill. Parking
+        is available on the right.","lat":"38.8251","lon":"-104.8597","parent_id":"0","place_id":"685","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=4","length":"6","description":"This
+        place has some good hills and wide trails. Alot of hikers and joggers use
+        these trails, not to mention the people with the dogs. There is some singletrack
+        here that is closed to bikes but is well worth the ride if you are feeling
+        gnarley. Use these trails to connect with Gold Camp Rd. and Captain Jack''s
+        for a nice long ride.&lt;BR&gt;&lt;BR&gt;","name":"Bear Creek Regional Park","rank":"0","rating":"2.83","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1125722874.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"6","nightride":"null"},"place_activity_id":"936396"}}},"686":{"name":"Black
+        Forest Regional Park","city":"Black Forest","state":"Colorado","country":"United
+        States","description":"This place doesn''t have a whole lot to offer but it
+        is something different at least.  They do hold a race here once a year, usually
+        in May.  The park pretty much sits on a hill so you''ll ride up from the parking
+        lot no matter which way you go.  The terrain here is rolling and there are
+        lots of trees so that is a nice change of pace.  The terrain is kinda sandy
+        though so watch out.","directions":"From Colorado Springs, take Black Forest
+        Road north into the Black Forest.  Turn left onto Shoup Rd. at the second
+        light you see.  The park is on the right about 2 miles down Shoup.","lat":"39.0136","lon":"-104.7379","parent_id":"0","place_id":"686","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=5","length":"4","description":"This
+        place doesn''t have a whole lot to offer but it is something different at
+        least.  They do hold a race here once a year, usually in May.  The park pretty
+        much sits on a hill so you''ll ride up from the parking lot no matter which
+        way you go.  The terrain here is rolling and there are lots of trees so that
+        is a nice change of pace.  The terrain is kinda sandy though so watch out.","name":"Black
+        Forest Regional Park","rank":"0","rating":"2.44","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1157406070.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"4","nightride":"null"},"place_activity_id":"936397"}}},"687":{"name":"Blodgett","city":"Colorado
+        Springs","state":"Colorado","country":"United States","description":"Trail
+        starts as a fireroad and climbs. You can do an up and back to a water tower
+        which is about 2 miles total. Not technical but good little quick climb. Another
+        option is to take a left at double-track about 1\/4 mile before the water
+        tower. Take this up and stay to the right, you will be above the water tower.
+        Keep going and you get to a point where you pickup your bike and carry it
+        for about 10-20 minutes. You will eventually T a trail which run''s parallel
+        to the mountain (you can see it from where you parked). Go right and it is
+        an awesome singletrack downhill with a lot of big rocks to pay attention to
+        and some tight turns and fairly steep drops. You will eventually cross into
+        Air Force Academy. At first major trail intersetion (double track) go right.
+        You go downhill and then up. Open and close first gate. Keep heading south
+        and you will hit second gate (I usually bunnyhop through the left side) and
+        then into a subdivision. At road head left and then you will hit Woodmen,
+        head right and you will hit your ride in about 3 minutes.","directions":"From
+        I-25 take Woodmen Rd exit (149) and head west. Cross bridge over train-tracks.
+        At next light Woodmen turns to the right, follow it. Stay on Woodmen for several
+        miles (5 or so) as it passes a school on the left. At stop sign continue straight
+        as it winds through sub-divisions. Woodmen gains in altitute as it head west
+        and then it starts to run parallel to the range. On your right you will see
+        a fire-road with a gate, a small sign identifies it as Blodget Open Space.
+        Pull in and park or park on the street. ","lat":"38.9489","lon":"-104.8861","parent_id":"0","place_id":"687","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=6","length":"3","description":"Trail
+        starts as a fireroad and climbs. You can do an up and back to a water tower
+        which is about 2 miles total. Not technical but good little quick climb. Another
+        option is to take a left at double-track about 1\/4 mile before the water
+        tower. Take this up and stay to the right, you will be above the water tower.
+        Keep going and you get to a point where you pickup your bike and carry it
+        for about 10-20 minutes. You will eventually T a trail which run''s parallel
+        to the mountain (you can see it from where you parked). Go right and it is
+        an awesome singletrack downhill with a lot of big rocks to pay attention to
+        and some tight turns and fairly steep drops. You will eventually cross into
+        Air Force Academy. At first major trail intersetion (double track) go right.
+        You go downhill and then up. Open and close first gate. Keep heading south
+        and you will hit second gate (I usually bunnyhop through the left side) and
+        then into a subdivision. At road head left and then you will hit Woodmen,
+        head right and you will hit your ride in about 3 minutes.","name":"Blodgett","rank":"0","rating":"3.33","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1159763005.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"3","nightride":"null"},"place_activity_id":"936398"}}},"688":{"name":"Captain
+        Jack''s","city":"Colorado Springs","state":"Colorado","country":"United States","description":"The
+        ride up High Drive is about a mile and completely uphill.  At the top of the
+        hill, take the trail to the right (labeled Penrose Multi-use trail 665).  The
+        other users of this trail include motorcycles so be careful!  The trail is
+        very well maintained and hard to lose.  Alot of loose gravel, banked turns,  and
+        crazy mogul like jumps make this trail awesome.  The trail goes down about
+        3 miles before ending at a parking lot.  Go out the parking lot and turn right
+        onto the gravel road.  This road leads back to your car and goes through two
+        tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
+        the loop a couple times for a good workout.","directions":"From Colorado Springs,
+        take W. Cheyenne Blvd. west (access from I-25 via exit 140A [US 25 S] - right
+        onto Ramona, turns into W Cheyenne Blvd.)  Go almost to Seven Falls - just
+        before Seven Falls, turn right into North Cheyenne Canyon.  Continue into
+        the park, past Helen Hunt Falls until the pavement ends (approx. 2 miles).  Park
+        at the parking lot here.  Trail starts up High Drive.","lat":"38.7991","lon":"-104.8835","parent_id":"0","place_id":"688","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=7","length":"5","description":"The
+        ride up High Drive is about a mile and completely uphill.  At the top of the
+        hill, take the trail to the right (labeled Penrose Multi-use trail 665).  The
+        other users of this trail include motorcycles so be careful!  The trail is
+        very well maintained and hard to lose.  Alot of loose gravel, banked turns,  and
+        crazy mogul like jumps make this trail awesome.  The trail goes down about
+        3 miles before ending at a parking lot.  Go out the parking lot and turn right
+        onto the gravel road.  This road leads back to your car and goes through two
+        tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
+        the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
+  recorded_at: Mon, 16 Oct 2023 02:52:02 GMT
+- request:
+    method: get
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=DENVER
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip
+      Cache-Control:
+      - no-cache, private
+      X-Apilayer-Transaction-Id:
+      - 42288e80-f010-4bf5-bfa1-6ecd998c5e02
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Quota-Limit:
+      - '25000'
+      X-Quota-Remaining:
+      - '24667'
+      X-Increment-Usage:
+      - '1'
+      X-Request-Time:
+      - '0.187'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=3TOU2U3Y%2B1WzmS5GQSb7dixJI30yMSN1qpp6ugvlhZX%2FBhvj58bdL37frNvGxVV90VdcucjRJCPw6%2F%2BSTeTgrXNOrO2tdRHHjefPn5Nr19gC0Zzy%2FCyXsHtqm9xDKfdgaRjei4ZOhpTzELqJg8lD9Tf9YsE%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 816d00e4ff6a1f45-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
+        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
+        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver City,
+        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
+        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
+        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
+        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"}]}'
+  recorded_at: Mon, 16 Oct 2023 02:52:03 GMT
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?category=food&latitude=39.740959&limit=5&longitude=-104.985798&sort_by=rating
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <YELP_API_KEY>
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Server:
+      - envoy
+      Ratelimit-Resettime:
+      - '2023-10-17T00:00:00+00:00'
+      Ratelimit-Dailylimit:
+      - '5000.0'
+      X-Routing-Service:
+      - routing-main--useast1-d8f5f795-9lq69; site=public_api_v3
+      Ratelimit-Remaining:
+      - '4998.0'
+      X-Zipkin-Id:
+      - b654ed0fa79da993
+      X-B3-Sampled:
+      - '0'
+      X-Mode:
+      - ro
+      X-Proxied:
+      - 10-65-111-104-useast1aprod
+      X-Extlb:
+      - 10-65-111-104-useast1aprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 16 Oct 2023 02:52:03 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-den8283-DEN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "v17HR-dKH3ny_6SZBnNE2w", "alias": "meadow-lark-farm-dinners-denver",
+        "name": "Meadow Lark Farm Dinners", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/x7_1Tg8Vdmpjn-tJp-fgJQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/meadow-lark-farm-dinners-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "italian", "title": "Italian"}],
+        "rating": 5.0, "coordinates": {"latitude": 39.73121, "longitude": -104.98225},
+        "transactions": [], "price": "$$$$", "location": {"address1": "", "address2":
+        "", "address3": "", "city": "Denver", "zip_code": "80203", "country": "US",
+        "state": "CO", "display_address": ["Denver, CO 80203"]}, "phone": "+13037105336",
+        "display_phone": "(303) 710-5336", "distance": 1116.0612366487146}, {"id":
+        "o2aB42fxMUCEr9KQ6libAw", "alias": "fanwich-food-truck-denver-4", "name":
+        "Fanwich Food Truck", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/_xJAeeR2qVjh61gX1NSCkw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/fanwich-food-truck-denver-4?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 5, "categories": [{"alias": "foodtrucks", "title": "Food Trucks"},
+        {"alias": "sandwiches", "title": "Sandwiches"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.797635, "longitude": -104.978575}, "transactions": [], "location":
+        {"address1": "5551 Washington St", "address2": null, "address3": "", "city":
+        "Denver", "zip_code": "80216", "country": "US", "state": "CO", "display_address":
+        ["5551 Washington St", "Denver, CO 80216"]}, "phone": "+13033900072", "display_phone":
+        "(303) 390-0072", "distance": 6330.990591447523}, {"id": "2onTk-15psWtmDsTStk6qg",
+        "alias": "little-bodega-denver", "name": "Little Bodega", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/H0yDRoSJglpbWd2n5mmqHw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/little-bodega-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 5, "categories": [{"alias": "delis", "title": "Delis"}, {"alias":
+        "convenience", "title": "Convenience Stores"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.7504832, "longitude": -104.984254}, "transactions": [], "location":
+        {"address1": "613 22nd St", "address2": null, "address3": "", "city": "Denver",
+        "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["613
+        22nd St", "Denver, CO 80205"]}, "phone": "+13039550482", "display_phone":
+        "(303) 955-0482", "distance": 1064.1371869198708}, {"id": "jk7hrDdCbWuJ8rIQ8Bb5Fg",
+        "alias": "your-coffee-guy-littleton", "name": "Your Coffee Guy", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/4ECH4UECq92hrBrvDy1Whg/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/your-coffee-guy-littleton?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "coffee", "title": "Coffee & Tea"},
+        {"alias": "foodtrucks", "title": "Food Trucks"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.6065101623535, "longitude": -105.106483459473}, "transactions":
+        [], "location": {"address1": "5980 S Jellison St", "address2": "Ste B", "address3":
+        "", "city": "Littleton", "zip_code": "80123", "country": "US", "state": "CO",
+        "display_address": ["5980 S Jellison St", "Ste B", "Littleton, CO 80123"]},
+        "phone": "+17202204007", "display_phone": "(720) 220-4007", "distance": 18172.23973273907},
+        {"id": "rYC4gCNA7gt_81FEveUZNQ", "alias": "adventure-colorado-tours-aurora-2",
+        "name": "Adventure Colorado Tours", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/aP_JjN_S15leKBqqEaO1Ow/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/adventure-colorado-tours-aurora-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "walkingtours", "title": "Walking
+        Tours"}, {"alias": "hiking", "title": "Hiking"}, {"alias": "mountainbiking",
+        "title": "Mountain Biking"}], "rating": 5.0, "coordinates": {"latitude": 39.74924087524414,
+        "longitude": -104.99501037597656}, "transactions": [], "location": {"address1":
+        null, "address2": null, "address3": null, "city": "Aurora", "zip_code": "80202",
+        "country": "US", "state": "CO", "display_address": ["Aurora, CO 80202"]},
+        "phone": "+17207080567", "display_phone": "(720) 708-0567", "distance": 1912.4194677586772}],
+        "total": 1600, "region": {"center": {"longitude": -104.985798, "latitude":
+        39.740959}}}'
+  recorded_at: Mon, 16 Oct 2023 02:52:03 GMT
+- request:
+    method: get
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=DENVER
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip
+      Cache-Control:
+      - no-cache, private
+      X-Apilayer-Transaction-Id:
+      - beb30c93-1e3e-45d8-9856-efd645fc61f6
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Quota-Limit:
+      - '25000'
+      X-Quota-Remaining:
+      - '24666'
+      X-Increment-Usage:
+      - '1'
+      X-Request-Time:
+      - '0.145'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=D%2BcCzewrB7mZ7Ntt6WVfvXeVO%2Bv8vldU7RXTcy0i1tpTiqfdrNmfjWC8GY%2Fizmc6%2B8GnfhsTpEZKJKl2qXnQxvQp%2BvHu7HB4sx1HCuR91%2FXSmogQxWEt2ri9tdk2oXh2RwVaX7gu%2FDfGlMFLZ69z%2BcvNTok%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 816d00eb1b465387-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
+        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
+        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver City,
+        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
+        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
+        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
+        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"}]}'
+  recorded_at: Mon, 16 Oct 2023 02:52:03 GMT
+- request:
+    method: get
+    uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Rapidapi-Key:
+      - "<TRAIL_API_KEY>"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:04 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '11030'
+      Connection:
+      - keep-alive
+      Expires:
+      - Tue, 15 Oct 2024 02:52:04 GMT
+      Cache-Control:
+      - max-age=31536000, no-cache="set-cookie"
+      Link:
+      - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
+      Cf-Ray:
+      - 816d00ee28a527aa-SEA
+      Cf-Cache-Status:
+      - BYPASS
+      Cf-Edge-Cache:
+      - cache,platform=wordpress
+      Set-Cookie:
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      Access-Control-Allow-Headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      Vary:
+      - Origin,Accept-Encoding
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=JAtwtVoZjkqwG3swPO5DSD%2BewwdXWKfpPWeOU3JtRmbvzBYG5i%2Fp7rJQIW1QTyBvlnoZyGwzLhML5KXL7Wc5DhfaDEatfr0O15K%2F%2Fbklm%2BppYBnyS2nuwDtZ4UB8vRS5Q%2Btx5xQg"}],"group":"cf-nel","max_age":604800}'
+      X-Content-Type-Options:
+      - nosniff
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Referrer-Policy:
+      - same-origin
+      X-Robots-Tag:
+      - noindex
+      Cf-Apo-Via:
+      - origin,header
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      Access-Control-Allow-Origin:
+      - "*"
+      Allow:
+      - GET
+      X-Ratelimit-Map-Data-Limit:
+      - '10'
+      X-Ratelimit-Map-Data-Remaining:
+      - '10'
+      X-Ratelimit-Map-Data-Reset:
+      - '2151'
+      X-Ratelimit-Regular-Requests-Limit:
+      - '500'
+      X-Ratelimit-Regular-Requests-Remaining:
+      - '500'
+      X-Ratelimit-Regular-Requests-Reset:
+      - '2151'
+      Server:
+      - RapidAPI-1.2.8
+      X-Rapidapi-Version:
+      - 1.2.8
+      X-Rapidapi-Region:
+      - AWS - us-west-2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
+        States","description":"From the Heritage Square parking lot, take Apex trail
+        west into Apex gulch. Take a right onto the first trail that branches off
+        about a mile up. This is the Pick n'' Sledgetrail. Follow this for 0.9 miles
+        until it branches with the Grubstakeloop. Take a right onto Grubstake and
+        follow it as it winds aroundthe mountain and you start going south again.
+        When you see the Sluiceboxtrail, take it down to Apex trail. Once back on
+        Apex, take a rightand go up the gulch. Once you get to the Enchanted forest
+        trailhead,you have 2 options. This point is the bottom of a loop, so you caneither
+        keep going up Apex and decend the Enchanted Forest, or doit in reverse. Either
+        way there are steep uphills and fun downhills.  Once you finish the loop,
+        get back on Apex and decend to the parking lot.","directions":"From the I-25
+        and 6th Ave. intersection in Denver, go west on 6th. As you get close to the
+        foothills, you will drive under I-70.After the underpass, take your first
+        left at the stoplight.You will be turning onto Hwy. 40. Drive on 40 for about
+        a mile.  Pull into the Heritage Square parking lot on your right, and park
+        on the north side next to the trailhead.","lat":"39.7165","lon":"-105.2092","parent_id":"0","place_id":"684","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=3","length":"8","description":"From
+        the Heritage Square parking lot, take Apex trail west into Apex gulch. Take
+        a right onto the first trail that branches off about a mile up. This is the
+        Pick n'' Sledgetrail. Follow this for 0.9 miles until it branches with the
+        Grubstakeloop. Take a right onto Grubstake and follow it as it winds aroundthe
+        mountain and you start going south again. When you see the Sluiceboxtrail,
+        take it down to Apex trail. Once back on Apex, take a rightand go up the gulch.
+        Once you get to the Enchanted forest trailhead,you have 2 options. This point
+        is the bottom of a loop, so you caneither keep going up Apex and decend the
+        Enchanted Forest, or doit in reverse. Either way there are steep uphills and
+        fun downhills.  Once you finish the loop, get back on Apex and decend to the
+        parking lot.","name":"Apex Park","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2014\/10\/G0057937.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"8","nightride":"1"},"place_activity_id":"936395"}}},"685":{"name":"Bear
+        Creek Regional Park","city":"Colorado Springs","state":"Colorado","country":"United
+        States","description":"This place has some good hills and wide trails. Alot
+        of hikers and joggers use these trails, not to mention the people with the
+        dogs. There is some singletrack here that is closed to bikes but is well worth
+        the ride if you are feeling gnarley. Use these trails to connect with Gold
+        Camp Rd. and Captain Jack''s for a nice long ride.&lt;BR&gt;&lt;BR&gt;","directions":"From
+        I-25, exit at US 24 West, Cimmaron St. Head west. At the second stoplight
+        (21st St.), turn left.The trail is on the right after the big hill. Parking
+        is available on the right.","lat":"38.8251","lon":"-104.8597","parent_id":"0","place_id":"685","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=4","length":"6","description":"This
+        place has some good hills and wide trails. Alot of hikers and joggers use
+        these trails, not to mention the people with the dogs. There is some singletrack
+        here that is closed to bikes but is well worth the ride if you are feeling
+        gnarley. Use these trails to connect with Gold Camp Rd. and Captain Jack''s
+        for a nice long ride.&lt;BR&gt;&lt;BR&gt;","name":"Bear Creek Regional Park","rank":"0","rating":"2.83","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1125722874.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"6","nightride":"null"},"place_activity_id":"936396"}}},"686":{"name":"Black
+        Forest Regional Park","city":"Black Forest","state":"Colorado","country":"United
+        States","description":"This place doesn''t have a whole lot to offer but it
+        is something different at least.  They do hold a race here once a year, usually
+        in May.  The park pretty much sits on a hill so you''ll ride up from the parking
+        lot no matter which way you go.  The terrain here is rolling and there are
+        lots of trees so that is a nice change of pace.  The terrain is kinda sandy
+        though so watch out.","directions":"From Colorado Springs, take Black Forest
+        Road north into the Black Forest.  Turn left onto Shoup Rd. at the second
+        light you see.  The park is on the right about 2 miles down Shoup.","lat":"39.0136","lon":"-104.7379","parent_id":"0","place_id":"686","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=5","length":"4","description":"This
+        place doesn''t have a whole lot to offer but it is something different at
+        least.  They do hold a race here once a year, usually in May.  The park pretty
+        much sits on a hill so you''ll ride up from the parking lot no matter which
+        way you go.  The terrain here is rolling and there are lots of trees so that
+        is a nice change of pace.  The terrain is kinda sandy though so watch out.","name":"Black
+        Forest Regional Park","rank":"0","rating":"2.44","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1157406070.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"4","nightride":"null"},"place_activity_id":"936397"}}},"687":{"name":"Blodgett","city":"Colorado
+        Springs","state":"Colorado","country":"United States","description":"Trail
+        starts as a fireroad and climbs. You can do an up and back to a water tower
+        which is about 2 miles total. Not technical but good little quick climb. Another
+        option is to take a left at double-track about 1\/4 mile before the water
+        tower. Take this up and stay to the right, you will be above the water tower.
+        Keep going and you get to a point where you pickup your bike and carry it
+        for about 10-20 minutes. You will eventually T a trail which run''s parallel
+        to the mountain (you can see it from where you parked). Go right and it is
+        an awesome singletrack downhill with a lot of big rocks to pay attention to
+        and some tight turns and fairly steep drops. You will eventually cross into
+        Air Force Academy. At first major trail intersetion (double track) go right.
+        You go downhill and then up. Open and close first gate. Keep heading south
+        and you will hit second gate (I usually bunnyhop through the left side) and
+        then into a subdivision. At road head left and then you will hit Woodmen,
+        head right and you will hit your ride in about 3 minutes.","directions":"From
+        I-25 take Woodmen Rd exit (149) and head west. Cross bridge over train-tracks.
+        At next light Woodmen turns to the right, follow it. Stay on Woodmen for several
+        miles (5 or so) as it passes a school on the left. At stop sign continue straight
+        as it winds through sub-divisions. Woodmen gains in altitute as it head west
+        and then it starts to run parallel to the range. On your right you will see
+        a fire-road with a gate, a small sign identifies it as Blodget Open Space.
+        Pull in and park or park on the street. ","lat":"38.9489","lon":"-104.8861","parent_id":"0","place_id":"687","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=6","length":"3","description":"Trail
+        starts as a fireroad and climbs. You can do an up and back to a water tower
+        which is about 2 miles total. Not technical but good little quick climb. Another
+        option is to take a left at double-track about 1\/4 mile before the water
+        tower. Take this up and stay to the right, you will be above the water tower.
+        Keep going and you get to a point where you pickup your bike and carry it
+        for about 10-20 minutes. You will eventually T a trail which run''s parallel
+        to the mountain (you can see it from where you parked). Go right and it is
+        an awesome singletrack downhill with a lot of big rocks to pay attention to
+        and some tight turns and fairly steep drops. You will eventually cross into
+        Air Force Academy. At first major trail intersetion (double track) go right.
+        You go downhill and then up. Open and close first gate. Keep heading south
+        and you will hit second gate (I usually bunnyhop through the left side) and
+        then into a subdivision. At road head left and then you will hit Woodmen,
+        head right and you will hit your ride in about 3 minutes.","name":"Blodgett","rank":"0","rating":"3.33","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/01\/1159763005.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"3","nightride":"null"},"place_activity_id":"936398"}}},"688":{"name":"Captain
+        Jack''s","city":"Colorado Springs","state":"Colorado","country":"United States","description":"The
+        ride up High Drive is about a mile and completely uphill.  At the top of the
+        hill, take the trail to the right (labeled Penrose Multi-use trail 665).  The
+        other users of this trail include motorcycles so be careful!  The trail is
+        very well maintained and hard to lose.  Alot of loose gravel, banked turns,  and
+        crazy mogul like jumps make this trail awesome.  The trail goes down about
+        3 miles before ending at a parking lot.  Go out the parking lot and turn right
+        onto the gravel road.  This road leads back to your car and goes through two
+        tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
+        the loop a couple times for a good workout.","directions":"From Colorado Springs,
+        take W. Cheyenne Blvd. west (access from I-25 via exit 140A [US 25 S] - right
+        onto Ramona, turns into W Cheyenne Blvd.)  Go almost to Seven Falls - just
+        before Seven Falls, turn right into North Cheyenne Canyon.  Continue into
+        the park, past Helen Hunt Falls until the pavement ends (approx. 2 miles).  Park
+        at the parking lot here.  Trail starts up High Drive.","lat":"38.7991","lon":"-104.8835","parent_id":"0","place_id":"688","activities":{"mountain
+        biking":{"url":"http:\/\/www.singletracks.com\/item.php?c=1&i=7","length":"5","description":"The
+        ride up High Drive is about a mile and completely uphill.  At the top of the
+        hill, take the trail to the right (labeled Penrose Multi-use trail 665).  The
+        other users of this trail include motorcycles so be careful!  The trail is
+        very well maintained and hard to lose.  Alot of loose gravel, banked turns,  and
+        crazy mogul like jumps make this trail awesome.  The trail goes down about
+        3 miles before ending at a parking lot.  Go out the parking lot and turn right
+        onto the gravel road.  This road leads back to your car and goes through two
+        tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
+        the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
+        biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
+  recorded_at: Mon, 16 Oct 2023 02:52:04 GMT
+- request:
+    method: get
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=DENVER
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Oct 2023 02:52:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip
+      Cache-Control:
+      - no-cache, private
+      X-Apilayer-Transaction-Id:
+      - bdcb8b4d-56c1-40eb-a072-630f3827862d
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Quota-Limit:
+      - '25000'
+      X-Quota-Remaining:
+      - '24665'
+      X-Increment-Usage:
+      - '1'
+      X-Request-Time:
+      - '0.182'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=4HGkMiEg3Q87CSNPgQhKTT9YTunifCm5T9FdVlvBjTc29OUzp8v%2BhmrJyjwwbhOs82bUU8OFHRpg04HBSzEhYyQYroqRnO2rWCuFLUZGrcMocYenZggvRqwfSMvXaRQFYpCPzjXKDBHaVbooigbeEr62tg0%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 816d00f2d8ad51f4-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
+        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
+        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver City,
+        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
+        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
+        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
+        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
+        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
+        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
+        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
+        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        MI, USA"}]}'
+  recorded_at: Mon, 16 Oct 2023 02:52:05 GMT
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?category=food&latitude=39.740959&limit=5&longitude=-104.985798&sort_by=rating
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <YELP_API_KEY>
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      X-Routing-Service:
+      - routing-main--useast1-d8f5f795-44gsg; site=public_api_v3
+      Server:
+      - envoy
+      Ratelimit-Dailylimit:
+      - '5000.0'
+      X-Zipkin-Id:
+      - 5a71c6212252a124
+      Ratelimit-Resettime:
+      - '2023-10-17T00:00:00+00:00'
+      X-B3-Sampled:
+      - '0'
+      Ratelimit-Remaining:
+      - '4997.0'
+      X-Mode:
+      - ro
+      X-Proxied:
+      - 10-65-154-184-useast1bprod
+      X-Extlb:
+      - 10-65-154-184-useast1bprod
+      Cache-Control:
+      - max-age=0, no-store, private, no-transform
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 16 Oct 2023 02:52:06 GMT
+      Via:
+      - 1.1 varnish
+      X-Served-By:
+      - cache-den8268-DEN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "v17HR-dKH3ny_6SZBnNE2w", "alias": "meadow-lark-farm-dinners-denver",
+        "name": "Meadow Lark Farm Dinners", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/x7_1Tg8Vdmpjn-tJp-fgJQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/meadow-lark-farm-dinners-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "italian", "title": "Italian"}],
+        "rating": 5.0, "coordinates": {"latitude": 39.73121, "longitude": -104.98225},
+        "transactions": [], "price": "$$$$", "location": {"address1": "", "address2":
+        "", "address3": "", "city": "Denver", "zip_code": "80203", "country": "US",
+        "state": "CO", "display_address": ["Denver, CO 80203"]}, "phone": "+13037105336",
+        "display_phone": "(303) 710-5336", "distance": 1116.0612366487146}, {"id":
+        "o2aB42fxMUCEr9KQ6libAw", "alias": "fanwich-food-truck-denver-4", "name":
+        "Fanwich Food Truck", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/_xJAeeR2qVjh61gX1NSCkw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/fanwich-food-truck-denver-4?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 5, "categories": [{"alias": "foodtrucks", "title": "Food Trucks"},
+        {"alias": "sandwiches", "title": "Sandwiches"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.797635, "longitude": -104.978575}, "transactions": [], "location":
+        {"address1": "5551 Washington St", "address2": null, "address3": "", "city":
+        "Denver", "zip_code": "80216", "country": "US", "state": "CO", "display_address":
+        ["5551 Washington St", "Denver, CO 80216"]}, "phone": "+13033900072", "display_phone":
+        "(303) 390-0072", "distance": 6330.990591447523}, {"id": "2onTk-15psWtmDsTStk6qg",
+        "alias": "little-bodega-denver", "name": "Little Bodega", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/H0yDRoSJglpbWd2n5mmqHw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/little-bodega-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 5, "categories": [{"alias": "delis", "title": "Delis"}, {"alias":
+        "convenience", "title": "Convenience Stores"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.7504832, "longitude": -104.984254}, "transactions": [], "location":
+        {"address1": "613 22nd St", "address2": null, "address3": "", "city": "Denver",
+        "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["613
+        22nd St", "Denver, CO 80205"]}, "phone": "+13039550482", "display_phone":
+        "(303) 955-0482", "distance": 1064.1371869198708}, {"id": "jk7hrDdCbWuJ8rIQ8Bb5Fg",
+        "alias": "your-coffee-guy-littleton", "name": "Your Coffee Guy", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/4ECH4UECq92hrBrvDy1Whg/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/your-coffee-guy-littleton?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "coffee", "title": "Coffee & Tea"},
+        {"alias": "foodtrucks", "title": "Food Trucks"}], "rating": 5.0, "coordinates":
+        {"latitude": 39.6065101623535, "longitude": -105.106483459473}, "transactions":
+        [], "location": {"address1": "5980 S Jellison St", "address2": "Ste B", "address3":
+        "", "city": "Littleton", "zip_code": "80123", "country": "US", "state": "CO",
+        "display_address": ["5980 S Jellison St", "Ste B", "Littleton, CO 80123"]},
+        "phone": "+17202204007", "display_phone": "(720) 220-4007", "distance": 18172.23973273907},
+        {"id": "rYC4gCNA7gt_81FEveUZNQ", "alias": "adventure-colorado-tours-aurora-2",
+        "name": "Adventure Colorado Tours", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/aP_JjN_S15leKBqqEaO1Ow/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/adventure-colorado-tours-aurora-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "walkingtours", "title": "Walking
+        Tours"}, {"alias": "hiking", "title": "Hiking"}, {"alias": "mountainbiking",
+        "title": "Mountain Biking"}], "rating": 5.0, "coordinates": {"latitude": 39.74924087524414,
+        "longitude": -104.99501037597656}, "transactions": [], "location": {"address1":
+        null, "address2": null, "address3": null, "city": "Aurora", "zip_code": "80202",
+        "country": "US", "state": "CO", "display_address": ["Aurora, CO 80202"]},
+        "phone": "+17207080567", "display_phone": "(720) 708-0567", "distance": 1912.4194677586772}],
+        "total": 1600, "region": {"center": {"longitude": -104.985798, "latitude":
+        39.740959}}}'
+  recorded_at: Mon, 16 Oct 2023 02:52:06 GMT
+recorded_with: VCR 6.2.0
