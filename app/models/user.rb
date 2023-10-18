@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   validates :name, :email, :uid, presence: true
   validates :email, :uid, uniqueness: true
-  has_many :itineraries
+  has_many :itineraries, dependent: :destroy
 
   def self.from_omniauth(response)
     User.find_or_create_by(uid: response[:uid]) do |u|

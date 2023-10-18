@@ -1,6 +1,25 @@
-<div class="mb-4">
-  <h1 class="text-3xl font-bold mb-4">About</h1>
-  <div class="p-4 opaque-bg">
-    <p class="text-xl m-2"></p>
+<div class="sm:flex items-center">
+  <div class="sm:w-1/2">
+    <div class="bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-l-xl">
+      <%= turbo_frame_tag 'home' do %>
+        <div class="p-4 text-center">
+          <h1 class="text-3xl">What is <b>Skedaddle</b>?</h1>
+            <br>
+          <p>Skedaddle is a travel app build with Ruby on Rails that creates a custom itinerary for a given city, address or location. An itinerary can return parks, restaurants, museums and more.</p>
+            <br>
+          <p>This app is the continued solo exploration of a past group project for the Backend Engineering program at Turing School of Software & Design.</p>
+            <br>
+          <p>Got any questions? Please don't hesitate to <%= link_to 'contact', contact_path, class: 'font-bold text-slate-600 hover:text-slate-700' %> us directly.</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="w-1/2 mb-5 hidden sm:block" data-controller="carousel">
+    <% (1..6).to_a.each do |num| %>
+      <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
+        <%= image_tag "slide-#{num}.jpg", class: 'w-100 rounded-3xl' %>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -2,43 +2,37 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["photo"];
+  currentIndex = 0;
 
   connect() {
-    this.currentIndex = 0;
     this.showCurrentPhoto();
-
-    // this.intervalId = setInterval(() => {
-    //   this.nextSlide();
-    // }, 5000);
+    this.startInterval();
   }
 
-  // disconnect() {
-  //   clearInterval(this.intervalId);
-  // }
+  disconnect() {
+    clearInterval(this.intervalId);
+  }
+
+  startInterval() {
+    this.intervalId = setInterval(() => {
+      this.nextSlide();
+    }, 5000);
+  }
 
   nextSlide() {
-    this.currentIndex += 1;
-    if (this.currentIndex > 5) {
-      this.currentIndex = 0;
-    }
+    this.currentIndex = (this.currentIndex + 1) % this.photoTargets.length;
     this.showCurrentPhoto();
+    this.resetInterval();
   }
-
-  // prevSlide() {
-  //   this.currentIndex -= 1;
-  //   if (this.currentIndex < 0) {
-  //     this.currentIndex = 5;
-  //   }
-  //   this.showCurrentPhoto();
-  // }
 
   showCurrentPhoto() {
     this.photoTargets.forEach((photo, index) => {
-      if (index === this.currentIndex) {
-        photo.classList.remove("hidden");
-      } else {
-        photo.classList.add("hidden");
-      }
+      photo.classList.toggle("hidden", index !== this.currentIndex);
     });
+  }
+
+  resetInterval() {
+    clearInterval(this.intervalId);
+    this.startInterval();
   }
 }

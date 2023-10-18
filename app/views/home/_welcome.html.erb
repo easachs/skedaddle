@@ -1,35 +1,24 @@
-<div class="flex items-center">
-  <div class="lg:w-6/12 mb-5 lg:mb-0">
-    <div class="opaque-bg">
-      <div class="p-5 text-center">
-        <h1 class="text-3xl">Welcome to <b>Skedaddle!</b></h1>
-          <br>
-        <p >We're a community of people who love to travel and explore the world. We're here to help you find the best places to visit and to plan your next trip. </p>
-          <br>
-        <p>If you're new, login using your <b>Google account</b>.</p>
-        <p>If you've traveled with us before, welcome back!</p>
-      </div>
+<div class="sm:flex items-center">
+  <div class="sm:w-1/2">
+    <div class="bg-white bg-opacity-50 rounded-xl sm:rounded-none sm:rounded-l-xl">
+      <%= turbo_frame_tag 'home' do %>
+        <div class="p-4 text-center">
+          <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
+            <br>
+          <p>We're a community of people who love to travel and explore the world. We're here to help you find the best places to visit and plan your next trip.</p>
+            <br>
+          <p>If you're new, log in using your <b>Google account</b>.</p>
+          <p>If you've traveled with us before, welcome back!</p>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="lg:w-6/12 mb-5 lg:mb-0" data-controller="carousel">
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-1.jpg', class: 'w-100' %>
-    <% end %>
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-2.jpg', class: 'w-100' %>
-    <% end %>
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-3.jpg', class: 'w-100' %>
-    <% end %>
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-4.jpg', class: 'w-100' %>
-    <% end %>
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-5.jpg', class: 'w-100' %>
-    <% end %>
-    <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-      <%= image_tag 'slide-6.jpg', class: 'w-100' %>
+  <div class="w-1/2 mb-5 hidden sm:block" data-controller="carousel">
+    <% (1..6).to_a.each do |num| %>
+      <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
+        <%= image_tag "slide-#{num}.jpg", class: 'w-100 rounded-3xl' %>
+      <% end %>
     <% end %>
   </div>
 </div>
