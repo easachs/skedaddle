@@ -1,4 +1,8 @@
-<%= render ItineraryComponent.new label: @geocode[:label],
-                                  locality: @geocode[:locality],
-                                  parks: @parks,
-                                  businesses: @businesses %>
+<%= render ItineraryComponent.new search: params[:search],
+                                  label: @geocode[:label],
+                                  city: @geocode[:city],
+                                  items: {
+                                    airports: @airports,
+                                    parks: @parks,
+                                    businesses: @businesses
+                                  } %>

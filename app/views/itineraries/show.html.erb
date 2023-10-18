@@ -1,6 +1,10 @@
 <%= render ItineraryComponent.new id: @itinerary.id,
+                                  search: @itinerary.search,
                                   label: @itinerary.label,
-                                  locality: @itinerary.locality,
-                                  parks: @itinerary.parks,
-                                  businesses: @itinerary.businesses,
-                                  saved: true %>
+                                  city: @itinerary.city,
+                                  saved: true,
+                                  items: {
+                                    airports: @itinerary.airports,
+                                    parks: @itinerary.parks,
+                                    businesses: @itinerary.businesses
+                                  } %>

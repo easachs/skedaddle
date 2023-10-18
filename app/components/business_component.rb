@@ -4,6 +4,7 @@ class BusinessComponent < ViewComponent::Base
   attr_reader :business
 
   def initialize(business:, **options)
+    super
     @business = business
     @options = options
   end

@@ -1,27 +1,45 @@
-<div class="row opaque-bg">
-  <div class="col-lg p-4">
+<div class='row bg-white bg-opacity-70 rounded-xl'>
+  <div class='col-lg p-4'>
   
-    <h1><b><%= "#{locality} Itinerary" %></b></h1><br>
+    <h1><b><%= "#{city} Itinerary" %></b></h1><br>
+
+    <% if airports.count > 0 %>
+      <h3><b>Airports</b></h3>
+      <div id='airports' class='flex flex-wrap text-sm'>
+        <% airports.each do |airport| %>
+          <div class='w-full md:w-1/4 p-4'>
+            <p class='font-bold'><%= airport.name %></p>
+            <p><%= airport.address1 %></p>
+            <p><%= airport.address2 %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <% if parks.count > 0 %>
-      <h3><b>Parks</b></h3>
-      <div id="parks"><% parks.each do |park| %>
-        <%= render ParkComponent.new park: park, saved: saved %>
-      <% end %></div>
+      <div id='parks'>
+        <h3><b>Parks</b></h3>
+        <% parks.each do |park| %>
+          <%= render ParkComponent.new park: park, saved: saved %>
+        <% end %>
+      </div>
     <% end %>
 
     <% if businesses.count > 0 %>
-    <h3><b>Businesses</b></h3>
-      <div id="businesses"><% businesses.each do |business| %>
-        <%= render BusinessComponent.new business: business, saved: saved %>
-      <% end %></div>
+      <div id='businesses'>
+        <h3><b>Businesses</b></h3>
+        <% businesses.each do |business| %>
+          <%= render BusinessComponent.new business: business, saved: saved %>
+        <% end %>
+      </div>
     <% end %>
 
     <% if saved %>
-      <%= button_to 'Delete Itinerary', itinerary_path(id), method: :delete %><br>
+      <%= button_to 'Delete', itinerary_path(id), method: :delete,
+            class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2' %>
     <% else %>
       <%= form_with url: itineraries_path, method: :post do |f| %>
-        <%= f.hidden_field :search, value: label %>
+        <%= f.hidden_field :search, value: search %>
         <p><%= f.submit 'Save Itinerary' %></p>
       <% end %>
       <%= link_to 'Search Again', root_path %>
