@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_210117) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_061614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "airports", force: :cascade do |t|
+    t.string "name"
+    t.string "address1"
+    t.string "address2"
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_airports_on_itinerary_id"
+  end
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -30,8 +40,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_210117) do
   end
 
   create_table "itineraries", force: :cascade do |t|
+    t.string "search"
     t.string "label"
-    t.string "locality"
+    t.string "city"
     t.string "region"
     t.string "country"
     t.float "lat"
@@ -68,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_210117) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "airports", "itineraries"
   add_foreign_key "businesses", "itineraries"
   add_foreign_key "itineraries", "users"
   add_foreign_key "parks", "itineraries"

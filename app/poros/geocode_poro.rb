@@ -2,7 +2,7 @@
 
 class GeocodePoro
   attr_reader :label,
-              :locality,
+              :city,
               :region,
               :country,
               :lat,
@@ -10,7 +10,7 @@ class GeocodePoro
 
   def initialize(attributes)
     @label = attributes[:label]
-    @locality = attributes[:locality]
+    @city = attributes[:locality] || attributes[:city]
     @region = attributes[:region]
     @country = attributes[:country]
     @lat = attributes[:latitude]
@@ -20,7 +20,7 @@ class GeocodePoro
   def serialized
     {
       label: @label,
-      locality: @locality,
+      city: @city,
       region: @region,
       country: @country,
       lat: @lat,

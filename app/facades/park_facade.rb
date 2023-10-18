@@ -3,6 +3,6 @@
 class ParkFacade
   def self.parks_near(location)
     parks = ParkService.parks_near(location)
-    !parks.value?('invalid_input') ? parks.values[0..2].map { |park| ParkPoro.new(park) } : []
+    parks.values[0..2].map { |park| ParkPoro.new(park) } unless parks.value?('invalid_input')
   end
 end

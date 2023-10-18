@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Itinerary < ApplicationRecord
-  validates :label, :locality, :region, :country, :lat, :lon, presence: true
+  validates :search, :city, :region, :country, :lat, :lon, presence: true
   belongs_to :user
+  has_many :airports, dependent: :destroy
   has_many :parks, dependent: :destroy
   has_many :businesses, dependent: :destroy
 
