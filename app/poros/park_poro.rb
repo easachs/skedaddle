@@ -2,41 +2,37 @@
 
 class ParkPoro
   attr_reader :name,
-              :city,
-              :state,
-              :country,
+              :location,
               :description,
               :directions,
-              :lat,
-              :lon,
               :activities,
               :url,
               :thumbnail
 
   def initialize(attributes)
     @name = attributes[:name]
-    @city = attributes[:city]
-    @state = attributes[:state]
-    @country = attributes[:country]
+    @location = format_location(attributes)
     @description = attributes[:description]
     @directions = attributes[:directions]
-    @lat = attributes[:lat]
-    @lon = attributes[:lon]
     @activities = attributes[:activities]&.keys&.join(', ')
     @url = attributes[:activities]&.values&.dig(0, :url)
     @thumbnail = attributes[:activities]&.values&.dig(0, :thumbnail)
   end
 
+  def format_location(attributes)
+    return if attributes.blank?
+
+    [attributes[:city],
+     (attributes[:state] if attributes[:state] != ('All' || 'Not found')),
+     attributes[:country]].compact.join(', ')
+  end
+
   def serialized
     {
       name: @name,
-      city: @city,
-      state: @state,
-      country: @country,
+      location: @location,
       description: @description,
       directions: @directions,
-      lat: @lat,
-      lon: @lon,
       activities: @activities,
       url: @url,
       thumbnail: @thumbnail

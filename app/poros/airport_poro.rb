@@ -6,10 +6,10 @@ class AirportPoro
   def initialize(attributes)
     @name = "#{attributes[:name]} (#{attributes[:iata]})"
     @address1 = attributes[:street1]
-    @address2 = format_address(attributes)
+    @address2 = format_location(attributes)
   end
 
-  def format_address(attributes)
+  def format_location(attributes)
     [attributes[:city],
      (attributes[:stateCode] if attributes[:countryCode] == 'US'),
      attributes[:countryCode]].compact.join(', ')

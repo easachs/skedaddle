@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GeocodePoro
-  attr_reader :label,
+  attr_reader :search,
               :city,
               :region,
               :country,
@@ -9,7 +9,7 @@ class GeocodePoro
               :lon
 
   def initialize(attributes)
-    @label = attributes[:label]
+    @search = attributes[:label]
     @city = attributes[:locality] || attributes[:city]
     @region = attributes[:region]
     @country = attributes[:country]
@@ -19,7 +19,7 @@ class GeocodePoro
 
   def serialized
     {
-      label: @label,
+      search: @search,
       city: @city,
       region: @region,
       country: @country,

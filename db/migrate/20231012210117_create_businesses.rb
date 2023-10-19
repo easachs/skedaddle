@@ -7,7 +7,7 @@ class CreateBusinesses < ActiveRecord::Migration[7.0]
       t.string :rating
       t.string :price
       t.string :categories
-      t.string :address
+      t.string :location
       t.string :phone
       t.string :url
       t.string :thumbnail

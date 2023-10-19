@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_061614) do
     t.string "rating"
     t.string "price"
     t.string "categories"
-    t.string "address"
+    t.string "location"
     t.string "phone"
     t.string "url"
     t.string "thumbnail"
@@ -41,7 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_061614) do
 
   create_table "itineraries", force: :cascade do |t|
     t.string "search"
-    t.string "label"
     t.string "city"
     t.string "region"
     t.string "country"
@@ -55,13 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_061614) do
 
   create_table "parks", force: :cascade do |t|
     t.string "name"
-    t.string "city"
-    t.string "state"
-    t.string "country"
+    t.string "location"
     t.string "description"
     t.string "directions"
-    t.string "lat"
-    t.string "lon"
     t.string "activities"
     t.string "url"
     t.string "thumbnail"

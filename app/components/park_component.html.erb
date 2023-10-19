@@ -3,7 +3,7 @@
     <img class="image-format m-2" src="<%= park.thumbnail %>">
   <% end %>
   <h3 class="text-slate-500 m-2 hover:text-slate-700"><b><%= link_to park.name, park.url %></b></h5>
-  <p class="m-2"><b>Location: </b><%= park.city %>, <%= "#{park.state}, " if park.state != 'All' && park.state != 'Not found' %><%= park.country %></p>
+  <p class="m-2"><b>Location: </b><%= park.location %></p>
   <p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
   <p class="m-2"><b>Directions: </b><%= park.directions %></p>
   <p class="m-2"><b>Activities: </b><%= park.activities %></p>

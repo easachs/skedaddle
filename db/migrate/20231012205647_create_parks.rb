@@ -4,13 +4,9 @@ class CreateParks < ActiveRecord::Migration[7.0]
   def change
     create_table :parks do |t|
       t.string :name
-      t.string :city
-      t.string :state
-      t.string :country
+      t.string :location
       t.string :description
       t.string :directions
-      t.string :lat
-      t.string :lon
       t.string :activities
       t.string :url
       t.string :thumbnail

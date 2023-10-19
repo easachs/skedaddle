@@ -5,7 +5,7 @@ class BusinessPoro
               :rating,
               :price,
               :categories,
-              :address,
+              :location,
               :phone,
               :url,
               :thumbnail
@@ -15,7 +15,7 @@ class BusinessPoro
     @rating = attributes[:rating]
     @price = attributes[:price]
     @categories = attributes[:categories]&.map { _1[:title] }&.join(', ')
-    @address = attributes.dig(:location, :display_address)&.join(', ')
+    @location = attributes.dig(:location, :display_address)&.join(', ')
     @phone = attributes[:display_phone]
     @url = attributes[:url]
     @thumbnail = attributes[:image_url]
@@ -27,7 +27,7 @@ class BusinessPoro
       rating: @rating,
       price: @price,
       categories: @categories,
-      address: @address,
+      location: @location,
       phone: @phone,
       url: @url,
       thumbnail: @thumbnail
