@@ -4,8 +4,8 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
-# AllCops:
-  # NewCops: enable
+AllCops:
+  NewCops: enable
 
 Style/Documentation:
   Enabled: false

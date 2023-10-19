@@ -2,11 +2,11 @@
 
 class AirportService
   def self.airports_near(location)
-    return if location.blank?
+    return unless location.is_a?(Hash) && location.present?
 
     response = conn.get("/flex/airports/rest/v1/json/withinRadius/#{location[:lon]}/#{location[:lat]}/50") do |route|
-      route.params['appId'] = ENV['FLIGHTSTATS_APP_ID']
-      route.params['appKey'] = ENV['FLIGHTSTATS_APP_KEY']
+      route.params['appId'] = ENV.fetch('FLIGHTSTATS_APP_ID', nil)
+      route.params['appKey'] = ENV.fetch('FLIGHTSTATS_APP_KEY', nil)
     end
     parse_json(response)
   end

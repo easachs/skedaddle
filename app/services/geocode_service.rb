@@ -6,7 +6,7 @@ class GeocodeService
 
     response = conn.get('/v1/forward') do |route|
       route.params['query'] = location
-      route.params['access_key'] = ENV['GEOCODE_API_KEY']
+      route.params['access_key'] = ENV.fetch('GEOCODE_API_KEY', nil)
     end
     parse_json(response)
   end
@@ -17,7 +17,7 @@ class GeocodeService
     response = conn2.get('/v1/geo/cities') do |route|
       route.params['namePrefix'] = location
       route.params['minPopulation'] = 50_000
-      route.headers['X-RapidAPI-Key'] = ENV['GEOCODE_FALLBACK_API_KEY']
+      route.headers['X-RapidAPI-Key'] = ENV.fetch('GEOCODE_FALLBACK_API_KEY', nil)
     end
     parse_json(response)
   end

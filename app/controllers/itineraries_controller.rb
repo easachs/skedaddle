@@ -11,15 +11,13 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = find_itinerary
     redirect_to itineraries_path if @itinerary.user_id != current_user.id
-  rescue StandardError
-    redirect_to itineraries_path
   end
 
   def new
     return unless params[:search].blank? || [@parks, @businesses].all?(&:blank?)
 
     redirect_to root_path
-    flash[:error] = 'No results found.'
+    flash[:error] = t('flash.errors.no_results')
   end
 
   def create

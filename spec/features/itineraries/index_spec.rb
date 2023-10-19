@@ -17,13 +17,13 @@ RSpec.describe 'Itinerary Index' do
         } }
     )
     visit root_path
-    click_on('Log In')
+    click_link('Log In')
   end
 
   describe 'displays itineraries with', vcr: 'denver_search' do
     before do
       visit '/itineraries/new?search=Denver'
-      click_on 'Save'
+      click_button 'Save'
       visit itineraries_path
     end
 
@@ -32,14 +32,14 @@ RSpec.describe 'Itinerary Index' do
     end
 
     it 'links' do
-      click_on('Denver')
+      click_link('Denver')
       expect(page).to have_content('Denver Itinerary')
     end
   end
 
   describe 'logged out' do
     before do
-      click_on('Log Out')
+      click_button('Log Out')
       visit itineraries_path
     end
 

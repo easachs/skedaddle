@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Park, type: :model do
+RSpec.describe Park do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:location) }

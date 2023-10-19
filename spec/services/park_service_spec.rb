@@ -42,7 +42,7 @@ RSpec.describe ParkService do
   end
 
   describe 'sad path' do
-    it 'errors gracefully with bad search', vcr: 'bad_parks' do
+    it 'errors gracefully with bad search' do
       response = described_class.parks_near('Nonexistent')
       expect(response).to be_nil
     end

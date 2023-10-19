@@ -2,7 +2,7 @@
 
 class AirportFacade
   def self.airports_near(location)
-    return if location.blank?
+    return unless location.is_a?(Hash) && location.present?
 
     airports = AirportService.airports_near(location)
     return if airports[:error] || airports[:airports]&.empty?

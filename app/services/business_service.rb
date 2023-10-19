@@ -20,7 +20,7 @@ class BusinessService
 
   def self.conn
     Faraday.new(url: 'https://api.yelp.com/v3/businesses') do |faraday|
-      faraday.headers['authorization'] = "Bearer #{ENV['YELP_API_KEY']}"
+      faraday.headers['authorization'] = "Bearer #{ENV.fetch('YELP_API_KEY', nil)}"
     end
   end
 

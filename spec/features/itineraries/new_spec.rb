@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary New' do
         } }
     )
     visit root_path
-    click_on('Log In')
+    click_link('Log In')
   end
 
   describe 'displays new itinerary with', vcr: 'denver_search' do
@@ -45,7 +45,7 @@ RSpec.describe 'Itinerary New' do
   describe 'saves new itinerary with', vcr: 'denver_search' do
     before do
       visit '/itineraries/new?search=Denver'
-      click_on 'Save'
+      click_button 'Save'
     end
 
     it 'title' do
@@ -66,7 +66,7 @@ RSpec.describe 'Itinerary New' do
   end
 
   describe 'sad path' do
-    describe 'with no results', vcr: 'bad_search' do
+    describe 'with no results', vcr: 'bad_geocode' do
       before do
         visit '/itineraries/new?search=Nonexistent'
       end

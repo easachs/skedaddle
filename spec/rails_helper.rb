@@ -74,8 +74,8 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('<GEOCODE_API_KEY>') { ENV['GEOCODE_API_KEY'] }
-  config.filter_sensitive_data('<TRAIL_API_KEY>') { ENV['TRAIL_API_KEY'] }
-  config.filter_sensitive_data('<YELP_API_KEY>') { ENV['YELP_API_KEY'] }
+  config.filter_sensitive_data('<GEOCODE_API_KEY>') { ENV.fetch('GEOCODE_API_KEY', nil) }
+  config.filter_sensitive_data('<TRAIL_API_KEY>') { ENV.fetch('TRAIL_API_KEY', nil) }
+  config.filter_sensitive_data('<YELP_API_KEY>') { ENV.fetch('YELP_API_KEY', nil) }
   config.configure_rspec_metadata!
 end

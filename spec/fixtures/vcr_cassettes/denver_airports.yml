@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.flightstats.com/flex/airports/rest/v1/json/withinRadius/-104.985798/39.740959/50?appId=431ee7c8&appKey=be74f2ce527d57ec146614cb5207d908
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Oct 2023 19:29:52 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '7952'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Strict-Transport-Security:
+      - max-age=86400; includeSubDomains
+      Expires:
+      - '0'
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: '{"airports":[{"fs":"01V","iata":"","icao":"","faa":"01V","name":"Aurora
+        Airport","city":"Aurora","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.733331,"longitude":-104.65248,"elevationFeet":5669,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/01V?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/01V?codeType=fs"},{"fs":"18V","iata":"","icao":"","faa":"18V","name":"Platte
+        Valley","city":"Hudson","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.249833,"longitude":-104.710778,"elevationFeet":4965,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/18V?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/18V?codeType=fs"},{"fs":"2V2","iata":"","icao":"","faa":"2V2","name":"Brand","city":"Longmont","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.286722,"longitude":-105.280361,"elevationFeet":5052,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/2V2?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/2V2?codeType=fs"},{"fs":"48V","iata":"","icao":"","faa":"48V","name":"Tri-County","city":"Erie","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.10225,"longitude":-105.17975,"elevationFeet":5130,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/48V?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/48V?codeType=fs"},{"fs":"APA","iata":"APA","icao":"KAPA","faa":"APA","name":"Centennial
+        Airport","city":"Denver","cityCode":"DEN","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"COZ040","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.572123,"longitude":-104.848713,"elevationFeet":5831,"classification":3,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/APA?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/APA?codeType=fs"},{"fs":"BFK","iata":"BFK","icao":"KBKF","faa":"BKF","name":"Buckley
+        Air National Guard Base","city":"Denver","cityCode":"DEN","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.707224,"longitude":-104.765732,"elevationFeet":5565,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/BFK?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/BFK?codeType=fs"},{"fs":"BJC","iata":"BJC","icao":"KBJC","faa":"BJC","name":"Rocky
+        Mountain Metropolitan Airport","city":"Broomfield","cityCode":"BJC","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.910441,"longitude":-105.117236,"elevationFeet":5631,"classification":4,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/BJC?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/BJC?codeType=fs"},{"fs":"DEN","iata":"DEN","icao":"KDEN","faa":"DEN","name":"Denver
+        International Airport","street1":"8500 Pena Boulevard","city":"Denver","cityCode":"DEN","stateCode":"CO","postalCode":"80249-6340","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"COZ040","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.851382,"longitude":-104.673098,"elevationFeet":5389,"classification":1,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/DEN?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/DEN?codeType=fs"},{"fs":"FNL","iata":"FNL","icao":"KFNL","faa":"FNL","name":"Fort
+        Collins/Loveland Municipal Airport","city":"Fort Collins/Loveland","cityCode":"FNL","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.448322,"longitude":-105.008459,"elevationFeet":5011,"classification":4,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/FNL?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/FNL?codeType=fs"},{"fs":"KFTG","iata":"","icao":"KFTG","faa":"FTG","name":"Front
+        Range Airport","city":"Denver","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":39.779653,"longitude":-104.532695,"elevationFeet":5510,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/KFTG?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/KFTG?codeType=fs"},{"fs":"WBI","iata":"WBI","icao":"","faa":"","name":"Broker
+        Inn Airport","city":"Boulder","cityCode":"WBU","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.016667,"longitude":-105.283333,"elevationFeet":0,"classification":5,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/WBI?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/WBI?codeType=fs"},{"fs":"WBU","iata":"WBU","icao":"","faa":"1V5","name":"Boulder
+        Municipal Airport","city":"Boulder","cityCode":"WBU","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.039167,"longitude":-105.225556,"elevationFeet":5288,"classification":4,"active":true,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/WBU?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/WBU?codeType=fs"},{"fs":"WHH","iata":"","icao":"","faa":"","name":"Hiltons
+        Har H Airport","city":"Boulder","cityCode":"WBU","stateCode":"CO","countryCode":"US","countryName":"United
+        States","regionName":"North America","timeZoneRegionName":"America/Denver","weatherZone":"","localTime":"2023-10-20T13:29:52.752","utcOffsetHours":-6.0,"latitude":40.030556,"longitude":-105.234722,"elevationFeet":5255,"classification":5,"active":false,"weatherUrl":"https://api.flightstats.com/flex/weather/rest/v1/json/all/WHH?codeType=fs","delayIndexUrl":"https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/WHH?codeType=fs"}]}'
+  recorded_at: Fri, 20 Oct 2023 19:29:52 GMT
+recorded_with: VCR 6.2.0

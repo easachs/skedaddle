@@ -17,32 +17,32 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
         } }
     )
     visit root_path
-    click_on('Log In')
+    click_link('Log In')
   end
 
   describe 'removes' do
     before do
       visit '/itineraries/new?search=Denver'
-      click_on 'Save'
+      click_button 'Save'
     end
 
     it 'parks' do
       within '#parks' do
-        click_on('Remove Black Forest Regional Park')
+        click_button('Remove Black Forest Regional Park')
         expect(page).not_to have_content('Black Forest Regional Park')
       end
     end
 
     it 'restaurants' do
       within '#businesses' do
-        click_on('Remove Your Coffee Guy')
+        click_button('Remove Your Coffee Guy')
         expect(page).not_to have_content('Your Coffee Guy')
       end
     end
 
     describe 'itinerary and' do
       before do
-        click_on('Delete')
+        click_button('Delete')
       end
 
       it 'redirects' do

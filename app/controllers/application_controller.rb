@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
     return unless current_user.nil?
 
     redirect_to root_path
-    flash[:error] = 'Must be logged in.'
+    flash[:error] = t('flash.errors.must_sign_in')
   end
 end

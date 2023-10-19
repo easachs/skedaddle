@@ -4,6 +4,8 @@ class AirportPoro
   attr_reader :name, :address1, :address2
 
   def initialize(attributes)
+    return if attributes.blank?
+
     @name = "#{attributes[:name]} (#{attributes[:iata]})"
     @address1 = attributes[:street1]
     @address2 = format_location(attributes)

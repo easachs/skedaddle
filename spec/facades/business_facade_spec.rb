@@ -9,7 +9,7 @@ RSpec.describe BusinessFacade do
   end
 
   describe 'sad path' do
-    it 'errors gracefully with bad search', vcr: 'bad_businesses' do
+    it 'errors gracefully with bad search' do
       businesses = described_class.businesses_near('Nonexistent')
       expect(businesses).to be_nil
     end
