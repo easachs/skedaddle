@@ -3,18 +3,89 @@
 require 'rails_helper'
 
 RSpec.describe GeocodeService do
-  it 'gets lat/lon', vcr: 'denver_geocode' do
-    response = described_class.geocode('Denver')
-    response[:data].each do |location|
-      expect(location).to have_key(:latitude)
-      expect(location).to have_key(:longitude)
-      expect(location).to have_key(:type)
-      expect(location).to have_key(:label)
+  describe 'gets geocode', vcr: 'denver_geocode' do
+    let(:response) { described_class.geocode('Denver') }
+
+    it 'as hash with parks array' do
+      expect(response[:data]).to be_a(Array)
+    end
+
+    describe 'with keys' do
+      it 'label' do
+        expect(response[:data]).to all(have_key(:label))
+      end
+
+      it 'locality' do
+        expect(response[:data]).to all(have_key(:locality))
+      end
+
+      it 'region' do
+        expect(response[:data]).to all(have_key(:region))
+      end
+
+      it 'country' do
+        expect(response[:data]).to all(have_key(:country))
+      end
+
+      it 'latitude' do
+        expect(response[:data]).to all(have_key(:latitude))
+      end
+
+      it 'longitude' do
+        expect(response[:data]).to all(have_key(:longitude))
+      end
     end
   end
 
-  it 'can sad path', vcr: 'bad_geocode' do
-    response = described_class.geocode('Nonexistent')
-    expect(response).to eq({ data: [] })
+  describe 'gets fallback', vcr: 'denver_fallback' do
+    let(:fallback) { described_class.fallback('Denver') }
+
+    it 'as hash with parks array' do
+      expect(fallback[:data]).to be_a(Array)
+    end
+
+    describe 'with keys' do
+      it 'city' do
+        expect(fallback[:data]).to all(have_key(:city))
+      end
+
+      it 'region' do
+        expect(fallback[:data]).to all(have_key(:region))
+      end
+
+      it 'country' do
+        expect(fallback[:data]).to all(have_key(:country))
+      end
+
+      it 'latitude' do
+        expect(fallback[:data]).to all(have_key(:latitude))
+      end
+
+      it 'longitude' do
+        expect(fallback[:data]).to all(have_key(:longitude))
+      end
+    end
+  end
+
+  describe 'sad path' do
+    it 'errors gracefully with bad search', vcr: 'bad_geocode' do
+      response = described_class.geocode('Nonexistent')
+      expect(response[:data]).to eq([])
+    end
+
+    it 'errors gracefully with blank search' do
+      response = described_class.geocode('')
+      expect(response).to be_nil
+    end
+
+    it 'errors gracefully with nil search' do
+      response = described_class.geocode(nil)
+      expect(response).to be_nil
+    end
+
+    it 'errors gracefully with empty search' do
+      response = described_class.geocode({})
+      expect(response).to be_nil
+    end
   end
 end

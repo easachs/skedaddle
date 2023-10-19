@@ -2,18 +2,20 @@
 
 class GeocodeFacade
   def self.geocode(location)
+    return if location.blank?
+
     geocode = GeocodeService.geocode(location)
-    if geocode[:error] || geocode[:data]&.empty?
+    if geocode[:data].blank?
       fallback(location)
     else
-      GeocodePoro.new(geocode[:data].first).serialized
+      GeocodePoro.new(geocode[:data]&.first).serialized
     end
   end
 
   def self.fallback(location)
     geocode = GeocodeService.fallback(location)
-    return if geocode[:error] || geocode[:data]&.empty?
+    return if geocode[:data].blank?
 
-    GeocodePoro.new(geocode[:data].first).serialized
+    GeocodePoro.new(geocode[:data]&.first).serialized
   end
 end

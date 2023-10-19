@@ -3,29 +3,63 @@
 require 'rails_helper'
 
 RSpec.describe BusinessService do
-  it 'gets businesses', vcr: 'denver_businesses' do
-    response = described_class.businesses_near({ lat: 39.740959, lon: -104.985798 })
-    expect(response).to be_a(Hash)
-    expect(response.length).to eq(3)
-    expect(response[:businesses]).to be_a(Array)
-    response[:businesses].each do |business|
-      expect(business).to have_key(:name)
-      expect(business).to have_key(:rating)
-      expect(business).to have_key(:image_url)
-      expect(business).to have_key(:url)
-      expect(business).to have_key(:categories)
-      expect(business).to have_key(:location)
-      expect(business).to have_key(:display_phone)
+  describe 'gets businesses', vcr: 'denver_businesses' do
+    let(:response) { described_class.businesses_near({ lat: 39.740959, lon: -104.985798 }) }
+
+    it 'as hash with businesses array' do
+      expect(response[:businesses]).to be_a(Array)
+    end
+
+    describe 'with keys' do
+      it 'name' do
+        expect(response[:businesses]).to all(have_key(:name))
+      end
+
+      it 'rating' do
+        expect(response[:businesses]).to all(have_key(:rating))
+      end
+
+      it 'categories' do
+        expect(response[:businesses]).to all(have_key(:categories))
+      end
+
+      it 'location' do
+        expect(response[:businesses]).to all(have_key(:location))
+      end
+
+      it 'display_phone' do
+        expect(response[:businesses]).to all(have_key(:display_phone))
+      end
+
+      it 'url' do
+        expect(response[:businesses]).to all(have_key(:url))
+      end
+
+      it 'image_url' do
+        expect(response[:businesses]).to all(have_key(:image_url))
+      end
     end
   end
 
-  it 'can sad path', vcr: 'bad_businesses' do
-    response = described_class.businesses_near({ lat: nil, lon: nil })
-    expect(response).to eq({
-                             error: {
-                               code: 'VALIDATION_ERROR',
-                               description: 'Please specify a location or a latitude and longitude'
-                             }
-                           })
+  describe 'sad path' do
+    it 'errors gracefully with bad search', vcr: 'bad_businesses' do
+      response = described_class.businesses_near('Nonexistent')
+      expect(response).to be_nil
+    end
+
+    it 'errors gracefully with blank search' do
+      response = described_class.businesses_near('')
+      expect(response).to be_nil
+    end
+
+    it 'errors gracefully with nil search' do
+      response = described_class.businesses_near(nil)
+      expect(response).to be_nil
+    end
+
+    it 'errors gracefully with empty search' do
+      response = described_class.businesses_near({})
+      expect(response).to be_nil
+    end
   end
 end

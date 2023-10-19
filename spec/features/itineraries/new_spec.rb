@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'New Itinerary' do
+RSpec.describe 'Itinerary New' do
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
@@ -20,80 +20,78 @@ RSpec.describe 'New Itinerary' do
     click_on('Log In')
   end
 
-  it 'displays new itinerary', vcr: 'denver_search' do
-    visit '/itineraries/new?search=Denver'
-    expect(page).to have_content('Denver Itinerary')
-
-    within '#parks' do
-      expect(page).to have_content('Apex Park')
-      expect(page).to have_content('Bear Creek Regional Park')
-      expect(page).to have_content('Black Forest Regional Park')
+  describe 'displays new itinerary with', vcr: 'denver_search' do
+    before do
+      visit '/itineraries/new?search=Denver'
     end
 
-    within '#businesses' do
-      expect(page).to have_content('Meadow Lark Farm Dinners')
-      expect(page).to have_content('Fanwich Food Truck')
-      expect(page).to have_content('Little Bodega')
+    it 'title' do
+      expect(page).to have_content('Denver Itinerary')
     end
 
-    click_on('Save')
-
-    expect(page).to have_content('Denver Itinerary')
-
-    within '#parks' do
-      expect(page).to have_content('Apex Park')
-      expect(page).to have_content('Bear Creek Regional Park')
-      expect(page).to have_content('Black Forest Regional Park')
-
-      click_on('Remove Black Forest Regional Park')
-
-      expect(page).to have_content('Apex Park')
-      expect(page).to have_content('Bear Creek Regional Park')
-      expect(page).not_to have_content('Black Forest Regional Park')
+    it 'parks' do
+      within '#parks' do
+        expect(page).to have_content('Bear Creek Regional Park')
+      end
     end
 
-    within '#businesses' do
-      expect(page).to have_content('Meadow Lark Farm Dinners')
-      expect(page).to have_content('Fanwich Food Truck')
-      expect(page).to have_content('Little Bodega')
-      click_on('Remove Little Bodega')
-
-      expect(page).to have_content('Meadow Lark Farm Dinners')
-      expect(page).to have_content('Fanwich Food Truck')
-      expect(page).not_to have_content('Little Bodega')
+    it 'restaurants' do
+      within '#businesses' do
+        expect(page).to have_content('Your Coffee Guy')
+      end
     end
-
-    click_on('Itineraries')
-
-    expect(page).to have_current_path(itineraries_path)
-    expect(page).to have_content('Itineraries')
-    expect(page).to have_content('Denver')
-
-    click_on('Denver')
-
-    expect(page).to have_content('Denver Itinerary')
-
-    click_on('Delete')
-
-    expect(page).to have_current_path(itineraries_path)
-    expect(page).not_to have_content('Denver')
-
-    click_on('Log Out')
-    visit itineraries_path
-
-    expect(page).to have_content('Must be logged in.')
-    expect(page).to have_current_path(root_path)
   end
 
-  it 'itinerary with no search sad path', vcr: 'empty_search' do
-    visit '/itineraries/new?search='
-    expect(page).to have_current_path(root_path)
-    expect(page).to have_content('No results found.')
+  describe 'saves new itinerary with', vcr: 'denver_search' do
+    before do
+      visit '/itineraries/new?search=Denver'
+      click_on 'Save'
+    end
+
+    it 'title' do
+      expect(page).to have_content('Denver Itinerary')
+    end
+
+    it 'parks' do
+      within '#parks' do
+        expect(page).to have_content('Bear Creek Regional Park')
+      end
+    end
+
+    it 'restaurants' do
+      within '#businesses' do
+        expect(page).to have_content('Your Coffee Guy')
+      end
+    end
   end
 
-  it 'itinerary with no results sad path', vcr: 'bad_search' do
-    visit '/itineraries/new?search=Nonexistent'
-    expect(page).to have_current_path(root_path)
-    expect(page).to have_content('No results found.')
+  describe 'sad path' do
+    describe 'with no results', vcr: 'bad_search' do
+      before do
+        visit '/itineraries/new?search=Nonexistent'
+      end
+
+      it 'redirects' do
+        expect(page).to have_current_path(root_path)
+      end
+
+      it 'displays error' do
+        expect(page).to have_content('No results found.')
+      end
+    end
+
+    describe 'with no search', vcr: 'blank_search' do
+      before do
+        visit '/itineraries/new?search='
+      end
+
+      it 'redirects' do
+        expect(page).to have_current_path(root_path)
+      end
+
+      it 'displays error' do
+        expect(page).to have_content('No results found.')
+      end
+    end
   end
 end

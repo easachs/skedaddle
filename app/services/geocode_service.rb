@@ -2,6 +2,8 @@
 
 class GeocodeService
   def self.geocode(location)
+    return if location.blank?
+
     response = conn.get('/v1/forward') do |route|
       route.params['query'] = location
       route.params['access_key'] = ENV['GEOCODE_API_KEY']
@@ -10,6 +12,8 @@ class GeocodeService
   end
 
   def self.fallback(location)
+    return if location.blank?
+
     response = conn2.get('/v1/geo/cities') do |route|
       route.params['namePrefix'] = location
       route.params['minPopulation'] = 50_000

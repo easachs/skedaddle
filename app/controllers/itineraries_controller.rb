@@ -26,7 +26,7 @@ class ItinerariesController < ApplicationController
     itinerary = current_user.itineraries.create!(@geocode)
     return unless itinerary.save
 
-    create_items
+    create_items(itinerary)
     redirect_to itinerary_path(itinerary)
   end
 
@@ -42,9 +42,8 @@ class ItinerariesController < ApplicationController
   end
 
   def geocode
-    @geocode = GeocodeFacade.geocode(params[:search]
-                            .delete("'"))
-                            &.merge!(search: params[:search])
+    @geocode = GeocodeFacade.geocode(params[:search].delete("'"))
+    @geocode&.merge!(search: params[:search]) if @geocode&.dig(:search).blank?
   end
 
   def find_items
@@ -55,7 +54,7 @@ class ItinerariesController < ApplicationController
     @businesses = BusinessFacade.businesses_near(@geocode)
   end
 
-  def create_items
+  def create_items(itinerary)
     @airports.each { |airport| itinerary.airports.create!(airport.serialized) }
     @parks.each { |park| itinerary.parks.create!(park.serialized) }
     @businesses.each { |business| itinerary.businesses.create!(business.serialized) }

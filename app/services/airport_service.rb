@@ -2,6 +2,8 @@
 
 class AirportService
   def self.airports_near(location)
+    return if location.blank?
+
     response = conn.get("/flex/airports/rest/v1/json/withinRadius/#{location[:lon]}/#{location[:lat]}/50") do |route|
       route.params['appId'] = ENV['FLIGHTSTATS_APP_ID']
       route.params['appKey'] = ENV['FLIGHTSTATS_APP_KEY']

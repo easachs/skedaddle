@@ -2,6 +2,8 @@
 
 class ParkService
   def self.parks_near(location)
+    return unless location.is_a?(Hash) && location.present?
+
     response = conn.get('/activity/') do |route|
       route.params['limit'] = '5'
       route.params['lat'] = location[:lat]

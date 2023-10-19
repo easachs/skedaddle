@@ -2,15 +2,38 @@
 
 require 'rails_helper'
 
-RSpec.describe 'GeocodeFacade' do
-  it 'returns lat/lon', vcr: 'denver_geocode' do
-    geocode = GeocodeFacade.geocode('Denver')
-    expect(geocode[:lat]).to be_a(Float)
-    expect(geocode[:lon]).to be_a(Float)
+RSpec.describe GeocodeFacade do
+  describe 'returns', vcr: 'denver_geocode' do
+    it 'lat' do
+      geocode = described_class.geocode('Denver')
+      expect(geocode[:lat]).to be_a(Float)
+    end
+
+    it 'lon' do
+      geocode = described_class.geocode('Denver')
+      expect(geocode[:lon]).to be_a(Float)
+    end
   end
 
-  it 'errors gracefully', vcr: 'bad_geocode' do
-    geocode = GeocodeFacade.geocode('Nonexistent')
-    expect(geocode).to eq({ lat: nil, lon: nil })
+  describe 'sad path' do
+    it 'errors gracefully with bad search', vcr: 'bad_geocode' do
+      geocode = described_class.geocode('Nonexistent')
+      expect(geocode).to be_nil
+    end
+
+    it 'errors gracefully with blank search' do
+      geocode = described_class.geocode('')
+      expect(geocode).to be_nil
+    end
+
+    it 'errors gracefully with nil search' do
+      geocode = described_class.geocode(nil)
+      expect(geocode).to be_nil
+    end
+
+    it 'errors gracefully with empty search' do
+      geocode = described_class.geocode({})
+      expect(geocode).to be_nil
+    end
   end
 end

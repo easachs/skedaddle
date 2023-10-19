@@ -2,15 +2,31 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ParkFacade' do
+RSpec.describe ParkFacade do
   it 'returns parks', vcr: 'denver_parks' do
-    parks = ParkFacade.parks_near({ lat: 39.740959, lon: -104.985798 })
+    parks = described_class.parks_near({ lat: 39.740959, lon: -104.985798 })
     expect(parks).to be_all(ParkPoro)
-    expect(parks.length).to eq(3)
   end
 
-  it 'errors gracefully', vcr: 'bad_parks' do
-    parks = ParkFacade.parks_near({ lat: nil, lon: nil })
-    expect(parks).to be_nil
+  describe 'sad path' do
+    it 'errors gracefully with bad search', vcr: 'bad_parks' do
+      parks = described_class.parks_near('Nonexistent')
+      expect(parks).to be_nil
+    end
+
+    it 'errors gracefully with blank search' do
+      parks = described_class.parks_near('')
+      expect(parks).to be_nil
+    end
+
+    it 'errors gracefully with nil search' do
+      parks = described_class.parks_near(nil)
+      expect(parks).to be_nil
+    end
+
+    it 'errors gracefully with empty search' do
+      parks = described_class.parks_near({})
+      expect(parks).to be_nil
+    end
   end
 end

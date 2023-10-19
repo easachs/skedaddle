@@ -3,3 +3,9 @@ require:
   - rubocop-factory_bot
   - rubocop-rails
   - rubocop-rspec
+
+# AllCops:
+  # NewCops: enable
+
+Style/Documentation:
+  Enabled: false

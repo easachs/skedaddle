@@ -2,11 +2,16 @@
 
 class AirportFacade
   def self.airports_near(location)
+    return if location.blank?
+
     airports = AirportService.airports_near(location)
     return if airports[:error] || airports[:airports]&.empty?
 
-    sorted = airports[:airports].select { |air| air[:classification] <= 4 }
-                                .sort_by { |air| air[:classification] }
-    sorted[0..1].map { |air| AirportPoro.new(air) }
+    refine(airports).map { |air| AirportPoro.new(air) }
+  end
+
+  def self.refine(airports)
+    airports[:airports].select { |air| air[:classification] <= 4 }
+                       .sort_by { |air| air[:classification] }[0..1]
   end
 end

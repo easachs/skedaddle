@@ -2,103 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.11
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 16 Oct 2023 02:48:48 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Faraday v2.7.11
-      Accept-Encoding:
-      - gzip
-      Cache-Control:
-      - no-cache, private
-      X-Apilayer-Transaction-Id:
-      - 655323c7-c0aa-45e8-b744-5ae1bd39da36
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS
-      Access-Control-Allow-Headers:
-      - "*"
-      X-Quota-Limit:
-      - '25000'
-      X-Quota-Remaining:
-      - '24672'
-      X-Increment-Usage:
-      - '1'
-      X-Request-Time:
-      - '0.140'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=L5oZaPHaIqy6Xpoz9vx%2F8jBU8fTcAHfNOE5lr%2Brf9aT2W2BkfgfNP5VC9FWZ%2Br4hrK6CAh5erZFdiSRQ8Yd%2BWtI4qRGntGHQ0FhkzFmjSeE7%2Faui4wyFix91npdU3VFM3BUUXA9zrbM8HbTxryxuxV4sHrI%3D"}],"group":"cf-nel","max_age":604800}'
-      Nel:
-      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 816cfc272a7b5340-DEN
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
-        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        CO, USA"},{"latitude":32.968657,"longitude":-102.830376,"type":"locality","name":"Denver
-        City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
-        County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver City,
-        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
-        Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
-        County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        IA, USA"},{"latitude":40.864211,"longitude":-86.076591,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Indiana","region_code":"IN","county":"Miami
-        County","locality":"Denver","administrative_area":"Jefferson Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        IN, USA"},{"latitude":40.398294,"longitude":-94.322267,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Missouri","region_code":"MO","county":"Worth
-        County","locality":"Denver","administrative_area":"Allen Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        MO, USA"},{"latitude":44.395164,"longitude":-97.189237,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"South
-        Dakota","region_code":"SD","county":"Kingsbury County","locality":"Denver","administrative_area":"Denver
-        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
-        America","label":"Denver, SD, USA"},{"latitude":46.239535,"longitude":-97.944609,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
-        Dakota","region_code":"ND","county":"Sargent County","locality":"Denver","administrative_area":"Denver
-        Township","neighbourhood":null,"country":"United States","country_code":"USA","continent":"North
-        America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
-        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
-        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
-        MI, USA"}]}'
-  recorded_at: Mon, 16 Oct 2023 02:48:48 GMT
-- request:
-    method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
     body:
       encoding: US-ASCII
@@ -118,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 16 Oct 2023 02:48:49 GMT
+      - Thu, 19 Oct 2023 21:20:36 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -126,13 +29,13 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Tue, 15 Oct 2024 02:48:49 GMT
+      - Fri, 18 Oct 2024 21:20:36 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 816cfc2afdf3683a-SEA
+      - 818c10dfea42ec3c-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
@@ -145,7 +48,7 @@ http_interactions:
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=0PQZ7UpZOTgA7i5pDhXvR29DuoUTnamW5omuCneX4Mwqycvowp1vL1Q8SdgU4nsR%2F%2B1K2b35VMWI6GrWL0bMPrWZkRozxncPnVBPA2wMS4LRAwcj2MZc%2BD62ULfUOk5Ryrqdpbbf"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=mfjH0m10%2BUrwBzgofRQxenGBAuhtVPjx38p5pcavvL3Y97MpyEXSDK97Zq5OVO726F8BLec98FGKpFFmmRKa4Vr%2BdyWll00Wq1v0QGdLkpB8psR4naM%2FySe5%2F7KIRYqWMxOHvUxl"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -167,13 +70,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '2346'
+      - '22039'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
       - '500'
       X-Ratelimit-Regular-Requests-Reset:
-      - '2346'
+      - '22039'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -309,5 +212,5 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Mon, 16 Oct 2023 02:48:49 GMT
+  recorded_at: Thu, 19 Oct 2023 21:20:36 GMT
 recorded_with: VCR 6.2.0

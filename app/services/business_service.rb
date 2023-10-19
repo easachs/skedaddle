@@ -2,14 +2,20 @@
 
 class BusinessService
   def self.businesses_near(location)
-    response = conn.get('search') do |route|
+    return unless location.is_a?(Hash) && location.present?
+
+    response = fetch_businesses(location)
+    parse_json(response)
+  end
+
+  def self.fetch_businesses(location)
+    conn.get('search') do |route|
       route.params['limit'] = '5'
       route.params['latitude'] = location[:lat]
       route.params['longitude'] = location[:lon]
       route.params['sort_by'] = 'rating'
       route.params['category'] = 'food'
     end
-    parse_json(response)
   end
 
   def self.conn
