@@ -14,11 +14,7 @@
     </div>
   </div>
 
-  <div class="w-1/2 mb-5 hidden sm:block" data-controller="carousel">
-    <% (1..6).to_a.each do |num| %>
-      <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
-        <%= image_tag "slide-#{num}.jpg", class: 'w-100 rounded-3xl' %>
-      <% end %>
-    <% end %>
+  <div class="w-1/2 mb-5 hidden sm:block">
+    <%= render CarouselComponent.new %>
   </div>
 </div>

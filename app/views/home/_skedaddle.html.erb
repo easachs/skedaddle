@@ -5,9 +5,13 @@
       <div class='p-4'>
         <%= text_field_tag :search, nil, placeholder: 'Enter a destination', class: 'p-2 rounded', required: true %>
         <span class="m-2">from</span>
-        <%= date_field_tag :start, Date.today, min: Date.today, class: 'p-2 rounded' %>
-        <span class="m-2">to</span>
-        <%= date_field_tag :end, Date.today, min: Date.today, class: 'p-2 rounded' %>
+        <%= content_tag :span, data: { controller: "date" } do %>
+          <%= date_field_tag :start, Date.today, min: Date.today, class: 'p-2 rounded', 
+                    data: { date_target: "start", action: "change->date#updateEndDate" } %>
+          <span class="m-2">to</span>
+          <%= date_field_tag :end, Date.today, min: Date.today, class: 'p-2 rounded',
+                    data: { date_target: "end" } %>
+        <% end %>
       </div>
 
       <p class='ml-2'>Where would you like to stay?</p>
