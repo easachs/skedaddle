@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
         } }
     )
     visit root_path
-    click_link('Log In')
+    click_button('Sign In')
   end
 
   describe 'removes' do

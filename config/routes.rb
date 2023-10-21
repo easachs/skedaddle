@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   root 'home#home'
   get 'about', to: 'home#about'
   get 'contact', to: 'home#contact'
-  get 'auth/:provider/callback', to: 'sessions#create'
-  delete 'sessions', to: 'sessions#destroy'
 
   resources :itineraries, except: %i[edit update]
   resources :parks, only: %i[destroy]

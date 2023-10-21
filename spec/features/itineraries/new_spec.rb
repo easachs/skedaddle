@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary New' do
         } }
     )
     visit root_path
-    click_link('Log In')
+    click_button('Sign In')
   end
 
   describe 'displays new itinerary with', vcr: 'denver_search' do

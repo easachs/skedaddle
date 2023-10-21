@@ -17,11 +17,11 @@ RSpec.describe 'Home Page' do
         } }
     )
     visit root_path
-    click_link('Log In')
+    click_button('Sign In')
   end
 
   it 'visits the home page, logs in and logs out' do
-    click_button('Log Out')
+    click_button('Sign Out')
     expect(page).to have_content('Welcome to Skedaddle')
   end
 end

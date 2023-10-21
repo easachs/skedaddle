@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary Index' do
         } }
     )
     visit root_path
-    click_link('Log In')
+    click_button('Sign In')
   end
 
   describe 'displays itineraries with', vcr: 'denver_search' do
@@ -39,7 +39,7 @@ RSpec.describe 'Itinerary Index' do
 
   describe 'logged out' do
     before do
-      click_button('Log Out')
+      click_button('Sign Out')
       visit itineraries_path
     end
 

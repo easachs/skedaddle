@@ -1,20 +1,22 @@
-<div class="sm:flex items-center">
-  <div class="sm:w-1/2">
-    <div class="bg-white bg-opacity-50 rounded-xl sm:rounded-none sm:rounded-l-xl">
-      <%= turbo_frame_tag 'home' do %>
-        <div class="p-4 text-center">
-          <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
-            <br>
-          <p>We're a community of people who love to travel and explore the world. We're here to help you find the best places to visit and plan your next trip.</p>
-            <br>
-          <p>If you're new, log in using your <b>Google account</b>.</p>
-          <p>If you've traveled with us before, welcome back!</p>
-        </div>
-      <% end %>
+<%= turbo_frame_tag 'home' do %>
+  <div class="sm:flex items-center">
+    <div class="sm:w-1/2">
+      <div class="bg-white bg-opacity-50 rounded-xl sm:rounded-none sm:rounded-l-xl">
+        <%= turbo_frame_tag 'carousel' do %>
+          <div class="p-4 text-center">
+            <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
+              <br>
+            <p>We're a community of people who love to travel and explore the world. We're here to help you find the best places to visit and plan your next trip.</p>
+              <br>
+            <p>If you're new, log in using your <b>Google account</b>.</p>
+            <p>If you've traveled with us before, welcome back!</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="w-1/2 mb-5 hidden sm:block">
+      <%= render CarouselComponent.new %>
     </div>
   </div>
-
-  <div class="w-1/2 mb-5 hidden sm:block">
-    <%= render CarouselComponent.new %>
-  </div>
-</div>
+<% end %>

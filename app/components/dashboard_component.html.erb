@@ -1,9 +1,10 @@
 <div class="bg-white bg-opacity-70">
   <div class="flex text-sm text-slate-500">
-    <%= link_to 'SKEDADDLE', root_path, data: ({ turbo_frame: 'home' } if !logged_in), class: 'm-2 font-bold hover:text-slate-700' %>
-    <%= link_to 'About', about_path, data: { turbo_frame: 'home' }, class: 'm-2 hover:text-slate-700' %>
+    <%= link_to 'SKEDADDLE', root_path, data: { turbo_frame: logged_in ? 'home' : 'carousel' }, class: 'm-2 font-bold hover:text-slate-700' %>
+    <%= link_to 'About', about_path, data: { turbo_frame: logged_in ? 'home' : 'carousel' }, class: 'm-2 hover:text-slate-700' %>
     <%= link_to 'Itineraries', itineraries_path, class: 'm-2 hover:text-slate-700' if logged_in %>
-    <%= button_to 'Log Out', sessions_path, method: :delete, class: 'm-2 hover:text-slate-700' if logged_in %>
-    <%= link_to 'Log In', '/auth/google_oauth2', class: 'm-2 hover:text-slate-700' if !logged_in %>
+    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'm-2 hover:text-slate-700' if logged_in %>
+    <%= button_to 'Sign In', user_google_oauth2_omniauth_authorize_path, data: { turbo: false },
+                                         class: 'm-2 hover:text-slate-700' if !logged_in %>
   </div>
 </div>
