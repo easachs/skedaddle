@@ -5,12 +5,14 @@ class ItinerariesController < ApplicationController
   before_action :not_logged_in
 
   def index
-    @itineraries = current_user.itineraries
+    @itineraries = current_user.itineraries.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
     @itinerary = find_itinerary
     redirect_to itineraries_path if @itinerary.user_id != current_user.id
+  rescue StandardError
+    redirect_to itineraries_path
   end
 
   def new
@@ -53,8 +55,8 @@ class ItinerariesController < ApplicationController
   end
 
   def create_items(itinerary)
-    @airports.each { |airport| itinerary.airports.create!(airport.serialized) }
-    @parks.each { |park| itinerary.parks.create!(park.serialized) }
-    @businesses.each { |business| itinerary.businesses.create!(business.serialized) }
+    @airports&.each { |airport| itinerary.airports.create!(airport.serialized) }
+    @parks&.each { |park| itinerary.parks.create!(park.serialized) }
+    @businesses&.each { |business| itinerary.businesses.create!(business.serialized) }
   end
 end

@@ -3,3 +3,7 @@ en:
     errors:
       must_sign_in: "Must be logged in."
       no_results: "No results found."
+      send_failed: "Failed to send."
+  mailers:
+    contact:
+      subject: "Skedaddle Contact"

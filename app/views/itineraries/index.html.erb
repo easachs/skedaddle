@@ -1,13 +1,30 @@
-<h1 class="text-3xl font-bold mb-4">Itineraries</h1>
+<%= content_tag :div, class: 'lg:flex items-center' do %>
+  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
+    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
+      <%= turbo_frame_tag 'home' do %>
+        <div class="p-4 text-center">
+          <h1 class="text-3xl font-bold">Itineraries</h1>
+        </div>
 
-<% @itineraries.each do |itinerary| %>
-  <div class="bg-white bg-opacity-70 rounded-xl p-4">
-    <h5 class="text-xl font-semibold text-slate-500 hover:text-slate-700">
-      <a href="<%= itinerary_path(itinerary) %>"><%= itinerary.city %></a>
-    </h5>
-    <p class="text-sm text-slate-500">
-      Created <%= itinerary.date %>
-    </p>
-  </div>
-  <br class="p-2">
+        <% @itineraries.each do |itinerary| %>
+          <div class="pl-4">
+            <h5 class="text-xl font-semibold text-slate-500 hover:text-slate-700">
+              <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
+            </h5>
+            <p class="text-sm text-slate-500">
+              Created <%= itinerary.date %>
+            </p>
+          </div>
+          <br class="p-2">
+        <% end %>
+
+        <div class='p-4 text-slate-500 hover:text-slate-700'>
+          <%= paginate @itineraries %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
+    <%= render CarouselComponent.new %>
+  <% end %>
 <% end %>

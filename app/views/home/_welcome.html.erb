@@ -1,24 +1,21 @@
-<%= turbo_frame_tag 'home' do %>
-  <div class="sm:flex items-center">
-    <div class="sm:w-1/2">
-      <div class="bg-white bg-opacity-50 rounded-xl sm:rounded-none sm:rounded-l-xl">
-        <%= turbo_frame_tag 'carousel' do %>
-          <div class="p-4 text-center">
-            <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
-            <br>
-            <p>We're here to help you find the best places to visit and plan your next trip.</p>
-            <br>
-            <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the best destinations and crafting the perfect itinerary.</p>
-            <br>
-            <p>If you're new, log in using your <b>Google account</b>.</p>
-            <p>If you've traveled with us before, welcome back!</p>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="w-1/2 mb-5 hidden sm:block">
-      <%= render CarouselComponent.new %>
-    </div>
-  </div>
+<%= content_tag :div, class: 'lg:flex items-center' do %>
+  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
+    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
+      <%= turbo_frame_tag 'home' do %>
+        <div class="p-4 text-center">
+          <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
+          <br>
+          <p>We're here to help you find the best places to visit and plan your next trip.</p>
+          <br>
+          <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the best destinations and crafting the perfect itinerary.</p>
+          <br>
+          <p>If you're new, log in using your <b>Google account</b>.</p>
+          <p>If you've traveled with us before, welcome back!</p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
+    <%= render CarouselComponent.new %>
+  <% end %>
 <% end %>

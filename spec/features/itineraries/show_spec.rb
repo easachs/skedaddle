@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
+RSpec.describe 'Itinerary Show' do
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
@@ -20,7 +20,12 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     click_button('Sign In')
   end
 
-  describe 'removes' do
+  it 'redirects from nonexistent itinerary' do
+    visit itinerary_path(999)
+    expect(page).to have_current_path(itineraries_path)
+  end
+
+  describe 'removes', vcr: 'denver_search' do
     before do
       visit '/itineraries/new?search=Denver'
       click_button 'Save'

@@ -41,3 +41,7 @@
  .checkbox:checked + label {
    color: black;
  }
+
+ .error {
+  color: red;
+ }

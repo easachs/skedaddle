@@ -3,7 +3,7 @@
   
     <h1><b><%= "#{city} Itinerary" %></b></h1><br>
 
-    <% if airports.count > 0 %>
+    <% if airports&.count.to_i > 0 %>
       <h3><b>Airports</b></h3>
       <div id='airports' class='flex flex-wrap text-sm'>
         <% airports.each do |airport| %>
@@ -12,7 +12,7 @@
       </div>
     <% end %>
 
-    <% if parks.count > 0 %>
+    <% if parks&.count.to_i > 0 %>
       <div id='parks'>
         <h3><b>Parks</b></h3>
         <% parks.each do |park| %>
@@ -21,7 +21,7 @@
       </div>
     <% end %>
 
-    <% if businesses.count > 0 %>
+    <% if businesses&.count.to_i > 0 %>
       <div id='businesses'>
         <h3><b>Businesses</b></h3>
         <% businesses.each do |business| %>

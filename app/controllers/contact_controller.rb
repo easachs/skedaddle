@@ -8,7 +8,7 @@ class ContactController < ApplicationController
       redirect_to received_path
     else
       redirect_to contact_path
-      flash[:error] = 'Failed to send.'
+      flash[:error] = t('flash.errors.send_failed')
     end
   end
 

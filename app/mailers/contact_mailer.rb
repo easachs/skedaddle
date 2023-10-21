@@ -7,6 +7,6 @@ class ContactMailer < ApplicationMailer
     @message = contact.message
     mail(to: 'easachs13@gmail.com',
          from: @email,
-         subject: 'Skedaddle Contact')
+         subject: t('mailers.contact.subject'))
   end
 end

@@ -1,7 +1,7 @@
-<div class="sm:flex items-center">
-  <div class="sm:w-1/2">
-    <div class="bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-l-xl">
-      <%= turbo_frame_tag 'carousel' do %>
+<%= content_tag :div, class: 'lg:flex items-center' do %>
+  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
+    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
+      <%= turbo_frame_tag 'home' do %>
         <div class="p-4 text-center">
           <h1 class="text-3xl">Your message has been <b>received</b>!</h1>
           <br>
@@ -10,10 +10,9 @@
           <p>Just as we love guiding fellow explorers to hidden gems on their journeys, we're eager to assist you on this virtual voyage.</p>
         </div>
       <% end %>
-    </div>
-  </div>
-
-  <div class="w-1/2 mb-5 hidden sm:block">
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
     <%= render CarouselComponent.new %>
-  </div>
-</div>
+  <% end %>
+<% end %>
