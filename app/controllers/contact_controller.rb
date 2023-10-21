@@ -5,15 +5,16 @@ class ContactController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.valid?
       ContactMailer.email(@contact).deliver_now
-      redirect_to root_path
+      redirect_to received_path
     else
       redirect_to contact_path
+      flash[:error] = 'Failed to send.'
     end
   end
 
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :message)
+    params.permit(:name, :email, :message)
   end
 end

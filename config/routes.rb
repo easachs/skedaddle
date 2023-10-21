@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#home'
   get 'about', to: 'home#about'
   get 'contact', to: 'home#contact'
+  get 'received', to: 'home#received'
 
   resources :itineraries, except: %i[edit update]
   resources :parks, only: %i[destroy]
