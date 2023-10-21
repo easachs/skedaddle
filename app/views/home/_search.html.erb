@@ -16,7 +16,7 @@
               <% end %>
             </div>
 
-            <p class='ml-2'>Where would you like to stay?</p>
+            <p class='ml-2'>Where would you like to <b>stay?</b></p>
             <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
               <div class='w-full sm:w-1/3'>
                 <p><%= check_box_tag 'lodging[bed and breakfast]', '1', false, class: 'checkbox' %>
@@ -38,7 +38,7 @@
               </div>
             </div>
 
-            <p class='ml-2'>Where would you like to go?</p>
+            <p class='ml-2'>Where would you like to <b>go?</b></p>
             <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
               <div class='w-full sm:w-1/3'>
                 <p><%= check_box_tag 'activities[art galleries]', '1', false, class: 'checkbox' %>
@@ -84,11 +84,13 @@
               </div>
             </div>
 
-            <p class='ml-2'>Where would you like to eat?</p>
+            <p class='ml-2'>Where would you like to <b>eat?</b></p>
             <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
               <div class='w-full sm:w-1/3'>
                 <p><%= check_box_tag 'restaurants[american]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[american]', 'American' %></p>
+                <p><%= check_box_tag 'restaurants[bakeries]', '1', false, class: 'checkbox' %>
+                <%= label_tag 'restaurants[bakeries]', 'Bakeries' %></p>
                 <p><%= check_box_tag 'restaurants[bars]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[bars]', 'Bars & Pubs' %></p>
                 <p><%= check_box_tag 'restaurants[breweries]', '1', false, class: 'checkbox' %>
@@ -97,10 +99,10 @@
                 <%= label_tag 'restaurants[brunch]', 'Brunch' %></p>
                 <p><%= check_box_tag 'restaurants[cafes]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[cafes]', 'Cafes' %></p>
-                <p><%= check_box_tag 'restaurants[chinese]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[chinese]', 'Chinese' %></p>
               </div>
               <div class='w-full sm:w-1/3'>
+                <p><%= check_box_tag 'restaurants[chinese]', '1', false, class: 'checkbox' %>
+                <%= label_tag 'restaurants[chinese]', 'Chinese' %></p>
                 <p><%= check_box_tag 'restaurants[delis]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[delis]', 'Delis' %></p>
                 <p><%= check_box_tag 'restaurants[diners]', '1', false, class: 'checkbox' %>
@@ -111,10 +113,10 @@
                 <%= label_tag 'restaurants[ice cream]', 'Ice Cream' %></p>
                 <p><%= check_box_tag 'restaurants[italian]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[italian]', 'Italian' %></p>
-                <p><%= check_box_tag 'restaurants[mexican]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[mexican]', 'Mexican' %></p>
               </div>
               <div class='w-full sm:w-1/3'>
+                <p><%= check_box_tag 'restaurants[mexican]', '1', false, class: 'checkbox' %>
+                <%= label_tag 'restaurants[mexican]', 'Mexican' %></p>
                 <p><%= check_box_tag 'restaurants[pizzerias]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[pizzerias]', 'Pizzerias' %></p>
                 <p><%= check_box_tag 'restaurants[sandwiches]', '1', false, class: 'checkbox' %>
@@ -123,8 +125,6 @@
                 <%= label_tag 'restaurants[seafood]', 'Seafood' %></p>
                 <p><%= check_box_tag 'restaurants[sushi]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[sushi]', 'Sushi' %></p>
-                <p><%= check_box_tag 'restaurants[steakhouse]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[steakhouse]', 'Steakhouses' %></p>
                 <p><%= check_box_tag 'restaurants[thai]', '1', false, class: 'checkbox' %>
                 <%= label_tag 'restaurants[thai]', 'Thai' %></p>
               </div>

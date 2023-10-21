@@ -4,8 +4,11 @@ class BusinessService
   def self.businesses_near(location)
     return unless location.is_a?(Hash) && location.present?
 
-    response = fetch_businesses(location)
-    parse_json(response)
+    cache_key = "BusinessService/businesses_near/#{location[:lat]}/#{location[:lon]}"
+    Rails.cache.fetch(cache_key, expires_in: 7.days) do
+      response = fetch_businesses(location)
+      JSON.parse(response.body, symbolize_names: true)
+    end
   end
 
   def self.fetch_businesses(location)
@@ -22,9 +25,5 @@ class BusinessService
     Faraday.new(url: 'https://api.yelp.com/v3/businesses') do |faraday|
       faraday.headers['authorization'] = "Bearer #{ENV.fetch('YELP_API_KEY', nil)}"
     end
-  end
-
-  def self.parse_json(response)
-    JSON.parse(response.body, symbolize_names: true)
   end
 end

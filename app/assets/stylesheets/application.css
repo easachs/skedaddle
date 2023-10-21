@@ -24,6 +24,22 @@
    z-index: -1;
  }
 
+ a {
+  color: #64748B;
+ }
+
+ a:hover {
+   color: #334155;
+ }
+
+ button {
+   color: #64748B;
+ }
+
+ button:hover {
+   color: #334155;
+ }
+
  img {
    float: left;
    width: 800px;
@@ -40,6 +56,10 @@
 
  .checkbox:checked + label {
    color: black;
+ }
+
+ .pagination a:hover {
+   color: #334155;
  }
 
  .error {
