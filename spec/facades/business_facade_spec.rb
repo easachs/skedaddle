@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BusinessFacade do
   it 'returns businesses', vcr: 'denver_businesses' do
-    businesses = described_class.businesses_near({ lat: 39.740959, lon: -104.985798 })
+    businesses = described_class.businesses_near({ lat: 39.740959, lon: -104.985798 }, 'bakeries')
     expect(businesses).to be_all(BusinessPoro)
   end
 

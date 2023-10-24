@@ -22,7 +22,10 @@ RSpec.describe 'Itinerary Index' do
 
   describe 'displays itineraries with', vcr: 'denver_search' do
     before do
-      visit '/itineraries/new?search=Denver'
+      fill_in 'search', with: 'Denver'
+      check 'Landmarks'
+      check 'Bakeries'
+      click_button 'SKEDADDLE'
       click_button 'Save'
       visit itineraries_path
     end

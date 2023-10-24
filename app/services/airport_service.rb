@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AirportService
-  def self.airports_near(location)
+  def self.airports_near(location = {})
     return unless location.is_a?(Hash) && location.present?
 
     cache_key = "AirportService/airports_near/#{location[:lon]}/#{location[:lat]}"

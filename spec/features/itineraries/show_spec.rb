@@ -27,7 +27,10 @@ RSpec.describe 'Itinerary Show' do
 
   describe 'removes', vcr: 'denver_search' do
     before do
-      visit '/itineraries/new?search=Denver'
+      fill_in 'search', with: 'Denver'
+      check 'Landmarks'
+      check 'Bakeries'
+      click_button 'SKEDADDLE'
       click_button 'Save'
     end
 
@@ -39,9 +42,9 @@ RSpec.describe 'Itinerary Show' do
     end
 
     it 'restaurants' do
-      within '#businesses' do
-        click_button('Remove Your Coffee Guy')
-        expect(page).not_to have_content('Your Coffee Guy')
+      within '#Bakeries' do
+        click_button('Remove Izzio Bakery')
+        expect(page).not_to have_content('Izzio Bakery')
       end
     end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GeocodeService
-  def self.geocode(location)
+  def self.geocode(location = '')
     return if location.blank?
 
     cache_key = "GeocodeService/geocode/#{location}"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BusinessService
-  def self.businesses_near(location, main)
+  def self.businesses_near(location = {}, main = '')
     return unless location.is_a?(Hash) && location.present?
 
     cache_key = "BusinessService/businesses_near/#{main}/#{location[:lat]}/#{location[:lon]}"

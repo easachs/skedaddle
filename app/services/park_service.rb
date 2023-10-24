@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ParkService
-  def self.parks_near(location)
+  def self.parks_near(location = {})
     return unless location.is_a?(Hash) && location.present?
 
     cache_key = "ParkService/parks_near/#{location[:lat]}/#{location[:lon]}"

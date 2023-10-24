@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BusinessService do
   describe 'gets businesses', vcr: 'denver_businesses' do
-    let(:response) { described_class.businesses_near({ lat: 39.740959, lon: -104.985798 }) }
+    let(:response) { described_class.businesses_near({ lat: 39.740959, lon: -104.985798 }, 'bakeries') }
 
     it 'as hash with businesses array' do
       expect(response[:businesses]).to be_a(Array)

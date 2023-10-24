@@ -22,7 +22,10 @@ RSpec.describe 'Itinerary New' do
 
   describe 'displays new itinerary with', vcr: 'denver_search' do
     before do
-      visit '/itineraries/new?search=Denver'
+      fill_in 'search', with: 'Denver'
+      check 'Landmarks'
+      check 'Bakeries'
+      click_button 'SKEDADDLE'
     end
 
     it 'title' do
@@ -36,15 +39,18 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'restaurants' do
-      within '#businesses' do
-        expect(page).to have_content('Your Coffee Guy')
+      within '#Bakeries' do
+        expect(page).to have_content('The Denver Central Market')
       end
     end
   end
 
   describe 'saves new itinerary with', vcr: 'denver_search' do
     before do
-      visit '/itineraries/new?search=Denver'
+      fill_in 'search', with: 'Denver'
+      check 'Landmarks'
+      check 'Bakeries'
+      click_button 'SKEDADDLE'
       click_button 'Save'
     end
 
@@ -59,8 +65,8 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'restaurants' do
-      within '#businesses' do
-        expect(page).to have_content('Your Coffee Guy')
+      within '#Bakeries' do
+        expect(page).to have_content('The Denver Central Market')
       end
     end
   end
