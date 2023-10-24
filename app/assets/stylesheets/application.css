@@ -47,6 +47,19 @@
    object-fit: cover;
  }
 
+ .blue-btn {
+   background-color: #3B82F6;
+   color: #ffffff;
+   font-weight: bold;
+   padding: 0.5rem 1rem;
+   border-radius: 0.25rem;
+   margin-bottom: 0.5rem;
+ }
+
+ .blue-btn:hover {
+   background-color: #1E40AF;
+ }
+
  .image-format {
    width: 150px;
    height: 150px;

@@ -1,12 +1,10 @@
-<div id="business" class="p-2">
-  <% if !business.thumbnail.blank? %>
-    <img class="image-format m-2" src="<%= business.thumbnail %>">
-  <% end %>
-  <h3 class="m-2"><b><%= link_to business.name, business.url %></b></h5>
-  <p class="m-2"><b>Rating: </b><%= business.rating %></p>
-  <%= content_tag :p, "<b>Price: </b>#{business.price}".html_safe, class: 'm-2' if business.price %>
-  <p class="m-2"><b>Categories: </b><%= business.categories %></p>
-  <p class="m-2"><b>Location: </b><%= business.location %></p>
-  <p class="m-2"><b>Phone: </b><%= business.phone %></p>
-  <p class="m-2"><%= button_to "Remove #{business.name}", business_path(business), method: :delete, class: 'm-2' if saved %></p>
-</div>
+<%= content_tag :div, id: 'business', class: 'p-2' do %>
+  <%= image_tag business.thumbnail, class: "image-format m-2" if business.thumbnail.present? %>
+  <%= link_to business.name, business.url, class: 'font-bold m-2' %>
+  <%= content_tag :p, "<b>Rating: </b>#{business.rating}".html_safe, class: 'm-2' %>
+  <%= content_tag :p, "<b>Price: </b>#{business.price}".html_safe, class: 'm-2' if business.price.present? %>
+  <%= content_tag :p, "<b>Categories: </b>#{business.categories}".html_safe, class: 'm-2' %>
+  <%= content_tag :p, "<b>Location: </b>#{business.location}".html_safe, class: 'm-2' %>
+  <%= content_tag :p, "<b>Phone: </b>#{business.phone}".html_safe, class: 'm-2' if business.phone.present? %>
+  <%= button_to "Remove #{business.name}", business_path(business), method: :delete, class: 'm-2' if saved %>
+<% end %>

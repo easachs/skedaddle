@@ -5,7 +5,10 @@ class ItinerariesController < ApplicationController
   before_action :not_logged_in
 
   def index
-    @itineraries = current_user.itineraries.order(created_at: :desc).page(params[:page]).per(5)
+    @itineraries = current_user.itineraries
+                               .order(created_at: :desc)
+                               .page(params[:page])
+                               .per(5)
   end
 
   def show
@@ -16,7 +19,8 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    return unless params[:search].blank? || [@parks, @businesses].all?(&:blank?)
+    initialize_session
+    return unless params[:search].blank? || [@items].all?(&:blank?)
 
     redirect_to root_path
     flash[:error] = t('flash.errors.no_results')
@@ -24,9 +28,7 @@ class ItinerariesController < ApplicationController
 
   def create
     itinerary = current_user.itineraries.create!(@geocode)
-    return unless itinerary.save
-
-    create_items(itinerary)
+    populate_itinerary(itinerary) if itinerary.persisted?
     redirect_to itinerary_path(itinerary)
   end
 
@@ -49,14 +51,64 @@ class ItinerariesController < ApplicationController
   def find_items
     return unless @geocode
 
-    @airports = AirportFacade.airports_near(@geocode)
-    @parks = ParkFacade.parks_near(@geocode)
-    @businesses = BusinessFacade.businesses_near(@geocode)
+    @items = {
+      airports: AirportFacade.airports_near(@geocode),
+      parks: ParkFacade.parks_near(@geocode),
+      activities: find_businesses(:activities),
+      restaurants: find_businesses(:restaurants)
+    }
+  end
+
+  def find_businesses(group)
+    return if group.blank? || params[group].blank?
+
+    params[group].transform_values do |category|
+      BusinessFacade.businesses_near(@geocode, category)
+    end
+  end
+
+  def initialize_session
+    session[:activities] = params[:activities]
+    session[:restaurants] = params[:restaurants]
+  end
+
+  def populate_itinerary(itinerary)
+    @items[:activities] = create_businesses(:activities)
+    @items[:restaurants] = create_businesses(:restaurants)
+    create_items(itinerary)
+  end
+
+  def create_businesses(group)
+    return if session[group].blank?
+
+    session[group].transform_values do |category|
+      BusinessFacade.businesses_near(@geocode, category)
+    end
   end
 
   def create_items(itinerary)
-    @airports&.each { |airport| itinerary.airports.create!(airport.serialized) }
-    @parks&.each { |park| itinerary.parks.create!(park.serialized) }
-    @businesses&.each { |business| itinerary.businesses.create!(business.serialized) }
+    return unless @items
+
+    @items.each do |group, items|
+      if %i[airports parks].include?(group)
+        create_special_items(itinerary, group, items)
+      else
+        create_business_items(itinerary, group, items)
+      end
+    end
+  end
+
+  def create_special_items(itinerary, group, items)
+    items&.each do |item|
+      itinerary.send(group).create!(item.serialized)
+    end
+  end
+
+  def create_business_items(itinerary, group, items)
+    items&.each do |main, businesses|
+      businesses&.each do |bus|
+        itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, main:))
+      end
+    end
   end
 end

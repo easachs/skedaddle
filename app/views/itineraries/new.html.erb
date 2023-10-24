@@ -1,7 +1,3 @@
 <%= render ItineraryComponent.new search: params[:search],
                                   city: @geocode[:city],
-                                  items: {
-                                    airports: @airports,
-                                    parks: @parks,
-                                    businesses: @businesses
-                                  } %>
+                                  items: @items %>

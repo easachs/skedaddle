@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
 class BusinessService
-  def self.businesses_near(location)
+  def self.businesses_near(location, main)
     return unless location.is_a?(Hash) && location.present?
 
-    cache_key = "BusinessService/businesses_near/#{location[:lat]}/#{location[:lon]}"
+    cache_key = "BusinessService/businesses_near/#{main}/#{location[:lat]}/#{location[:lon]}"
     Rails.cache.fetch(cache_key, expires_in: 7.days) do
-      response = fetch_businesses(location)
+      response = fetch_businesses(location, main)
       JSON.parse(response.body, symbolize_names: true)
     end
   end
 
-  def self.fetch_businesses(location)
+  def self.fetch_businesses(location, main)
     conn.get('search') do |route|
-      route.params['limit'] = '5'
+      route.params['limit'] = 5
       route.params['latitude'] = location[:lat]
       route.params['longitude'] = location[:lon]
-      route.params['sort_by'] = 'rating'
-      route.params['category'] = 'food'
+      route.params['radius'] = 15_000
+      route.params['categories'] = main
     end
   end
 

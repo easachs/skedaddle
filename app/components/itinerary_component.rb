@@ -29,7 +29,11 @@ class ItineraryComponent < ViewComponent::Base
     @items[:parks]
   end
 
-  def businesses
-    @items[:businesses]
+  def activities
+    @items[:activities]
+  end
+
+  def restaurants
+    @items[:restaurants]
   end
 end

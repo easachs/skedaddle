@@ -10,4 +10,14 @@ class Itinerary < ApplicationRecord
   def date
     created_at.strftime('%m/%d/%y')
   end
+
+  def activities
+    activities = businesses.where(group: 'activities')
+    activities.group_by(&:main)
+  end
+
+  def restaurants
+    restaurants = businesses.where(group: 'restaurants')
+    restaurants.group_by(&:main)
+  end
 end

@@ -33,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_230830) do
     t.string "phone"
     t.string "url"
     t.string "thumbnail"
+    t.string "main"
+    t.string "group"
     t.bigint "itinerary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
