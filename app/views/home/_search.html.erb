@@ -2,9 +2,9 @@
   <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
     <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
       <%= turbo_frame_tag 'home' do %>
-        <div class='p-2'>
+        <div class='p-2 m-2'>
           <%= form_with url: new_itinerary_path, method: :get do |form| %>
-            <div class='p-2 text-sm'>
+            <div class='py-2 text-sm'>
               <%= text_field_tag :search, nil, placeholder: 'Enter a destination', class: 'p-2 text-sm rounded', required: true %>
               <span class="m-2">from</span>
               <%= content_tag :span, data: { controller: "date" } do %>
@@ -16,122 +16,23 @@
               <% end %>
             </div>
 
-            <p class='ml-2'>Where would you like to <b>stay?</b></p>
-            <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'lodging[bed and breakfast]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[bed and breakfast]', 'B & B' %></p>
-                <p><%= check_box_tag 'lodging[campsites]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[campsites]', 'Campsite' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'lodging[hostels]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[hostels]', 'Hostel' %></p>
-                <p><%= check_box_tag 'lodging[hotels]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[hotels]', 'Hotel' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'lodging[rentals]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[rentals]', 'Rental' %></p>
-                <p><%= check_box_tag 'lodging[resort]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'lodging[resort]', 'Resort' %></p>
-              </div>
-            </div>
+            Where would you like to <b>stay?</b>
+            <%= render CheckboxComponent.new data: lodging_data,
+                                                  prefix: 'lodging',
+                                                  size: 2 %>
 
-            <p class='ml-2'>Where would you like to <b>go?</b></p>
-            <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'activities[art galleries]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[art galleries]', 'Art Galleries' %></p>
-                <p><%= check_box_tag 'activities[boutiques]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[boutiques]', 'Boutiques' %></p>
-                <p><%= check_box_tag 'activities[beaches]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[beaches]', 'Beaches' %></p>
-                <p><%= check_box_tag 'activities[festivals]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[festivals]', 'Festivals' %></p>
-                <p><%= check_box_tag 'activities[gardens]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[gardens]', 'Gardens' %></p>
-                <p><%= check_box_tag 'activities[golf]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[golf]', 'Golf Courses' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'activities[tours]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[tours]', 'Guided Tours' %></p>
-                <p><%= check_box_tag 'activities[hot springs]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[hot springs]', 'Hot Springs' %></p>
-                <p><%= check_box_tag 'activities[landmarks]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[landmarks]', 'Landmarks' %></p>
-                <p><%= check_box_tag 'activities[markets]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[markets]', 'Markets' %></p>
-                <p><%= check_box_tag 'activities[museums]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[museums]', 'Museums' %></p>
-                <p><%= check_box_tag 'activities[parks]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[parks]', 'Parks' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'activities[skiing]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[skiing]', 'Ski Resorts' %></p>
-                <p><%= check_box_tag 'activities[spas]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[spas]', 'Spas' %></p>
-                <p><%= check_box_tag 'activities[theaters]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[theaters]', 'Theaters' %></p>
-                <p><%= check_box_tag 'activities[amusement parks]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[amusement parks]', 'Theme Parks' %></p>
-                <p><%= check_box_tag 'activities[vinyards]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[vinyards]', 'Vinyards' %></p>
-                <p><%= check_box_tag 'activities[zoos]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'activities[zoos]', 'Zoos' %></p>
-              </div>
-            </div>
+            Where would you like to <b>go?</b>
+            <%= render CheckboxComponent.new data: activity_data,
+                                                  prefix: 'activities',
+                                                  size: 5 %>
 
-            <p class='ml-2'>Where would you like to <b>eat?</b></p>
-            <div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'restaurants[american]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[american]', 'American' %></p>
-                <p><%= check_box_tag 'restaurants[bakeries]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[bakeries]', 'Bakeries' %></p>
-                <p><%= check_box_tag 'restaurants[bars]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[bars]', 'Bars & Pubs' %></p>
-                <p><%= check_box_tag 'restaurants[breweries]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[breweries]', 'Breweries' %></p>
-                <p><%= check_box_tag 'restaurants[brunch]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[brunch]', 'Brunch' %></p>
-                <p><%= check_box_tag 'restaurants[cafes]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[cafes]', 'Cafes' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'restaurants[chinese]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[chinese]', 'Chinese' %></p>
-                <p><%= check_box_tag 'restaurants[delis]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[delis]', 'Delis' %></p>
-                <p><%= check_box_tag 'restaurants[diners]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[diners]', 'Diners' %></p>
-                <p><%= check_box_tag 'restaurants[food trucks]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[food trucks]', 'Food Trucks' %></p>
-                <p><%= check_box_tag 'restaurants[ice cream]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[ice cream]', 'Ice Cream' %></p>
-                <p><%= check_box_tag 'restaurants[italian]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[italian]', 'Italian' %></p>
-              </div>
-              <div class='w-full sm:w-1/3'>
-                <p><%= check_box_tag 'restaurants[mexican]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[mexican]', 'Mexican' %></p>
-                <p><%= check_box_tag 'restaurants[pizzerias]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[pizzerias]', 'Pizzerias' %></p>
-                <p><%= check_box_tag 'restaurants[sandwiches]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[sandwiches]', 'Sandwiches' %></p>
-                <p><%= check_box_tag 'restaurants[seafood]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[seafood]', 'Seafood' %></p>
-                <p><%= check_box_tag 'restaurants[sushi]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[sushi]', 'Sushi' %></p>
-                <p><%= check_box_tag 'restaurants[thai]', '1', false, class: 'checkbox' %>
-                <%= label_tag 'restaurants[thai]', 'Thai' %></p>
-              </div>
-            </div>
+            Where would you like to <b>eat?</b>
+            <%= render CheckboxComponent.new data: restaurant_data,
+                                                  prefix: 'restaurants',
+                                                  size: 6 %>
 
-            <p class='py-2 ml-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
-                class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %></p>
+            <p class='py-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
+                            class: 'blue-btn' %></p>
           <% end %>
         </div>
       <% end %>

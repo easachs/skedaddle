@@ -1,0 +1,12 @@
+<div class='flex flex-wrap text-sm text-slate-500 p-2 ml-2 px-10'>
+  <% data.each_slice(size).each do |slice| %>
+    <%= content_tag :div, class: 'w-full sm:w-1/3' do %>
+      <% slice.each do |name, value| %>
+        <p>
+          <%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'checkbox' %>
+          <%= label_tag "#{prefix}[#{name}]", name %>
+        </p>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

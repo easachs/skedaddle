@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GeocodeFacade
-  def self.geocode(location)
+  def self.geocode(location = {})
     return if location.blank?
 
     geocode = GeocodeService.geocode(location)
