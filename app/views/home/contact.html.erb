@@ -8,15 +8,31 @@
               <br>
               <div class='lg:flex'>
                 <div class='lg:w-1/2 lg:pr-1'>
-                  <%= form.text_field :name, value: current_user&.name, placeholder: 'Name', class: 'w-full h-8 mb-2 rounded', readonly: current_user, required: true %>
+                  <%= form.text_field   :name,
+                                        value: current_user&.name,
+                                        placeholder: 'Name',
+                                        class: 'w-full h-8 mb-2 rounded',
+                                        readonly: current_user,
+                                        required: true %>
                 </div>
                 <div class='lg:w-1/2 lg:pl-1'>
-                  <%= form.email_field :email, value: current_user&.email, placeholder: 'Email', class: 'w-full h-8 mb-2 rounded', readonly: current_user, required: true %>
+                  <%= form.email_field  :email,
+                                        value: current_user&.email,
+                                        placeholder: 'Email',
+                                        class: 'w-full h-8 mb-2 rounded',
+                                        readonly: current_user,
+                                        required: true %>
                 </div>
               </div>
-              <%= form.text_area :message, value: nil, placeholder: 'Message', rows: 4, class: 'w-full rounded', required: true %>
+              <%= form.text_area        :message,
+                                        value: nil,
+                                        placeholder: 'Message',
+                                        rows: 4,
+                                        class: 'w-full rounded',
+                                        required: true %>
+
             <div class="text-center">
-              <%= form.submit "Send", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded' %>
+              <%= form.submit 'Send', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded' %>
             </div>
           <% end %>
         </div>

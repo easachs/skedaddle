@@ -33,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint'
   gem 'letter_opener'
   gem 'rubocop'
   gem 'rubocop-capybara'

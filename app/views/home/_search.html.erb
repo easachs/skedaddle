@@ -2,39 +2,51 @@
   <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
     <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
       <%= turbo_frame_tag 'home' do %>
-        <div class='p-2 m-2'>
+        <%= content_tag :div, class: 'p-2 m-2' do %>
           <%= form_with url: new_itinerary_path, method: :get do |form| %>
-            <div class='py-2 text-sm'>
-              <%= text_field_tag :search, nil, placeholder: 'Enter a destination', class: 'p-2 text-sm rounded', required: true %>
-              <span class="m-2">from</span>
-              <%= content_tag :span, data: { controller: "date" } do %>
-                <%= date_field_tag :start, Date.today, min: Date.today, class: 'p-2 text-sm rounded', 
-                          data: { date_target: "start", action: "change->date#updateEndDate" } %>
-                <span class="m-2">to</span>
-                <%= date_field_tag :end, Date.today, min: Date.today, class: 'p-2 text-sm rounded',
-                          data: { date_target: "end" } %>
+            <%= content_tag :div, class: 'py-2 text-sm' do %>
+              <%= text_field_tag    :search, nil,
+                                    placeholder: 'Enter a destination',
+                                    class: 'p-2 text-sm rounded',
+                                    required: true,
+                                    autocomplete: 'off' %>
+
+              <span class='m-2'>from</span>
+              <%= content_tag :span, data: { controller: 'date' } do %>
+                <%= date_field_tag  :start, Time.zone.today,
+                                    min: Time.zone.today,
+                                    class: 'p-2 text-sm rounded',
+                                    autocomplete: 'off',
+                                    data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
+
+                <span class='m-2'>to</span>
+                <%= date_field_tag  :end, Time.zone.today,
+                                    min: Time.zone.today,
+                                    class: 'p-2 text-sm rounded',
+                                    autocomplete: 'off',
+                                    data: { date_target: 'end' } %>
               <% end %>
-            </div>
+            <% end %>
 
             Where would you like to <b>stay?</b>
             <%= render CheckboxComponent.new data: lodging_data,
-                                                  prefix: 'lodging',
-                                                  size: 2 %>
+                                             prefix: 'lodging',
+                                             size: 2 %>
 
             Where would you like to <b>go?</b>
             <%= render CheckboxComponent.new data: activity_data,
-                                                  prefix: 'activities',
-                                                  size: 5 %>
+                                             prefix: 'activities',
+                                             size: 5 %>
 
             Where would you like to <b>eat?</b>
             <%= render CheckboxComponent.new data: restaurant_data,
-                                                  prefix: 'restaurants',
-                                                  size: 6 %>
+                                             prefix: 'restaurants',
+                                             size: 6 %>
 
             <p class='py-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
-                            class: 'blue-btn' %></p>
+                                                         class: 'blue-btn' %></p>
           <% end %>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

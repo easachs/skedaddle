@@ -12,15 +12,15 @@
     <% if parks.present? %>
       <%= content_tag :div, id: 'parks' do %>
         <%= content_tag :h3, 'Parks', class: 'font-bold text-xl' %>
-        <%= render ParkComponent.with_collection parks, saved: saved %>
+        <%= render ParkComponent.with_collection(parks, saved:) %>
       <% end %>
     <% end %>
 
-    <% { 'Activities': activities, 'Restaurants': restaurants }.each do |title, collection| %>
+    <% { Activities: activities, Restaurants: restaurants }.each do |title, collection| %>
       <% if collection.present? %>
         <%= content_tag :h3, title, class: 'py-2 font-bold text-xl' %>
         <% collection.each do |key, value| %>
-          <%= render CategoryComponent.new items: value, category: key, saved: saved %>
+          <%= render CategoryComponent.new(items: value, category: key, saved:) %>
         <% end %>
       <% end %>
     <% end %>

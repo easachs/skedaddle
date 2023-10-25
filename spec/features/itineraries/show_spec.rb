@@ -42,7 +42,7 @@ RSpec.describe 'Itinerary Show' do
     end
 
     it 'restaurants' do
-      within '#Bakeries' do
+      within '#bakeries' do
         click_button('Remove Izzio Bakery')
         expect(page).not_to have_content('Izzio Bakery')
       end

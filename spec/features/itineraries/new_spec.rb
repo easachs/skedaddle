@@ -39,7 +39,7 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'restaurants' do
-      within '#Bakeries' do
+      within '#bakeries' do
         expect(page).to have_content('The Denver Central Market')
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'restaurants' do
-      within '#Bakeries' do
+      within '#bakeries' do
         expect(page).to have_content('The Denver Central Market')
       end
     end

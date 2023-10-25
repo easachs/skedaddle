@@ -1,7 +1,7 @@
-<div data-controller="carousel">
+<%= content_tag :div, data: { controller: 'carousel' } do %>
   <% (1..6).to_a.each do |num| %>
     <%= content_tag :div, data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
       <%= image_tag "slide-#{num}.jpg", class: 'w-100', style: 'border-bottom-right-radius: 12px;' %>
     <% end %>
   <% end %>
-</div>
+<% end %>
