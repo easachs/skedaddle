@@ -5,24 +5,27 @@
         <%= content_tag :div, class: 'p-2 m-2' do %>
           <%= form_with url: new_itinerary_path, method: :get do |form| %>
             <%= content_tag :div, class: 'py-2 text-sm' do %>
-              <%= text_field_tag    :search, nil,
+              <%= search_field_tag  :search, nil,
                                     placeholder: 'Enter a destination',
-                                    class: 'p-2 text-sm rounded',
+                                    class: 'text-sm rounded',
                                     required: true,
-                                    autocomplete: 'off' %>
+                                    autocomplete: 'off',
+                                    data: { controller: 'address',
+                                            action: 'google-maps-callback@window->address#initAutocomplete
+                                                    keydown->address#keydown' } %>
 
               <span class='m-2'>from</span>
               <%= content_tag :span, data: { controller: 'date' } do %>
                 <%= date_field_tag  :start, Time.zone.today,
                                     min: Time.zone.today,
-                                    class: 'p-2 text-sm rounded',
+                                    class: 'text-sm rounded',
                                     autocomplete: 'off',
                                     data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
 
                 <span class='m-2'>to</span>
                 <%= date_field_tag  :end, Time.zone.today,
                                     min: Time.zone.today,
-                                    class: 'p-2 text-sm rounded',
+                                    class: 'text-sm rounded',
                                     autocomplete: 'off',
                                     data: { date_target: 'end' } %>
               <% end %>
