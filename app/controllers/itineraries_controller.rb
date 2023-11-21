@@ -52,9 +52,9 @@ class ItinerariesController < ApplicationController
     return unless @geocode
 
     @items = {
-      airports: AirportFacade.airports_near(@geocode),
-      hospitals: PlacesFacade.places_near(@geocode, 'hospital'),
-      parks: ParkFacade.parks_near(@geocode),
+      airports: PlaceFacade.near(@geocode, 'airport', 5000),
+      hospitals: PlaceFacade.near_new(@geocode, 'hospital'),
+      parks: ParkFacade.near(@geocode),
       activities: find_businesses(:activities),
       restaurants: find_businesses(:restaurants)
     }
@@ -64,7 +64,7 @@ class ItinerariesController < ApplicationController
     return if group.blank? || params[group].blank?
 
     params[group].transform_values do |category|
-      BusinessFacade.businesses_near(@geocode, category)
+      BusinessFacade.near(@geocode, category)
     end
   end
 
@@ -83,7 +83,7 @@ class ItinerariesController < ApplicationController
     return if session[group].blank?
 
     session[group].transform_values do |category|
-      BusinessFacade.businesses_near(@geocode, category)
+      BusinessFacade.near(@geocode, category)
     end
   end
 
@@ -91,24 +91,28 @@ class ItinerariesController < ApplicationController
     return unless @items
 
     @items.each do |group, items|
-      if %i[airports hospitals parks].include?(group)
-        create_special_items(itinerary, group, items)
+      if %i[airports hospitals].include?(group)
+        create_place_items(itinerary, items)
+      elsif group == :parks
+        create_park_items(itinerary, items)
       else
         create_business_items(itinerary, group, items)
       end
     end
   end
 
-  def create_special_items(itinerary, group, items)
-    items&.each do |item|
-      itinerary.send(group).create!(item.serialized)
-    end
+  def create_place_items(itinerary, items)
+    items&.each { |place| itinerary.places.create!(place.serialized) }
+  end
+
+  def create_park_items(itinerary, items)
+    items&.each { |item| itinerary.parks.create!(item.serialized) }
   end
 
   def create_business_items(itinerary, group, items)
     items&.each do |main, businesses|
       businesses&.each do |bus|
-        itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, main:))
+        itinerary.businesses.create!(bus.serialized.merge(group: group.to_s, main:))
       end
     end
   end

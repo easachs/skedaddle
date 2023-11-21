@@ -36,33 +36,37 @@ RSpec.describe GeocodeFacade do
   end
 
   describe 'fallback', vcr: 'denver_fallback' do
+    before do
+      allow(GeocodeService).to receive(:geocode).and_return({ data: [] })
+    end
+
     it 'search' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:search]).to be_nil
     end
 
     it 'city' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:city]).to eq('Denver')
     end
 
     it 'region' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:region]).to eq('Colorado')
     end
 
     it 'country' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:country]).to eq('United States of America')
     end
 
     it 'lat' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:lat]).to be_a(Float)
     end
 
     it 'lon' do
-      geocode = described_class.fallback('Denver')
+      geocode = described_class.geocode('Denver')
       expect(geocode[:lon]).to be_a(Float)
     end
   end

@@ -3,13 +3,20 @@
 class Itinerary < ApplicationRecord
   validates :search, :city, :region, :country, :lat, :lon, presence: true
   belongs_to :user
-  has_many :airports, dependent: :destroy
-  has_many :hospitals, dependent: :destroy
+  has_many :places, dependent: :destroy
   has_many :parks, dependent: :destroy
   has_many :businesses, dependent: :destroy
 
   def date
     created_at.strftime('%m/%d/%y')
+  end
+
+  def airports
+    places.where(main: 'airport')
+  end
+
+  def hospitals
+    places.where(main: 'hospital')
   end
 
   def activities

@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_185701) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_195011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "airports", force: :cascade do |t|
-    t.string "name"
-    t.string "address1"
-    t.string "address2"
-    t.bigint "itinerary_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["itinerary_id"], name: "index_airports_on_itinerary_id"
-  end
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -39,15 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_185701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["itinerary_id"], name: "index_businesses_on_itinerary_id"
-  end
-
-  create_table "hospitals", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.bigint "itinerary_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["itinerary_id"], name: "index_hospitals_on_itinerary_id"
   end
 
   create_table "itineraries", force: :cascade do |t|
@@ -77,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_185701) do
     t.index ["itinerary_id"], name: "index_parks_on_itinerary_id"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "main"
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_places_on_itinerary_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -91,9 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_185701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "airports", "itineraries"
   add_foreign_key "businesses", "itineraries"
-  add_foreign_key "hospitals", "itineraries"
   add_foreign_key "itineraries", "users"
   add_foreign_key "parks", "itineraries"
+  add_foreign_key "places", "itineraries"
 end

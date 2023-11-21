@@ -5,14 +5,14 @@
     <% if airports.present? %>
       <%= content_tag :h3, 'Airports', class: 'font-bold text-xl' %>
       <%= content_tag :div, id: 'airports', class: 'flex flex-wrap text-sm' do %>
-        <%= render AirportComponent.with_collection airports %>
+        <%= render PlaceComponent.with_collection airports %>
       <% end %>
     <% end %>
 
     <% if hospitals.present? %>
       <%= content_tag :h3, 'Hospitals', class: 'font-bold text-xl' %>
       <%= content_tag :div, id: 'hospitals', class: 'flex flex-wrap text-sm' do %>
-        <%= render HospitalComponent.with_collection hospitals %>
+        <%= render PlaceComponent.with_collection hospitals %>
       <% end %>
     <% end %>
 

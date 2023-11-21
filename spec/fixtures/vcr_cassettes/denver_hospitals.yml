@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchNearby
+    body:
+      encoding: UTF-8
+      string: '{"includedTypes":["hospital"],"maxResultCount":5,"locationRestriction":{"circle":{"center":{"latitude":39.740959,"longitude":-104.985798},"radius":5000}}}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      User-Agent:
+      - Faraday v2.7.11
+      X-Goog-Fieldmask:
+      - places.formattedAddress,places.displayName
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 21 Nov 2023 21:45:32 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "places": [
+            {
+              "formattedAddress": "777 Bannock St, Denver, CO 80204, USA",
+              "displayName": {
+                "text": "Denver Health",
+                "languageCode": "en"
+              }
+            },
+            {
+              "formattedAddress": "1375 E 19th Ave, Denver, CO 80218, USA",
+              "displayName": {
+                "text": "Saint Joseph Hospital",
+                "languageCode": "en"
+              }
+            },
+            {
+              "formattedAddress": "1719 E 19th Ave, Denver, CO 80218, USA",
+              "displayName": {
+                "text": "Presbyterian St. Luke's Medical Center",
+                "languageCode": "en"
+              }
+            },
+            {
+              "formattedAddress": "4567 E 9th Ave, Denver, CO 80220, USA",
+              "displayName": {
+                "text": "Rose Medical Center",
+                "languageCode": "en"
+              }
+            },
+            {
+              "formattedAddress": "1400 Jackson St, Denver, CO 80206, USA",
+              "displayName": {
+                "text": "National Jewish Health",
+                "languageCode": "en"
+              }
+            }
+          ]
+        }
+  recorded_at: Tue, 21 Nov 2023 21:45:32 GMT
+recorded_with: VCR 6.2.0
