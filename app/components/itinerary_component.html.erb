@@ -9,6 +9,13 @@
       <% end %>
     <% end %>
 
+    <% if hospitals.present? %>
+      <%= content_tag :h3, 'Hospitals', class: 'font-bold text-xl' %>
+      <%= content_tag :div, id: 'hospitals', class: 'flex flex-wrap text-sm' do %>
+        <%= render HospitalComponent.with_collection hospitals %>
+      <% end %>
+    <% end %>
+
     <% if parks.present? %>
       <%= content_tag :div, id: 'parks' do %>
         <%= content_tag :h3, 'Parks', class: 'font-bold text-xl' %>

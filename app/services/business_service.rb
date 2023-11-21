@@ -3,6 +3,7 @@
 class BusinessService
   def self.businesses_near(location = {}, main = '')
     return unless location.is_a?(Hash) && location.present?
+    return if main.blank?
 
     cache_key = "BusinessService/businesses_near/#{main}/#{location[:lat]}/#{location[:lon]}"
     Rails.cache.fetch(cache_key, expires_in: 7.days) do

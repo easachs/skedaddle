@@ -53,6 +53,7 @@ class ItinerariesController < ApplicationController
 
     @items = {
       airports: AirportFacade.airports_near(@geocode),
+      hospitals: PlacesFacade.places_near(@geocode, 'hospital'),
       parks: ParkFacade.parks_near(@geocode),
       activities: find_businesses(:activities),
       restaurants: find_businesses(:restaurants)
@@ -90,7 +91,7 @@ class ItinerariesController < ApplicationController
     return unless @items
 
     @items.each do |group, items|
-      if %i[airports parks].include?(group)
+      if %i[airports hospitals parks].include?(group)
         create_special_items(itinerary, group, items)
       else
         create_business_items(itinerary, group, items)

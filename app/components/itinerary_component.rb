@@ -25,6 +25,10 @@ class ItineraryComponent < ViewComponent::Base
     @items[:airports]
   end
 
+  def hospitals
+    @items[:hospitals]
+  end
+
   def parks
     @items[:parks]
   end
