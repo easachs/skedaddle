@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 21:59:10 GMT
+      - Tue, 21 Nov 2023 22:48:26 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,7 +35,7 @@ http_interactions:
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - f73a8c50-bc12-4845-88d3-31df179214c9
+      - 37e1ce77-8759-4cc5-b7cc-ca4f22a92159
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -45,21 +45,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24985'
+      - '24982'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.162'
+      - '0.156'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=O9eywxtn0V5IZbdpS3iC%2FpTLWDoYPJGpVoh6tVanpWkXncLRmdnyuACG5hbyHEYSGkruo4TFsAOL%2BsPLk4%2F0wGBSu%2BsaKYbXA0U7UEQVaNJ5CcR%2FER11I6ztDyc9p4Q7TcIWWaIEMcI%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=l%2Fu1cXg7%2BPlN%2FRH3d%2BhkGNiZETXJ4CnH9B5R2dW2ATeNLMYhSEj2MLSgwwrFhpXWoQ2moiqQ1mcz0RoZz84porgNhtsJ%2F2zEc0nj8Riny5O1mDeDkNjDoHtSvWUdclyruWQtJGdMNZU%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829c32c3888c1f4c-DEN
+      - 829c7aeed8ba1f25-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -96,16 +96,22 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Tue, 21 Nov 2023 21:59:10 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:26 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w&location=39.740959,%20-104.985798&radius=5000&type=airport
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchNearby
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"includedTypes":["airport"],"maxResultCount":5,"locationRestriction":{"circle":{"center":{"latitude":39.740959,"longitude":-104.985798},"radius":50000}}}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
       User-Agent:
       - Faraday v2.7.11
+      X-Goog-Fieldmask:
+      - places.formattedAddress,places.displayName
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -117,193 +123,31 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Tue, 21 Nov 2023 21:59:11 GMT
-      Expires:
-      - Tue, 21 Nov 2023 22:04:11 GMT
-      Cache-Control:
-      - public, max-age=300
       Vary:
-      - Accept-Language
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 21 Nov 2023 22:48:27 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '12974'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=198
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"results\" : \n   [\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7375686,\n               \"lng\" : -104.992211\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7389183302915,\n                  \"lng\" : -104.9905790197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.73622036970851,\n                  \"lng\" : -104.9932769802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Police Headquarters Heliport\",\n         \"place_id\"
-        : \"ChIJU3hZTdN4bIcRVV7IE-PwK4s\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2Q5+24 Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2Q5+24\"\n         },\n         \"rating\" : 5,\n         \"reference\"
-        : \"ChIJU3hZTdN4bIcRVV7IE-PwK4s\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 1,\n         \"vicinity\" : \"Denver\"\n      },\n      {\n         \"business_status\"
-        : \"OPERATIONAL\",\n         \"geometry\" : \n         {\n            \"location\"
-        : \n            {\n               \"lat\" : 39.74568919999999,\n               \"lng\"
-        : -104.978604\n            },\n            \"viewport\" : \n            {\n
-        \              \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7470441802915,\n                  \"lng\" : -104.9773204197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7443462197085,\n                  \"lng\" : -104.9800183802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Saint Lukes Hospital Heliport\",\n         \"place_id\"
-        : \"ChIJf2Wv2ih5bIcRXM9sAJGxug0\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2WC+7H Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2WC+7H\"\n         },\n         \"rating\" : 5,\n         \"reference\"
-        : \"ChIJf2Wv2ih5bIcRXM9sAJGxug0\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 1,\n         \"vicinity\" : \"1860 North Washington Street, Denver\"\n      },\n
-        \     {\n         \"business_status\" : \"OPERATIONAL\",\n         \"geometry\"
-        : \n         {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7283039,\n               \"lng\" : -104.9905078\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7291625302915,\n                  \"lng\" : -104.9892281697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.72646456970851,\n                  \"lng\" : -104.9919261302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJD70tuyh_bIcR36aqAzAW48E\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P2H5+8Q
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP2H5+8Q\"\n         },\n
-        \        \"reference\" : \"ChIJD70tuyh_bIcR36aqAzAW48E\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"779-781 Bannock Street, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7471548,\n               \"lng\" : -104.9674525\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7483783802915,\n                  \"lng\" : -104.9661181197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7456804197085,\n                  \"lng\" : -104.9688160802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Saint Lukes Hospital Heliport\",\n         \"place_id\"
-        : \"ChIJqY12Zep5bIcRGE4Ta_aCD44\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2WM+V2 Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2WM+V2\"\n         },\n         \"reference\" : \"ChIJqY12Zep5bIcRGE4Ta_aCD44\",\n
-        \        \"scope\" : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"1719 East 19th Avenue, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7477131,\n               \"lng\" : -104.9677664\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7486925302915,\n                  \"lng\" : -104.9663365197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7459945697085,\n                  \"lng\" : -104.9690344802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Presbyterian-Saint Lukes Medical Center Heliport\",\n
-        \        \"place_id\" : \"ChIJh4u8vzB5bIcR9pZ5i8nv59c\",\n         \"plus_code\"
-        : \n         {\n            \"compound_code\" : \"P2XJ+3V Denver, CO, USA\",\n
-        \           \"global_code\" : \"85FQP2XJ+3V\"\n         },\n         \"rating\"
-        : 4.4,\n         \"reference\" : \"ChIJh4u8vzB5bIcR9pZ5i8nv59c\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"user_ratings_total\" : 30,\n         \"vicinity\" : \"20th Avenue,
-        Denver\"\n      },\n      {\n         \"business_status\" : \"OPERATIONAL\",\n
-        \        \"geometry\" : \n         {\n            \"location\" : \n            {\n
-        \              \"lat\" : 39.74801649999999,\n               \"lng\" : -104.9671643\n
-        \           },\n            \"viewport\" : \n            {\n               \"northeast\"
-        : \n               {\n                  \"lat\" : 39.74946178029149,\n                  \"lng\"
-        : -104.9658138697085\n               },\n               \"southwest\" : \n
-        \              {\n                  \"lat\" : 39.7467638197085,\n                  \"lng\"
-        : -104.9685118302915\n               }\n            }\n         },\n         \"icon\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJ2-q90TZ5bIcRdXZppTZ81I0\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P2XM+64
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP2XM+64\"\n         },\n
-        \        \"reference\" : \"ChIJ2-q90TZ5bIcRdXZppTZ81I0\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"1600-1698 East 21st Avenue, Denver\"\n      },\n
-        \     {\n         \"business_status\" : \"OPERATIONAL\",\n         \"geometry\"
-        : \n         {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7715466,\n               \"lng\" : -104.992561\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7727536302915,\n                  \"lng\" : -104.9910254197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7700556697085,\n                  \"lng\" : -104.9937233802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Regency Heliport\",\n         \"photos\" : \n         [\n
-        \           {\n               \"height\" : 4032,\n               \"html_attributions\"
-        : \n               [\n                  \"\\u003ca href=\\\"https://maps.google.com/maps/contrib/109869380598237249818\\\"\\u003eDan
-        Hammock\\u003c/a\\u003e\"\n               ],\n               \"photo_reference\"
-        : \"AcJnMuH-Fdn_oqRvyUwhX7ZTy6AxDzm7tKTYWdZpIDuqFijylxsXI09yCS4H13RXXduOP2diUCFYN4MGcM6QnoYtxUpd9_t73G7CkRpwoBm_Q1ZHkmNB-dsHLzn0snn1HQIuFb0LIJE3UB9C-fkkXLooEPYjBjmN0MCVC-V4U-FPtSHmw2A9\",\n
-        \              \"width\" : 3024\n            }\n         ],\n         \"place_id\"
-        : \"ChIJT-TLn_t4bIcR-U2MZHjzwhY\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"Q2C4+JX Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQQ2C4+JX\"\n         },\n         \"rating\" : 3,\n         \"reference\"
-        : \"ChIJT-TLn_t4bIcR-U2MZHjzwhY\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 2,\n         \"vicinity\" : \"2590 31st Street, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7328446,\n               \"lng\" : -104.9328631\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7340750802915,\n                  \"lng\" : -104.9313968697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7313771197085,\n                  \"lng\" : -104.9340948302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJ-96pfxt8bIcR2_fdvUfJ9q8\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P3M8+4V
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP3M8+4V\"\n         },\n
-        \        \"reference\" : \"ChIJ-96pfxt8bIcR2_fdvUfJ9q8\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"4690 East Hale Parkway, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7326224,\n               \"lng\" : -104.9327155\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7340111802915,\n                  \"lng\" : -104.9313586697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7313132197085,\n                  \"lng\" : -104.9340566302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Rose Medical Center Heliport\",\n         \"place_id\"
-        : \"ChIJW6j26ad-bIcReVaVr-DTOwk\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P3M8+2W Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP3M8+2W\"\n         },\n         \"reference\" : \"ChIJW6j26ad-bIcReVaVr-DTOwk\",\n
-        \        \"scope\" : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"Denver\"\n      }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Tue, 21 Nov 2023 21:59:11 GMT
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
+  recorded_at: Tue, 21 Nov 2023 22:48:27 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -335,7 +179,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 21:59:11 GMT
+      - Tue, 21 Nov 2023 22:48:27 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -392,7 +236,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Tue, 21 Nov 2023 21:59:11 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:27 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -414,7 +258,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 21:59:12 GMT
+      - Tue, 21 Nov 2023 22:48:28 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -422,13 +266,13 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Wed, 20 Nov 2024 21:59:11 GMT
+      - Wed, 20 Nov 2024 22:48:28 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829c32cbc8789c5a-IAD
+      - 829c7af75b16241a-IAD
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
@@ -441,7 +285,7 @@ http_interactions:
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=KsTSui3Bprwh4yYcJyscdsm9%2FwjRv3z8Rzd7n0cRebYuMzdw%2BSc5NHY4Rg%2BGkLzNqDlTz31srGIkPgHMZ517MpkwVa0y6fVmxhoaZS3trSIJZ0KL9nBxNNuiW7DqsvjMvZw7ueSM"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=k82V4DxRSCo4edrPdOrPmdwdNKzZJ2U6yA3Eb7y6G1k0TZG%2Bn1UwzcgPY5mK7LV0SfRq1ipis30zP1e3XxoCztZHGfcN9%2BE73CJP%2BL5cOOzfUgIN0Sjjrk07zjIljeLv%2BMH%2FMzdZ"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -463,13 +307,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '19723'
+      - '16767'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '492'
+      - '490'
       X-Ratelimit-Regular-Requests-Reset:
-      - '19723'
+      - '16767'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -605,7 +449,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:12 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:28 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -630,36 +474,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      X-Routing-Service:
+      - routing-main--useast1-58d7765b64-ctmmz; site=public_api_v3
       X-B3-Sampled:
       - '0'
       Server:
       - envoy
-      Ratelimit-Dailylimit:
-      - '5000.0'
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-hc4jj; site=public_api_v3
-      X-Zipkin-Id:
-      - 0642012fe844148a
-      Ratelimit-Remaining:
-      - '4985.0'
       Ratelimit-Resettime:
       - '2023-11-22T00:00:00+00:00'
+      Ratelimit-Remaining:
+      - '4975.0'
+      Ratelimit-Dailylimit:
+      - '5000.0'
+      X-Zipkin-Id:
+      - becdb88a0571de7e
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-152-214-useast1bprod
+      - 10-65-68-134-useast1aprod
       X-Extlb:
-      - 10-65-152-214-useast1bprod
+      - 10-65-68-134-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 21:59:12 GMT
+      - Tue, 21 Nov 2023 22:48:28 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8254-DEN
+      - cache-den8262-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -701,7 +545,17 @@ http_interactions:
         East 8th Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80203", "country": "US", "state": "CO", "display_address": ["400 East 8th
         Ave", "Denver, CO 80203"]}, "phone": "+13038665344", "display_phone": "(303)
-        866-5344", "distance": 1404.357812494085}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
+        866-5344", "distance": 1404.357812494085}, {"id": "DAaMrNr77AQPgKwYr64D0g",
+        "alias": "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow
+        and Calf", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
+        "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
+        W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
+        "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
+        ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
+        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
         "alias": "doors-open-denver-denver", "name": "Doors Open Denver", "image_url":
         "https://s3-media2.fl.yelpcdn.com/bphoto/cg8cynfrYlxsorGDy37D8A/o.jpg", "is_closed":
         false, "url": "https://www.yelp.com/biz/doors-open-denver-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
@@ -713,19 +567,9 @@ http_interactions:
         "Denver", "zip_code": "80202", "country": "US", "state": "CO", "display_address":
         ["Denver Office Of Cultural Affairs", "201 W Colfax Ave, Fl 7, Dept. 1007",
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
-        "distance": 813.8805269365123}, {"id": "DAaMrNr77AQPgKwYr64D0g", "alias":
-        "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow and Calf",
-        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
-        "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
-        W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
-        "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
-        ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
-        "phone": "", "display_phone": "", "distance": 521.0319402491014}], "total":
-        34, "region": {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:12 GMT
+        "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
+        -104.985798, "latitude": 39.740959}}}'
+  recorded_at: Tue, 21 Nov 2023 22:48:28 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -750,36 +594,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      Ratelimit-Resettime:
+      - '2023-11-22T00:00:00+00:00'
       X-Zipkin-Id:
-      - cbd90d9d164b8840
+      - b5eea7afa08922a0
+      X-Routing-Service:
+      - routing-main--useast1-58d7765b64-cv2cp; site=public_api_v3
+      X-B3-Sampled:
+      - '0'
       Server:
       - envoy
       Ratelimit-Dailylimit:
       - '5000.0'
       Ratelimit-Remaining:
-      - '4984.0'
-      Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
-      X-B3-Sampled:
-      - '0'
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-5fr9s; site=public_api_v3
+      - '4974.0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-174-239-useast1bprod
+      - 10-65-166-141-useast1bprod
       X-Extlb:
-      - 10-65-174-239-useast1bprod
+      - 10-65-166-141-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 21:59:13 GMT
+      - Tue, 21 Nov 2023 22:48:29 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8240-DEN
+      - cache-den8256-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -845,7 +689,7 @@ http_interactions:
         16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
         "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
         {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:13 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:29 GMT
 - request:
     method: get
     uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
@@ -865,7 +709,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 21:59:13 GMT
+      - Tue, 21 Nov 2023 22:48:29 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -881,7 +725,7 @@ http_interactions:
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - df8d765e-7d89-4529-af58-a40dbb878b57
+      - 04acbbdd-ca65-4344-98c9-6cd7caf09e4d
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -891,21 +735,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24984'
+      - '24981'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.131'
+      - '0.129'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=wrOZrZRIIzzhmvpELWhm3Rprq1krDDY%2BLzd%2B2ogU8VVTGwFxodvc5uKTe52DFvPWMW8dl7uRN%2FeEl3Z5rphs6DXfiCgA6Pzd0UlDLOnOQ8H1NCYAC%2F2L34zpKTWeI6KOsMh8vmmsklY%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=puI3CsMRm79xyeCf7fBst0lZ3w2t1wRtR4d3%2BtmnkOQ%2B3ujdSTVx8uvxSHAUFQcUVa%2Fdj6DguWrrEOeWT%2FNc7%2Bubwpmm2ZKtHMQxGQ4zWVgukyY49UWN%2FQNcGjW9bYtr1VCX8iAGP8E%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829c32d55a3d1f4c-DEN
+      - 829c7b016921533b-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -942,16 +786,22 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Tue, 21 Nov 2023 21:59:13 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:29 GMT
 - request:
-    method: get
-    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w&location=39.740959,%20-104.985798&radius=5000&type=airport
+    method: post
+    uri: https://places.googleapis.com/v1/places:searchNearby
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"includedTypes":["airport"],"maxResultCount":5,"locationRestriction":{"circle":{"center":{"latitude":39.740959,"longitude":-104.985798},"radius":50000}}}'
     headers:
+      Content-Type:
+      - application/json
+      X-Goog-Api-Key:
+      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
       User-Agent:
       - Faraday v2.7.11
+      X-Goog-Fieldmask:
+      - places.formattedAddress,places.displayName
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -963,193 +813,31 @@ http_interactions:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Tue, 21 Nov 2023 21:59:13 GMT
-      Expires:
-      - Tue, 21 Nov 2023 22:04:13 GMT
-      Cache-Control:
-      - public, max-age=300
       Vary:
-      - Accept-Language
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 21 Nov 2023 22:48:30 GMT
       Server:
       - scaffolding on HTTPServer2
-      Content-Length:
-      - '12974'
+      Cache-Control:
+      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
-      Server-Timing:
-      - gfet4t7; dur=75
+      X-Content-Type-Options:
+      - nosniff
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: UTF-8
-      string: "{\n   \"html_attributions\" : [],\n   \"results\" : \n   [\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7375686,\n               \"lng\" : -104.992211\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7389183302915,\n                  \"lng\" : -104.9905790197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.73622036970851,\n                  \"lng\" : -104.9932769802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Police Headquarters Heliport\",\n         \"place_id\"
-        : \"ChIJU3hZTdN4bIcRVV7IE-PwK4s\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2Q5+24 Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2Q5+24\"\n         },\n         \"rating\" : 5,\n         \"reference\"
-        : \"ChIJU3hZTdN4bIcRVV7IE-PwK4s\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 1,\n         \"vicinity\" : \"Denver\"\n      },\n      {\n         \"business_status\"
-        : \"OPERATIONAL\",\n         \"geometry\" : \n         {\n            \"location\"
-        : \n            {\n               \"lat\" : 39.74568919999999,\n               \"lng\"
-        : -104.978604\n            },\n            \"viewport\" : \n            {\n
-        \              \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7470441802915,\n                  \"lng\" : -104.9773204197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7443462197085,\n                  \"lng\" : -104.9800183802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Saint Lukes Hospital Heliport\",\n         \"place_id\"
-        : \"ChIJf2Wv2ih5bIcRXM9sAJGxug0\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2WC+7H Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2WC+7H\"\n         },\n         \"rating\" : 5,\n         \"reference\"
-        : \"ChIJf2Wv2ih5bIcRXM9sAJGxug0\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 1,\n         \"vicinity\" : \"1860 North Washington Street, Denver\"\n      },\n
-        \     {\n         \"business_status\" : \"OPERATIONAL\",\n         \"geometry\"
-        : \n         {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7283039,\n               \"lng\" : -104.9905078\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7291625302915,\n                  \"lng\" : -104.9892281697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.72646456970851,\n                  \"lng\" : -104.9919261302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJD70tuyh_bIcR36aqAzAW48E\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P2H5+8Q
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP2H5+8Q\"\n         },\n
-        \        \"reference\" : \"ChIJD70tuyh_bIcR36aqAzAW48E\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"779-781 Bannock Street, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7471548,\n               \"lng\" : -104.9674525\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7483783802915,\n                  \"lng\" : -104.9661181197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7456804197085,\n                  \"lng\" : -104.9688160802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Saint Lukes Hospital Heliport\",\n         \"place_id\"
-        : \"ChIJqY12Zep5bIcRGE4Ta_aCD44\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P2WM+V2 Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP2WM+V2\"\n         },\n         \"reference\" : \"ChIJqY12Zep5bIcRGE4Ta_aCD44\",\n
-        \        \"scope\" : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"1719 East 19th Avenue, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7477131,\n               \"lng\" : -104.9677664\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7486925302915,\n                  \"lng\" : -104.9663365197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7459945697085,\n                  \"lng\" : -104.9690344802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Presbyterian-Saint Lukes Medical Center Heliport\",\n
-        \        \"place_id\" : \"ChIJh4u8vzB5bIcR9pZ5i8nv59c\",\n         \"plus_code\"
-        : \n         {\n            \"compound_code\" : \"P2XJ+3V Denver, CO, USA\",\n
-        \           \"global_code\" : \"85FQP2XJ+3V\"\n         },\n         \"rating\"
-        : 4.4,\n         \"reference\" : \"ChIJh4u8vzB5bIcR9pZ5i8nv59c\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"user_ratings_total\" : 30,\n         \"vicinity\" : \"20th Avenue,
-        Denver\"\n      },\n      {\n         \"business_status\" : \"OPERATIONAL\",\n
-        \        \"geometry\" : \n         {\n            \"location\" : \n            {\n
-        \              \"lat\" : 39.74801649999999,\n               \"lng\" : -104.9671643\n
-        \           },\n            \"viewport\" : \n            {\n               \"northeast\"
-        : \n               {\n                  \"lat\" : 39.74946178029149,\n                  \"lng\"
-        : -104.9658138697085\n               },\n               \"southwest\" : \n
-        \              {\n                  \"lat\" : 39.7467638197085,\n                  \"lng\"
-        : -104.9685118302915\n               }\n            }\n         },\n         \"icon\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJ2-q90TZ5bIcRdXZppTZ81I0\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P2XM+64
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP2XM+64\"\n         },\n
-        \        \"reference\" : \"ChIJ2-q90TZ5bIcRdXZppTZ81I0\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"1600-1698 East 21st Avenue, Denver\"\n      },\n
-        \     {\n         \"business_status\" : \"OPERATIONAL\",\n         \"geometry\"
-        : \n         {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7715466,\n               \"lng\" : -104.992561\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7727536302915,\n                  \"lng\" : -104.9910254197085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7700556697085,\n                  \"lng\" : -104.9937233802915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Regency Heliport\",\n         \"photos\" : \n         [\n
-        \           {\n               \"height\" : 4032,\n               \"html_attributions\"
-        : \n               [\n                  \"\\u003ca href=\\\"https://maps.google.com/maps/contrib/109869380598237249818\\\"\\u003eDan
-        Hammock\\u003c/a\\u003e\"\n               ],\n               \"photo_reference\"
-        : \"AWU5eFh29oYQdyMh9H5qm6vG4_NJfCgrSJ1Jdg8AQpZew5oJW37XD3qxlkWUP9L7HENYOMSaEbxB1APk-pTQGpc5p6YyceJCvdeAQxfSTPS5KzVuIC8Gju5nnsQz4la1nDn1uC8FyHTtTMBhePeOym99EFWg1vB2k1FY7OftfXRBwXNeVJ6v\",\n
-        \              \"width\" : 3024\n            }\n         ],\n         \"place_id\"
-        : \"ChIJT-TLn_t4bIcR-U2MZHjzwhY\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"Q2C4+JX Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQQ2C4+JX\"\n         },\n         \"rating\" : 3,\n         \"reference\"
-        : \"ChIJT-TLn_t4bIcR-U2MZHjzwhY\",\n         \"scope\" : \"GOOGLE\",\n         \"types\"
-        : \n         [\n            \"airport\",\n            \"point_of_interest\",\n
-        \           \"establishment\"\n         ],\n         \"user_ratings_total\"
-        : 2,\n         \"vicinity\" : \"2590 31st Street, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7328446,\n               \"lng\" : -104.9328631\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7340750802915,\n                  \"lng\" : -104.9313968697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7313771197085,\n                  \"lng\" : -104.9340948302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Hospital Helipad\",\n         \"place_id\" : \"ChIJ-96pfxt8bIcR2_fdvUfJ9q8\",\n
-        \        \"plus_code\" : \n         {\n            \"compound_code\" : \"P3M8+4V
-        Denver, CO, USA\",\n            \"global_code\" : \"85FQP3M8+4V\"\n         },\n
-        \        \"reference\" : \"ChIJ-96pfxt8bIcR2_fdvUfJ9q8\",\n         \"scope\"
-        : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"4690 East Hale Parkway, Denver\"\n      },\n      {\n
-        \        \"business_status\" : \"OPERATIONAL\",\n         \"geometry\" : \n
-        \        {\n            \"location\" : \n            {\n               \"lat\"
-        : 39.7326224,\n               \"lng\" : -104.9327155\n            },\n            \"viewport\"
-        : \n            {\n               \"northeast\" : \n               {\n                  \"lat\"
-        : 39.7340111802915,\n                  \"lng\" : -104.9313586697085\n               },\n
-        \              \"southwest\" : \n               {\n                  \"lat\"
-        : 39.7313132197085,\n                  \"lng\" : -104.9340566302915\n               }\n
-        \           }\n         },\n         \"icon\" : \"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/airport-71.png\",\n
-        \        \"icon_background_color\" : \"#10BDFF\",\n         \"icon_mask_base_uri\"
-        : \"https://maps.gstatic.com/mapfiles/place_api/icons/v2/airport_pinlet\",\n
-        \        \"name\" : \"Rose Medical Center Heliport\",\n         \"place_id\"
-        : \"ChIJW6j26ad-bIcReVaVr-DTOwk\",\n         \"plus_code\" : \n         {\n
-        \           \"compound_code\" : \"P3M8+2W Denver, CO, USA\",\n            \"global_code\"
-        : \"85FQP3M8+2W\"\n         },\n         \"reference\" : \"ChIJW6j26ad-bIcReVaVr-DTOwk\",\n
-        \        \"scope\" : \"GOOGLE\",\n         \"types\" : \n         [\n            \"airport\",\n
-        \           \"point_of_interest\",\n            \"establishment\"\n         ],\n
-        \        \"vicinity\" : \"Denver\"\n      }\n   ],\n   \"status\" : \"OK\"\n}"
-  recorded_at: Tue, 21 Nov 2023 21:59:13 GMT
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
+  recorded_at: Tue, 21 Nov 2023 22:48:30 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -1181,7 +869,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 21:59:14 GMT
+      - Tue, 21 Nov 2023 22:48:30 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -1238,7 +926,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Tue, 21 Nov 2023 21:59:14 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:30 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -1260,7 +948,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 21:59:14 GMT
+      - Tue, 21 Nov 2023 22:48:31 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -1268,26 +956,26 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Wed, 20 Nov 2024 21:59:14 GMT
+      - Wed, 20 Nov 2024 22:48:30 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829c32db6c0c28ba-IAD
+      - 829c7b088c0e200f-IAD
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EE98D266927B05F73709D4F9DF9B207156;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EE98D266927B05F73709D4F9DF9B207156;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=A4zlFOFIEcxlrRMxX%2Fo9xCZntuczuE9DaCVQoUAFZUITpuThxCmGB7gHkm%2FKbPgf2jBxBVFOlvNJ7tIN2fmWJ4eddBTaF9AH%2BFyxS4u6lMqMg%2Bz8tDaymdi5KR%2BlDUG3gBYrHRtg"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=eLgo1fH6rXFVfwEUhbxsmulO5uhVCLTnYYJKMH8saHYJ6F0ZK6TaECLtEwBEOCaM4%2Bu0fc%2BtKFnLfqNL9d%2Bfc4cZ%2FqUVL3YJQuawwAFHV0WRyiGBId9c4eznHi9ZExKPyPOZRzDc"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -1309,13 +997,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '19721'
+      - '16764'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '491'
+      - '489'
       X-Ratelimit-Regular-Requests-Reset:
-      - '19721'
+      - '16764'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -1451,7 +1139,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:14 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -1476,36 +1164,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-knfld; site=public_api_v3
-      Server:
-      - envoy
-      X-Zipkin-Id:
-      - d225b339dcf8b723
-      X-B3-Sampled:
-      - '0'
-      Ratelimit-Remaining:
-      - '4983.0'
       Ratelimit-Resettime:
       - '2023-11-22T00:00:00+00:00'
+      X-Zipkin-Id:
+      - 16db7fb7d59a74bd
       Ratelimit-Dailylimit:
       - '5000.0'
+      X-B3-Sampled:
+      - '0'
+      Server:
+      - envoy
+      Ratelimit-Remaining:
+      - '4973.0'
+      X-Routing-Service:
+      - routing-canary--useast1-75f85474b8-xf568; site=public_api_v3
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-177-138-useast1bprod
+      - 10-65-166-141-useast1bprod
       X-Extlb:
-      - 10-65-177-138-useast1bprod
+      - 10-65-166-141-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 21:59:15 GMT
+      - Tue, 21 Nov 2023 22:48:31 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8260-DEN
+      - cache-den8271-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1547,7 +1235,17 @@ http_interactions:
         East 8th Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80203", "country": "US", "state": "CO", "display_address": ["400 East 8th
         Ave", "Denver, CO 80203"]}, "phone": "+13038665344", "display_phone": "(303)
-        866-5344", "distance": 1404.357812494085}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
+        866-5344", "distance": 1404.357812494085}, {"id": "DAaMrNr77AQPgKwYr64D0g",
+        "alias": "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow
+        and Calf", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
+        "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
+        W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
+        "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
+        ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
+        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
         "alias": "doors-open-denver-denver", "name": "Doors Open Denver", "image_url":
         "https://s3-media2.fl.yelpcdn.com/bphoto/cg8cynfrYlxsorGDy37D8A/o.jpg", "is_closed":
         false, "url": "https://www.yelp.com/biz/doors-open-denver-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
@@ -1559,19 +1257,9 @@ http_interactions:
         "Denver", "zip_code": "80202", "country": "US", "state": "CO", "display_address":
         ["Denver Office Of Cultural Affairs", "201 W Colfax Ave, Fl 7, Dept. 1007",
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
-        "distance": 813.8805269365123}, {"id": "DAaMrNr77AQPgKwYr64D0g", "alias":
-        "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow and Calf",
-        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
-        "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
-        W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
-        "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
-        ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
-        "phone": "", "display_phone": "", "distance": 521.0319402491014}], "total":
-        34, "region": {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:15 GMT
+        "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
+        -104.985798, "latitude": 39.740959}}}'
+  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -1596,36 +1284,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      Ratelimit-Dailylimit:
+      - '5000.0'
       Ratelimit-Remaining:
-      - '4982.0'
-      Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
+      - '4972.0'
+      X-Zipkin-Id:
+      - 8ddaa9cf755147a0
       Server:
       - envoy
-      X-Zipkin-Id:
-      - 8684011c0edd3efb
       X-B3-Sampled:
       - '0'
       X-Routing-Service:
-      - routing-main--useast1-58d7765b64-j8pjx; site=public_api_v3
-      Ratelimit-Dailylimit:
-      - '5000.0'
+      - routing-main--useast1-58d7765b64-qtmqb; site=public_api_v3
+      Ratelimit-Resettime:
+      - '2023-11-22T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-174-239-useast1bprod
+      - 10-65-177-138-useast1bprod
       X-Extlb:
-      - 10-65-174-239-useast1bprod
+      - 10-65-177-138-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 21:59:15 GMT
+      - Tue, 21 Nov 2023 22:48:31 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8246-DEN
+      - cache-den8242-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1691,5 +1379,5 @@ http_interactions:
         16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
         "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
         {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 21:59:15 GMT
+  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
 recorded_with: VCR 6.2.0

@@ -6,15 +6,9 @@ class PlacePoro
   def initialize(attributes)
     return if attributes.blank?
 
+    @name = attributes[:displayName][:text]
+    @address = attributes[:formattedAddress]
     @main = attributes[:main]
-
-    if attributes[:displayName].present?
-      @name = attributes[:displayName][:text]
-      @address = attributes[:formattedAddress]
-    else
-      @name = attributes[:name]
-      @address = attributes[:vicinity]
-    end
   end
 
   def serialized

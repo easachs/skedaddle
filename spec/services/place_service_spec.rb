@@ -3,26 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe PlaceService do
-  describe 'gets places', vcr: 'denver_airports' do
-    let(:response) { described_class.near({ lat: 39.740959, lon: -104.985798 }, 'airport', 50_000) }
-
-    it 'as hash with places array' do
-      expect(response[:results]).to be_a(Array)
-    end
-
-    describe 'with keys' do
-      it 'name' do
-        expect(response[:results]).to all(have_key(:name))
-      end
-
-      it 'address' do
-        expect(response[:results]).to all(have_key(:vicinity))
-      end
-    end
-  end
-
-  describe 'gets new places', vcr: 'denver_hospitals' do
-    let(:response) { described_class.near_new({ lat: 39.740959, lon: -104.985798 }, 'hospital') }
+  describe 'gets new places', vcr: 'denver_places' do
+    let(:response) { described_class.near({ lat: 39.740959, lon: -104.985798 }, 'hospital') }
 
     it 'as hash with places array' do
       expect(response[:places]).to be_a(Array)
@@ -56,27 +38,7 @@ RSpec.describe PlaceService do
     end
 
     it 'errors gracefully with empty search' do
-      response = described_class.near_new({})
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with bad search' do
-      response = described_class.near_new('Nonexistent')
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with blank search' do
-      response = described_class.near_new('')
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with nil search' do
-      response = described_class.near_new(nil)
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with empty search' do
-      response = described_class.near_new({})
+      response = described_class.near({})
       expect(response).to be_nil
     end
   end

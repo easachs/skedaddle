@@ -52,8 +52,8 @@ class ItinerariesController < ApplicationController
     return unless @geocode
 
     @items = {
-      airports: PlaceFacade.near(@geocode, 'airport', 5000),
-      hospitals: PlaceFacade.near_new(@geocode, 'hospital'),
+      airports: PlaceFacade.near(@geocode, 'airport', 50_000),
+      hospitals: PlaceFacade.near(@geocode, 'hospital'),
       parks: ParkFacade.near(@geocode),
       activities: find_businesses(:activities),
       restaurants: find_businesses(:restaurants)

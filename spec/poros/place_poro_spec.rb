@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe PlacePoro do
-  attributes = { name: 'Denver International Airport',
-                 vicinity: '8500 Pena Boulevard',
+  attributes = { displayName: { text: 'Denver International Airport' },
+                 formattedAddress: '8500 Pena Boulevard',
                  main: 'airport' }
 
   let(:place) { described_class.new(attributes) }
