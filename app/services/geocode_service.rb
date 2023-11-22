@@ -37,7 +37,7 @@ class GeocodeService
 
     def fb
       Faraday.new(url: 'https://wft-geo-db.p.rapidapi.com') do |f|
-        f.headers['X-RapidAPI-Key'] = ENV.fetch('GEOCODE_FALLBACK_API_KEY', nil)
+        f.headers['X-RapidAPI-Key'] = ENV.fetch('RAPID_API_KEY', nil)
       end
     end
   end

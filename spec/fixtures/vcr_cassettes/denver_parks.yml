@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Rapidapi-Key:
-      - "<TRAIL_API_KEY>"
+      - "<RAPID_API_KEY>"
       User-Agent:
       - Faraday v2.7.11
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 19 Oct 2023 21:20:36 GMT
+      - Wed, 22 Nov 2023 01:50:34 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -29,26 +29,26 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Fri, 18 Oct 2024 21:20:36 GMT
+      - Thu, 21 Nov 2024 01:50:33 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 818c10dfea42ec3c-SEA
+      - 829d85b2edebc701-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE52C4517F75C0D53CD65F89485863A8DEC;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=mfjH0m10%2BUrwBzgofRQxenGBAuhtVPjx38p5pcavvL3Y97MpyEXSDK97Zq5OVO726F8BLec98FGKpFFmmRKa4Vr%2BdyWll00Wq1v0QGdLkpB8psR4naM%2FySe5%2F7KIRYqWMxOHvUxl"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=c1egSY%2BdRgNZ%2Fv4MwMjAsITpkF434vpGI9hjX3chRDCHKQ0fsaSadh5Fo7bkbhVfmE4ZPpOdeONacbF8ErSp0mfiKCk%2FfBrKVyTecF47q2myJseRkHwzzYbHtAhh4GBdNQkpeDs%2B"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -70,13 +70,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '22039'
+      - '5841'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '500'
+      - '487'
       X-Ratelimit-Regular-Requests-Reset:
-      - '22039'
+      - '5841'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -212,5 +212,5 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Thu, 19 Oct 2023 21:20:36 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:34 GMT
 recorded_with: VCR 6.2.0

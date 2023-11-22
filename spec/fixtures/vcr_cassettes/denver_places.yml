@@ -10,7 +10,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      - "<GOOGLE_MAPS_KEY>"
       User-Agent:
       - Faraday v2.7.11
       X-Goog-Fieldmask:
@@ -31,7 +31,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 22:47:40 GMT
+      - Wed, 22 Nov 2023 01:50:34 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -88,5 +88,5 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Tue, 21 Nov 2023 22:47:40 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:34 GMT
 recorded_with: VCR 6.2.0

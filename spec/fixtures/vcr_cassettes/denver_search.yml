@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 22:48:26 GMT
+      - Wed, 22 Nov 2023 01:50:35 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,7 +35,7 @@ http_interactions:
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 37e1ce77-8759-4cc5-b7cc-ca4f22a92159
+      - 7a776081-00bd-40e1-93b8-4791c45f3610
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -45,21 +45,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24982'
+      - '24977'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.156'
+      - '0.151'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=l%2Fu1cXg7%2BPlN%2FRH3d%2BhkGNiZETXJ4CnH9B5R2dW2ATeNLMYhSEj2MLSgwwrFhpXWoQ2moiqQ1mcz0RoZz84porgNhtsJ%2F2zEc0nj8Riny5O1mDeDkNjDoHtSvWUdclyruWQtJGdMNZU%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ZeOH%2FYKaM8arESqXKFOtoa1V7KcBVfRJ4GuY4izPs5XrwJ1cJ3HcC03VG8bd4TbjtCCI56V9pluuE2THtYunikg6RmN7gvIfzCdjXPfu1DOzRO4s0PVRW14TK1FDoZoTzu%2Fp8MgOXyWzZulxNVYgGXq0XX4%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829c7aeed8ba1f25-DEN
+      - 829d85bc88515186-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -96,7 +96,7 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Tue, 21 Nov 2023 22:48:26 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:35 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -107,7 +107,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      - "<GOOGLE_MAPS_KEY>"
       User-Agent:
       - Faraday v2.7.11
       X-Goog-Fieldmask:
@@ -128,7 +128,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 22:48:27 GMT
+      - Wed, 22 Nov 2023 01:50:35 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -147,7 +147,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Tue, 21 Nov 2023 22:48:27 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:35 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -158,7 +158,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      - "<GOOGLE_MAPS_KEY>"
       User-Agent:
       - Faraday v2.7.11
       X-Goog-Fieldmask:
@@ -179,7 +179,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 22:48:27 GMT
+      - Wed, 22 Nov 2023 01:50:35 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -236,7 +236,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Tue, 21 Nov 2023 22:48:27 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:35 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -245,7 +245,7 @@ http_interactions:
       string: ''
     headers:
       X-Rapidapi-Key:
-      - "<TRAIL_API_KEY>"
+      - "<RAPID_API_KEY>"
       User-Agent:
       - Faraday v2.7.11
       Accept-Encoding:
@@ -258,7 +258,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 22:48:28 GMT
+      - Wed, 22 Nov 2023 01:50:36 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -266,26 +266,26 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Wed, 20 Nov 2024 22:48:28 GMT
+      - Thu, 21 Nov 2024 01:50:36 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829c7af75b16241a-IAD
+      - 829d85c46dd9c36d-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=k82V4DxRSCo4edrPdOrPmdwdNKzZJ2U6yA3Eb7y6G1k0TZG%2Bn1UwzcgPY5mK7LV0SfRq1ipis30zP1e3XxoCztZHGfcN9%2BE73CJP%2BL5cOOzfUgIN0Sjjrk07zjIljeLv%2BMH%2FMzdZ"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=f6U4blx7kcgOYo0PStehG7Z5xyrUCf3IN%2BqlTSZYRCteNyO3H3BIOz%2F%2BOUya9i7y53NSX5g2W2xsOm3v1ZX1Mvs%2FWaHzCsOsxRRVXwjMxys6D4vevJRHdRrdOyDbcu1b3tVEWI5C"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -307,19 +307,19 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '16767'
+      - '5839'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '490'
+      - '486'
       X-Ratelimit-Regular-Requests-Reset:
-      - '16767'
+      - '5839'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
       - 1.2.8
       X-Rapidapi-Region:
-      - AWS - us-east-1
+      - AWS - us-west-2
     body:
       encoding: ASCII-8BIT
       string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
@@ -449,7 +449,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:28 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:36 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -474,36 +474,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-ctmmz; site=public_api_v3
-      X-B3-Sampled:
-      - '0'
       Server:
       - envoy
-      Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
-      Ratelimit-Remaining:
-      - '4975.0'
       Ratelimit-Dailylimit:
       - '5000.0'
+      Ratelimit-Remaining:
+      - '4999.0'
+      Ratelimit-Resettime:
+      - '2023-11-23T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-58d7765b64-nq6pp; site=public_api_v3
       X-Zipkin-Id:
-      - becdb88a0571de7e
+      - a44fbdca056f7f0c
+      X-B3-Sampled:
+      - '0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-68-134-useast1aprod
+      - 10-65-166-141-useast1bprod
       X-Extlb:
-      - 10-65-68-134-useast1aprod
+      - 10-65-166-141-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 22:48:28 GMT
+      - Wed, 22 Nov 2023 01:50:37 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8262-DEN
+      - cache-den8258-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -569,7 +569,7 @@ http_interactions:
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
         "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:28 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:37 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -594,36 +594,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
-      X-Zipkin-Id:
-      - b5eea7afa08922a0
       X-Routing-Service:
-      - routing-main--useast1-58d7765b64-cv2cp; site=public_api_v3
-      X-B3-Sampled:
-      - '0'
+      - routing-main--useast1-58d7765b64-qtmqb; site=public_api_v3
+      Ratelimit-Remaining:
+      - '4998.0'
+      X-Zipkin-Id:
+      - 88b3d76ca745e2fb
       Server:
       - envoy
+      X-B3-Sampled:
+      - '0'
       Ratelimit-Dailylimit:
       - '5000.0'
-      Ratelimit-Remaining:
-      - '4974.0'
+      Ratelimit-Resettime:
+      - '2023-11-23T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-166-141-useast1bprod
+      - 10-65-121-164-useast1aprod
       X-Extlb:
-      - 10-65-166-141-useast1bprod
+      - 10-65-121-164-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 22:48:29 GMT
+      - Wed, 22 Nov 2023 01:50:37 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8256-DEN
+      - cache-den8248-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -689,7 +689,7 @@ http_interactions:
         16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
         "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
         {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:29 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:37 GMT
 - request:
     method: get
     uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
@@ -709,7 +709,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 22:48:29 GMT
+      - Wed, 22 Nov 2023 01:50:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -725,7 +725,7 @@ http_interactions:
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 04acbbdd-ca65-4344-98c9-6cd7caf09e4d
+      - 2a3a17b0-af20-4a85-96c0-f3f5983c4f73
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -735,21 +735,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24981'
+      - '24976'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.129'
+      - '0.132'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=puI3CsMRm79xyeCf7fBst0lZ3w2t1wRtR4d3%2BtmnkOQ%2B3ujdSTVx8uvxSHAUFQcUVa%2Fdj6DguWrrEOeWT%2FNc7%2Bubwpmm2ZKtHMQxGQ4zWVgukyY49UWN%2FQNcGjW9bYtr1VCX8iAGP8E%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=bwfCQkhEVO06AGlwUaB26F2Z1uVnBhgCzuPcdJh9ItOEmUvA%2FCx8jVD%2FdbFKgM2k60So5pyCtNUeaNSnwvWMG%2FwAGAagMuPbSgraxTYi79H2b4CazogxthNjXnEYGMF0oCSL8gKVo3XAn%2FQmYZoNRwMeY4U%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829c7b016921533b-DEN
+      - 829d85cf2cb41f41-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -786,7 +786,7 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Tue, 21 Nov 2023 22:48:29 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:38 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -797,7 +797,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      - "<GOOGLE_MAPS_KEY>"
       User-Agent:
       - Faraday v2.7.11
       X-Goog-Fieldmask:
@@ -818,7 +818,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 22:48:30 GMT
+      - Wed, 22 Nov 2023 01:50:38 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -837,7 +837,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Tue, 21 Nov 2023 22:48:30 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:38 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -848,7 +848,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Goog-Api-Key:
-      - AIzaSyCJ33zmfR8Sd3whmTBxHYBrrpx-XW7jC3w
+      - "<GOOGLE_MAPS_KEY>"
       User-Agent:
       - Faraday v2.7.11
       X-Goog-Fieldmask:
@@ -869,7 +869,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Tue, 21 Nov 2023 22:48:30 GMT
+      - Wed, 22 Nov 2023 01:50:38 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -926,7 +926,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Tue, 21 Nov 2023 22:48:30 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:38 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -935,7 +935,7 @@ http_interactions:
       string: ''
     headers:
       X-Rapidapi-Key:
-      - "<TRAIL_API_KEY>"
+      - "<RAPID_API_KEY>"
       User-Agent:
       - Faraday v2.7.11
       Accept-Encoding:
@@ -948,7 +948,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 21 Nov 2023 22:48:31 GMT
+      - Wed, 22 Nov 2023 01:50:39 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -956,13 +956,13 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Wed, 20 Nov 2024 22:48:30 GMT
+      - Thu, 21 Nov 2024 01:50:39 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829c7b088c0e200f-IAD
+      - 829d85d6cabec4d4-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
@@ -975,7 +975,7 @@ http_interactions:
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=eLgo1fH6rXFVfwEUhbxsmulO5uhVCLTnYYJKMH8saHYJ6F0ZK6TaECLtEwBEOCaM4%2Bu0fc%2BtKFnLfqNL9d%2Bfc4cZ%2FqUVL3YJQuawwAFHV0WRyiGBId9c4eznHi9ZExKPyPOZRzDc"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cHzgDayYtBGjieOotWXtbkftZF4sOM8cJo8TjIa%2BgpHcuOFLa%2FBwdSDe7pDOwc0eyG82RtUQv2WDG8H3gRzxVhv5gbxZlhkirYZ86BebSZZfwA0eEvKuyV4tBvGdRjwDM09laC0%2B"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -997,19 +997,19 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '16764'
+      - '5836'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '489'
+      - '485'
       X-Ratelimit-Regular-Requests-Reset:
-      - '16764'
+      - '5836'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
       - 1.2.8
       X-Rapidapi-Region:
-      - AWS - us-east-1
+      - AWS - us-west-2
     body:
       encoding: ASCII-8BIT
       string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
@@ -1139,7 +1139,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:39 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -1164,36 +1164,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
-      X-Zipkin-Id:
-      - 16db7fb7d59a74bd
-      Ratelimit-Dailylimit:
-      - '5000.0'
       X-B3-Sampled:
       - '0'
+      Ratelimit-Resettime:
+      - '2023-11-23T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-58d7765b64-bs2hb; site=public_api_v3
       Server:
       - envoy
+      X-Zipkin-Id:
+      - 5cd5485218a905e4
+      Ratelimit-Dailylimit:
+      - '5000.0'
       Ratelimit-Remaining:
-      - '4973.0'
-      X-Routing-Service:
-      - routing-canary--useast1-75f85474b8-xf568; site=public_api_v3
+      - '4997.0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-166-141-useast1bprod
+      - 10-65-89-125-useast1aprod
       X-Extlb:
-      - 10-65-166-141-useast1bprod
+      - 10-65-89-125-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 22:48:31 GMT
+      - Wed, 22 Nov 2023 01:50:40 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8271-DEN
+      - cache-den8258-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1259,7 +1259,7 @@ http_interactions:
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
         "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:40 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
@@ -1284,36 +1284,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      Ratelimit-Dailylimit:
-      - '5000.0'
-      Ratelimit-Remaining:
-      - '4972.0'
-      X-Zipkin-Id:
-      - 8ddaa9cf755147a0
       Server:
       - envoy
+      X-Zipkin-Id:
+      - b65024fd8d423225
       X-B3-Sampled:
       - '0'
+      Ratelimit-Dailylimit:
+      - '5000.0'
       X-Routing-Service:
-      - routing-main--useast1-58d7765b64-qtmqb; site=public_api_v3
+      - routing-main--useast1-58d7765b64-c5wkg; site=public_api_v3
+      Ratelimit-Remaining:
+      - '4996.0'
       Ratelimit-Resettime:
-      - '2023-11-22T00:00:00+00:00'
+      - '2023-11-23T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-177-138-useast1bprod
+      - 10-65-152-214-useast1bprod
       X-Extlb:
-      - 10-65-177-138-useast1bprod
+      - 10-65-152-214-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 21 Nov 2023 22:48:31 GMT
+      - Wed, 22 Nov 2023 01:50:40 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8242-DEN
+      - cache-den8272-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1379,5 +1379,5 @@ http_interactions:
         16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
         "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
         {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 21 Nov 2023 22:48:31 GMT
+  recorded_at: Wed, 22 Nov 2023 01:50:40 GMT
 recorded_with: VCR 6.2.0

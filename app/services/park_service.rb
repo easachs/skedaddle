@@ -25,7 +25,7 @@ class ParkService
 
     def conn
       Faraday.new(url: 'https://trailapi-trailapi.p.rapidapi.com') do |faraday|
-        faraday.headers['X-RapidAPI-Key'] = ENV.fetch('TRAIL_API_KEY', nil)
+        faraday.headers['X-RapidAPI-Key'] = ENV.fetch('RAPID_API_KEY', nil)
       end
     end
   end

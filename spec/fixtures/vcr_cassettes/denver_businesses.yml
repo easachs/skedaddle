@@ -24,36 +24,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      X-Routing-Service:
+      - routing-main--useast1-58d7765b64-cv2cp; site=public_api_v3
+      X-Zipkin-Id:
+      - b284618b3e843432
       X-B3-Sampled:
       - '0'
-      X-Zipkin-Id:
-      - f31f42e2b88ad058
-      X-Routing-Service:
-      - routing-main--useast1-d8f5f795-csthn; site=public_api_v3
       Server:
       - envoy
       Ratelimit-Dailylimit:
       - '5000.0'
       Ratelimit-Remaining:
-      - '4940.0'
+      - '5000.0'
       Ratelimit-Resettime:
-      - '2023-10-25T00:00:00+00:00'
+      - '2023-11-23T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-110-68-useast1aprod
+      - 10-65-166-141-useast1bprod
       X-Extlb:
-      - 10-65-110-68-useast1aprod
+      - 10-65-166-141-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 24 Oct 2023 10:06:49 GMT
+      - Wed, 22 Nov 2023 01:50:30 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8272-DEN
+      - cache-den8247-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -69,57 +69,55 @@ http_interactions:
       string: '{"businesses": [{"id": "XluydvQpT75gjiuRSclhcQ", "alias": "the-denver-central-market-denver-2",
         "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/T3il49tjzYbnKg59PyFwnA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/the-denver-central-market-denver-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 562, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 565, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "meats", "title": "Meat Shops"}, {"alias": "food_court", "title":
         "Food Court"}], "rating": 4.5, "coordinates": {"latitude": 39.75936357492905,
         "longitude": -104.98454807433254}, "transactions": [], "price": "$$", "location":
         {"address1": "2669 Larimer St", "address2": "", "address3": null, "city":
         "Denver", "zip_code": "80205", "country": "US", "state": "CO", "display_address":
         ["2669 Larimer St", "Denver, CO 80205"]}, "phone": "", "display_phone": "",
-        "distance": 2041.0193004532712}, {"id": "OJt3oJWYyiIIM4LQY0MGWg", "alias":
-        "noisette-restaurant-and-bakery-denver", "name": "Noisette Restaurant & Bakery",
-        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
+        "distance": 2041.0193004532712}, {"id": "VQkLfjcM6qPoIbHDuOpZow", "alias":
+        "lodough-bakery-denver", "name": "LoDough Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 48, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
+        "title": "Patisserie/Cake Shop"}], "rating": 5.0, "coordinates": {"latitude":
+        39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
+        "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
+        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
+        Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
+        "", "distance": 1668.850192727582}, {"id": "gXtTb3-jvyCjQzqWennfLg", "alias":
+        "izzio-bakery-denver", "name": "Izzio Bakery", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 261, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
+        "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
+        ["pickup", "delivery"], "price": "$", "location": {"address1": "2669 Larimer
+        St", "address2": null, "address3": "The Denver Central Market", "city": "Denver",
+        "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
+        Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
+        "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
+        "OJt3oJWYyiIIM4LQY0MGWg", "alias": "noisette-restaurant-and-bakery-denver",
+        "name": "Noisette Restaurant & Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/noisette-restaurant-and-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 50, "categories": [{"alias": "french", "title": "French"},
-        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.5, "coordinates":
+        "review_count": 57, "categories": [{"alias": "french", "title": "French"},
+        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.0, "coordinates":
         {"latitude": 39.7631, "longitude": -105.00386}, "transactions": [], "location":
         {"address1": "3254 Navajo St", "address2": "Ste 100", "address3": "", "city":
         "Denver", "zip_code": "80211", "country": "US", "state": "CO", "display_address":
         ["3254 Navajo St", "Ste 100", "Denver, CO 80211"]}, "phone": "+17207698103",
         "display_phone": "(720) 769-8103", "distance": 2903.444792201384}, {"id":
-        "gXtTb3-jvyCjQzqWennfLg", "alias": "izzio-bakery-denver", "name": "Izzio Bakery",
-        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 254, "categories": [{"alias": "bakeries", "title": "Bakeries"},
-        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
-        "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
-        ["delivery", "pickup"], "price": "$", "location": {"address1": "2669 Larimer
-        St", "address2": null, "address3": "The Denver Central Market", "city": "Denver",
-        "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
-        Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
-        "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
-        "VQkLfjcM6qPoIbHDuOpZow", "alias": "lodough-bakery-denver", "name": "LoDough
-        Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 46, "categories": [{"alias": "bakeries", "title": "Bakeries"},
-        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
-        "title": "Patisserie/Cake Shop"}], "rating": 4.5, "coordinates": {"latitude":
-        39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
-        "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
-        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
-        Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
-        "", "distance": 1668.850192727582}, {"id": "A1oufYgb0ecwVPmfEDydSg", "alias":
-        "tokyo-premium-bakery-denver", "name": "Tokyo Premium Bakery", "image_url":
-        "https://s3-media2.fl.yelpcdn.com/bphoto/i7ST1Ca9IbuBQ3iH9R-l4w/o.jpg", "is_closed":
-        false, "url": "https://www.yelp.com/biz/tokyo-premium-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 421, "categories": [{"alias": "bakeries", "title": "Bakeries"},
-        {"alias": "coffee", "title": "Coffee & Tea"}, {"alias": "sandwiches", "title":
-        "Sandwiches"}], "rating": 5.0, "coordinates": {"latitude": 39.6886424604571,
-        "longitude": -104.980284001852}, "transactions": ["delivery"], "price": "$",
-        "location": {"address1": "1540 S Pearl St", "address2": null, "address3":
-        "", "city": "Denver", "zip_code": "80210", "country": "US", "state": "CO",
-        "display_address": ["1540 S Pearl St", "Denver, CO 80210"]}, "phone": "+17205313784",
-        "display_phone": "(720) 531-3784", "distance": 5844.674042218187}], "total":
-        178, "region": {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Tue, 24 Oct 2023 10:06:49 GMT
+        "-NiqMIz4qkOwYXlb5CmywQ", "alias": "little-finch-denver", "name": "Little
+        Finch", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/bImeAUeRcl5J09cVex33zQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/little-finch-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 84, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cafes",
+        "title": "Cafes"}], "rating": 4.5, "coordinates": {"latitude": 39.75034, "longitude":
+        -104.99916}, "transactions": ["pickup", "delivery"], "price": "$$", "location":
+        {"address1": "1490 16th St", "address2": null, "address3": "", "city": "Denver",
+        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1490
+        16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
+        "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
+        {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
+  recorded_at: Wed, 22 Nov 2023 01:50:30 GMT
 recorded_with: VCR 6.2.0
