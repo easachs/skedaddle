@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'contact', to: 'home#contact'
   get 'received', to: 'home#received'
 
-  resources :itineraries, except: %i[edit update]
+  resources :itineraries, except: %i[edit update] do
+    post 'prepare', on: :collection
+  end
   resources :parks, only: %i[destroy]
   resources :businesses, only: %i[destroy]
 

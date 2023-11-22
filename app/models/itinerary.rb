@@ -20,12 +20,12 @@ class Itinerary < ApplicationRecord
   end
 
   def activities
-    activities = businesses.where(group: 'activities')
-    activities.group_by(&:main)
+    businesses.where(group: 'activities')
+              .group_by(&:main)
   end
 
   def restaurants
-    restaurants = businesses.where(group: 'restaurants')
-    restaurants.group_by(&:main)
+    businesses.where(group: 'restaurants')
+              .group_by(&:main)
   end
 end

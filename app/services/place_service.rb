@@ -5,8 +5,7 @@ class PlaceService
     def near(location = {}, main = '', radius = 5000)
       return unless location.is_a?(Hash) && location.present? && main.present?
 
-      cache_key = "PlaceService/#{main}/near/#{location[:lat]}/#{location[:lon]}"
-      Rails.cache.fetch(cache_key, expires_in: 7.days) do
+      Rails.cache.fetch("PlaceService/#{main}/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
         response = conn.post('/v1/places:searchNearby') do |route|
           route.headers['X-Goog-FieldMask'] = 'places.formattedAddress,places.displayName'
           route.body = payload(location, main, radius)

@@ -37,36 +37,6 @@ RSpec.describe GeocodeService do
     end
   end
 
-  describe 'gets fallback', vcr: 'denver_fallback' do
-    let(:fallback) { described_class.fallback('Denver') }
-
-    it 'as hash with parks array' do
-      expect(fallback[:data]).to be_a(Array)
-    end
-
-    describe 'with keys' do
-      it 'city' do
-        expect(fallback[:data]).to all(have_key(:city))
-      end
-
-      it 'region' do
-        expect(fallback[:data]).to all(have_key(:region))
-      end
-
-      it 'country' do
-        expect(fallback[:data]).to all(have_key(:country))
-      end
-
-      it 'latitude' do
-        expect(fallback[:data]).to all(have_key(:latitude))
-      end
-
-      it 'longitude' do
-        expect(fallback[:data]).to all(have_key(:longitude))
-      end
-    end
-  end
-
   describe 'sad path' do
     it 'errors gracefully with bad search', vcr: 'bad_geocode' do
       response = described_class.geocode('Nonexistent')

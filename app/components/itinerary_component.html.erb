@@ -34,12 +34,12 @@
 
     <% if saved %>
       <%= form_with url: itinerary_path(id), method: :delete do |form| %>
-        <%= form.submit 'Delete', class: 'blue-btn mb-2' %>
+        <%= form.submit 'Delete', class: 'blue-btn mb-2', data: { turbo: false } %>
       <% end %>
     <% else %>
       <%= form_with url: itineraries_path, method: :post do |form| %>
         <%= form.hidden_field :search, value: search %>
-        <p><%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %></p>
+        <%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %>
       <% end %>
       <%= link_to 'Search Again', root_path %>
     <% end %>
