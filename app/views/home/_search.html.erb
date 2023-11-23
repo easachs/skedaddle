@@ -34,19 +34,19 @@
             <% end %>
 
             Where would you like to <b>stay?</b>
-            <%= render CheckboxComponent.new data: lodging_data,
-                                             prefix: 'lodging',
-                                             size: 2 %>
+            <%= render Core::CheckboxComponent.new data: lodging_data,
+                                                   prefix: 'lodging',
+                                                   size: 2 %>
 
             Where would you like to <b>go?</b>
-            <%= render CheckboxComponent.new data: activity_data,
-                                             prefix: 'activities',
-                                             size: 5 %>
+            <%= render Core::CheckboxComponent.new data: activity_data,
+                                                   prefix: 'activities',
+                                                   size: 5 %>
 
             Where would you like to <b>eat?</b>
-            <%= render CheckboxComponent.new data: restaurant_data,
-                                             prefix: 'restaurants',
-                                             size: 6 %>
+            <%= render Core::CheckboxComponent.new data: restaurant_data,
+                                                   prefix: 'restaurants',
+                                                   size: 6 %>
 
             <p class='py-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
                                                          class: 'blue-btn' %></p>
@@ -56,6 +56,6 @@
     <% end %>
   <% end %>
   <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
-    <%= render CarouselComponent.new %>
+    <%= render Core::CarouselComponent.new %>
   <% end %>
 <% end %>

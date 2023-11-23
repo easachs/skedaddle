@@ -1,6 +1,0 @@
-<% if items&.any? %>
-  <%= content_tag :div, id: category.downcase do %>
-    <h3><b><%= category.capitalize %></b></h3>
-    <%= render BusinessComponent.with_collection(items, saved:) %>
-  <% end %>
-<% end %>

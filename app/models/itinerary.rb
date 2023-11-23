@@ -7,25 +7,12 @@ class Itinerary < ApplicationRecord
   has_many :parks, dependent: :destroy
   has_many :businesses, dependent: :destroy
 
-  def date
-    created_at.strftime('%m/%d/%y')
-  end
+  def date = created_at.strftime('%m/%d/%y')
 
-  def airports
-    places.where(main: 'airport')
-  end
+  def airports = places.where(main: 'airport')
+  def hospitals = places.where(main: 'hospital')
+  def activities = businesses.where(group: 'activities').group_by(&:main)
+  def restaurants = businesses.where(group: 'restaurants').group_by(&:main)
 
-  def hospitals
-    places.where(main: 'hospital')
-  end
-
-  def activities
-    businesses.where(group: 'activities')
-              .group_by(&:main)
-  end
-
-  def restaurants
-    businesses.where(group: 'restaurants')
-              .group_by(&:main)
-  end
+  def items = { airports:, hospitals:, parks:, activities:, restaurants: }
 end
