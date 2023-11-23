@@ -17,7 +17,8 @@ RSpec.describe 'Home Page' do
         } }
     )
     visit root_path
-    click_button('Sign In')
+    click_link('Sign In')
+    click_button('Sign In with GoogleOauth2')
   end
 
   it 'visits the home page, logs in and logs out' do

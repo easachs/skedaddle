@@ -1,26 +1,48 @@
-<h2>Log in</h2>
+<%= content_tag :div, class: 'lg:flex items-center' do %>
+  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
+    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
+      <%= turbo_frame_tag 'home' do %>
+        <div class='p-4 text-center'>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+            <h1 class='text-3xl font-bold'>Sign In</h1>
+              <br>
+              <div class='lg:flex'>
+                <div class='lg:w-1/2 lg:pr-1'>
+                  <%= form.email_field      :email,
+                                            placeholder: 'Email',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autofocus: true,
+                                            autocomplete: 'email',
+                                            required: true %>
+                </div>
+                <div class='lg:w-1/2 lg:pl-1'>
+                  <%= form.password_field   :password,
+                                            placeholder: 'Password',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autocomplete: 'current-password',
+                                            required: true %>
+                </div>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <% if devise_mapping.rememberable? %>
+                <div class='mb-2'>
+                  <%= form.check_box :remember_me %>
+                  <%= form.label :remember_me %>
+                </div>
+              <% end %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+            <div class='text-center'>
+              <%= form.submit 'Sign In', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded', data: { turbo: false } %>
+            </div>
+          <% end %>
+          <div class='m-2'>
+            <%= render 'devise/shared/links' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
+    <%= render Core::CarouselComponent.new %>
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>

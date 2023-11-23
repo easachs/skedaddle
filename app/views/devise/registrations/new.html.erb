@@ -1,29 +1,51 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<%= content_tag :div, class: 'lg:flex items-center' do %>
+  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
+    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
+      <%= turbo_frame_tag 'home' do %>
+        <div class='p-4 text-center'>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+            <div class='mb-2'>
+              <%= render 'devise/shared/error_messages', resource: %>
+            </div>
+            
+            <h1 class='text-3xl font-bold'>Sign Up</h1>
+              <br>
+              <div class='lg:flex'>
+                <div class='lg:w-1/2 lg:pr-1'>
+                  <%= form.email_field      :email,
+                                            placeholder: 'Email',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autofocus: true,
+                                            autocomplete: 'email',
+                                            required: true %>
+                </div>
+                <div class='lg:w-1/2 lg:px-1'>
+                  <%= form.password_field   :password,
+                                            placeholder: 'Password',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autocomplete: 'new-password',
+                                            required: true %>
+                </div>
+                <div class='lg:w-1/2 lg:pl-1'>
+                  <%= form.password_field   :password_confirmation,
+                                            placeholder: 'Password confirmation',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autocomplete: 'new-password',
+                                            required: true %>
+                </div>
+              </div>
+            <div class='text-center'>
+              <%= form.submit 'Sign Up', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded', data: { turbo: false } %>
+            </div>
+          <% end %>
+          <div class='m-2'>
+            <%= render 'devise/shared/links' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
+    <%= render Core::CarouselComponent.new %>
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>

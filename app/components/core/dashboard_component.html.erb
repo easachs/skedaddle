@@ -5,7 +5,7 @@
     <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' }, class: 'm-2' if @logged_in %>
     <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'm-2' if @logged_in %>
     <%= unless @logged_in
-          button_to 'Sign In', user_google_oauth2_omniauth_authorize_path, class: 'm-2', data: { turbo: false }
+          link_to 'Sign In', new_user_session_path, class: 'm-2', data: { turbo_frame: 'home' }
         end %>
   <% end %>
 

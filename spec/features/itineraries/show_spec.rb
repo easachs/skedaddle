@@ -16,8 +16,8 @@ RSpec.describe 'Itinerary Show' do
           'token' => 'TOKEN'
         } }
     )
-    visit root_path
-    click_button('Sign In')
+    visit new_user_session_path
+    click_button('Sign In with GoogleOauth2')
   end
 
   it 'redirects from nonexistent itinerary' do

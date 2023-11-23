@@ -16,8 +16,8 @@ RSpec.describe 'Itinerary Index' do
           'token' => 'TOKEN'
         } }
     )
-    visit root_path
-    click_button('Sign In')
+    visit new_user_session_path
+    click_button('Sign In with GoogleOauth2')
   end
 
   describe 'displays itineraries with', vcr: 'denver_search' do
