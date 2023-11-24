@@ -7,7 +7,7 @@
             <div class='mb-2'>
               <%= render 'devise/shared/error_messages', resource: %>
             </div>
-            
+
             <h1 class='text-3xl font-bold'>Reset password</h1>
               <br>
               <div class='lg:flex'>
@@ -30,7 +30,8 @@
 
               <%= form.hidden_field :reset_password_token %>
             <div class='text-center'>
-              <%= form.submit 'Confirm', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded', data: { turbo: false } %>
+              <%= form.submit 'Confirm', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded',
+                                         data: { turbo: false } %>
             </div>
           <% end %>
           <div class='m-2'>

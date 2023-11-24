@@ -2,9 +2,9 @@
   <%= image_tag @business.thumbnail, class: 'image-format m-2' if @business.thumbnail.present? %>
   <%= link_to @business.name, @business.url, class: 'font-bold m-2' %>
   <p class="m-2"><b>Rating: </b><%= @business.rating %></p>
-  <%= content_tag :p, "<b>Price: </b>#{@business.price}".html_safe, class: 'm-2' if @business.price.present? %>
+  <%= content_tag :p, safe_join([content_tag(:b, 'Price: '), @business.price]), class: 'm-2' if @business.price %>
   <p class="m-2"><b>Categories: </b><%= @business.categories %></p>
   <p class="m-2"><b>Location: </b><%= @business.location %></p>
-  <%= content_tag :p, "<b>Phone: </b>#{@business.phone}".html_safe, class: 'm-2' if @business.phone.present? %>
+  <%= content_tag :p, safe_join([content_tag(:b, 'Phone: '), @business.phone]), class: 'm-2' if @business.phone %>
   <%= button_to "Remove #{@business.name}", business_path(@business), method: :delete, class: 'm-2' if @saved %>
 <% end %>

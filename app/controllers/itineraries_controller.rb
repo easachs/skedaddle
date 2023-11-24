@@ -13,7 +13,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    redirect_to itineraries_path if @itinerary.user_id != current_user.id
+    redirect_to itineraries_path if @itinerary.user != current_user
   rescue StandardError
     redirect_to itineraries_path
   end
@@ -33,6 +33,7 @@ class ItinerariesController < ApplicationController
   def create
     itinerary = current_user.itineraries.create!(@geocode)
     populate(itinerary) if itinerary.persisted?
+    clear_session
     redirect_to itinerary_path(itinerary)
   end
 
@@ -44,9 +45,11 @@ class ItinerariesController < ApplicationController
   private
 
   def initialize_session
-    session[:search] = params[:search]
-    session[:activities] = params[:activities]
-    session[:restaurants] = params[:restaurants]
+    %i[search activities restaurants].each { |key| session[key] = params[key] }
+  end
+
+  def clear_session
+    %i[search activities restaurants].each { |key| session.delete(key) }
   end
 
   def geocode

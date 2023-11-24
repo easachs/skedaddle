@@ -7,7 +7,7 @@
             <div class='mb-2'>
               <%= render 'devise/shared/error_messages', resource: %>
             </div>
-            
+
             <h1 class='text-3xl font-bold'>Sign Up</h1>
               <br>
               <div class='lg:flex'>
@@ -35,7 +35,8 @@
                 </div>
               </div>
             <div class='text-center'>
-              <%= form.submit 'Sign Up', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded', data: { turbo: false } %>
+              <%= form.submit 'Sign Up', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded',
+                                         data: { turbo: false } %>
             </div>
           <% end %>
           <div class='m-2'>
