@@ -2,9 +2,9 @@
 
 module Core
   class DashboardComponent < ViewComponent::Base
-    def initialize(logged_in: false)
+    def initialize(signed_in: false)
       super
-      @logged_in = logged_in
+      @signed_in = signed_in
     end
   end
 end

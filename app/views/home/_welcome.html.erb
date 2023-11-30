@@ -9,7 +9,9 @@
           <br>
           <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the best destinations and crafting the perfect itinerary.</p>
           <br>
-          <p>If you're new, log in using your <b>Google account</b>.</p>
+          <p>If you're new, sign up with
+            <%= link_to 'your email', new_user_registration_path, class: 'font-bold' %> or using your
+            <%= button_to 'Google account', user_google_oauth2_omniauth_authorize_path, form: { style: 'display: inline;' }, class: 'font-bold', data: { turbo: false } %>.</p>
           <p>If you've traveled with us before, welcome back!</p>
         </div>
       <% end %>

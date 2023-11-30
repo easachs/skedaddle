@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ItinerariesController < ApplicationController
+  before_action :not_signed_in
   before_action :geocode, :find_items, only: %i[new create]
-  before_action :not_logged_in
 
   def index
     @itineraries = current_user.itineraries
@@ -13,9 +13,13 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    redirect_to itineraries_path if @itinerary.user != current_user
+    if @itinerary.user != current_user
+      redirect_to itineraries_path
+      flash[:error] = t('flash.errors.no_access')
+    end
   rescue StandardError
     redirect_to itineraries_path
+    flash[:error] = t('flash.errors.no_results')
   end
 
   def prepare
@@ -43,6 +47,13 @@ class ItinerariesController < ApplicationController
   end
 
   private
+
+  def not_signed_in
+    return unless current_user.nil?
+
+    redirect_to root_path
+    flash[:error] = t('flash.errors.must_sign_in')
+  end
 
   def initialize_session
     %i[search activities restaurants].each { |key| session[key] = params[key] }

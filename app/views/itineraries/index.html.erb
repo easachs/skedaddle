@@ -6,6 +6,13 @@
           <h1 class="text-3xl font-bold">Itineraries</h1>
         </div>
 
+        <% if @itineraries.blank? %>
+          <%= content_tag :div, class: 'text-center' do %>
+            Looks like your travel plans are still up in the air! Click
+            <%= link_to 'here', root_path, class: 'font-bold' %> to craft an itinerary.
+          <% end %>
+        <% end %>
+
         <% @itineraries.each do |itinerary| %>
           <div class="pl-4">
             <h5 class="text-xl font-semibold">
