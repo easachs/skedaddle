@@ -1,19 +1,21 @@
-<%- if controller_name != 'sessions' %>
-  <p><%= link_to 'Sign In', new_session_path(resource_name) %></p>
-<% end %>
+<%= content_tag :div, class: 'font-bold' do %>
+  <%- if controller_name != 'sessions' %>
+    <p><%= link_to 'Sign In', new_session_path(resource_name) %></p>
+  <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p><%= link_to 'Sign Up', new_registration_path(resource_name) %></p>
-<% end %>
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <p><%= link_to 'Sign Up', new_registration_path(resource_name) %></p>
+  <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <p><%= link_to 'Forgot your password?', new_password_path(resource_name) %></p>
-<% end %>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <p><%= link_to 'Forgot your password?', new_password_path(resource_name) %></p>
+  <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <p><%= button_to "Sign In with #{OmniAuth::Utils.camelize(provider)}",
-                     omniauth_authorize_path(resource_name, provider),
-                     data: { turbo: false } %></p>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <p><%= button_to "Sign In with #{OmniAuth::Utils.camelize(provider)}",
+                       omniauth_authorize_path(resource_name, provider),
+                       data: { turbo: false } %></p>
+    <% end %>
   <% end %>
 <% end %>

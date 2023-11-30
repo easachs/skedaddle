@@ -4,11 +4,10 @@
       <%= turbo_frame_tag 'home' do %>
         <div class='p-4 text-center'>
           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
-            <div class='mb-2'>
-              <%= render 'devise/shared/error_messages', resource: %>
-            </div>
+            <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
-            <h1 class='text-3xl font-bold'>Forgot your password?</h1>
+            <h1 class='text-3xl font-bold mb-2'>Forgot your password?</h1>
+              <p>Seems like you've taken a detour! Let's chart a course back to accessing your account.</p>
               <br>
               <div class=''>
                 <div>
@@ -21,7 +20,7 @@
                 </div>
               </div>
             <div class='text-center'>
-              <%= form.submit 'Send Link', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded' %>
+              <%= form.submit 'Send Link', class: 'blue-btn' %>
             </div>
           <% end %>
 

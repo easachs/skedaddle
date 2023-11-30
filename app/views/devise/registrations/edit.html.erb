@@ -12,26 +12,11 @@
               <br>
               <div class='lg:flex'>
                 <div class='lg:w-1/2 lg:pr-1'>
-                  <%= form.email_field      :email,
-                                            placeholder: 'Email',
+                  <%= form.text_field       :name,
+                                            placeholder: 'Name',
                                             class: 'w-full h-8 mb-2 rounded',
                                             autofocus: true,
-                                            autocomplete: 'email',
-                                            required: true %>
-                </div>
-                <div class='lg:w-1/2 lg:px-1'>
-                  <%= form.password_field   :password,
-                                            placeholder: 'Password',
-                                            class: 'w-full h-8 mb-2 rounded',
-                                            autocomplete: 'new-password',
-                                            required: true %>
-                </div>
-                <div class='lg:w-1/2 lg:px-1'>
-                  <%= form.password_field   :password_confirmation,
-                                            placeholder: 'Password confirmation',
-                                            class: 'w-full h-8 mb-2 rounded',
-                                            autocomplete: 'new-password',
-                                            required: true %>
+                                            autocomplete: 'name' %>
                 </div>
                 <div class='lg:w-1/2 lg:pl-1'>
                   <%= form.password_field   :current_password,
@@ -41,8 +26,22 @@
                                             required: true %>
                 </div>
               </div>
+              <div class='lg:flex'>
+                <div class='lg:w-1/2 lg:pr-1'>
+                  <%= form.password_field   :password,
+                                            placeholder: 'New password',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autocomplete: 'new-password' %>
+                </div>
+                <div class='lg:w-1/2 lg:pl-1'>
+                  <%= form.password_field   :password_confirmation,
+                                            placeholder: 'New password confirmation',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autocomplete: 'new-password' %>
+                </div>
+              </div>
             <div class='text-center'>
-              <%= form.submit 'Update', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded' %>
+              <%= form.submit 'Update', class: 'blue-btn' %>
             </div>
           <% end %>
 

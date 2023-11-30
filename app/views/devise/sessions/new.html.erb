@@ -4,6 +4,7 @@
       <%= turbo_frame_tag 'home' do %>
         <div class='p-4 text-center'>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+            <div class='m-2'></div>
             <h1 class='text-3xl font-bold'>Sign In</h1>
               <br>
               <div class='lg:flex'>
@@ -32,8 +33,7 @@
               <% end %>
 
             <div class='text-center'>
-              <%= form.submit 'Sign In', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded',
-                                         data: { turbo: false } %>
+              <%= form.submit 'Sign In', class: 'blue-btn', data: { turbo: false } %>
             </div>
           <% end %>
           <div class='m-2'>

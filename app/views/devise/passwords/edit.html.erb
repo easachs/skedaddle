@@ -4,9 +4,7 @@
       <%= turbo_frame_tag 'home' do %>
         <div class='p-4 text-center'>
           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
-            <div class='mb-2'>
-              <%= render 'devise/shared/error_messages', resource: %>
-            </div>
+            <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
             <h1 class='text-3xl font-bold'>Reset password</h1>
               <br>
@@ -30,8 +28,7 @@
 
               <%= form.hidden_field :reset_password_token %>
             <div class='text-center'>
-              <%= form.submit 'Confirm', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded',
-                                         data: { turbo: false } %>
+              <%= form.submit 'Confirm', class: 'blue-btn', data: { turbo: false } %>
             </div>
           <% end %>
           <div class='m-2'>

@@ -1,8 +1,9 @@
 en:
   flash:
     errors:
-      must_sign_in: "Must be logged in."
+      must_sign_in: "Must sign in."
       no_results: "No results found."
+      no_access: "You don't have access to this itinerary."
       send_failed: "Failed to send."
   mailers:
     contact:

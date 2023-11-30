@@ -4,22 +4,28 @@
       <%= turbo_frame_tag 'home' do %>
         <div class='p-4 text-center'>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
-            <div class='mb-2'>
-              <%= render 'devise/shared/error_messages', resource: %>
-            </div>
+            <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
             <h1 class='text-3xl font-bold'>Sign Up</h1>
               <br>
               <div class='lg:flex'>
                 <div class='lg:w-1/2 lg:pr-1'>
+                  <%= form.text_field       :name,
+                                            placeholder: 'Name',
+                                            class: 'w-full h-8 mb-2 rounded',
+                                            autofocus: true,
+                                            required: true %>
+                </div>
+                <div class='lg:w-1/2 lg:pl-1'>
                   <%= form.email_field      :email,
                                             placeholder: 'Email',
                                             class: 'w-full h-8 mb-2 rounded',
-                                            autofocus: true,
                                             autocomplete: 'email',
                                             required: true %>
                 </div>
-                <div class='lg:w-1/2 lg:px-1'>
+              </div>
+              <div class='lg:flex'>
+                <div class='lg:w-1/2 lg:pr-1'>
                   <%= form.password_field   :password,
                                             placeholder: 'Password',
                                             class: 'w-full h-8 mb-2 rounded',
@@ -34,9 +40,8 @@
                                             required: true %>
                 </div>
               </div>
-            <div class='text-center'>
-              <%= form.submit 'Sign Up', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded',
-                                         data: { turbo: false } %>
+            <div>
+              <%= form.submit 'Sign Up', class: 'blue-btn', data: { turbo: false } %>
             </div>
           <% end %>
           <div class='m-2'>
