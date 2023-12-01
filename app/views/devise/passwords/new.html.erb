@@ -1,37 +1,30 @@
-<%= content_tag :div, class: 'lg:flex items-center' do %>
-  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
-    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
-      <%= turbo_frame_tag 'home' do %>
-        <div class='p-4 text-center'>
-          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
-            <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
+<%= render Core::CarouselComponent.new do %>
+  <%= turbo_frame_tag 'home' do %>
+    <div class='p-4 text-center'>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
+        <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
-            <h1 class='text-3xl font-bold mb-2'>Forgot your password?</h1>
-              <p>Seems like you've taken a detour! Let's chart a course back to accessing your account.</p>
-              <br>
-              <div class=''>
-                <div>
-                  <%= form.email_field      :email,
-                                            placeholder: 'Email',
-                                            class: 'w-full h-8 mb-2 rounded',
-                                            autofocus: true,
-                                            autocomplete: 'email',
-                                            required: true %>
-                </div>
-              </div>
-            <div class='text-center'>
-              <%= form.submit 'Send Link', class: 'blue-btn' %>
+        <h1 class='text-3xl font-bold'>Forgot your password?</h1>
+          <br>
+          <p class='mb-2'>Seems like you've taken a detour! Let's chart a course back to accessing your account.</p>
+          <div class=''>
+            <div>
+              <%= form.email_field      :email,
+                                        placeholder: 'Email',
+                                        class: 'w-full h-8 mb-2 rounded',
+                                        autofocus: true,
+                                        autocomplete: 'email',
+                                        required: true %>
             </div>
-          <% end %>
-
-          <div class='m-2'>
-            <%= render 'devise/shared/links' %>
           </div>
+        <div class='text-center'>
+          <%= form.submit 'Send Link', class: 'blue-btn' %>
         </div>
       <% end %>
-    <% end %>
-  <% end %>
-  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
-    <%= render Core::CarouselComponent.new %>
+
+      <div class='m-2'>
+        <%= render 'devise/shared/links' %>
+      </div>
+    </div>
   <% end %>
 <% end %>

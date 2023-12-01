@@ -1,18 +1,11 @@
-<%= content_tag :div, class: 'lg:flex items-center' do %>
-  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
-    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
-      <%= turbo_frame_tag 'home' do %>
-        <div class="p-4 text-center">
-          <h1 class="text-3xl">Your message has been <b>received</b>!</h1>
-          <br>
-          <p>Thanks for reaching out! We've received your message and will be charting a course to your inquiry shortly.</p>
-          <br>
-          <p>Just as we love guiding fellow explorers to hidden gems on their journeys, we're eager to assist you on this virtual voyage.</p>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
-    <%= render Core::CarouselComponent.new %>
+<%= render Core::CarouselComponent.new do %>
+  <%= turbo_frame_tag 'home' do %>
+    <div class="p-4 text-center">
+      <h1 class="text-3xl">Your message has been <b>received</b>!</h1>
+      <br>
+      <p>Thanks for reaching out! We've received your message and will be charting a course to your inquiry shortly.</p>
+      <br>
+      <p>Just as we love guiding fellow explorers to hidden gems on their journeys, we're eager to assist you on this virtual voyage.</p>
+    </div>
   <% end %>
 <% end %>

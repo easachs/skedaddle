@@ -1,49 +1,42 @@
-<%= content_tag :div, class: 'lg:flex items-center' do %>
-  <%= content_tag :div, class: 'w-full lg:w-3/5' do %>
-    <%= content_tag :div, class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
-      <%= turbo_frame_tag 'home' do %>
-        <div class='p-4 text-center'>
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
-            <div class='m-2'></div>
-            <h1 class='text-3xl font-bold'>Sign In</h1>
-              <br>
-              <div class='lg:flex'>
-                <div class='lg:w-1/2 lg:pr-1'>
-                  <%= form.email_field      :email,
-                                            placeholder: 'Email',
-                                            class: 'w-full h-8 mb-2 rounded',
-                                            autofocus: true,
-                                            autocomplete: 'email',
-                                            required: true %>
-                </div>
-                <div class='lg:w-1/2 lg:pl-1'>
-                  <%= form.password_field   :password,
-                                            placeholder: 'Password',
-                                            class: 'w-full h-8 mb-2 rounded',
-                                            autocomplete: 'current-password',
-                                            required: true %>
-                </div>
-              </div>
+<%= render Core::CarouselComponent.new do %>
+  <%= turbo_frame_tag 'home' do %>
+    <div class='p-4 text-center'>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+        <div class='m-2'></div>
+        <h1 class='text-3xl font-bold'>Sign In</h1>
+          <br>
+          <div class='lg:flex'>
+            <div class='lg:w-1/2 lg:pr-1'>
+              <%= form.email_field      :email,
+                                        placeholder: 'Email',
+                                        class: 'w-full h-8 mb-2 rounded',
+                                        autofocus: true,
+                                        autocomplete: 'email',
+                                        required: true %>
+            </div>
+            <div class='lg:w-1/2 lg:pl-1'>
+              <%= form.password_field   :password,
+                                        placeholder: 'Password',
+                                        class: 'w-full h-8 mb-2 rounded',
+                                        autocomplete: 'current-password',
+                                        required: true %>
+            </div>
+          </div>
 
-              <% if devise_mapping.rememberable? %>
-                <div class='mb-2'>
-                  <%= form.check_box :remember_me %>
-                  <%= form.label :remember_me %>
-                </div>
-              <% end %>
-
-            <div class='text-center'>
-              <%= form.submit 'Sign In', class: 'blue-btn', data: { turbo: false } %>
+          <% if devise_mapping.rememberable? %>
+            <div class='mb-2'>
+              <%= form.check_box :remember_me %>
+              <%= form.label :remember_me %>
             </div>
           <% end %>
-          <div class='m-2'>
-            <%= render 'devise/shared/links' %>
-          </div>
+
+        <div class='text-center'>
+          <%= form.submit 'Sign In', class: 'blue-btn', data: { turbo: false } %>
         </div>
       <% end %>
-    <% end %>
-  <% end %>
-  <%= content_tag :div, class: 'hidden lg:block lg:w-2/5' do %>
-    <%= render Core::CarouselComponent.new %>
+      <div class='m-2'>
+        <%= render 'devise/shared/links' %>
+      </div>
+    </div>
   <% end %>
 <% end %>
