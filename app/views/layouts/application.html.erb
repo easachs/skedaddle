@@ -22,13 +22,12 @@
 
   <body>
     <%= places_script_tag %>
-
     <div id="background-image"></div>
 
-    <%= render DashboardComponent.new logged_in: current_user %>
+    <%= render Core::DashboardComponent.new signed_in: current_user %>
 
-    <div class="container mx-auto p-10 text-slate-700">
+    <%= content_tag :div, class: 'container mx-auto p-10 text-slate-700' do %>
       <%= yield %>
-    </div>
+    <% end %>
   </body>
 </html>

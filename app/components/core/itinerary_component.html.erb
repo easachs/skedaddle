@@ -1,45 +1,45 @@
 <%= content_tag :div, class: 'row bg-white bg-opacity-70 rounded-xl' do %>
   <%= content_tag :div, class: 'col-lg p-4' do %>
-    <%= content_tag :h1, "#{city} Itinerary", class: 'text-3xl font-bold mb-2' %>
+    <%= content_tag :h1, "#{@city} Itinerary", class: 'text-3xl font-bold mb-2' %>
 
     <% if airports.present? %>
       <%= content_tag :h3, 'Airports', class: 'font-bold text-xl' %>
       <%= content_tag :div, id: 'airports', class: 'flex flex-wrap text-sm' do %>
-        <%= render PlaceComponent.with_collection airports %>
+        <%= render Sub::PlaceComponent.with_collection airports %>
       <% end %>
     <% end %>
 
     <% if hospitals.present? %>
       <%= content_tag :h3, 'Hospitals', class: 'font-bold text-xl' %>
       <%= content_tag :div, id: 'hospitals', class: 'flex flex-wrap text-sm' do %>
-        <%= render PlaceComponent.with_collection hospitals %>
+        <%= render Sub::PlaceComponent.with_collection hospitals %>
       <% end %>
     <% end %>
 
     <% if parks.present? %>
       <%= content_tag :div, id: 'parks' do %>
         <%= content_tag :h3, 'Parks', class: 'font-bold text-xl' %>
-        <%= render ParkComponent.with_collection(parks, saved:) %>
+        <%= render Sub::ParkComponent.with_collection(parks, saved:) %>
       <% end %>
     <% end %>
 
     <% { Activities: activities, Restaurants: restaurants }.each do |title, collection| %>
       <% if collection.present? %>
         <%= content_tag :h3, title, class: 'py-2 font-bold text-xl' %>
-        <% collection.each do |key, value| %>
-          <%= render CategoryComponent.new(items: value, category: key, saved:) %>
+        <% collection.each do |category, items| %>
+          <%= render Sub::CategoryComponent.new(items:, category:, saved:) %>
         <% end %>
       <% end %>
     <% end %>
 
     <% if saved %>
       <%= form_with url: itinerary_path(id), method: :delete do |form| %>
-        <%= form.submit 'Delete', class: 'blue-btn mb-2' %>
+        <%= form.submit 'Delete', class: 'blue-btn mb-2', data: { turbo: false } %>
       <% end %>
     <% else %>
       <%= form_with url: itineraries_path, method: :post do |form| %>
-        <%= form.hidden_field :search, value: search %>
-        <p><%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %></p>
+        <%= form.hidden_field :search, value: @search %>
+        <%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %>
       <% end %>
       <%= link_to 'Search Again', root_path %>
     <% end %>

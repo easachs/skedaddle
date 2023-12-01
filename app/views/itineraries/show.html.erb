@@ -1,13 +1,7 @@
 <%= turbo_frame_tag 'itinerary' do %>
-  <%= render ItineraryComponent.new id: @itinerary.id,
-                                    search: @itinerary.search,
-                                    city: @itinerary.city,
-                                    saved: true,
-                                    items: {
-                                      airports: @itinerary.airports,
-                                      hospitals: @itinerary.hospitals,
-                                      parks: @itinerary.parks,
-                                      activities: @itinerary.activities,
-                                      restaurants: @itinerary.restaurants
-                                    } %>
+  <%= render Core::ItineraryComponent.new id: @itinerary.id,
+                                          search: @itinerary.search,
+                                          city: @itinerary.city,
+                                          saved: true,
+                                          items: @itinerary.items %>
 <% end %>

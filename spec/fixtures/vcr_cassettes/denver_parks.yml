@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 01:50:34 GMT
+      - Wed, 22 Nov 2023 03:41:50 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -29,13 +29,13 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Thu, 21 Nov 2024 01:50:33 GMT
+      - Thu, 21 Nov 2024 03:41:50 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829d85b2edebc701-SEA
+      - 829e28b26f40ec78-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
@@ -48,7 +48,7 @@ http_interactions:
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=c1egSY%2BdRgNZ%2Fv4MwMjAsITpkF434vpGI9hjX3chRDCHKQ0fsaSadh5Fo7bkbhVfmE4ZPpOdeONacbF8ErSp0mfiKCk%2FfBrKVyTecF47q2myJseRkHwzzYbHtAhh4GBdNQkpeDs%2B"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=1lSvdmWvKnpsimTPreI7c6atiAZwacavlKexaT4g%2Bfp0x5jEFBTdeT86LoHgjw5pxrNZ%2FkpCGz2iYy8TFMg%2BMYPJ1jGgyoFe%2BkiH1G7gkeB%2BDLhx5uRlDsBwZ%2BqpM18X9ymQ22vx"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -70,13 +70,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '5841'
+      - '85229'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '487'
+      - '497'
       X-Ratelimit-Regular-Requests-Reset:
-      - '5841'
+      - '85229'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -212,5 +212,5 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Wed, 22 Nov 2023 01:50:34 GMT
+  recorded_at: Wed, 22 Nov 2023 03:41:50 GMT
 recorded_with: VCR 6.2.0

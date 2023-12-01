@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :not_logged_in
+  before_action :configure_devise_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def not_logged_in
-    return unless current_user.nil?
-
-    redirect_to root_path
-    flash[:error] = t('flash.errors.must_sign_in')
+  def configure_devise_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 end

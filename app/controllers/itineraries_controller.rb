@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ItinerariesController < ApplicationController
+  before_action :not_signed_in
   before_action :geocode, :find_items, only: %i[new create]
-  before_action :not_logged_in
 
   def index
     @itineraries = current_user.itineraries
@@ -12,15 +12,23 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = find_itinerary
-    redirect_to itineraries_path if @itinerary.user_id != current_user.id
+    @itinerary = Itinerary.find(params[:id])
+    if @itinerary.user != current_user
+      redirect_to itineraries_path
+      flash[:error] = t('flash.errors.no_access')
+    end
   rescue StandardError
     redirect_to itineraries_path
+    flash[:error] = t('flash.errors.not_found')
+  end
+
+  def prepare
+    initialize_session
+    redirect_to new_itinerary_path
   end
 
   def new
-    initialize_session
-    return unless params[:search].blank? || [@items].all?(&:blank?)
+    return unless session[:search].blank? || [@items].all?(&:blank?)
 
     redirect_to root_path
     flash[:error] = t('flash.errors.no_results')
@@ -28,24 +36,36 @@ class ItinerariesController < ApplicationController
 
   def create
     itinerary = current_user.itineraries.create!(@geocode)
-    populate_itinerary(itinerary) if itinerary.persisted?
+    populate(itinerary) if itinerary.persisted?
+    clear_session
     redirect_to itinerary_path(itinerary)
   end
 
   def destroy
-    find_itinerary.destroy!
+    Itinerary.find(params[:id]).destroy!
     redirect_to itineraries_path
   end
 
   private
 
-  def find_itinerary
-    Itinerary.find(params[:id])
+  def not_signed_in
+    return unless current_user.nil?
+
+    redirect_to root_path
+    flash[:error] = t('flash.errors.must_sign_in')
+  end
+
+  def initialize_session
+    %i[search activities restaurants].each { |key| session[key] = params[key] }
+  end
+
+  def clear_session
+    %i[search activities restaurants].each { |key| session.delete(key) }
   end
 
   def geocode
-    @geocode = GeocodeFacade.geocode(params[:search].delete("'"))
-    @geocode&.merge!(search: params[:search]) if @geocode&.dig(:search).blank?
+    @geocode = GeocodeFacade.geocode(session[:search]&.delete("'"))
+    @geocode&.merge(search: session[:search]) if @geocode&.dig(:search).blank?
   end
 
   def find_items
@@ -61,52 +81,25 @@ class ItinerariesController < ApplicationController
   end
 
   def find_businesses(group)
-    return if group.blank? || params[group].blank?
-
-    params[group].transform_values do |category|
-      BusinessFacade.near(@geocode, category)
-    end
-  end
-
-  def initialize_session
-    session[:activities] = params[:activities]
-    session[:restaurants] = params[:restaurants]
-  end
-
-  def populate_itinerary(itinerary)
-    @items[:activities] = create_businesses(:activities)
-    @items[:restaurants] = create_businesses(:restaurants)
-    create_items(itinerary)
-  end
-
-  def create_businesses(group)
-    return if session[group].blank?
+    return if group.blank? || session[group].blank?
 
     session[group].transform_values do |category|
       BusinessFacade.near(@geocode, category)
     end
   end
 
-  def create_items(itinerary)
-    return unless @items
-
-    @items.each do |group, items|
-      if %i[airports hospitals].include?(group)
-        create_place_items(itinerary, items)
-      elsif group == :parks
-        create_park_items(itinerary, items)
+  def populate(itinerary)
+    @items&.each do |group, items|
+      if %i[airports hospitals parks].include?(group)
+        create_special_items(itinerary, group, items)
       else
         create_business_items(itinerary, group, items)
       end
     end
   end
 
-  def create_place_items(itinerary, items)
-    items&.each { |place| itinerary.places.create!(place.serialized) }
-  end
-
-  def create_park_items(itinerary, items)
-    items&.each { |item| itinerary.parks.create!(item.serialized) }
+  def create_special_items(itinerary, group, items)
+    items&.each { |item| itinerary.send(group).create!(item.serialized) }
   end
 
   def create_business_items(itinerary, group, items)
