@@ -22,9 +22,9 @@ class ParkPoro
   def format_location(attributes)
     return if attributes.blank?
 
-    [attributes[:city],
-     (attributes[:state] if attributes[:state] != ('All' || 'Not found')),
-     attributes[:country]].compact.join(', ')
+    [attributes[:city], attributes[:state], attributes[:country]]
+      .reject { |attr| attr.blank? || attr == 'All' || attr == 'Not found' }
+      .join(', ')
   end
 
   def serialized
