@@ -20,11 +20,6 @@ RSpec.describe 'Itinerary Show' do
     click_button('Sign In with GoogleOauth2')
   end
 
-  it 'redirects from nonexistent itinerary' do
-    visit itinerary_path(999)
-    expect(page).to have_current_path(itineraries_path)
-  end
-
   describe 'removes', vcr: 'denver_search' do
     before do
       fill_in 'search', with: 'Denver'
@@ -60,6 +55,36 @@ RSpec.describe 'Itinerary Show' do
       it 'deletes' do
         expect(page).not_to have_content('Denver')
       end
+    end
+  end
+
+  describe 'nonexistent itinerary' do
+    before do
+      visit itinerary_path(999)
+    end
+
+    it 'redirects to itineraries' do
+      expect(page).to have_current_path(itineraries_path)
+    end
+
+    it 'displays error' do
+      expect(page).to have_content("Couldn't find itinerary.")
+    end
+  end
+
+  describe 'restricted itinerary' do
+    before do
+      not_you = create(:user)
+      not_your_itinerary = create(:itinerary, user: not_you)
+      visit itinerary_path(not_your_itinerary)
+    end
+
+    it 'redirects to itineraries' do
+      expect(page).to have_current_path(itineraries_path)
+    end
+
+    it 'displays error' do
+      expect(page).to have_content("You don't have access to this.")
     end
   end
 end

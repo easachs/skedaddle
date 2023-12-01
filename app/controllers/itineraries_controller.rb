@@ -19,7 +19,7 @@ class ItinerariesController < ApplicationController
     end
   rescue StandardError
     redirect_to itineraries_path
-    flash[:error] = t('flash.errors.no_results')
+    flash[:error] = t('flash.errors.not_found')
   end
 
   def prepare
