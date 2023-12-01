@@ -33,21 +33,21 @@
 
           Where would you like to <b>stay?</b>
           <%= render Core::CheckboxComponent.new data: lodging_data,
-                                                  prefix: 'lodging',
-                                                  size: 2 %>
+                                                 prefix: 'lodging',
+                                                 size: 2 %>
 
           Where would you like to <b>go?</b>
           <%= render Core::CheckboxComponent.new data: activity_data,
-                                                  prefix: 'activities',
-                                                  size: 5 %>
+                                                 prefix: 'activities',
+                                                 size: 5 %>
 
           Where would you like to <b>eat?</b>
           <%= render Core::CheckboxComponent.new data: restaurant_data,
-                                                  prefix: 'restaurants',
-                                                  size: 6 %>
+                                                 prefix: 'restaurants',
+                                                 size: 6 %>
 
           <p class='py-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
-                                                        class: 'blue-btn mb-2' %></p>
+                                                       class: 'blue-btn mb-2' %></p>
         <% end %>
       <% end %>
 
@@ -57,11 +57,15 @@
         <br>
         <p>We're here to help you find the best places to visit and plan your next trip.</p>
         <br>
-        <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the best destinations and crafting the perfect itinerary.</p>
+        <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the
+          best destinations and crafting the perfect itinerary.</p>
         <br>
         <p>If you're new, sign up with
           <%= link_to 'your email', new_user_registration_path, class: 'font-bold' %> or using your
-          <%= button_to 'Google account', user_google_oauth2_omniauth_authorize_path, form: { style: 'display: inline;' }, class: 'font-bold', data: { turbo: false } %>.</p>
+          <%= button_to 'Google account',
+                        user_google_oauth2_omniauth_authorize_path,
+                        form: { style: 'display: inline;' },
+                        class: 'font-bold', data: { turbo: false } %>.</p>
         <p>If you've traveled with us before, welcome back!</p>
       </div>
     <% end %>
