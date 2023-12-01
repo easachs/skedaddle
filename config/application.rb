@@ -35,5 +35,8 @@ module Skedaddle
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Handle 404/500 errors
+    config.exceptions_app = routes
   end
 end
