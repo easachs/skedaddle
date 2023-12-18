@@ -17,6 +17,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8'
 gem 'redis', '~> 4.0'
+gem 'ruby-openai'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails'
@@ -32,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'erb_lint'
   gem 'letter_opener'
   gem 'rubocop'

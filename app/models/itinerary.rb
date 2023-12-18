@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: itineraries
+#
+#  id         :bigint           not null, primary key
+#  search     :string
+#  city       :string
+#  region     :string
+#  country    :string
+#  lat        :float
+#  lon        :float
+#  user_id    :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Itinerary < ApplicationRecord
   validates :search, :city, :region, :country, :lat, :lon, presence: true
   belongs_to :user
