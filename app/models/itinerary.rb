@@ -16,7 +16,7 @@
 #  updated_at :datetime         not null
 #
 class Itinerary < ApplicationRecord
-  validates :search, :city, :region, :country, :lat, :lon, presence: true
+  validates :search, :city, :lat, :lon, presence: true
   belongs_to :user
   has_many :places, dependent: :destroy
   has_many :parks, dependent: :destroy

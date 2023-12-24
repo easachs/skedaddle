@@ -20,6 +20,6 @@
 #  updated_at   :datetime         not null
 #
 class Business < ApplicationRecord
-  validates :name, :rating, :categories, :location, :url, presence: true
+  validates :name, :rating, :categories, :location, presence: true
   belongs_to :itinerary
 end

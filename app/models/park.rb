@@ -17,6 +17,6 @@
 #  updated_at   :datetime         not null
 #
 class Park < ApplicationRecord
-  validates :name, :location, :directions, :description, :activities, :url, presence: true
+  validates :name, :location, :activities, presence: true
   belongs_to :itinerary
 end

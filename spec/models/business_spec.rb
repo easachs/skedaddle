@@ -27,6 +27,5 @@ RSpec.describe Business do
     it { is_expected.to validate_presence_of(:rating) }
     it { is_expected.to validate_presence_of(:categories) }
     it { is_expected.to validate_presence_of(:location) }
-    it { is_expected.to validate_presence_of(:url) }
   end
 end
