@@ -84,5 +84,6 @@ VCR.configure do |config|
   config.filter_sensitive_data('<RAPID_API_KEY>') { ENV.fetch('RAPID_API_KEY', nil) }
   config.filter_sensitive_data('<YELP_API_KEY>') { ENV.fetch('YELP_API_KEY', nil) }
   config.filter_sensitive_data('<GOOGLE_MAPS_KEY>') { ENV.fetch('GOOGLE_MAPS_KEY', nil) }
+  config.filter_sensitive_data('<OPENAI_API_KEY>') { ENV.fetch('OPENAI_API_KEY', nil) }
   config.configure_rspec_metadata!
 end

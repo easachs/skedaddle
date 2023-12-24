@@ -2,9 +2,11 @@
 
 module Core
   class DashboardComponent < ViewComponent::Base
-    def initialize(signed_in: false)
+    attr_reader :current_user
+
+    def initialize(current_user: false)
       super
-      @signed_in = signed_in
+      @current_user = current_user
     end
   end
 end

@@ -1,6 +1,6 @@
 <%= content_tag :div, class: 'row bg-white bg-opacity-70 rounded-xl' do %>
   <%= content_tag :div, class: 'col-lg p-4' do %>
-    <%= content_tag :h1, "#{@city} Itinerary", class: 'text-3xl font-bold mb-2' %>
+    <%= content_tag :h1, "#{city} Itinerary", class: 'text-3xl font-bold mb-2' %>
 
     <% if airports.present? %>
       <%= content_tag :h3, 'Airports', class: 'font-bold text-xl' %>
@@ -38,7 +38,7 @@
       <% end %>
     <% else %>
       <%= form_with url: itineraries_path, method: :post do |form| %>
-        <%= form.hidden_field :search, value: @search %>
+        <%= form.hidden_field :search, value: search %>
         <%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %>
       <% end %>
       <%= link_to 'Search Again', root_path %>

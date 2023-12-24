@@ -2,6 +2,8 @@
 
 module Sub
   class BusinessComponent < ViewComponent::Base
+    attr_reader :business, :saved
+
     def initialize(business:, saved: false)
       super
       @business = business

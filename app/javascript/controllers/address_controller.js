@@ -10,7 +10,7 @@ export default class extends Controller {
   initAutocomplete() {
     const input = this.element;
     const autocomplete = new google.maps.places.Autocomplete(input,{
-      types: ['political'],
+      types: ['(cities)'],
       fields: ['formatted_address']
     });
 

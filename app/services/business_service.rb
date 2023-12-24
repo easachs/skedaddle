@@ -2,24 +2,24 @@
 
 class BusinessService
   class << self
-    def near(location = {}, main = '')
-      return unless location.is_a?(Hash) && location.present? && main.present?
+    def near(location = {}, kind = '')
+      return unless location.is_a?(Hash) && location.present? && kind.present?
 
-      Rails.cache.fetch("BusinessService/#{main}/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-        response = fetch_businesses(location, main)
+      Rails.cache.fetch("BusinessService/#{kind}/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
+        response = fetch_businesses(location, kind)
         JSON.parse(response.body, symbolize_names: true)
       end
     end
 
     private
 
-    def fetch_businesses(location, main)
+    def fetch_businesses(location, kind)
       conn.get('search') do |route|
         route.params['limit'] = 5
         route.params['latitude'] = location[:lat]
         route.params['longitude'] = location[:lon]
         route.params['radius'] = 15_000
-        route.params['categories'] = main
+        route.params['categories'] = kind
       end
     end
 

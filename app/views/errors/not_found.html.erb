@@ -1,14 +1,10 @@
-<% render Core::CarouselComponent.new do %>
-  <%= turbo_frame_tag 'home' do %>
-    <div class="p-4 text-center">
-      <h1 class="text-3xl font-bold">404 Uncharted Territory</h1>
-      <br>
-      <p>Oops! Looks like you've ventured off the map.</p>
-      <br>
-      <p>The page you're looking for might have taken a detour or it's exploring unknown territories.</p>
-      <br>
-      <p>Click to <%= link_to 'return home', root_path, class: 'font-bold' %> or take a step
-        <%= link_to 'back', :back, class: 'font-bold' %> and let's plot a new course to your next adventure.</p>
-    </div>
-  <% end %>
-<% end %>
+<div class="p-4 text-center">
+  <h1 class="text-3xl font-bold">404 Uncharted Territory</h1>
+  <br>
+  <p>Oops! Looks like you've ventured off the map.</p>
+  <br>
+  <p>The page you're looking for might have taken a detour or it's exploring unknown territories.</p>
+  <br>
+  <p>Click to <%= link_to 'return home', root_path, class: 'font-bold' %> or take a step
+    <%= link_to 'back', :back, class: 'font-bold' %> and let's plot a new course to your next adventure.</p>
+</div>

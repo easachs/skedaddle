@@ -47,11 +47,11 @@ RSpec.describe 'Itinerary Index' do
     end
 
     it 'redirects' do
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(new_user_session_path)
     end
 
     it 'displays error' do
-      expect(page).to have_content('Must sign in.')
+      expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
   end
 end

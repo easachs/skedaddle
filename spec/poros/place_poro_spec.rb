@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe PlacePoro do
   attributes = { displayName: { text: 'Denver International Airport' },
                  formattedAddress: '8500 Pena Boulevard',
-                 main: 'airport' }
+                 group: 'airport' }
 
   let(:place) { described_class.new(attributes) }
 
@@ -22,8 +22,8 @@ RSpec.describe PlacePoro do
       expect(place.address).to eq('8500 Pena Boulevard')
     end
 
-    it 'main' do
-      expect(place.main).to eq('airport')
+    it 'group' do
+      expect(place.group).to eq('airport')
     end
   end
 
@@ -38,8 +38,8 @@ RSpec.describe PlacePoro do
       expect(bad_place.address).to be_nil
     end
 
-    it 'main' do
-      expect(bad_place.main).to be_nil
+    it 'group' do
+      expect(bad_place.group).to be_nil
     end
   end
 end

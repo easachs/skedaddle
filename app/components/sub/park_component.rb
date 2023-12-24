@@ -2,6 +2,8 @@
 
 module Sub
   class ParkComponent < ViewComponent::Base
+    attr_reader :park, :saved
+
     def initialize(park:, saved: false)
       super
       @park = park
