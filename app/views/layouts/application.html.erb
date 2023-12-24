@@ -24,7 +24,7 @@
     <%= places_script_tag %>
     <div id="background-image"></div>
 
-    <%= render Core::DashboardComponent.new signed_in: current_user %>
+    <%= render Core::DashboardComponent.new current_user: %>
 
     <%= content_tag :div, class: 'container mx-auto p-10 pt-24 text-slate-700' do %>
       <%= yield %>
