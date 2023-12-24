@@ -2,6 +2,8 @@
 
 class ErrorsController < ApplicationController
   include Redirection
+  layout 'home'
+
   def not_found
     render status: :not_found
   end

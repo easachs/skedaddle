@@ -1,73 +1,68 @@
-<%= render Core::CarouselComponent.new do %>
-  <%= turbo_frame_tag 'home' do %>
-    <% if current_user %>
-      <%= content_tag :div, class: 'p-2 m-2' do %>
-        <%= form_with url: prepare_itineraries_path do |form| %>
-          <%= content_tag :div, class: 'py-2 text-sm' do %>
-            <%= search_field_tag  :search, nil,
-                                  placeholder: 'Enter a destination',
-                                  class: 'text-sm rounded',
-                                  required: true,
-                                  autofocus: true,
-                                  autocomplete: 'off',
-                                  data: { controller: 'address',
-                                          action: 'google-maps-callback@window->address#initAutocomplete
-                                                  keydown->address#keydown' } %>
+<% if current_user %>
+  <%= content_tag :div, class: 'p-2 m-2' do %>
+    <%= form_with url: prepare_itineraries_path do |form| %>
+      <%= content_tag :div, class: 'py-2 text-sm' do %>
+        <%= search_field_tag  :search, nil,
+                              placeholder: 'Enter a destination',
+                              class: 'w-full mb-2 text-sm rounded',
+                              required: true,
+                              autofocus: true,
+                              autocomplete: 'off',
+                              data: { controller: 'address',
+                                      action: 'google-maps-callback@window->address#initAutocomplete
+                                              keydown->address#keydown' } %>
 
-            <span class='m-2'>from</span>
-            <%= content_tag :span, data: { controller: 'date' } do %>
-              <%= date_field_tag  :start, Time.zone.today,
-                                  min: Time.zone.today,
-                                  class: 'text-sm rounded',
-                                  autocomplete: 'off',
-                                  data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
+        <%= content_tag :div, class: 'flex items-center', data: { controller: 'date' } do %>
+          <%= date_field_tag  :start, Time.zone.today,
+                              min: Time.zone.today,
+                              class: 'w-full mb-2 text-sm rounded',
+                              autocomplete: 'off',
+                              data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
 
-              <span class='m-2'>to</span>
-              <%= date_field_tag  :end, Time.zone.today,
-                                  min: Time.zone.today,
-                                  class: 'text-sm rounded',
-                                  autocomplete: 'off',
-                                  data: { date_target: 'end' } %>
-            <% end %>
-          <% end %>
-
-          Where would you like to <b>stay?</b>
-          <%= render Core::CheckboxComponent.new data: lodging_data,
-                                                 prefix: 'lodging',
-                                                 size: 2 %>
-
-          Where would you like to <b>go?</b>
-          <%= render Core::CheckboxComponent.new data: activity_data,
-                                                 prefix: 'activities',
-                                                 size: 5 %>
-
-          Where would you like to <b>eat?</b>
-          <%= render Core::CheckboxComponent.new data: restaurant_data,
-                                                 prefix: 'restaurants',
-                                                 size: 6 %>
-
-          <p class='py-2'><%= form.submit 'SKEDADDLE', data: { turbo: false },
-                                                       class: 'blue-btn mb-2' %></p>
+          <span class='m-2'>to</span>
+          <%= date_field_tag  :end, Time.zone.today,
+                              min: Time.zone.today,
+                              class: 'w-full mb-2 text-sm rounded',
+                              autocomplete: 'off',
+                              data: { date_target: 'end' } %>
         <% end %>
       <% end %>
 
-    <% else %>
-      <div class="p-4 text-center">
-        <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
-        <br>
-        <p>We're here to help you find the best places to visit and plan your next trip.</p>
-        <br>
-        <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the
-          best destinations and crafting the perfect itinerary.</p>
-        <br>
-        <p>If you're new, sign up with
-          <%= link_to 'your email', new_user_registration_path, class: 'font-bold' %> or using your
-          <%= button_to 'Google account',
-                        user_google_oauth2_omniauth_authorize_path,
-                        form: { style: 'display: inline;' },
-                        class: 'font-bold', data: { turbo: false } %>.</p>
-        <p>If you've traveled with us before, welcome back!</p>
-      </div>
+      Where would you like to <b>stay?</b>
+      <%= render Core::CheckboxComponent.new data: lodging_data,
+                                              prefix: 'lodging',
+                                              size: 2 %>
+
+      Where would you like to <b>go?</b>
+      <%= render Core::CheckboxComponent.new data: activity_data,
+                                              prefix: 'activities',
+                                              size: 5 %>
+
+      Where would you like to <b>eat?</b>
+      <%= render Core::CheckboxComponent.new data: restaurant_data,
+                                              prefix: 'restaurants',
+                                              size: 6 %>
+
+      <p class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },
+                                                    class: 'blue-btn mb-2' %></p>
     <% end %>
   <% end %>
+
+<% else %>
+  <div class="p-4 text-center">
+    <h1 class="text-3xl">Welcome to <b>Skedaddle</b></h1>
+    <br>
+    <p>We're here to help you find the best places to visit and plan your next trip.</p>
+    <br>
+    <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the
+      best destinations and crafting the perfect itinerary.</p>
+    <br>
+    <p>If you're new, sign up with
+      <%= link_to 'your email', new_user_registration_path, class: 'font-bold' %> or using your
+      <%= button_to 'Google account',
+                    user_google_oauth2_omniauth_authorize_path,
+                    form: { style: 'display: inline;' },
+                    class: 'font-bold', data: { turbo: false } %>.</p>
+    <p>If you've traveled with us before, welcome back!</p>
+  </div>
 <% end %>
