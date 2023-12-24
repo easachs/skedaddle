@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class ContactController < ApplicationController
+  include Redirection
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?
       ContactMailer.email(@contact).deliver_now
       redirect_to received_path
     else
-      redirect_to contact_path
-      flash[:error] = t('flash.errors.send_failed')
+      redirect_with_error(message: 'send_failed', path: contact_path)
     end
   end
 
