@@ -26,7 +26,7 @@
 
     <%= render Core::DashboardComponent.new signed_in: current_user %>
 
-    <%= content_tag :div, class: 'container mx-auto p-10 text-slate-700' do %>
+    <%= content_tag :div, class: 'container mx-auto p-10 pt-24 text-slate-700' do %>
       <%= yield %>
     <% end %>
   </body>

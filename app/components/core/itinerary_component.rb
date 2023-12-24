@@ -15,10 +15,10 @@ module Core
     def id = @options.fetch(:id, nil)
     def saved = @options.fetch(:saved, false)
 
-    def airports = @items[:airports]
-    def hospitals = @items[:hospitals]
-    def parks = @items[:parks]
-    def activities = @items[:activities]
-    def restaurants = @items[:restaurants]
+    def airports = @items&.dig(:airports)
+    def hospitals = @items&.dig(:hospitals)
+    def parks = @items&.dig(:parks)
+    def activities = @items&.dig(:activities)
+    def restaurants = @items&.dig(:restaurants)
   end
 end

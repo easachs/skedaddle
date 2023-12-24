@@ -8,7 +8,7 @@ class GeocodeFacade
       geocode = GeocodeService.geocode(location)
       return if geocode[:data].blank?
 
-      GeocodePoro.new(geocode[:data]&.first).serialized
+      GeocodePoro.new(geocode&.dig(:data)&.first).serialized
     end
   end
 end
