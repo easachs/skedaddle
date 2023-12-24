@@ -24,10 +24,10 @@ class Itinerary < ApplicationRecord
 
   def date = created_at.strftime('%m/%d/%y')
 
-  def airports = places.where(main: 'airport')
-  def hospitals = places.where(main: 'hospital')
-  def activities = businesses.where(group: 'activities').group_by(&:main)
-  def restaurants = businesses.where(group: 'restaurants').group_by(&:main)
+  def airports = places.where(group: 'airport')
+  def hospitals = places.where(group: 'hospital')
+  def activities = businesses.where(group: 'activities').group_by(&:kind)
+  def restaurants = businesses.where(group: 'restaurants').group_by(&:kind)
 
   def items = { airports:, hospitals:, parks:, activities:, restaurants: }
 end

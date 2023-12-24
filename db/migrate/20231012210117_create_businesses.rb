@@ -11,7 +11,7 @@ class CreateBusinesses < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :url
       t.string :thumbnail
-      t.string :main
+      t.string :kind
       t.string :group
       t.references :itinerary, null: false, foreign_key: true
 

@@ -13,13 +13,13 @@
 #  phone        :string
 #  url          :string
 #  thumbnail    :string
-#  main         :string
+#  kind         :string
 #  group        :string
 #  itinerary_id :bigint           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 class Business < ApplicationRecord
-  validates :name, :rating, :categories, :location, presence: true
+  validates :name, :rating, :categories, :location, :group, :kind, presence: true
   belongs_to :itinerary
 end

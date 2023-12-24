@@ -25,9 +25,9 @@ class ItineraryService
     end
 
     def create_businesses(itinerary, group, resources)
-      resources&.each do |main, businesses|
+      resources&.each do |kind, businesses|
         businesses&.each do |bus|
-          itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, main:))
+          itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, kind:))
         end
       end
     end

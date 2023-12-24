@@ -2,11 +2,11 @@
 
 class BusinessFacade
   class << self
-    def near(location = {}, main = '')
+    def near(location = {}, kind = '')
       return unless location.is_a?(Hash) && location.present?
-      return if main.blank?
+      return if kind.blank?
 
-      businesses = BusinessService.near(location, main)[:businesses]
+      businesses = BusinessService.near(location, kind)[:businesses]
       businesses[0..2].map { |bus| BusinessPoro.new(bus) } if businesses
     end
   end

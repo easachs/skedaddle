@@ -7,7 +7,7 @@
 #  id           :bigint           not null, primary key
 #  name         :string
 #  address      :string
-#  main         :string
+#  group        :string
 #  itinerary_id :bigint           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -18,6 +18,7 @@ RSpec.describe Place do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:address) }
-    it { is_expected.to validate_presence_of(:main) }
+    it { is_expected.to validate_presence_of(:group) }
+    it { is_expected.to belong_to(:itinerary) }
   end
 end

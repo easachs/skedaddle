@@ -23,5 +23,9 @@ RSpec.describe Itinerary do
     it { is_expected.to validate_presence_of(:city) }
     it { is_expected.to validate_presence_of(:lat) }
     it { is_expected.to validate_presence_of(:lon) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:businesses) }
+    it { is_expected.to have_many(:parks) }
+    it { is_expected.to have_many(:places) }
   end
 end

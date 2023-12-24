@@ -13,7 +13,7 @@
 #  phone        :string
 #  url          :string
 #  thumbnail    :string
-#  main         :string
+#  kind         :string
 #  group        :string
 #  itinerary_id :bigint           not null
 #  created_at   :datetime         not null

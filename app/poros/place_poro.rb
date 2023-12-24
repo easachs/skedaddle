@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class PlacePoro
-  attr_reader :name, :address, :main
+  attr_reader :name, :address, :group
 
   def initialize(attributes)
     return if attributes.blank?
 
     @name = attributes&.dig(:displayName, :text)
     @address = attributes&.dig(:formattedAddress)
-    @main = attributes&.dig(:main)
+    @group = attributes&.dig(:group)
   end
 
   def serialized
-    { name:, address:, main: }
+    { name:, address:, group: }
   end
 end

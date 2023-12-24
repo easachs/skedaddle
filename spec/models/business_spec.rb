@@ -13,7 +13,7 @@
 #  phone        :string
 #  url          :string
 #  thumbnail    :string
-#  main         :string
+#  kind         :string
 #  group        :string
 #  itinerary_id :bigint           not null
 #  created_at   :datetime         not null
@@ -27,5 +27,8 @@ RSpec.describe Business do
     it { is_expected.to validate_presence_of(:rating) }
     it { is_expected.to validate_presence_of(:categories) }
     it { is_expected.to validate_presence_of(:location) }
+    it { is_expected.to validate_presence_of(:kind) }
+    it { is_expected.to validate_presence_of(:group) }
+    it { is_expected.to belong_to(:itinerary) }
   end
 end

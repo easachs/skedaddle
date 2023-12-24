@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_195011) do
     t.string "phone"
     t.string "url"
     t.string "thumbnail"
-    t.string "main"
+    t.string "kind"
     t.string "group"
     t.bigint "itinerary_id", null: false
     t.datetime "created_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_195011) do
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "main"
+    t.string "group"
     t.bigint "itinerary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
