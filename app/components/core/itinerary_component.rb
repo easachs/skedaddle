@@ -2,6 +2,8 @@
 
 module Core
   class ItineraryComponent < ViewComponent::Base
+    attr_reader :search, :city
+
     def initialize(search:, city:, items:, **options)
       super
       @search = search
