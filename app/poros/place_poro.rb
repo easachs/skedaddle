@@ -6,12 +6,12 @@ class PlacePoro
   def initialize(attributes)
     return if attributes.blank?
 
-    @name = attributes[:displayName][:text]
-    @address = attributes[:formattedAddress]
-    @main = attributes[:main]
+    @name = attributes&.dig(:displayName, :text)
+    @address = attributes&.dig(:formattedAddress)
+    @main = attributes&.dig(:main)
   end
 
   def serialized
-    { name: @name, address: @address, main: @main }
+    { name:, address:, main: }
   end
 end

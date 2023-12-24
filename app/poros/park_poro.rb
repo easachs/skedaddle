@@ -1,22 +1,14 @@
 # frozen_string_literal: true
 
 class ParkPoro
-  attr_reader :name,
-              :location,
-              :description,
-              :directions,
-              :activities,
-              :url,
-              :thumbnail
+  attr_reader :name, :location, :description, :directions
 
   def initialize(attributes)
-    @name = attributes[:name]
+    @name = attributes&.dig(:name)
     @location = format_location(attributes)
-    @description = attributes[:description]
-    @directions = attributes[:directions]
-    @activities = attributes[:activities]&.keys&.join(', ')
-    @url = attributes[:activities]&.values&.dig(0, :url)
-    @thumbnail = attributes[:activities]&.values&.dig(0, :thumbnail)
+    @description = attributes&.dig(:description)
+    @directions = attributes&.dig(:directions)
+    @object = attributes&.dig(:activities)
   end
 
   def format_location(attributes)
@@ -27,15 +19,12 @@ class ParkPoro
       .join(', ')
   end
 
+  def activities = @object&.keys&.join(', ')
+  def url = @object&.values&.dig(0, :url)
+  def thumbnail = @object&.values&.dig(0, :thumbnail)
+
   def serialized
-    {
-      name: @name,
-      location: @location,
-      description: @description,
-      directions: @directions,
-      activities: @activities,
-      url: @url,
-      thumbnail: @thumbnail
-    }
+    { name:, location:, description:, directions:,
+      activities:, url:, thumbnail: }
   end
 end
