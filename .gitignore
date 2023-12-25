@@ -36,3 +36,5 @@
 /.env
 /coverage
 /spec/fixtures
+
+dump.rdb
