@@ -23,6 +23,7 @@ class Itinerary < ApplicationRecord
   has_many :businesses, dependent: :destroy
 
   def date = created_at.strftime('%m/%d/%y')
+  def coordinates = { lat:, lon: }
 
   def airports = places.where(group: 'airport')
   def hospitals = places.where(group: 'hospital')

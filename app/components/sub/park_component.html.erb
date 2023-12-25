@@ -1,9 +1,7 @@
-<%= content_tag :div, id: 'park', class: 'p-2' do %>
-  <%= link_to park.name, park.url, class: 'font-bold m-2' %>
-  <%= image_tag park.thumbnail, class: 'image-format m-2', style: 'height: 125px;' if park.thumbnail.present? %>
-  <p class="m-2"><b>Location: </b><%= park.location %></p>
-  <p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
-  <p class="m-2"><b>Directions: </b><%= park.directions %></p>
-  <p class="m-2"><b>Activities: </b><%= park.activities %></p>
-  <%= button_to "Remove #{park.name}", park_path(park), method: :delete, class: 'm-2' if saved %>
-<% end %>
+<%= link_to park.name, park.url, class: 'font-bold m-2' %>
+<%= image_tag park.thumbnail, class: 'image-format m-2', style: 'height: 125px;' if park.thumbnail.present? %>
+<p class="m-2"><b>Location: </b><%= park.location %></p>
+<p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
+<p class="m-2"><b>Directions: </b><%= park.directions %></p>
+<p class="m-2"><b>Activities: </b><%= park.activities %></p>
+<%= button_to "Remove #{park.name}", park_path(park), method: :delete, class: 'm-2' if saved %>

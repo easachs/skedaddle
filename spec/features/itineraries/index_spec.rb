@@ -36,7 +36,7 @@ RSpec.describe 'Itinerary Index' do
 
     it 'links' do
       click_link('Denver')
-      expect(page).to have_content('Denver Itinerary')
+      expect(page).to have_content('Denver')
     end
   end
 

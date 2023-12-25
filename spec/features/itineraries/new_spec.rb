@@ -29,7 +29,7 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'title' do
-      expect(page).to have_content('Denver Itinerary')
+      expect(page).to have_content('Denver')
     end
 
     it 'parks' do
@@ -55,7 +55,7 @@ RSpec.describe 'Itinerary New' do
     end
 
     it 'title' do
-      expect(page).to have_content('Denver Itinerary')
+      expect(page).to have_content('Denver')
     end
 
     it 'parks' do

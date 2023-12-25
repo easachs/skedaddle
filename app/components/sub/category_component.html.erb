@@ -1,6 +1,6 @@
 <% if items&.any? %>
   <%= content_tag :div, id: category.downcase do %>
-    <h3><b><%= category.capitalize %></b></h3>
+    <%= content_tag :h3, category.capitalize, class: 'font-bold p-2' %>
     <%= render Sub::BusinessComponent.with_collection(items, saved:) %>
   <% end %>
 <% end %>

@@ -2,25 +2,28 @@
 
 module Core
   class ItineraryComponent < ViewComponent::Base
-    attr_reader :search, :city
+    attr_reader :itinerary, :geocode, :items, :saved
 
-    def initialize(search:, city:, items:, **options)
-      super
-      @search = search
-      @city = city
-      @items = items
-      @options = options
+    def initialize(itinerary: nil, geocode: nil, items: nil, saved: false)
+      super()
+      @itinerary = itinerary
+      @geocode = geocode
+      @items = items || itinerary&.items
+      @saved = saved
     end
+
+    def search = @geocode&.dig(:search) || itinerary&.search
+    def city = @geocode&.dig(:city) || itinerary&.city
+
+    def weather = WeatherFacade.forecast(coordinates)
+    def airports = items&.dig(:airports)
+    def hospitals = items&.dig(:hospitals)
+    def parks = items&.dig(:parks)
+    def activities = items&.dig(:activities)
+    def restaurants = items&.dig(:restaurants)
 
     private
 
-    def id = @options.fetch(:id, nil)
-    def saved = @options.fetch(:saved, false)
-
-    def airports = @items&.dig(:airports)
-    def hospitals = @items&.dig(:hospitals)
-    def parks = @items&.dig(:parks)
-    def activities = @items&.dig(:activities)
-    def restaurants = @items&.dig(:restaurants)
+    def coordinates = itinerary&.coordinates || @geocode
   end
 end

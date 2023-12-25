@@ -1,0 +1,14 @@
+<%= content_tag :div, class: 'mb-2', data: { controller: 'itinerary' } do %>
+  <%= content_tag :div, class: 'flex' do %>
+    <div class="cursor-pointer select-none" data-action="click->itinerary#toggle" role="button">
+      &#9776;
+    </div>
+    <%= content_tag :h3, title.capitalize, class: 'font-bold text-xl ml-2' %>
+  <% end %>
+
+  <%= content_tag :div, data: { itinerary_target: 'item' } do %>
+    <%= content_tag :div, id: title, class: class_list do %>
+      <%= content %>
+    <% end %>
+  <% end %>
+<% end %>

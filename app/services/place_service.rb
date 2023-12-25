@@ -2,7 +2,7 @@
 
 class PlaceService
   class << self
-    def near(location = {}, group = '', radius = 5000)
+    def near(location = {}, group = '', radius = 5_000)
       return unless location.is_a?(Hash) && location.present? && group.present?
 
       Rails.cache.fetch("PlaceService/#{group}/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do

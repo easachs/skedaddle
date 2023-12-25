@@ -1,0 +1,7 @@
+<% weather&.each do |day| %>
+  <%= content_tag :div, class: 'm-2' do %>
+    <p><b><%= day[:date] %></b></p>
+    <p><%= day[:temp].to_i %>&deg;F</p>
+    <p><%= day[:description] %></p>
+  <% end %>
+<% end %>

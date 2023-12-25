@@ -38,8 +38,8 @@ RSpec.describe 'Itinerary Show' do
 
     it 'restaurants' do
       within '#bakeries' do
-        click_button('Remove Izzio Bakery')
-        expect(page).not_to have_content('Izzio Bakery')
+        click_button('Remove The Denver Central Market')
+        expect(page).not_to have_content('The Denver Central Market')
       end
     end
 
