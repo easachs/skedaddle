@@ -2,15 +2,31 @@
   <%= content_tag :div, class: 'p-2 m-2' do %>
     <%= form_with url: prepare_itineraries_path do |form| %>
       <%= content_tag :div, class: 'py-2 text-sm' do %>
-        <%= search_field_tag  :search, nil,
-                              placeholder: 'Enter a destination',
-                              class: 'w-full mb-2 text-sm rounded',
-                              required: true,
-                              autofocus: true,
-                              autocomplete: 'off',
-                              data: { controller: 'address',
-                                      action: 'google-maps-callback@window->address#initAutocomplete
-                                              keydown->address#keydown' } %>
+        <%= content_tag :div, class: 'flex flex-wrap items-center mb-2' do %>
+          <%= search_field_tag  :search, nil,
+                                placeholder: 'Enter a destination',
+                                class: 'w-full mb-2 text-sm rounded',
+                                required: true,
+                                autofocus: true,
+                                autocomplete: 'off',
+                                data: { controller: 'address',
+                                        action: 'google-maps-callback@window->address#initAutocomplete
+                                                keydown->address#keydown' } %>
+
+          <%= content_tag :div, class: 'flex items-center' do%>
+            <span class="hidden sm:block m-2">Budget</span>
+            <%= content_tag :div, class: 'text-sm' do %>
+              <%= content_tag :div, class: 'flex' do%>
+                <% [['$', '1'], ['$$', '1,2'], ['$$$', '1,2,3'], ['$$$$', '1,2,3,4']].each do |(label, value)| %>
+                  <%= content_tag :div, class: 'flex items-center' do %>
+                  <%= radio_button_tag 'budget', value, false, class: 'm-2' %>
+                  <%= label_tag label %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
 
         <%= content_tag :div, class: 'flex items-center', data: { controller: 'date' } do %>
           <%= date_field_tag  :start, Time.zone.today,
@@ -28,22 +44,23 @@
         <% end %>
       <% end %>
 
-      <%= render Core::DropdownComponent.new(title: 'Where would you like to stay?') do %>
-        <%= render Core::CheckboxComponent.new data: lodging_data,
+      <%#= render Core::DropdownComponent.new(title: 'Where would you like to stay?',
+                                             box_class: 'hidden') do %>
+        <%#= render Core::CheckboxComponent.new data: lodging_data,
                                                prefix: 'lodging',
                                                size: 2 %>
-      <% end %>
+      <%# end %>
 
       <%= render Core::DropdownComponent.new(title: 'Where would you like to go?') do %>
         <%= render Core::CheckboxComponent.new data: activity_data,
                                                prefix: 'activities',
-                                               size: 5 %>
+                                               size: 4 %>
       <% end %>
 
       <%= render Core::DropdownComponent.new(title: 'Where would you like to eat?') do %>
         <%= render Core::CheckboxComponent.new data: restaurant_data,
                                                prefix: 'restaurants',
-                                               size: 5 %>
+                                               size: 4 %>
       <% end %>
 
       <p class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },

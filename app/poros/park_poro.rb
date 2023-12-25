@@ -6,8 +6,8 @@ class ParkPoro
   def initialize(attributes)
     @name         = attributes&.dig(:name)
     @location     = format_location(attributes)
-    @description  = attributes&.dig(:description)
-    @directions   = attributes&.dig(:directions)
+    @description  = sanitize(attributes&.dig(:description))
+    @directions   = sanitize(attributes&.dig(:directions))
     @object       = attributes&.dig(:activities)
   end
 
@@ -17,6 +17,10 @@ class ParkPoro
     [attributes[:city], attributes[:state], attributes[:country]]
       .reject { |attr| attr.blank? || attr == 'All' || attr == 'Not found' }
       .join(', ')
+  end
+
+  def sanitize(string)
+    ActionView::Base.full_sanitizer.sanitize(string)
   end
 
   def activities  = @object&.keys&.join(', ')

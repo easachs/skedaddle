@@ -46,11 +46,11 @@ class ItinerariesController < ApplicationController
   private
 
   def initialize_session
-    %i[search activities restaurants].each { |key| session[key] = params[key] }
+    %i[search activities restaurants budget].each { |key| session[key] = params[key] }
   end
 
   def clear_session
-    %i[search activities restaurants].each { |key| session.delete(key) }
+    %i[search activities restaurants budget].each { |key| session.delete(key) }
   end
 
   def geocode
@@ -66,6 +66,6 @@ class ItinerariesController < ApplicationController
   def find_businesses(group)
     return if group.blank? || session[group].blank?
 
-    session[group].transform_values { |cat| BusinessFacade.near(@geocode, cat) }
+    session[group].transform_values { |cat| BusinessFacade.near(@geocode, cat, session[:budget]) }
   end
 end

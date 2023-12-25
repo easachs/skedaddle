@@ -5,7 +5,7 @@ class ParkService
     def near(location = {})
       return unless location.is_a?(Hash) && location.present?
 
-      Rails.cache.fetch("ParkService/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
+      Rails.cache.fetch("park/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
         response = fetch_parks(location)
         response.body.match?(/!DOCTYPE|Invalid/) ? {} : JSON.parse(response.body, symbolize_names: true)
       end
