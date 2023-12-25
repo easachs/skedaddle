@@ -28,20 +28,23 @@
         <% end %>
       <% end %>
 
-      Where would you like to <b>stay?</b>
-      <%= render Core::CheckboxComponent.new data: lodging_data,
-                                              prefix: 'lodging',
-                                              size: 2 %>
+      <%= render Core::DropdownComponent.new(title: 'Where would you like to stay?') do %>
+        <%= render Core::CheckboxComponent.new data: lodging_data,
+                                               prefix: 'lodging',
+                                               size: 2 %>
+      <% end %>
 
-      Where would you like to <b>go?</b>
-      <%= render Core::CheckboxComponent.new data: activity_data,
-                                              prefix: 'activities',
-                                              size: 5 %>
+      <%= render Core::DropdownComponent.new(title: 'Where would you like to go?') do %>
+        <%= render Core::CheckboxComponent.new data: activity_data,
+                                               prefix: 'activities',
+                                               size: 5 %>
+      <% end %>
 
-      Where would you like to <b>eat?</b>
-      <%= render Core::CheckboxComponent.new data: restaurant_data,
-                                              prefix: 'restaurants',
-                                              size: 6 %>
+      <%= render Core::DropdownComponent.new(title: 'Where would you like to eat?') do %>
+        <%= render Core::CheckboxComponent.new data: restaurant_data,
+                                               prefix: 'restaurants',
+                                               size: 5 %>
+      <% end %>
 
       <p class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },
                                                     class: 'blue-btn mb-2' %></p>

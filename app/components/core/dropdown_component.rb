@@ -2,12 +2,13 @@
 
 module Core
   class DropdownComponent < ViewComponent::Base
-    attr_reader :title, :class_list
+    attr_reader :title, :title_class, :box_class
 
-    def initialize(title = '', class_list = '')
+    def initialize(title: '', title_class: '', box_class: '')
       super
       @title = title
-      @class_list = class_list
+      @title_class = title_class
+      @box_class = box_class
     end
   end
 end

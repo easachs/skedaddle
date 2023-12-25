@@ -19,14 +19,13 @@ module HomeHelper
   end
 
   def restaurant_data
-    [['American', 'tradamerican'], ['Bakeries', 'bakeries'],
-     ['Bars & Pubs', 'bars,pubs'], ['Breweries', 'breweries'],
+    [['Bakeries', 'bakeries'], ['Breweries', 'breweries'],
      ['Brunch', 'brunch'], ['Cafes', 'cafes'],
      ['Chinese', 'chinese'], ['Delis', 'delis'],
      ['Diners', 'diners'], ['Food Trucks', 'foodtrucks'],
-     ['Ice Cream', 'icecream'], ['Italian', 'italian'],
-     ['Mexican', 'mexican'], ['Pizzerias', 'pizza'],
-     ['Seafood', 'seafood'], ['Steakhouses', 'steak'],
-     ['Sushi', 'sushi'], ['Thai', 'thai']]
+     ['Italian', 'italian'], ['Mexican', 'mexican'],
+     ['Pizzerias', 'pizza'], ['Seafood', 'seafood'],
+     ['Steakhouses', 'steak'], ['Sushi', 'sushi'],
+     ['Thai', 'thai']]
   end
 end

@@ -3,11 +3,11 @@
     <div class="cursor-pointer select-none" data-action="click->itinerary#toggle" role="button">
       &#9776;
     </div>
-    <%= content_tag :h3, title.capitalize, class: 'font-bold text-xl ml-2' %>
+    <%= content_tag :h3, title.capitalize, class: "#{title_class} ml-2" %>
   <% end %>
 
   <%= content_tag :div, data: { itinerary_target: 'item' } do %>
-    <%= content_tag :div, id: title, class: class_list do %>
+    <%= content_tag :div, id: title, class: box_class do %>
       <%= content %>
     <% end %>
   <% end %>
