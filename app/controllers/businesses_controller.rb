@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
   def destroy
     itinerary = find_business.itinerary
     find_business.destroy!
-    redirect_to itinerary_path(itinerary.id)
+    redirect_to itinerary_path(itinerary)
   end
 
   private

@@ -22,13 +22,13 @@ class Itinerary < ApplicationRecord
   has_many :parks, dependent: :destroy
   has_many :businesses, dependent: :destroy
 
-  def date = created_at.strftime('%m/%d/%y')
+  def date        = created_at.strftime('%m/%d/%y')
   def coordinates = { lat:, lon: }
 
-  def airports = places.where(group: 'airport')
-  def hospitals = places.where(group: 'hospital')
-  def activities = businesses.where(group: 'activities').group_by(&:kind)
+  def airports    = places.where(group: 'airport')
+  def hospitals   = places.where(group: 'hospital')
+  def activities  = businesses.where(group: 'activities').group_by(&:kind)
   def restaurants = businesses.where(group: 'restaurants').group_by(&:kind)
 
-  def items = { airports:, hospitals:, parks:, activities:, restaurants: }
+  def items       = { airports:, hospitals:, parks:, activities:, restaurants: }
 end

@@ -6,7 +6,7 @@ class ParksController < ApplicationController
   def destroy
     itinerary = find_park.itinerary
     find_park.destroy!
-    redirect_to itinerary_path(itinerary.id)
+    redirect_to itinerary_path(itinerary)
   end
 
   private

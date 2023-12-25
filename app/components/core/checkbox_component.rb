@@ -6,9 +6,9 @@ module Core
 
     def initialize(data:, prefix:, size:)
       super
-      @data = data
+      @data   = data
       @prefix = prefix
-      @size = size
+      @size   = size
     end
   end
 end

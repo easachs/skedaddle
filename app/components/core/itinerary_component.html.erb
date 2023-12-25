@@ -1,6 +1,6 @@
 <%= content_tag :div, class: 'row bg-white bg-opacity-70 rounded-xl' do %>
   <%= content_tag :div, class: 'col-lg p-4' do %>
-    <%= content_tag :h1, "#{city}", class: 'text-center text-3xl font-bold mb-2' %>
+    <%= content_tag :h1, city&.to_s, class: 'text-center text-3xl font-bold mb-2' %>
 
     <%= render Core::DropdownComponent.new(title: 'weather',
                                            title_class:,
@@ -44,13 +44,15 @@
 
     <% if saved %>
       <%= form_with url: itinerary_path(itinerary), method: :delete do |form| %>
-        <p class='py-2 text-center'><%= form.submit 'Delete', data: { turbo: false },
+        <p class='py-2 text-center'><%= form.submit 'Delete',
+                                                    data: { turbo: false },
                                                     class: 'blue-btn' %></p>
       <% end %>
     <% else %>
       <%= form_with url: itineraries_path, method: :post do |form| %>
         <%= form.hidden_field :search, value: search %>
-        <p class='py-2 text-center'><%= form.submit 'Save', data: { turbo: false },
+        <p class='py-2 text-center'><%= form.submit 'Save',
+                                                    data: { turbo: false },
                                                     class: 'blue-btn' %></p>
       <% end %>
     <% end %>

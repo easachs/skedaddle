@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :businesses, only: %i[destroy]
 
   # contact
-  get 'contact', to: 'home#contact'
+  get 'contact',  to: 'home#contact'
   post 'contact', to: 'contact#create'
   get 'received', to: 'home#received'
 

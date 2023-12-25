@@ -15,10 +15,10 @@ class WeatherService
 
     def fetch_weather(location)
       conn.get('onecall') do |route|
-        route.params['lat'] = location[:lat]
-        route.params['lon'] = location[:lon]
+        route.params['lat']     = location[:lat]
+        route.params['lon']     = location[:lon]
         route.params['exclude'] = 'minutely,hourly,alerts'
-        route.params['units'] = 'imperial'
+        route.params['units']   = 'imperial'
       end
     end
 

@@ -15,11 +15,11 @@ class BusinessService
 
     def fetch_businesses(location, kind)
       conn.get('search') do |route|
-        route.params['limit'] = 5
-        route.params['latitude'] = location[:lat]
-        route.params['longitude'] = location[:lon]
-        route.params['radius'] = 15_000
-        route.params['categories'] = kind
+        route.params['limit']       = 5
+        route.params['latitude']    = location[:lat]
+        route.params['longitude']   = location[:lon]
+        route.params['radius']      = 15_000
+        route.params['categories']  = kind
       end
     end
 

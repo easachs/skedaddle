@@ -15,10 +15,10 @@ class ParkService
 
     def fetch_parks(location)
       conn.get('/activity/') do |route|
-        route.params['limit'] = 5
-        route.params['lat'] = location[:lat]
-        route.params['lon'] = location[:lon]
-        route.params['radius'] = 100
+        route.params['limit']   = 5
+        route.params['lat']     = location[:lat]
+        route.params['lon']     = location[:lon]
+        route.params['radius']  = 100
       end
     end
 

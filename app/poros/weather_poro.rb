@@ -9,11 +9,9 @@ class WeatherPoro
     return [] if @daily.blank?
 
     @daily[0..3].map do |day|
-      {
-        date: Time.zone.at(day[:dt]).strftime('%a'),
+      { date: Time.zone.at(day[:dt]).strftime('%a'),
         temp: day[:temp][:day],
-        description: day[:weather].first[:main]
-      }
+        description: day[:weather].first[:main] }
     end
   end
 end

@@ -6,8 +6,8 @@ module Sub
 
     def initialize(park:, saved: false)
       super
-      @park = park
-      @saved = saved
+      @park   = park
+      @saved  = saved
     end
   end
 end

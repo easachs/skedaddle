@@ -25,10 +25,10 @@ class User < ApplicationRecord
 
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |u|
-      u.uid = response[:uid]
-      u.name = response[:info][:name]
-      u.email = response[:info][:email]
-      u.password = Devise.friendly_token[0, 20]
+      u.uid       = response[:uid]
+      u.name      = response[:info][:name]
+      u.email     = response[:info][:email]
+      u.password  = Devise.friendly_token[0, 20]
     end
   end
 end
