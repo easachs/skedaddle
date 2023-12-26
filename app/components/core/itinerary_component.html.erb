@@ -55,7 +55,7 @@
       <% if itinerary.summary.blank? %>
         <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
           <p class='py-2 text-center'><%= form.submit 'Summary',
-                                                      #data: { turbo: false },
+                                                      data: { turbo: false },
                                                       class: 'blue-btn' %></p>
         <% end %>
       <% end %>

@@ -41,8 +41,12 @@ class ItinerariesController < ApplicationController
   def update
     itinerary = Itinerary.find(params[:id])
     response = GptService.summary(itinerary)
-    itinerary.create_summary!(response:)
-    redirect_to itinerary_path(itinerary)
+    if response.present?
+      itinerary.create_summary!(response:)
+      redirect_to itinerary_path(itinerary)
+    else
+      redirect_with_error(path: itinerary_path(itinerary))
+    end
   end
 
   def destroy

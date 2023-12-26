@@ -8,7 +8,8 @@ class GptService
       Rails.cache.fetch("gpt/#{itinerary.id}", expires_in: 1.hour) do
         response = fetch_gpt(itinerary.prompt)
         parsed = JSON.parse(response.body, symbolize_names: true)
-        formatted(parsed.dig(:choices, 0, :message, :content))
+        parsed_response = parsed&.dig(:choices, 0, :message, :content)
+        formatted(parsed_response) if parsed_response
       end
     end
 
