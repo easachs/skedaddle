@@ -2,6 +2,8 @@
 
 class WeatherService
   class << self
+    KEY = ENV.fetch('WEATHER_API_KEY', nil)
+  
     def forecast(location = nil)
       return if location.blank?
 
@@ -14,17 +16,17 @@ class WeatherService
     private
 
     def fetch_weather(location)
-      conn.get('onecall') do |route|
-        route.params['lat']     = location[:lat]
-        route.params['lon']     = location[:lon]
-        route.params['exclude'] = 'minutely,hourly,alerts'
-        route.params['units']   = 'imperial'
+      conn.get('onecall') do |f|
+        f.params['lat']     = location[:lat]
+        f.params['lon']     = location[:lon]
+        f.params['exclude'] = 'minutely,hourly,alerts'
+        f.params['units']   = 'imperial'
       end
     end
 
     def conn
       Faraday.new(url: 'http://api.openweathermap.org/data/2.5') do |f|
-        f.params['appid'] = ENV.fetch('WEATHER_API_KEY', nil)
+        f.params['appid'] = KEY
       end
     end
   end

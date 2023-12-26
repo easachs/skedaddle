@@ -1,5 +1,5 @@
 <%= link_to park.name, park.url, class: 'font-bold m-2' %>
-<%= image_tag park.thumbnail, class: 'image-format m-2', style: 'height: 125px;' if park.thumbnail.present? %>
+<%= image_tag park.thumbnail, class: 'hidden sm:block image-format m-2', style: 'height: 125px;' if park.thumbnail.present? %>
 <p class="m-2"><b>Location: </b><%= park.location %></p>
 <p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
 <p class="m-2"><b>Directions: </b><%= park.directions %></p>
