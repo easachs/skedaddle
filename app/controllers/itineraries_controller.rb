@@ -53,15 +53,23 @@ class ItinerariesController < ApplicationController
   private
 
   def initialize_session
-    %i[search activities restaurants budget].each { |key| session[key] = params[key] }
+    %i[search activities restaurants budget start end]
+      .each { |key| session[key] = params[key] }
   end
 
   def clear_session
-    %i[search activities restaurants budget].each { |key| session.delete(key) }
+    %i[search activities restaurants budget start end]
+      .each { |key| session.delete(key) }
   end
 
   def geocode
     @geocode = GeocodeFacade.geocode(session[:search]&.delete("'"))
+                            &.merge!(start_date: format_date(session[:start]),
+                                     end_date: format_date(session[:end]))
+  end
+
+  def format_date(date)
+    Date.parse(date).strftime('%m/%d/%y') if date.present?
   end
 
   def find_items
