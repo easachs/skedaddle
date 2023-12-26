@@ -38,6 +38,12 @@ class ItinerariesController < ApplicationController
     redirect_to itinerary_path(itinerary)
   end
 
+  def update
+    # prompt = generate_prompt(@itinerary)
+    # response = GptService.summary(prompt)
+    # @itinerary.summary.create!(response: response['choices'].first['text'])
+  end
+
   def destroy
     Itinerary.find(params[:id]).destroy!
     redirect_to itineraries_path

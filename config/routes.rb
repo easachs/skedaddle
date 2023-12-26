@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   }
 
   # itineraries
-  resources :itineraries, except: %i[edit update] do
+  resources :itineraries, except: %i[edit] do
     post 'prepare', on: :collection
   end
   resources :parks, only: %i[destroy]
