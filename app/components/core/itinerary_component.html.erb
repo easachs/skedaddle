@@ -2,32 +2,41 @@
   <%= content_tag :div, class: 'col-lg p-4' do %>
     <%= content_tag :h1, city&.to_s, class: 'text-center text-3xl font-bold mb-2' %>
 
-    <%= render Core::DropdownComponent.new(title: 'weather',
+    <%= render Core::DropdownComponent.new title: 'weather',
                                            title_class:,
-                                           box_class: 'flex text-sm p-2') do %>
+                                           box_class: 'flex text-sm p-2' do %>
       <%= render Sub::WeatherComponent.new(weather:) %>
     <% end %>
 
     <% if airports.present? %>
-      <%= render Core::DropdownComponent.new(title: 'airports',
+      <%= render Core::DropdownComponent.new title: 'airports',
                                              title_class:,
-                                             box_class: 'flex flex-wrap text-sm') do %>
+                                             box_class: 'flex flex-wrap text-sm' do %>
         <%= render Sub::PlaceComponent.with_collection airports %>
       <% end %>
     <% end %>
 
-    <% if hospitals.present? %>
-      <%= render Core::DropdownComponent.new(title: 'hospitals',
+    <% if itinerary&.summary %>
+      <%= render Core::DropdownComponent.new title: 'summary',
                                              title_class:,
-                                             box_class: 'flex flex-wrap text-sm') do %>
+                                             box_class: 'p-4' do %>
+        <%= itinerary.summary.response.html_safe %>
+      <% end %>
+
+    <% end %>
+
+    <% if hospitals.present? %>
+      <%= render Core::DropdownComponent.new title: 'hospitals',
+                                             title_class:,
+                                             box_class: 'flex flex-wrap text-sm' do %>
         <%= render Sub::PlaceComponent.with_collection hospitals %>
       <% end %>
     <% end %>
 
     <% if parks.present? %>
-      <%= render Core::DropdownComponent.new(title: 'parks',
+      <%= render Core::DropdownComponent.new title: 'parks',
                                              title_class:,
-                                             box_class: 'p-2') do %>
+                                             box_class: 'p-2' do %>
         <%= render Sub::ParkComponent.with_collection(parks, saved:) %>
       <% end %>
     <% end %>
@@ -43,6 +52,14 @@
     <% end %>
 
     <% if saved %>
+      <% if itinerary.summary.blank? %>
+        <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
+          <p class='py-2 text-center'><%= form.submit 'Summary',
+                                                      #data: { turbo: false },
+                                                      class: 'blue-btn' %></p>
+        <% end %>
+      <% end %>
+
       <%= form_with url: itinerary_path(itinerary), method: :delete do |form| %>
         <p class='py-2 text-center'><%= form.submit 'Delete',
                                                     data: { turbo: false },

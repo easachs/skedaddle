@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class BusinessService
-  KEY = "Bearer #{ENV.fetch('YELP_API_KEY', nil)}".freeze
-
   class << self
     def near(location = {}, kind = '', budget = nil)
       return unless location.is_a?(Hash) && location.present? && kind.present?
@@ -26,7 +24,7 @@ class BusinessService
 
     def conn
       Faraday.new(url: 'https://api.yelp.com/v3/businesses') do |f|
-        f.headers['authorization']  = KEY
+        f.headers['authorization']  = "Bearer #{ENV.fetch('YELP_API_KEY', nil)}"
         f.params['limit']           = 5
         f.params['radius']          = 15_000
       end

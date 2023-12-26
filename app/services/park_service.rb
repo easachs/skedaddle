@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ParkService
-  KEY = ENV.fetch('RAPID_API_KEY', nil)
-
   class << self
     def near(location = {})
       return unless location.is_a?(Hash) && location.present?
@@ -26,7 +24,7 @@ class ParkService
 
     def conn
       Faraday.new(url: 'https://trailapi-trailapi.p.rapidapi.com') do |f|
-        f.headers['X-RapidAPI-Key'] = KEY
+        f.headers['X-RapidAPI-Key'] = ENV.fetch('RAPID_API_KEY', nil)
       end
     end
   end

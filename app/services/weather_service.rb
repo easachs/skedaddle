@@ -2,8 +2,6 @@
 
 class WeatherService
   class << self
-    KEY = ENV.fetch('WEATHER_API_KEY', nil)
-  
     def forecast(location = nil)
       return if location.blank?
 
@@ -26,7 +24,7 @@ class WeatherService
 
     def conn
       Faraday.new(url: 'http://api.openweathermap.org/data/2.5') do |f|
-        f.params['appid'] = KEY
+        f.params['appid'] = ENV.fetch('WEATHER_API_KEY', nil)
       end
     end
   end

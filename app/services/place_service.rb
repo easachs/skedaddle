@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PlaceService
-  KEY = ENV.fetch('GOOGLE_MAPS_KEY', nil)
-
   class << self
     def near(location = {}, group = '', radius = 5_000)
       return unless location.is_a?(Hash) && location.present? && group.present?
@@ -34,7 +32,7 @@ class PlaceService
     def conn
       Faraday.new(url: 'https://places.googleapis.com') do |f|
         f.headers['Content-Type'] = 'application/json'
-        f.headers['X-Goog-Api-Key'] = KEY
+        f.headers['X-Goog-Api-Key'] = ENV.fetch('GOOGLE_MAPS_KEY', nil)
       end
     end
   end

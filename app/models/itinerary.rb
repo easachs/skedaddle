@@ -46,13 +46,6 @@ class Itinerary < ApplicationRecord
     "Parks - #{parks.pluck(:name).join(', ')}"
   end
 
-  # def business_list
-  #   [activities, restaurants].map do |group|
-  #     array = group.map { |k, v| { k => v.map(&:name).join(', ') } }
-  #     array.map { |a| a.map { |k, v| "#{k} - #{v}" } }.join(' / ')
-  #   end.join(' / ')
-  # end
-
   def business_list
     [activities, restaurants].map do |group|
       group.map { |k, v| "#{k} - #{v.map(&:name).join(', ')}" }.join(' / ')
