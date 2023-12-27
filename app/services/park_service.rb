@@ -2,7 +2,7 @@
 
 class ParkService
   def initialize(key = nil)
-    @key = key || ENV.fetch('RAPID_API_KEY', nil)
+    @key = key
   end
 
   def near(location = {})
@@ -10,7 +10,7 @@ class ParkService
 
     Rails.cache.fetch("park/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
       response = fetch_parks(location)
-      response.body.match?(/!DOCTYPE|Invalid/) ? {} : JSON.parse(response.body, symbolize_names: true)
+      response.body.match?(/!DOCTYPE|Invalid/) ? nil : JSON.parse(response.body, symbolize_names: true)
     end
   end
 
