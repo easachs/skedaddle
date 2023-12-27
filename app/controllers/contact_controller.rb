@@ -8,7 +8,7 @@ class ContactController < ApplicationController
       ContactMailer.email(@contact).deliver_now
       redirect_to received_path
     else
-      redirect_with_error(message: 'send_failed', path: contact_path)
+      redirect_with_message(message: 'send_failed', path: contact_path)
     end
   end
 

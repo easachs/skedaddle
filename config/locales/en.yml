@@ -1,12 +1,13 @@
 en:
   flash:
-    errors:
-      no_results: "No results found."
-      too_broad: "Please be more specific."
-      something: "Something went wrong."
+    messages:
+      key_updated: 'Keys updated.'
       no_access: "You don't have access to this."
+      no_results: "No results found."
       not_found: "Couldn't find itinerary."
       send_failed: "Failed to send."
+      something: "Something went wrong."
+      too_broad: "Please be more specific."
   mailers:
     contact:
       subject: "Skedaddle Contact"

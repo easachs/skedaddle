@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   validates :email, :name, presence: true
   has_many :itineraries, dependent: :destroy
+  has_many :keys, dependent: :destroy
 
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |u|
@@ -31,4 +32,7 @@ class User < ApplicationRecord
       u.password  = Devise.friendly_token[0, 20]
     end
   end
+
+  def openai_key = keys.find_by(name: 'openai')&.value
+  def trailapi_key = keys.find_by(name: 'trailapi')&.value
 end

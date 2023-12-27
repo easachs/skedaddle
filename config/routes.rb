@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   root 'home#home'
   get 'about', to: 'home#about'
 
-  # devise
+  # users
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  # keys
+  get 'keys', to: 'keys#edit'
+  patch 'keys', to: 'keys#update'
 
   # itineraries
   resources :itineraries, except: %i[edit] do

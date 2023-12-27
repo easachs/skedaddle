@@ -38,5 +38,9 @@ module Skedaddle
 
     # Handle 404/500 errors
     config.exceptions_app = routes
+
+    config.active_record.encryption.primary_key = ENV.fetch('ENCRYPTION_PRIMARY_KEY', nil)
+    config.active_record.encryption.deterministic_key = ENV.fetch('ENCRYPTION_DETERMINISTIC_KEY', nil)
+    config.active_record.encryption.key_derivation_salt = ENV.fetch('ENCRYPTION_KEY_DERIVATION_SALT', nil)
   end
 end

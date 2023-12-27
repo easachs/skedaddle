@@ -15,9 +15,9 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    redirect_with_error(message: 'no_access', path: itineraries_path) if @itinerary.user != current_user
+    redirect_with_message(message: 'no_access', path: itineraries_path) if @itinerary.user != current_user
   rescue StandardError
-    redirect_with_error(message: 'not_found', path: itineraries_path)
+    redirect_with_message(message: 'not_found', path: itineraries_path)
   end
 
   def prepare
@@ -26,9 +26,9 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    return redirect_with_error(message: 'no_results') if [@items]&.all?(&:blank?)
+    return redirect_with_message(message: 'no_results') if [@items]&.all?(&:blank?)
 
-    redirect_with_error(message: 'too_broad') if @geocode&.dig(:city).blank?
+    redirect_with_message(message: 'too_broad') if @geocode&.dig(:city).blank?
   end
 
   def create
@@ -45,7 +45,7 @@ class ItinerariesController < ApplicationController
       itinerary.create_summary!(response:)
       redirect_to itinerary_path(itinerary)
     else
-      redirect_with_error(path: itinerary_path(itinerary))
+      redirect_with_message(path: itinerary_path(itinerary))
     end
   end
 

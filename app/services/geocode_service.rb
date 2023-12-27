@@ -9,8 +9,8 @@ class GeocodeService
         response = conn.get('/v1/forward') do |f|
           f.params['query'] = location
         end
-        parsed_response = JSON.parse(response.body, symbolize_names: true)
-        parsed_response if parsed_response && parsed_response[:error].nil?
+        parsed = JSON.parse(response.body, symbolize_names: true)
+        parsed.keys.include?(:error) ? nil : parsed
       end
     end
 
