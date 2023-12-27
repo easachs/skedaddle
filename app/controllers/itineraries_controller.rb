@@ -40,7 +40,7 @@ class ItinerariesController < ApplicationController
 
   def update
     itinerary = Itinerary.find(params[:id])
-    response = GptService.summary(itinerary)
+    response = GptService.new(current_user&.openai_key).summary(itinerary)
     if response.present?
       itinerary.create_summary!(response:)
       redirect_to itinerary_path(itinerary)
@@ -78,7 +78,8 @@ class ItinerariesController < ApplicationController
 
   def find_items
     @items = ItineraryService.find_items(@geocode)
-                             &.merge!(activities: find_businesses(:activities),
+                             &.merge!(parks: ParkFacade.new(current_user&.trailapi_key).near(@geocode),
+                                      activities: find_businesses(:activities),
                                       restaurants: find_businesses(:restaurants))
   end
 

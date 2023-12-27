@@ -13,10 +13,10 @@
                                         action: 'google-maps-callback@window->address#initAutocomplete
                                                 keydown->address#keydown' } %>
 
-          <%= content_tag :div, class: 'flex items-center' do%>
+          <%= content_tag :div, class: 'flex items-center' do %>
             <span class="hidden sm:block m-2">Budget</span>
             <%= content_tag :div, class: 'text-sm' do %>
-              <%= content_tag :div, class: 'flex' do%>
+              <%= content_tag :div, class: 'flex' do %>
                 <% [['$', '1'], ['$$', '1,2'], ['$$$', '1,2,3'], ['$$$$', '1,2,3,4']].each do |(label, value)| %>
                   <%= content_tag :div, class: 'flex items-center' do %>
                   <%= radio_button_tag 'budget', value, false, class: 'm-2' %>

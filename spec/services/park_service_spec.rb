@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ParkService do
   describe 'gets parks', vcr: 'denver_parks' do
-    let(:response) { described_class.near({ lat: 39.740959, lon: -104.985798 }) }
+    let(:response) { described_class.new.near({ lat: 39.740959, lon: -104.985798 }) }
 
     it 'as hash with parks array' do
       expect(response).to be_a(Hash)
@@ -43,22 +43,22 @@ RSpec.describe ParkService do
 
   describe 'sad path' do
     it 'errors gracefully with bad search' do
-      response = described_class.near('Nonexistent')
+      response = described_class.new.near('Nonexistent')
       expect(response).to be_nil
     end
 
     it 'errors gracefully with blank search' do
-      response = described_class.near('')
+      response = described_class.new.near('')
       expect(response).to be_nil
     end
 
     it 'errors gracefully with nil search' do
-      response = described_class.near(nil)
+      response = described_class.new.near(nil)
       expect(response).to be_nil
     end
 
     it 'errors gracefully with empty search' do
-      response = described_class.near({})
+      response = described_class.new.near({})
       expect(response).to be_nil
     end
   end

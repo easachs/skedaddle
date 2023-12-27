@@ -6,8 +6,7 @@ class ItineraryService
       return unless geocode
 
       { airports: PlaceFacade.near(geocode, 'airport', 50_000),
-        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000),
-        parks: ParkFacade.near(geocode) }
+        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000) }
     end
 
     def populate(itinerary, items)
