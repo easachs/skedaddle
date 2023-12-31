@@ -25,6 +25,8 @@ FactoryBot.define do
     country { Faker::Address.country }
     lat { Faker::Address.latitude }
     lon { Faker::Address.longitude }
+    start_date { '12/25/23' }
+    end_date { '12/27/23' }
     user
   end
 end

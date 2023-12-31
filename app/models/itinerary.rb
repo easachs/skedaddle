@@ -18,7 +18,7 @@
 #  end_date   :string
 #
 class Itinerary < ApplicationRecord
-  validates :search, :city, :lat, :lon, presence: true
+  validates :search, :city, :lat, :lon, :start_date, :end_date, presence: true
   belongs_to :user
   has_many :places, dependent: :destroy
   has_many :parks, dependent: :destroy
@@ -38,7 +38,7 @@ class Itinerary < ApplicationRecord
   # Prompt for GPT
   def prompt
     "Create a #{trip_length || 3} day itinerary for #{search} incorporating some of the following.
-    #{park_list} / #{business_list}
+    #{park_list if parks} / #{business_list}
     Also include other important sites or landmarks that could be worth visiting."
   end
 

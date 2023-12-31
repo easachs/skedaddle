@@ -6,7 +6,7 @@ class GptService
   end
 
   def summary(itinerary)
-    return if itinerary.prompt.blank?
+    return if itinerary.blank? || itinerary.prompt.blank?
 
     Rails.cache.fetch("gpt/#{itinerary.id}", expires_in: 1.hour) do
       response = fetch_gpt(itinerary.prompt)

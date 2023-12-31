@@ -16,20 +16,19 @@
       <% end %>
     <% end %>
 
-    <% if itinerary&.summary %>
-      <%= render Core::DropdownComponent.new title: 'summary',
-                                             title_class:,
-                                             box_class: 'p-4' do %>
-        <%= itinerary.summary.response.html_safe %>
-      <% end %>
-
-    <% end %>
-
     <% if hospitals.present? %>
       <%= render Core::DropdownComponent.new title: 'hospitals',
                                              title_class:,
                                              box_class: 'flex flex-wrap text-sm' do %>
         <%= render Sub::PlaceComponent.with_collection hospitals %>
+      <% end %>
+    <% end %>
+
+    <% if itinerary&.summary %>
+      <%= render Core::DropdownComponent.new title: 'summary',
+                                             title_class:,
+                                             box_class: 'p-4' do %>
+        <%= itinerary.summary.response.html_safe %>
       <% end %>
     <% end %>
 

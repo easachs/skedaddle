@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module HomeHelper
-  def lodging_data
-    [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
-     ['Hostel', 'hostels'], ['Hotel', 'hotels'],
-     ['Rental', 'rentals'], ['Resort', 'resort']]
-  end
+  # def lodging_data
+  #   [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
+  #    ['Hostel', 'hostels'], ['Hotel', 'hotels'],
+  #    ['Rental', 'rentals'], ['Resort', 'resort']]
+  # end
 
   def activity_data
     [['Beaches', 'beaches'], ['Festivals', 'festivals'],

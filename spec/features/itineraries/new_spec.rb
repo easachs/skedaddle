@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Itinerary New' do
+RSpec.describe 'Itinerary New', vcr: 'denver_search' do
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
@@ -18,9 +18,11 @@ RSpec.describe 'Itinerary New' do
     )
     visit new_user_session_path
     click_button('Sign In with GoogleOauth2')
+
+    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('TRAIL_API_KEY', nil))
   end
 
-  describe 'displays new itinerary with', vcr: 'denver_search' do
+  describe 'displays new itinerary with' do
     before do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
@@ -45,7 +47,7 @@ RSpec.describe 'Itinerary New' do
     end
   end
 
-  describe 'saves new itinerary with', vcr: 'denver_search' do
+  describe 'saves new itinerary with' do
     before do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
@@ -86,7 +88,7 @@ RSpec.describe 'Itinerary New' do
       end
     end
 
-    describe 'with no search', vcr: 'blank_search' do
+    describe 'with no search', vcr: 'bad_search' do
       before do
         visit '/itineraries/new?search='
       end

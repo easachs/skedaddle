@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Itinerary Show' do
+RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
@@ -18,12 +18,14 @@ RSpec.describe 'Itinerary Show' do
     )
     visit new_user_session_path
     click_button('Sign In with GoogleOauth2')
+
+    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('TRAIL_API_KEY', nil))
+    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_API_KEY', nil))
   end
 
-  describe 'removes', vcr: 'denver_search' do
+  describe 'removes' do
     before do
       fill_in 'search', with: 'Denver'
-      check 'Landmarks'
       check 'Bakeries'
       click_button 'SKEDADDLE'
       click_button 'Save'
@@ -55,6 +57,28 @@ RSpec.describe 'Itinerary Show' do
       it 'deletes' do
         expect(page).not_to have_content('Denver')
       end
+    end
+  end
+
+  describe 'creates summary', vcr: 'denver_update' do
+    before do
+      current_user = User.last
+      itinerary = current_user.itineraries.create(search: 'Denver, CO, USA',
+                                                  city: 'Denver',
+                                                  lat: 39.740959,
+                                                  lon: -104.985798,
+                                                  start_date: '12/25/23',
+                                                  end_date: '12/27/23')
+      visit itinerary_path(itinerary)
+      click_button 'Summary'
+    end
+
+    it 'with days' do
+      expect(page).to have_content('Day 1:')
+    end
+
+    it 'with day parts' do
+      expect(page).to have_content('Morning:')
     end
   end
 
