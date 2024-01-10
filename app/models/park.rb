@@ -5,16 +5,24 @@
 # Table name: parks
 #
 #  id           :bigint           not null, primary key
-#  name         :string
-#  location     :string
+#  activities   :string
 #  description  :string
 #  directions   :string
-#  activities   :string
-#  url          :string
+#  location     :string
+#  name         :string
 #  thumbnail    :string
-#  itinerary_id :bigint           not null
+#  url          :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  itinerary_id :bigint           not null
+#
+# Indexes
+#
+#  index_parks_on_itinerary_id  (itinerary_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (itinerary_id => itineraries.id)
 #
 class Park < ApplicationRecord
   validates :name, :location, :activities, presence: true

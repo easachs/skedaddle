@@ -5,17 +5,25 @@
 # Table name: itineraries
 #
 #  id         :bigint           not null, primary key
-#  search     :string
 #  city       :string
-#  region     :string
 #  country    :string
+#  end_date   :string
 #  lat        :float
 #  lon        :float
-#  user_id    :bigint           not null
+#  region     :string
+#  search     :string
+#  start_date :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_date :string
-#  end_date   :string
+#  user_id    :bigint           not null
+#
+# Indexes
+#
+#  index_itineraries_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 require 'rails_helper'
 
