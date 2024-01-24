@@ -5,6 +5,7 @@ en:
       no_access: "You don't have access to this."
       no_results: "No results found."
       not_found: "Couldn't find itinerary."
+      openai_key: 'You need a valid OpenAI key.'
       send_failed: "Failed to send."
       something: "Something went wrong."
       too_broad: "Please be more specific."

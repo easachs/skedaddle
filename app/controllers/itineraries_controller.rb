@@ -46,7 +46,7 @@ class ItinerariesController < ApplicationController
       itinerary.create_summary!(response:)
       redirect_to itinerary_path(itinerary)
     else
-      redirect_with_message(path: itinerary_path(itinerary))
+      redirect_with_message(message: 'openai_key', path: itinerary_path(itinerary))
     end
   end
 
@@ -58,12 +58,12 @@ class ItinerariesController < ApplicationController
   private
 
   def initialize_session
-    %i[search activities restaurants budget start end]
+    %i[search activities restaurants budget distance start end]
       .each { |key| session[key] = params[key] }
   end
 
   def clear_session
-    %i[search activities restaurants budget start end]
+    %i[search activities restaurants budget distance start end]
       .each { |key| session.delete(key) }
   end
 
@@ -87,6 +87,8 @@ class ItinerariesController < ApplicationController
   def find_businesses(group)
     return if group.blank? || session[group].blank?
 
-    session[group].transform_values { |cat| BusinessFacade.near(@geocode, cat, session[:budget]) }
+    session[group].transform_values do |cat|
+      BusinessFacade.near(@geocode, cat, session[:budget], session[:distance].to_i * 1_000)
+    end
   end
 end

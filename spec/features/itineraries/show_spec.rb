@@ -26,6 +26,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
   describe 'removes' do
     before do
       fill_in 'search', with: 'Denver'
+      check 'Landmarks'
       check 'Bakeries'
       click_button 'SKEDADDLE'
       click_button 'Save'
@@ -40,8 +41,8 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'restaurants' do
       within '#bakeries' do
-        click_button('Remove The Denver Central Market')
-        expect(page).not_to have_content('The Denver Central Market')
+        click_button('Remove Izzio Bakery')
+        expect(page).not_to have_content('Izzio Bakery')
       end
     end
 
@@ -86,7 +87,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       User.last.keys.find_by(name: 'openai').destroy
       click_button 'Create Summary'
 
-      expect(page).to have_content('Something went wrong.')
+      expect(page).to have_content('You need a valid OpenAI key.')
     end
   end
 

@@ -2,23 +2,24 @@
 
 class BusinessService
   class << self
-    def near(location = {}, kind = '', budget = nil)
-      return unless location.is_a?(Hash) && location.present? && kind.present?
+    def near(geo, kind = '', budget = nil, dist = 15_000)
+      return unless geo.is_a?(Hash) && geo.present? && kind.present?
 
-      Rails.cache.fetch("business/#{budget&.size}/#{kind}/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-        response = fetch_businesses(location, kind, budget)
+      Rails.cache.fetch("business/#{kind}/#{budget&.size}/#{dist}/#{geo[:lat]}/#{geo[:lon]}", expires_in: 1.hour) do
+        response = fetch_businesses(geo, kind, budget, dist)
         JSON.parse(response.body, symbolize_names: true)
       end
     end
 
     private
 
-    def fetch_businesses(location, kind, budget = nil)
+    def fetch_businesses(geo, kind, budget = nil, dist = 15_000)
       conn.get('search') do |f|
-        f.params['latitude']    = location[:lat]
-        f.params['longitude']   = location[:lon]
+        f.params['latitude']    = geo[:lat]
+        f.params['longitude']   = geo[:lon]
         f.params['categories']  = kind
         f.params['price']       = budget if budget.present?
+        f.params['radius']      = dist
       end
     end
 
@@ -26,7 +27,6 @@ class BusinessService
       Faraday.new(url: 'https://api.yelp.com/v3/businesses') do |f|
         f.headers['authorization']  = "Bearer #{ENV.fetch('YELP_API_KEY', nil)}"
         f.params['limit']           = 5
-        f.params['radius']          = 15_000
       end
     end
   end

@@ -2,7 +2,7 @@
   <%= content_tag :div, class: 'p-2 m-2' do %>
     <%= form_with url: prepare_itineraries_path do |form| %>
       <%= content_tag :div, class: 'py-2 text-sm' do %>
-        <%= content_tag :div, class: 'flex flex-wrap items-center mb-2' do %>
+        <%= content_tag :div, class: 'flex flex-wrap justify-between items-center mb-2' do %>
           <%= search_field_tag  :search, nil,
                                 placeholder: 'Enter a destination',
                                 class: 'w-full mb-2 text-sm rounded',
@@ -19,12 +19,20 @@
               <%= content_tag :div, class: 'flex' do %>
                 <% [['$', '1'], ['$$', '1,2'], ['$$$', '1,2,3'], ['$$$$', '1,2,3,4']].each do |(label, value)| %>
                   <%= content_tag :div, class: 'flex items-center' do %>
-                  <%= radio_button_tag 'budget', value, false, class: 'm-2' %>
-                  <%= label_tag label %>
+                    <%= radio_button_tag 'budget', value, false, class: 'm-2' %>
+                    <%= label_tag label %>
                   <% end %>
                 <% end %>
               <% end %>
             <% end %>
+          <% end %>
+
+          <%= content_tag :div, class: 'flex items-center' do %>
+            <%= content_tag :div, data: { controller: 'slider' } do %>
+              <span data-slider-target="output">15 km</span>
+              <%= range_field_tag 'distance', 15, in: 0..40, step: 5, class: 'm-2', data: { action: "input->slider#update", slider_target: "input" } %>
+            <% end %>
+
           <% end %>
         <% end %>
 
