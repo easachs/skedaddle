@@ -4,7 +4,8 @@ require 'rails_helper'
 
 RSpec.describe ParkService do
   describe 'gets parks', vcr: 'denver_parks' do
-    let(:response) { described_class.new.near({ lat: 39.740959, lon: -104.985798 }) }
+    key = ENV.fetch('RAPID_API_KEY', nil)
+    let(:response) { described_class.new(key).near({ lat: 39.740959, lon: -104.985798 }) }
 
     it 'as hash with parks array' do
       expect(response).to be_a(Hash)

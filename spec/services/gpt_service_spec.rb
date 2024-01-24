@@ -34,9 +34,9 @@ RSpec.describe GptService do
   end
 
   describe 'sad path' do
-    describe 'with bad key', vcr: 'bad_key' do
+    describe 'with bad key', vcr: 'bad_gptkey' do
       it 'errors gracefully' do
-        response = described_class.new('bad').summary(itinerary)
+        response = described_class.new.summary(itinerary)
         expect(response).to be_nil
       end
     end

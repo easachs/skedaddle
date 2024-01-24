@@ -19,7 +19,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     visit new_user_session_path
     click_button('Sign In with GoogleOauth2')
 
-    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('TRAIL_API_KEY', nil))
+    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
     User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_API_KEY', nil))
   end
 
@@ -70,15 +70,23 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
                                                   start_date: '12/25/23',
                                                   end_date: '12/27/23')
       visit itinerary_path(itinerary)
-      click_button 'Summary'
     end
 
     it 'with days' do
+      click_button 'Create Summary'
       expect(page).to have_content('Day 1:')
     end
 
     it 'with day parts' do
+      click_button 'Create Summary'
       expect(page).to have_content('Morning:')
+    end
+
+    it 'with no key', vcr: 'bad_gptkey' do
+      User.last.keys.find_by(name: 'openai').destroy
+      click_button 'Create Summary'
+
+      expect(page).to have_content('Something went wrong.')
     end
   end
 

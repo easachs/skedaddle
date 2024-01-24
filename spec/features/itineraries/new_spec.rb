@@ -19,7 +19,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
     visit new_user_session_path
     click_button('Sign In with GoogleOauth2')
 
-    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('TRAIL_API_KEY', nil))
+    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
   end
 
   describe 'displays new itinerary with' do
