@@ -22,8 +22,6 @@ module Core
     def activities  = items&.dig(:activities)
     def restaurants = items&.dig(:restaurants)
 
-    def title_class = 'font-bold text-xl'
-
     private
 
     def coordinates = itinerary&.coordinates || @geocode

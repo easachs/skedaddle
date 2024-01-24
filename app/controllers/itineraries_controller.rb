@@ -42,6 +42,7 @@ class ItinerariesController < ApplicationController
     itinerary = Itinerary.find(params[:id])
     response = GptService.new(current_user&.openai_key).summary(itinerary)
     if response.present?
+      itinerary.summary&.destroy
       itinerary.create_summary!(response:)
       redirect_to itinerary_path(itinerary)
     else
