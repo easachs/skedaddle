@@ -14,71 +14,86 @@
  *= require_self
  */
 
- #background-image {
-   width: auto;
-   background-image: url("mountains.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-position: center center;
-   height: 100%;
-   width: 100%;
-   position: fixed;
-   z-index: -1;
- }
+#background-image {
+  width: auto;
+  background-image: url("mountains.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
 
- a {
+a, button {
   font-weight: bold;
   color: #64748B;
- }
+}
 
- a:hover {
-   color: #334155;
- }
+a:hover, button:hover {
+  color: #334155;
+}
 
- button {
+input {
+  cursor: pointer;
+}
+
+img {
+  float: left;
+  width: 800px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.blue-btn {
+  background-color: #4361ee;
+  color: #ffffff;
   font-weight: bold;
-   color: #64748B;
- }
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
 
- button:hover {
-   color: #334155;
- }
+.blue-btn:hover {
+  background-color: #3a0ca3;
+  color: #ffffff;
+}
 
- img {
-   float: left;
-   width: 800px;
-   height: 600px;
-   object-fit: cover;
- }
+.image-format {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  float: right;
+}
 
- .blue-btn {
-   background-color: #3B82F6;
-   color: #ffffff;
-   font-weight: bold;
-   padding: 0.5rem 1rem;
-   border-radius: 0.25rem;
- }
+.checkbox:checked + label {
+  color: black;
+}
 
- .blue-btn:hover {
-   background-color: #1E40AF;
- }
+.pagination a:hover {
+  color: #334155;
+}
 
- .image-format {
-   width: 125px;
-   height: 125px;
-   object-fit: contain;
-   float: right;
- }
+.error {
+color: red;
+}
 
- .checkbox:checked + label {
-   color: black;
- }
+.tab-btn {
+  background-color: #4cc9f0;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+  cursor: pointer;
+}
 
- .pagination a:hover {
-   color: #334155;
- }
+.tab-btn.active {
+  background-color: #4361ee;
+}
 
- .error {
-  color: red;
- }
+.tab-btn:hover {
+  background-color: #3a0ca3;
+  color: #ffffff;
+}

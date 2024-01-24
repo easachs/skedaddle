@@ -13,9 +13,7 @@ Rails.application.configure do
     config.action_controller.enable_fragment_cache_logging = true
 
     config.cache_store = :memory_store, { size: 16.megabytes }
-    config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
-    }
+    config.public_file_server.headers = { 'Cache-Control' => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false
     config.cache_store = :null_store
@@ -34,4 +32,5 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   config.assets.quiet = true
+  config.assets.debug = true
 end
