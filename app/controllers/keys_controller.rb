@@ -10,8 +10,6 @@ class KeysController < ApplicationController
 
   def update
     %i[openai trailapi].each do |key|
-      next if params[key].blank?
-
       user_key = current_user.keys.find_or_initialize_by(name: key.to_s)
       user_key.value = params[key]
       user_key.save

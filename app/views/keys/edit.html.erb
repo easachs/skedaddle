@@ -1,22 +1,26 @@
 <div class='p-4 text-center'>
   <%= form_with url: keys_path, method: :patch do |form| %>
-    <h1 class='text-3xl font-bold'>Add keys</h1>
+    <h1 class='text-3xl font-bold'>Keys</h1>
     <br>
     <div class='lg:flex'>
       <div class='lg:w-1/2 lg:pr-1'>
-        <%= form.text_field       :trailapi,
-                                  placeholder: 'TrailAPI key',
-                                  class: 'w-full h-8 mb-2 rounded' %>
+        <%= form.label :trailapi %>
+        <%= form.password_field :trailapi,
+                                placeholder: 'TrailAPI key',
+                                value: current_user.trailapi_key,
+                                class: 'w-full h-8 mb-2 rounded' %>
       </div>
       <div class='lg:w-1/2 lg:pl-1'>
-        <%= form.password_field   :openai,
-                                  placeholder: 'OpenAI key',
-                                  class: 'w-full h-8 mb-2 rounded' %>
+        <%= form.label :openai %>
+        <%= form.password_field :openai,
+                                placeholder: 'OpenAI key',
+                                value: current_user.openai_key,
+                                class: 'w-full h-8 mb-2 rounded' %>
       </div>
     </div>
 
     <div class='text-center m-2'>
-      <%= form.submit 'Add keys', class: 'blue-btn', data: { turbo: false } %>
+      <%= form.submit 'Update', class: 'blue-btn', data: { turbo: false } %>
     </div>
   <% end %>
 </div>

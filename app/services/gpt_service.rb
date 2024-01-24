@@ -2,7 +2,7 @@
 
 class GptService
   def initialize(key = nil)
-    @key = key || ENV.fetch('OPENAI_API_KEY', nil)
+    @key = key
   end
 
   def summary(itinerary)

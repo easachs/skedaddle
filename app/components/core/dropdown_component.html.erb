@@ -1,12 +1,12 @@
-<%= content_tag :div, class: 'mb-2', data: { controller: 'itinerary' } do %>
+<%= content_tag :div, class: 'mb-2', data: { controller: 'dropdown' } do %>
   <%= content_tag :div, class: 'flex' do %>
-    <div class="cursor-pointer select-none" data-action="click->itinerary#toggle" role="button">
+    <div class='cursor-pointer select-none' data-action='click->dropdown#toggle' role='button'>
       &#9776;
     </div>
-    <%= content_tag :h3, title.capitalize, class: "#{title_class} ml-2" %>
+    <%= content_tag :h3, title.capitalize, class: 'font-bold text-xl ml-2' %>
   <% end %>
 
-    <%= content_tag :div, id: title, class: box_class, data: { itinerary_target: 'item' } do %>
+    <%= content_tag :div, id: title, class: box_class, data: { dropdown_target: 'content' } do %>
       <%= content %>
     <% end %>
 <% end %>
