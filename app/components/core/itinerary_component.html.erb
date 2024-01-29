@@ -35,7 +35,7 @@
         <% end %>
 
         <% { Activities: activities, Food: restaurants }.each do |title, collection| %>
-          <% if collection.present? %>
+          <% unless collection.blank? || collection.values.all?([]) %>
             <%= render Core::DropdownComponent.new(title:, box_class: 'p-2') do %>
               <% collection.each do |category, items| %>
                 <%= render Sub::CategoryComponent.new(items:, category:, saved:) %>

@@ -87,8 +87,10 @@ class ItinerariesController < ApplicationController
   def find_businesses(group)
     return if group.blank? || session[group].blank?
 
-    session[group].transform_values do |cat|
-      BusinessFacade.near(@geocode, cat, session[:budget], session[:distance].to_i * 1_000)
+    budget = session[:budget]
+    session[group].transform_values do |kind|
+      budget = nil if group == :activities
+      BusinessFacade.near(geo: @geocode, kind:, budget:, dist: session[:distance].to_i * 1_000)
     end
   end
 end

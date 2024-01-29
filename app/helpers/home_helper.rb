@@ -9,10 +9,10 @@ module HomeHelper
      ['Distance', 'distance']]
   end
 
-  def lodging_data
-    [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
-     ['Hostel', 'hostels'], ['Resort', 'hotels,resort']]
-  end
+  # def lodging_data
+  #   [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
+  #    ['Hostel', 'hostels'], ['Resort', 'hotels,resort']]
+  # end
 
   def activity_data
     [['Beaches', 'beaches'], ['Festivals', 'festivals'],

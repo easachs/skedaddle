@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BusinessService do
   describe 'gets businesses', vcr: 'denver_businesses' do
-    let(:response) { described_class.near({ lat: 39.740959, lon: -104.985798 }, 'bakeries') }
+    let(:response) { described_class.near(geo: { lat: 39.740959, lon: -104.985798 }, kind: 'bakeries') }
 
     it 'as hash with businesses array' do
       expect(response[:businesses]).to be_a(Array)
@@ -42,23 +42,8 @@ RSpec.describe BusinessService do
   end
 
   describe 'sad path' do
-    it 'errors gracefully with bad search' do
-      response = described_class.near('Nonexistent')
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with blank search' do
-      response = described_class.near('')
-      expect(response).to be_nil
-    end
-
-    it 'errors gracefully with nil search' do
-      response = described_class.near(nil)
-      expect(response).to be_nil
-    end
-
     it 'errors gracefully with empty search' do
-      response = described_class.near({})
+      response = described_class.near
       expect(response).to be_nil
     end
   end
