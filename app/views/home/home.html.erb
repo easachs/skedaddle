@@ -71,6 +71,38 @@
                                                size: 3 %>
       <% end %>
 
+      <%= render Core::DropdownComponent.new(title: 'Advanced',
+                                             box_class: '') do %>
+        <%= content_tag :div, class: 'p-2 px-10' do %>
+          <%= content_tag :div, class: 'flex flex-wrap' do %>
+            <span class='mr-2 my-2'>Show me</span>
+            <%= form.collection_select :count, count_options, :second, :first, { selected: 3 }, class: 'text-sm rounded' %>
+            <span class="m-2">results by</span>
+            <%= form.collection_select :sort, sort_options, :second, :first, { selected: 'best' }, class: 'text-sm rounded' %>
+          <% end %>
+
+          <%= content_tag :div, class: 'flex flex-wrap justify-between items-center' do %>
+            <%= content_tag :div, class: 'flex items-center' do %>
+              <span class="hidden md:block font-bold">BUDGET</span>
+              <%= content_tag :div, class: 'flex text-sm' do %>
+                <% [['$', '1,2'], ['$$', '1,2,3'], ['$$$', '1,2,3,4']].each do |(label, value)| %>
+                  <%= content_tag :span, class: 'flex items-center' do %>
+                    <%= radio_button_tag 'budget', value, false, class: 'm-2' %>
+                    <%= label_tag label %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <%= content_tag :div, class: 'flex items-center', data: { controller: 'slider' } do %>
+              <span data-slider-target="output">15 km</span>
+              <%= range_field_tag 'distance', 15, in: 0..40, step: 5, class: 'm-2', data: { action: "input->slider#update", slider_target: "input" } %>
+              <span class="hidden md:block font-bold">RADIUS</span>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
       <p class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },
                                                                class: 'blue-btn mb-2' %></p>
     <% end %>

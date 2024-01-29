@@ -3,7 +3,11 @@
 module HomeHelper
   def count_options = (1..5).to_a.map { |n| [n, n] }
 
-  def sort_options = [['Best match', 'best'], ['Rating', 'rating'], ['Distance', 'distance']]
+  def sort_options
+    [['Best match', 'best'],
+     ['Rating', 'rating'],
+     ['Distance', 'distance']]
+  end
 
   def lodging_data
     [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
