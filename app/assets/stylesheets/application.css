@@ -27,6 +27,13 @@
   z-index: -1;
 }
 
+@media (max-width: 640px) {
+  #background-image {
+    background-image: linear-gradient(#0D1B2A, #778DA9);
+    background-attachment: scroll;
+  }
+}
+
 a, button {
   font-weight: bold;
   color: #64748B;
