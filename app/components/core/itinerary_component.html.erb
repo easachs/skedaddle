@@ -74,7 +74,12 @@
               <% end %>
             <% end %>
 
-            <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}", class: 'p-4 warning' %>
+            <% if user&.openai_key.blank? %>
+              <%= content_tag :div, class: 'p-4 text-center warning' do %>
+              <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}" %>
+              <%= content_tag :p, "Add your own OpenAI key to continue." if user&.credit <= 0 %>
+              <% end %>
+            <% end %>
 
             <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
             <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>

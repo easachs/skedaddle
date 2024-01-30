@@ -8,7 +8,7 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = current_user.itineraries
-                               .order(created_at: :desc)
+                               .order(updated_at: :desc)
                                .page(params[:page])
                                .per(5)
   end
@@ -40,7 +40,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    if gpt_response.present? && current_user&.credit&.positive?
+    if gpt_response.present? && summary_eligible?
       fresh_summary
       redirect_to itinerary_path(@itinerary, tab: 'gpt')
     else
@@ -92,8 +92,15 @@ class ItinerariesController < ApplicationController
     end
   end
 
+  def summary_eligible?
+    current_user&.credit&.positive? || current_user&.openai_key.present?
+  end
+
   def fresh_summary
-    current_user&.decrement!(:credit)
+    if current_user&.credit&.positive?
+      current_user.credit -= 1
+      current_user.save
+    end
     @itinerary.summary&.destroy
     @itinerary.create_summary!(response: @gpt_response)
   end

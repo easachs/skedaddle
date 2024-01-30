@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
         } }
     )
     visit new_user_session_path
-    click_button('Sign In with GoogleOauth2')
+    click_on('Sign In with GoogleOauth2')
 
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
     User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_API_KEY', nil))
@@ -28,27 +28,29 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      click_button 'SKEDADDLE'
-      click_button 'Save'
+      within '#search-btn' do
+        click_on 'SKEDADDLE'
+      end
+      click_on 'Save'
     end
 
     it 'parks' do
       within '#parks' do
-        click_button('Remove Black Forest Regional Park')
-        expect(page).not_to have_content('Black Forest Regional Park')
+        click_on('Remove Black Forest Regional Park')
+        expect(page).to have_no_content('Black Forest Regional Park')
       end
     end
 
     it 'restaurants' do
       within '#bakeries' do
-        click_button('Remove Izzio Bakery')
-        expect(page).not_to have_content('Izzio Bakery')
+        click_on('Remove Izzio Bakery')
+        expect(page).to have_no_content('Izzio Bakery')
       end
     end
 
     describe 'itinerary and' do
       before do
-        click_button('Delete')
+        click_on('Delete')
       end
 
       it 'redirects' do
@@ -56,7 +58,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       end
 
       it 'deletes' do
-        expect(page).not_to have_content('Denver')
+        expect(page).to have_no_content('Denver')
       end
     end
   end
@@ -74,18 +76,18 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'with days' do
-      click_button 'Create Summary'
+      click_on 'Create Summary'
       expect(page).to have_content('Day 1:')
     end
 
     it 'with day parts' do
-      click_button 'Create Summary'
+      click_on 'Create Summary'
       expect(page).to have_content('Morning:')
     end
 
     it 'with no key', vcr: 'bad_gptkey' do
       User.last.keys.find_by(name: 'openai').destroy
-      click_button 'Create Summary'
+      click_on 'Create Summary'
 
       expect(page).to have_content('You need a valid OpenAI key.')
     end

@@ -1,7 +1,7 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
-    <div class="p-4">
-      <h1 class="text-3xl font-bold text-center">Itineraries</h1>
+    <div class='p-4'>
+      <h1 class='text-3xl font-bold text-center'>Itineraries</h1>
 
       <% if @itineraries.blank? %>
         <%= content_tag :div, class: 'text-center p-4' do %>
@@ -11,18 +11,18 @@
       <% end %>
 
       <% @itineraries.each do |itinerary| %>
-        <div class="">
-          <h5 class="text-xl font-semibold">
+        <div class=''>
+          <h5 class='text-xl font-semibold'>
             <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
           </h5>
-          <div class="flex justify-between">
+          <div class='flex justify-between'>
             <% if itinerary.start_date && itinerary.end_date %>
-              <p class="text-sm text-slate-500"><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+              <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
             <% end %>
-            <p class="text-sm text-slate-500">Created <%= itinerary.created %></p>
+            <p class='text-sm text-slate-500'>Created <%= itinerary.created %></p>
           </div>
         </div>
-        <br class="p-2">
+        <br class='p-2'>
       <% end %>
 
         <div class='pl-4'>

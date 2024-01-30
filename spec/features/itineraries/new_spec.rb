@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
         } }
     )
     visit new_user_session_path
-    click_button('Sign In with GoogleOauth2')
+    click_on('Sign In with GoogleOauth2')
 
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
   end
@@ -27,7 +27,9 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      click_button 'SKEDADDLE'
+      within '#search-btn' do
+        click_on 'SKEDADDLE'
+      end
     end
 
     it 'title' do
@@ -52,8 +54,10 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      click_button 'SKEDADDLE'
-      click_button 'Save'
+      within '#search-btn' do
+        click_on 'SKEDADDLE'
+      end
+      click_on 'Save'
     end
 
     it 'title' do

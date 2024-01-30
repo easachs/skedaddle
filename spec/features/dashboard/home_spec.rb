@@ -3,26 +3,52 @@
 require 'rails_helper'
 
 RSpec.describe 'Home Page' do
-  before do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
-      { 'provider' => 'google_oauth2',
-        'uid' => '123456',
-        'info' => {
-          'name' => 'John Doe',
-          'email' => 'johndoe@example.com'
-        },
-        'credentials' => {
-          'token' => 'TOKEN'
-        } }
-    )
-    visit root_path
-    click_link('Sign In')
-    click_button('Sign In with GoogleOauth2')
+  describe 'logs in' do
+    before do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
+        { 'provider' => 'google_oauth2',
+          'uid' => '123456',
+          'info' => {
+            'name' => 'John Doe',
+            'email' => 'johndoe@example.com'
+          },
+          'credentials' => {
+            'token' => 'TOKEN'
+          } }
+      )
+      visit root_path
+      click_on('Sign In')
+      click_on('Sign In with GoogleOauth2')
+    end
+
+    it 'and logs out' do
+      click_on('Sign Out')
+      expect(page).to have_content('Welcome to Skedaddle')
+    end
   end
 
-  it 'visits the home page, logs in and logs out' do
-    click_button('Sign Out')
-    expect(page).to have_content('Welcome to Skedaddle')
+  describe 'with invalid credentials' do
+    before do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
+        { 'provider' => 'google_oauth2',
+          'uid' => '234567',
+          'info' => {
+            'name' => '',
+            'email' => ''
+          },
+          'credentials' => {
+            'token' => 'ANOTHER_TOKEN'
+          } }
+      )
+      visit root_path
+      click_on('Sign In')
+    end
+
+    it 'redirects to log in if OAuth2 error' do
+      click_on('Sign In with GoogleOauth2')
+      expect(page).to have_content("Name can't be blank")
+    end
   end
 end
