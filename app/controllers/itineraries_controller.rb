@@ -39,14 +39,12 @@ class ItinerariesController < ApplicationController
   end
 
   def update
-    itinerary = Itinerary.find(params[:id])
-    response = GptService.new(current_user&.openai_key).summary(itinerary)
-    if response.present?
-      itinerary.summary&.destroy
-      itinerary.create_summary!(response:)
-      redirect_to itinerary_path(itinerary, tab: 'gpt')
+    @itinerary = Itinerary.find(params[:id])
+    if gpt_response.present? && current_user&.credit&.positive?
+      fresh_summary
+      redirect_to itinerary_path(@itinerary, tab: 'gpt')
     else
-      redirect_with_message(message: 'openai_key', path: itinerary_path(itinerary))
+      redirect_with_message(message: 'openai_key', path: itinerary_path(@itinerary))
     end
   end
 
@@ -92,5 +90,15 @@ class ItinerariesController < ApplicationController
       options[:budget] = nil if group == :activities
       BusinessFacade.near(geo: @geocode, kind:, options:)
     end
+  end
+
+  def fresh_summary
+    current_user&.decrement!(:credit)
+    @itinerary.summary&.destroy
+    @itinerary.create_summary!(response: @gpt_response)
+  end
+
+  def gpt_response
+    @gpt_response ||= GptService.new(current_user&.openai_key).summary(@itinerary)
   end
 end

@@ -27,6 +27,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
   validates :email, :name, presence: true
+  validates :credit, numericality: { greater_than_or_equal_to: 0 }
   has_many :itineraries, dependent: :destroy
   has_many :keys, dependent: :destroy
 
@@ -39,6 +40,9 @@ class User < ApplicationRecord
     end
   end
 
-  def openai_key = keys.find_by(name: 'openai')&.value
+  def openai_key
+    credit.positive? ? ENV.fetch('OPENAI_API_KEY', nil) : keys.find_by(name: 'openai')&.value
+  end
+
   def trailapi_key = keys.find_by(name: 'trailapi')&.value
 end

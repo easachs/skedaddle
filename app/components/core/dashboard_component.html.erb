@@ -6,7 +6,7 @@
 
       <%= content_tag :span, class: 'text-sm', data: { controller: 'error' } do %>
         <% flash.each do |name, msg| %>
-          <%= content_tag :span, msg, class: 'm-2 error', data: { error_target: 'error' } %>
+          <%= content_tag :span, msg, class: 'm-2 warning', data: { error_target: 'error' } %>
         <% end %>
       <% end %>
     <% end %>
