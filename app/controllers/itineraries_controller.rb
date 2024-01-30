@@ -44,7 +44,7 @@ class ItinerariesController < ApplicationController
     if response.present?
       itinerary.summary&.destroy
       itinerary.create_summary!(response:)
-      redirect_to itinerary_path(itinerary)
+      redirect_to itinerary_path(itinerary, tab: 'gpt')
     else
       redirect_with_message(message: 'openai_key', path: itinerary_path(itinerary))
     end

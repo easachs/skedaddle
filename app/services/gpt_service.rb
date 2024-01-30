@@ -35,6 +35,7 @@ class GptService
             .gsub(%r{(<p>Day \d+:.*?</p>)}, '\1<br>')
             .gsub(%r{(<p>Evening:.*?</p>)}, '\1<br>')
             .gsub(/<p>([^:]+):/, '<p><strong>\1:</strong>')
+            .sub(/<br>\z/, '')
   end
 
   def conn

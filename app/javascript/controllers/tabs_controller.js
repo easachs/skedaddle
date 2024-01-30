@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["content", "summary", "tab"];
 
-  connect() {
-    this.showContent();
-  }
-
   showContent() {
     this.contentTarget.classList.remove('hidden');
     this.summaryTarget.classList.add('hidden');
