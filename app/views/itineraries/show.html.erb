@@ -1,5 +1,6 @@
 <%= turbo_frame_tag 'itinerary' do %>
   <%= render Core::ItineraryComponent.new itinerary: @itinerary,
                                           saved: true,
-                                          tab: params[:tab] %>
+                                          tab: params[:tab],
+                                          current_user: %>
 <% end %>

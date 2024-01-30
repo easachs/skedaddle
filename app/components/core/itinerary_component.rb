@@ -12,6 +12,9 @@ module Core
       @options      = options
     end
 
+    private
+
+    def user        = @options.fetch(:current_user, nil)
     def saved       = @options.fetch(:saved, false)
     def tab         = @options.fetch(:tab, 'info')
 
@@ -40,8 +43,6 @@ module Core
     def summary_class
       tab == 'gpt' ? 'mt-4 sm:mt-0' : 'hidden'
     end
-
-    private
 
     def coordinates = itinerary&.coordinates || @geocode
   end

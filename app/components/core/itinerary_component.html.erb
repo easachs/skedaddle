@@ -67,23 +67,20 @@
               <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
                 <%= itinerary.summary.response.html_safe %>
               <% end %>
-
-              <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
-                <p class='py-2 text-center'><%= form.submit 'Update Summary',
-                                                            data: { turbo: false },
-                                                            class: 'blue-btn' %></p>
-              <% end %>
             <% else %>
               <%= content_tag :div, class: 'p-4 text-center' do %>
                 <p>You have not created a summary for this itinerary yet!</p>
                 <p>Click below to generate a play-by-play suggested outline for your trip using ChatGPT.</p>
               <% end %>
+            <% end %>
 
-              <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
-                <p class='py-2 text-center'><%= form.submit 'Create Summary',
-                                                            data: { turbo: false },
-                                                            class: 'blue-btn' %></p>
-              <% end %>
+            <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}", class: 'p-4 warning' %>
+
+            <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
+            <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
+              <p class='py-2 text-center'><%= form.submit "#{button_text} Summary",
+                                                          data: { turbo: false },
+                                                          class: 'blue-btn' %></p>
             <% end %>
           <% end %>
         <% end %>
