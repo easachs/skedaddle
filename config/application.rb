@@ -19,7 +19,7 @@ Bundler.require(*Rails.groups)
 
 module Skedaddle
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     config.generators.system_tests = nil
     config.exceptions_app = routes
 
