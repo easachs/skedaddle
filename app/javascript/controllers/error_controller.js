@@ -4,8 +4,10 @@ export default class extends Controller {
   static targets = ["error"];
 
   connect() {
-    setTimeout(() => {
-      this.errorTarget.classList.add("hidden");
-    }, 3000);
+    if (this.hasErrorTarget) {
+      setTimeout(() => {
+        this.errorTarget.classList.add("hidden");
+      }, 3000);
+    }
   }
 }
