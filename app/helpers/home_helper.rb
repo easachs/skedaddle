@@ -4,7 +4,7 @@ module HomeHelper
   def count_options = (1..5).to_a.map { |n| [n, n] }
 
   def sort_options
-    [['Best match', 'best'],
+    [['Best match', 'best_match'],
      ['Rating', 'rating'],
      ['Distance', 'distance']]
   end

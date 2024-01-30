@@ -2,25 +2,34 @@
 
 class BusinessService
   class << self
-    def near(geo: nil, kind: '', budget: nil, dist: 15_000)
+    def near(geo: nil, kind: '', options: {})
       return unless geo.is_a?(Hash) && geo.present? && kind.present?
 
-      Rails.cache.fetch("business/#{kind}/#{budget&.size}/#{dist}/#{geo[:lat]}/#{geo[:lon]}", expires_in: 1.hour) do
-        response = fetch_businesses(geo:, kind:, budget:, dist:)
+      Rails.cache.fetch("business/#{kind}/#{geo[:lat]}/#{geo[:lon]}/#{options.values.join}", expires_in: 1.hour) do
+        response = fetch_businesses(geo:, kind:, options:)
         JSON.parse(response.body, symbolize_names: true)
       end
     end
 
     private
 
-    def fetch_businesses(geo: nil, kind: '', budget: nil, dist: 15_000)
+    def fetch_businesses(geo: {}, kind: '', options: {})
       conn.get('search') do |f|
-        f.params['latitude']    = geo[:lat]
-        f.params['longitude']   = geo[:lon]
-        f.params['categories']  = kind
-        f.params['price']       = budget if budget.present?
-        f.params['radius']      = dist
+        set_location_params(f, geo)
+        set_business_params(f, kind, options)
       end
+    end
+
+    def set_location_params(route, geo)
+      route.params['latitude']  = geo[:lat]
+      route.params['longitude'] = geo[:lon]
+    end
+
+    def set_business_params(route, kind, options)
+      route.params['categories'] = kind
+      route.params['price']      = options[:budget] if options[:budget]
+      route.params['radius']     = options[:distance].to_i * 1_000
+      route.params['sort_by']    = options[:sort] if options[:sort]
     end
 
     def conn

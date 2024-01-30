@@ -50,7 +50,7 @@
 
           <%= content_tag :div, class: 'flex items-center', data: { controller: 'slider' } do %>
             <span data-slider-target="output">15 km</span>
-            <%= range_field_tag :distance, 15, in: 0..40, step: 5, class: 'm-2',
+            <%= range_field_tag :distance, 15, in: 0..40, class: 'm-2',
                                 data: { action: 'input->slider#update', slider_target: 'input' } %>
             <span class="hidden md:block font-bold">RADIUS</span>
           <% end %>

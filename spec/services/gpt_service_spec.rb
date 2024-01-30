@@ -15,7 +15,7 @@ RSpec.describe GptService do
   let(:key) { ENV.fetch('OPENAI_API_KEY', nil) }
   let(:response) { described_class.new(key).summary(itinerary) }
 
-  describe 'gets summary', vcr: 'denver_summary' do
+  describe 'gets summary', vcr: 'denver_update' do
     it 'as string' do
       expect(response).to be_a(String)
     end
