@@ -6,13 +6,13 @@
 
       <% if saved %>
         <%= content_tag :div, class: 'text-center' do %>
-          <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showContent', tabs_target: 'tab' }, class: content_button %>
-          <%= button_tag 'GPT', type: 'button', data: { action: 'tabs#showSummary', tabs_target: 'tab' }, class: summary_button %>
+          <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' }, class: "tab-btn #{info_btn}" %>
+          <%= button_tag 'GPT', type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' }, class: "tab-btn #{gpt_btn}" %>
         <% end %>
       <% end %>
 
       <%= content_tag :div, class: 'mt-4 sm:mt-0' do %>
-        <%= content_tag :div, id: 'main-content', data: { tabs_target: 'content' }, class: content_class do %>
+        <%= content_tag :div, id: 'info', data: { tabs_target: 'info' }, class: info_class do %>
           <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex text-sm p-2') do %>
             <%= render Sub::WeatherComponent.new(weather:) %>
           <% end %>
@@ -62,7 +62,7 @@
         <% end %>
 
         <% if saved %>
-          <%= content_tag :div, id: 'gpt-summary', data: { tabs_target: 'summary' }, class: summary_class do %>
+          <%= content_tag :div, id: 'gpt', data: { tabs_target: 'gpt' }, class: gpt_class do %>
             <% if itinerary&.summary %>
               <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
                 <%= itinerary.summary.response.html_safe %>

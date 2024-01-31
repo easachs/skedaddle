@@ -29,6 +29,9 @@ class User < ApplicationRecord
   validates :email, :name, presence: true
   validates :credit, numericality: { greater_than_or_equal_to: 0 }
   has_many :itineraries, dependent: :destroy
+  has_many :places, through: :itineraries
+  has_many :parks, through: :itineraries
+  has_many :businesses, through: :itineraries
   has_many :keys, dependent: :destroy
 
   def self.from_omniauth(response)

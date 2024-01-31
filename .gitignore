@@ -27,3 +27,4 @@
 /spec/fixtures
 
 dump.rdb
+.reek.yml

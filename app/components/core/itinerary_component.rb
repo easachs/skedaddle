@@ -28,21 +28,12 @@ module Core
     def activities  = items&.dig(:activities)
     def restaurants = items&.dig(:restaurants)
 
-    def content_button
-      tab == 'gpt' ? 'tab-btn' : 'tab-btn active'
-    end
-
-    def summary_button
-      tab == 'gpt' ? 'tab-btn active' : 'tab-btn'
-    end
-
-    def content_class
-      tab == 'gpt' ? 'hidden' : 'mt-4 sm:mt-0'
-    end
-
-    def summary_class
-      tab == 'gpt' ? 'mt-4 sm:mt-0' : 'hidden'
-    end
+    # tab classes
+    def gpt_tab     = tab == 'gpt'
+    def info_btn    = gpt_tab ? '' : 'active'
+    def gpt_btn     = gpt_tab ? 'active' : ''
+    def info_class  = gpt_tab ? 'hidden' : 'mt-4 sm:mt-0'
+    def gpt_class   = gpt_tab ? 'mt-4 sm:mt-0' : 'hidden'
 
     def coordinates = itinerary&.coordinates || @geocode
   end
