@@ -386,6 +386,11 @@ GEM
       faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    sentry-rails (5.16.1)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.16.1)
+    sentry-ruby (5.16.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda-matchers (6.1.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -486,6 +491,8 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   ruby-openai
+  sentry-rails
+  sentry-ruby
   shoulda-matchers
   simplecov
   sprockets-rails
