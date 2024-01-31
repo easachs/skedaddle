@@ -1,10 +1,14 @@
-<%= content_tag :div, class: 'flex flex-wrap text-sm text-slate-500 p-2 px-10' do %>
+<%= content_tag :div, class: 'flex flex-wrap text-sm text-slate-500 p-2 px-10',
+                      data: { controller: 'checkbox' } do %>
   <% data.each_slice(size).each do |slice| %>
     <%= content_tag :div, class: 'w-full sm:w-1/4' do %>
       <% slice.each do |name, value| %>
-        <p><%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'checkbox' %>
+        <p><%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'checkbox', data: { checkbox_target: 'checkbox' } %>
         <%= label_tag "#{prefix}[#{name}]", name %></p>
       <% end %>
     <% end %>
   <% end %>
+  <p><%= check_box_tag :select_all, true, false, class: 'checkbox', data: { checkbox_target: 'source',
+                                                                           action: 'change->checkbox#toggle' } %>
+  <%= label_tag :select_all %></p>
 <% end %>
