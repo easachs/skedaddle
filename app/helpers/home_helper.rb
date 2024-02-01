@@ -17,7 +17,7 @@ module HomeHelper
      ['Landmarks', 'landmarks', 'History, but photogenic'],
      ['Markets', 'farmersmarket,fleamarkets', 'Bargains, Beets, Battlestar Galactica'],
      ['Museums', 'museums', 'Get cultured, not bored'],
-     ['Nightlife', 'barcrawl,cocktailbars,clubcrawl,comedyclubs,danceclubs,musicvenues', 'Neon nights, city lights'],
+     ['Nightlife', 'barcrawl,clubcrawl,comedyclubs,danceclubs,musicvenues', 'Neon nights, city lights'],
      ['Parks', 'parks,gardens', 'Green and Serene'], ['Skiing', 'skiing,skiresorts', 'Send it!'],
      ['Spas', 'spas,saunas,massage,hotsprings', 'Destination Relaxation'],
      ['Tours', 'tours', 'Trail Tales'], ['Zoos', 'zoos,aquariums', 'Creature Comforts']]

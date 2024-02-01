@@ -12,7 +12,7 @@ class KeysController < ApplicationController
     %i[openai trailapi].each do |key|
       user_key = current_user.keys.find_or_initialize_by(name: key.to_s)
       user_key.value = params[key]
-      user_key.save
+      user_key.value == '' ? user_key.destroy : user_key.save
     end
 
     redirect_with_message(message: 'key_updated', path: root_path)

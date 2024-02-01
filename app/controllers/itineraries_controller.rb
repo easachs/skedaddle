@@ -97,7 +97,7 @@ class ItinerariesController < ApplicationController
   end
 
   def fresh_summary
-    if current_user&.credit&.positive?
+    if current_user&.credit&.positive? && current_user&.openai_key.blank?
       current_user.credit -= 1
       current_user.save
     end
@@ -106,6 +106,7 @@ class ItinerariesController < ApplicationController
   end
 
   def gpt_response
-    @gpt_response ||= GptService.new(current_user&.openai_key).summary(@itinerary)
+    key = current_user&.credit&.positive? ? ENV.fetch('OPENAI_API_KEY', nil) : current_user&.openai_key
+    @gpt_response ||= GptService.new(key).summary(@itinerary)
   end
 end

@@ -43,9 +43,6 @@ class User < ApplicationRecord
     end
   end
 
-  def openai_key
-    credit.positive? ? ENV.fetch('OPENAI_API_KEY', nil) : keys.find_by(name: 'openai')&.value
-  end
-
+  def openai_key = keys.find_by(name: 'openai')&.value
   def trailapi_key = keys.find_by(name: 'trailapi')&.value
 end
