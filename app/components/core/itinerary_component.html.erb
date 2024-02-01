@@ -6,8 +6,10 @@
 
       <% if saved %>
         <%= content_tag :div, class: 'text-center' do %>
-          <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' }, class: "tab-btn #{info_btn}" %>
-          <%= button_tag 'GPT', type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' }, class: "tab-btn #{gpt_btn}" %>
+          <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
+                                 class: "tab-btn #{info_btn}" %>
+          <%= button_tag 'GPT',  type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' },
+                                 class: "tab-btn #{gpt_btn}" %>
         <% end %>
       <% end %>
 
@@ -77,7 +79,7 @@
             <% if user&.openai_key.blank? %>
               <%= content_tag :div, class: 'p-4 text-center warning' do %>
               <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}" %>
-              <%= content_tag :p, "Add your own OpenAI key to continue." if user&.credit <= 0 %>
+              <%= content_tag :p, 'Add your own OpenAI key to continue.' if user.credit <= 0 %>
               <% end %>
             <% end %>
 
