@@ -88,7 +88,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       end
 
       it 'displays error' do
-        expect(page).to have_content('No results found.')
+        expect(page).to have_content('No results.')
       end
     end
 
@@ -102,7 +102,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       end
 
       it 'displays error' do
-        expect(page).to have_content('No results found.')
+        expect(page).to have_content('No results.')
       end
     end
   end

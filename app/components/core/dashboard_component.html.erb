@@ -1,35 +1,43 @@
-<%= content_tag :div, class: 'flex fixed top-0 left-0 w-full', data: { controller: 'dropdown' } do %>
-  <%= content_tag :div, class: 'bg-white flex justify-between items-center w-full p-2' do %>
-    <%= content_tag :div, class: 'text-sm sm:text-base' do %>
-      <%= link_to 'SKEDADDLE', root_path, data: { turbo_frame: 'home' }, class: 'p-2 font-bold' %>
-      <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' }, class: 'p-2' if current_user %>
+<%= content_tag :div, class: 'fixed top-0 left-0 flex bg-white justify-between items-center w-full p-2' do %>
+  <%= content_tag :div, class: 'text-sm sm:text-base' do %>
+    <%= link_to root_path, data: { turbo_frame: 'home' }, class: 'p-2 font-bold' do %>
+      <%= image_tag 'icon.png', alt: 'Skedaddle', class: 'h-5 w-5 ml-2' %>
+    <% end %>
+    <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' }, class: 'sm:p-2' if current_user %>
 
-      <%= content_tag :span, class: 'text-sm', data: { controller: 'error' } do %>
-        <% flash.each do |name, msg| %>
-          <%= content_tag :span, msg, class: 'm-2 warning', data: { error_target: 'error' } %>
-        <% end %>
+    <%= content_tag :span, class: 'text-sm', data: { controller: 'error' } do %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :span, msg, class: 'm-2 warning', data: { error_target: 'error' } %>
       <% end %>
     <% end %>
+  <% end %>
 
-    <%= content_tag :div, class: 'flex justify-between items-center' do %>
-      <%= content_tag :div, class: 'flex hidden text-sm sm:text-base', data: { dropdown_target: 'content' } do %>
-        <%= link_to 'About', about_path, data: { turbo_frame: 'home' }, class: 'hidden sm:block p-2' %>
-        <%= link_to 'Settings',
-                    edit_user_registration_path,
-                    data: { turbo_frame: 'home' },
-                    class: 'hidden sm:block p-2' if current_user && current_user&.uid.blank? %>
-        <%= link_to 'Keys', keys_path, data: { turbo_frame: 'home' }, class: 'hidden sm:block p-2' if current_user %>
-        <%= button_to 'Sign Out',
-                      destroy_user_session_path,
-                      method: :delete,
-                      form: { style: 'display: inline;' },
-                      class: 'p-2' if current_user %>
-        <%= link_to 'Sign In', new_user_session_path, data: { turbo_frame: 'home' }, class: 'p-2' unless current_user %>
-      <% end %>
-
-      <div class="cursor-pointer p-2" data-action="click->dropdown#toggle" role="button">
-        &#9776;
-      </div>
+  <%= content_tag :div, class: 'hidden sm:flex justify-between items-center', data: { controller: 'dropdown' } do %>
+    <%= content_tag :div, id: 'dash', class: 'flex text-sm sm:text-base', data: { dropdown_target: 'content' } do %>
+      <%= link_to 'About', about_path, data: { turbo_frame: 'home' }, class: 'hidden sm:block p-2' %>
+      <%= link_to 'Settings',
+                  edit_user_registration_path,
+                  data: { turbo_frame: 'home' },
+                  class: 'hidden sm:block p-2' if current_user && current_user&.uid.blank? %>
+      <%= link_to 'Keys', keys_path, data: { turbo_frame: 'home' }, class: 'hidden sm:block p-2' if current_user %>
+      <%= button_to 'Sign Out',
+                    destroy_user_session_path,
+                    method: :delete,
+                    form: { style: 'display: inline;' },
+                    class: 'p-2' if current_user %>
+      <%= link_to 'Sign In', new_user_session_path, data: { turbo_frame: 'home' }, class: 'p-2' unless current_user %>
     <% end %>
+
+    <div class="cursor-pointer p-2" data-action="click->dropdown#toggle" role="button">
+      &#9776;
+    </div>
+  <% end %>
+
+  <%= content_tag :div, class: 'sm:hidden justify-between items-center text-sm p-2' do %>
+    <%= button_to 'Sign Out',
+                  destroy_user_session_path,
+                  method: :delete,
+                  form: { style: 'display: inline;' } if current_user %>
+    <%= link_to 'Sign In', new_user_session_path, data: { turbo_frame: 'home' } unless current_user %>
   <% end %>
 <% end %>

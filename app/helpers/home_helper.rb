@@ -4,31 +4,32 @@ module HomeHelper
   def count_options = (1..5).to_a.map { |n| [n, n] }
 
   def sort_options
-    [['Best match', 'best_match'],
-     ['Rating', 'rating'],
-     ['Distance', 'distance']]
+    [['Best match', 'best_match'], ['Rating', 'rating'], ['Distance', 'distance']]
   end
 
   # def lodging_data
-  #   [['B & B', 'bed and breakfast'], ['Campsite', 'campsites'],
-  #    ['Hostel', 'hostels'], ['Resort', 'hotels,resort']]
+  #   [['B & B', 'bedbreakfast'], ['Campgrounds', 'campgrounds'],
+  #    ['Hostel', 'hostels'], ['Resort', 'hotels,resorts']]
   # end
 
   def activity_data
-    [['Beaches', 'beaches'], ['Festivals', 'festivals'],
-     ['Galleries', 'galleries'], ['Hot Springs', 'hotsprings'],
-     ['Landmarks', 'landmarks'], ['Markets', 'farmersmarket'],
-     ['Museums', 'museums'], ['Parks', 'parks'],
-     ['Skiing', 'skiresorts'], ['Spas', 'spas,saunas'],
-     ['Tours', 'walkingtours'], ['Zoos', 'zoos,aquariums']]
+    [['Beaches', 'beaches,lakes', 'Sand, Sun & Surf'], ['Festivals', 'festivals,yelpevents', 'Bonne fete'],
+     ['Landmarks', 'landmarks', 'History, but photogenic'],
+     ['Markets', 'farmersmarket,fleamarkets', 'Bargains, Beets, Battlestar Galactica'],
+     ['Museums', 'museums', 'Get cultured, not bored'],
+     ['Nightlife', 'barcrawl,cocktailbars,clubcrawl,comedyclubs,danceclubs,musicvenues', 'Neon nights, city lights'],
+     ['Parks', 'parks,gardens', 'Green and Serene'], ['Skiing', 'skiing,skiresorts', 'Send it!'],
+     ['Spas', 'spas,saunas,massage,hotsprings', 'Destination Relaxation'],
+     ['Tours', 'tours', 'Trail Tales'], ['Zoos', 'zoos,aquariums', 'Creature Comforts']]
   end
 
   def restaurant_data
-    [['Bakeries', 'bakeries'], ['Breweries', 'breweries'],
-     ['Brunch', 'brunch'], ['Cafes', 'cafes'],
-     ['Diners', 'diners'], ['Food Trucks', 'foodtrucks'],
-     ['Italian', 'italian'], ['Mexican', 'mexican'],
-     ['Pizza', 'pizza'], ['Seafood', 'seafood'],
-     ['Steakhouses', 'steak'], ['Sushi', 'sushi']]
+    [['African', 'african'], ['Bakeries', 'bagels,bakeries,cupcakes,donuts'], ['Barbeque', 'bbq'],
+     ['Breweries', 'breweries'], ['Brunch', 'breakfast_brunch'], ['Cafes', 'cafes,coffee'],
+     ['Caribbean', 'caribbean'], ['Chinese', 'chinese,dimsum,wok'], ['French', 'french'],
+     ['Iberian', 'portuguese,spanish'], ['Italian', 'italian'], ['Indian', 'indpak'],
+     ['Japanese', 'japanese,sushi'], ['Med-eastern', 'greek,mediterranean,mideastern'], ['Mexican', 'mexican'],
+     ['SE Asian', 'thai,vietnamese'], ['Seafood', 'seafood'], ['Steak', 'steak'],
+     ['Vegetarian', 'vegan,vegetarian']]
   end
 end

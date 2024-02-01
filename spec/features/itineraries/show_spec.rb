@@ -43,8 +43,8 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'restaurants' do
       within '#bakeries' do
-        click_on('Remove Izzio Bakery')
-        expect(page).to have_no_content('Izzio Bakery')
+        click_on('Remove LoDough Bakery')
+        expect(page).to have_no_content('LoDough Bakery')
       end
     end
 
@@ -89,7 +89,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       User.last.keys.find_by(name: 'openai').destroy
       click_on 'Create Summary'
 
-      expect(page).to have_content('You need a valid OpenAI key.')
+      expect(page).to have_content('Invalid key.')
     end
   end
 
@@ -103,7 +103,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'displays error' do
-      expect(page).to have_content("Couldn't find itinerary.")
+      expect(page).to have_content("Not found.")
     end
   end
 
@@ -119,7 +119,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'displays error' do
-      expect(page).to have_content("You don't have access to this.")
+      expect(page).to have_content("This isn't yours.")
     end
   end
 end

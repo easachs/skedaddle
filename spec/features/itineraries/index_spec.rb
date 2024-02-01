@@ -44,7 +44,9 @@ RSpec.describe 'Itinerary Index' do
 
   describe 'signed out' do
     before do
-      click_on('Sign Out')
+      within '#dash' do
+        click_on('Sign Out')
+      end
       visit itineraries_path
     end
 
@@ -53,7 +55,7 @@ RSpec.describe 'Itinerary Index' do
     end
 
     it 'displays error' do
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      expect(page).to have_content('You need to sign in.')
     end
   end
 end
