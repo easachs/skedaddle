@@ -100,6 +100,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.17.1)
       msgpack (~> 1.2)
+    brakeman (6.1.1)
+      racc
     builder (3.2.4)
     capybara (3.40.0)
       addressable
@@ -461,6 +463,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  brakeman
   capybara
   devise
   dotenv-rails

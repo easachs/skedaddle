@@ -29,7 +29,7 @@
 
 @media (max-width: 640px) {
   #background-image {
-    background-image: linear-gradient(#0D1B2A, #778DA9, #0D1B2A);
+    background-image: linear-gradient(#006d77, #83c5be, #e29578);
     background-attachment: scroll;
   }
 }
