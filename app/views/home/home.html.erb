@@ -1,11 +1,11 @@
 <% if current_user %>
-  <%= content_tag :div, class: 'p-2 m-2' do %>
+  <%= content_tag :div, class: 'p-4' do %>
     <%= form_with url: prepare_itineraries_path do |form| %>
       <%= content_tag :div, class: 'py-2 text-sm' do %>
         <%= content_tag :div, class: 'flex flex-wrap justify-between items-center mb-2' do %>
           <%= search_field_tag  :search, nil,
                                 placeholder: 'Enter a destination',
-                                class: 'w-full sm:w-1/2 md:w-2/3 text-sm rounded mb-2 sm:m-0',
+                                class: 'w-full sm:w-1/2 xl:w-2/3 text-sm rounded mb-2 sm:m-0',
                                 required: true,
                                 autofocus: true,
                                 autocomplete: 'off',
@@ -50,7 +50,7 @@
 
           <%= content_tag :div, class: 'flex items-center', data: { controller: 'slider' } do %>
             <span data-slider-target='output'>15 km</span>
-            <%= range_field_tag :distance, 15, in: 0..40, step: 5, class: 'm-2',
+            <%= range_field_tag :distance, 15, in: 5..40, step: 5, class: 'm-2',
                                 data: { action: 'input->slider#update', slider_target: 'input' } %>
             <span class='hidden md:block font-bold'>RADIUS</span>
           <% end %>
@@ -65,13 +65,13 @@
       <%= render Core::DropdownComponent.new(title: 'Where would you like to go?') do %>
         <%= render Core::CheckboxComponent.new data: activity_data,
                                                prefix: 'activities',
-                                               size: 3 %>
+                                               size: 1 %>
       <% end %>
 
       <%= render Core::DropdownComponent.new(title: 'Where would you like to eat?') do %>
         <%= render Core::CheckboxComponent.new data: restaurant_data,
                                                prefix: 'restaurants',
-                                               size: 3 %>
+                                               size: 1 %>
       <% end %>
 
       <p id='search-btn' class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },

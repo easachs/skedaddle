@@ -1,34 +1,31 @@
 <div class='p-4 text-center'>
   <%= form_with url: contact_path, method: :post do |form| %>
-    <h1 class='text-3xl font-bold'>Contact</h1>
-      <br>
-      <div class='lg:flex'>
-        <div class='lg:w-1/2 lg:pr-1'>
-          <%= form.text_field   :name,
-                                value: current_user&.name,
-                                placeholder: 'Name',
-                                class: 'w-full h-8 mb-2 rounded',
-                                readonly: current_user&.name,
-                                required: true %>
-        </div>
-        <div class='lg:w-1/2 lg:pl-1'>
-          <%= form.email_field  :email,
-                                value: current_user&.email,
-                                placeholder: 'Email',
-                                class: 'w-full h-8 mb-2 rounded',
-                                readonly: current_user,
-                                required: true %>
-        </div>
+    <h1 class='text-3xl font-bold mb-4'>Contact</h1>
+      <div>
+        <%= form.text_field   :name,
+                              value: current_user&.name,
+                              placeholder: 'Name',
+                              class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                              readonly: current_user&.name,
+                              required: true %>
+      </div>
+      <div>
+        <%= form.email_field  :email,
+                              value: current_user&.email,
+                              placeholder: 'Email',
+                              class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                              readonly: current_user,
+                              required: true %>
       </div>
       <%= form.text_area        :message,
                                 value: nil,
                                 placeholder: 'Message',
                                 rows: 4,
-                                class: 'w-full rounded',
+                                class: 'w-full sm:w-2/3 mb-2 rounded',
                                 required: true %>
 
-    <div class='text-center'>
-      <%= form.submit 'Send', class: 'blue-btn' %>
+    <div>
+      <%= form.submit 'Send', class: 'blue-btn mt-4' %>
     </div>
   <% end %>
 </div>

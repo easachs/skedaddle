@@ -1,26 +1,24 @@
 <div class='p-4 text-center'>
   <%= form_with url: keys_path, method: :patch do |form| %>
-    <h1 class='text-3xl font-bold'>Keys</h1>
-    <br>
-    <div class='lg:flex'>
-      <div class='lg:w-1/2 lg:pr-1'>
-        <%= form.label :trailapi %>
-        <%= form.password_field :trailapi,
-                                placeholder: 'TrailAPI key',
-                                value: current_user.trailapi_key,
-                                class: 'w-full h-8 mb-2 rounded' %>
-      </div>
-      <div class='lg:w-1/2 lg:pl-1'>
-        <%= form.label :openai %>
-        <%= form.password_field :openai,
-                                placeholder: 'OpenAI key',
-                                value: current_user.openai_key,
-                                class: 'w-full h-8 mb-2 rounded' %>
-      </div>
+    <h1 class='text-3xl font-bold mb-4'>Keys</h1>
+    <p class='mb-2'>Rest assured, your keys will be securely stashed away.</p>
+    <div>
+      <p><%= form.label :trailapi, 'TrailAPI', class: 'font-bold' %></p>
+      <p><%= form.password_field :trailapi,
+                                 placeholder: 'TrailAPI key',
+                                 value: current_user.trailapi_key,
+                                 class: 'w-full sm:w-1/2 h-8 mb-2 rounded' %></p>
+    </div>
+    <div>
+      <p><%= form.label :openai, 'OpenAI', class: 'font-bold' %></p>
+      <p><%= form.password_field :openai,
+                                 placeholder: 'OpenAI key',
+                                 value: current_user.openai_key,
+                                 class: 'w-full sm:w-1/2 h-8 mb-2 rounded' %></p>
     </div>
 
-    <div class='text-center m-2'>
-      <%= form.submit 'Update', class: 'blue-btn', data: { turbo: false } %>
+    <div>
+      <%= form.submit 'Update', class: 'blue-btn mt-4', data: { turbo: false } %>
     </div>
   <% end %>
 </div>

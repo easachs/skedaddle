@@ -4,29 +4,26 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
         <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
-        <h1 class='text-3xl font-bold'>Reset password</h1>
-          <br>
-          <div class='lg:flex'>
-            <div class='lg:w-1/2 lg:pr-1'>
-              <%= form.password_field   :password,
-                                        placeholder: 'New password',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autofocus: true,
-                                        autocomplete: 'new-password',
-                                        required: true %>
-            </div>
-            <div class='lg:w-1/2 lg:pl-1'>
-              <%= form.password_field   :password_confirmation,
-                                        placeholder: 'Confirm new password',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'new-password',
-                                        required: true %>
-            </div>
-          </div>
+        <h1 class='text-3xl font-bold mb-4'>Reset password</h1>
+        <div>
+          <%= form.password_field   :password,
+                                    placeholder: 'New password',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autofocus: true,
+                                    autocomplete: 'new-password',
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.password_field   :password_confirmation,
+                                    placeholder: 'Confirm new password',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'new-password',
+                                    required: true %>
+        </div>
 
           <%= form.hidden_field :reset_password_token %>
-        <div class='text-center'>
-          <%= form.submit 'Confirm', class: 'blue-btn', data: { turbo: false } %>
+        <div>
+          <%= form.submit 'Confirm', class: 'blue-btn mt-4', data: { turbo: false } %>
         </div>
       <% end %>
       <div class='m-2'>

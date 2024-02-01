@@ -4,21 +4,19 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
         <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
-        <h1 class='text-3xl font-bold'>Forgot your password?</h1>
-          <br>
-          <p class='mb-2'>Seems like you've taken a detour! Let's chart a course back to accessing your account.</p>
-          <div class=''>
-            <div>
-              <%= form.email_field      :email,
-                                        placeholder: 'Email',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autofocus: true,
-                                        autocomplete: 'email',
-                                        required: true %>
-            </div>
-          </div>
-        <div class='text-center'>
-          <%= form.submit 'Send Link', class: 'blue-btn' %>
+        <h1 class='text-3xl font-bold mb-4'>Forgot your password?</h1>
+        <p>Seems like you've taken a detour!</p>
+        <p class='mb-2'>Let's chart a course back to accessing your account.</p>
+        <div>
+          <%= form.email_field      :email,
+                                    placeholder: 'Email',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autofocus: true,
+                                    autocomplete: 'email',
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.submit 'Send Link', class: 'blue-btn mt-4' %>
         </div>
       <% end %>
 

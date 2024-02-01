@@ -4,42 +4,38 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
         <div class='m-2 error'><%= render 'devise/shared/error_messages', resource: %></div>
 
-        <h1 class='text-3xl font-bold'>Sign Up</h1>
-          <br>
-          <div class='lg:flex'>
-            <div class='lg:w-1/2 lg:pr-1'>
-              <%= form.text_field       :name,
-                                        placeholder: 'Name',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autofocus: true,
-                                        required: true %>
-            </div>
-            <div class='lg:w-1/2 lg:pl-1'>
-              <%= form.email_field      :email,
-                                        placeholder: 'Email',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'email',
-                                        required: true %>
-            </div>
-          </div>
-          <div class='lg:flex'>
-            <div class='lg:w-1/2 lg:pr-1'>
-              <%= form.password_field   :password,
-                                        placeholder: 'Password',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'new-password',
-                                        required: true %>
-            </div>
-            <div class='lg:w-1/2 lg:pl-1'>
-              <%= form.password_field   :password_confirmation,
-                                        placeholder: 'Password confirmation',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'new-password',
-                                        required: true %>
-            </div>
-          </div>
+        <h1 class='text-3xl font-bold mb-4'>Sign Up</h1>
         <div>
-          <%= form.submit 'Sign Up', class: 'blue-btn', data: { turbo: false } %>
+          <%= form.text_field       :name,
+                                    placeholder: 'Name',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autofocus: true,
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.email_field      :email,
+                                    placeholder: 'Email',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'email',
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.password_field   :password,
+                                    placeholder: 'Password',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'new-password',
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.password_field   :password_confirmation,
+                                    placeholder: 'Password confirmation',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'new-password',
+                                    required: true %>
+        </div>
+
+        <div>
+          <%= form.submit 'Sign Up', class: 'blue-btn mt-4', data: { turbo: false } %>
         </div>
       <% end %>
       <div class='m-2'>

@@ -6,40 +6,36 @@
           <%= render 'devise/shared/error_messages', resource: %>
         </div>
 
-        <h1 class='text-3xl font-bold'>Edit User</h1>
-          <br>
-          <div class='lg:flex'>
-            <div class='lg:w-1/2 lg:pr-1'>
-              <%= form.text_field       :name,
-                                        placeholder: 'Name',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autofocus: true,
-                                        autocomplete: 'name' %>
-            </div>
-            <div class='lg:w-1/2 lg:pl-1'>
-              <%= form.password_field   :current_password,
-                                        placeholder: 'Current password',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'current-password',
-                                        required: true %>
-            </div>
-          </div>
-          <div class='lg:flex'>
-            <div class='lg:w-1/2 lg:pr-1'>
-              <%= form.password_field   :password,
-                                        placeholder: 'New password',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'new-password' %>
-            </div>
-            <div class='lg:w-1/2 lg:pl-1'>
-              <%= form.password_field   :password_confirmation,
-                                        placeholder: 'New password confirmation',
-                                        class: 'w-full h-8 mb-2 rounded',
-                                        autocomplete: 'new-password' %>
-            </div>
-          </div>
-        <div class='text-center'>
-          <%= form.submit 'Update', class: 'blue-btn' %>
+        <h1 class='text-3xl font-bold mb-4'>Edit User</h1>
+        <div>
+          <%= form.text_field       :name,
+                                    placeholder: 'Name',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autofocus: true,
+                                    autocomplete: 'name' %>
+        </div>
+        <div>
+          <%= form.password_field   :current_password,
+                                    placeholder: 'Current password',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'current-password',
+                                    required: true %>
+        </div>
+        <div>
+          <%= form.password_field   :password,
+                                    placeholder: 'New password',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'new-password' %>
+        </div>
+        <div>
+          <%= form.password_field   :password_confirmation,
+                                    placeholder: 'New password confirmation',
+                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                    autocomplete: 'new-password' %>
+        </div>
+
+        <div>
+          <%= form.submit 'Update', class: 'blue-btn mt-4' %>
         </div>
       <% end %>
 
