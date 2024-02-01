@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe PlaceFacade do
   describe 'near' do
-    it 'returns places', vcr: 'denver_places' do
+    it 'returns places', vcr: 'denver_search' do
       places = described_class.near({ lat: 39.740959, lon: -104.985798 }, 'hospital')
       expect(places).to be_all(PlacePoro)
     end

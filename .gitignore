@@ -24,7 +24,6 @@
 
 /.env
 /coverage
-/spec/fixtures
 
 dump.rdb
 .reek.yml

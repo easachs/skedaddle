@@ -3,8 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe BusinessService do
-  describe 'gets businesses', vcr: 'denver_businesses' do
-    let(:response) { described_class.near(geo: { lat: 39.740959, lon: -104.985798 }, kind: 'bakeries') }
+  describe 'gets businesses', vcr: 'denver_search' do
+    let(:response) do
+      described_class.near(geo: { lat: 39.740959, lon: -104.985798 }, kind: 'bagels,bakeries,cupcakes,donuts')
+    end
 
     it 'as hash with businesses array' do
       expect(response[:businesses]).to be_a(Array)

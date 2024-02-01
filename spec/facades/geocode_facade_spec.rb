@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe GeocodeFacade do
-  describe 'returns', vcr: 'denver_geocode' do
+  describe 'returns', vcr: 'denver_search' do
     it 'search' do
       geocode = described_class.geocode('Denver')
       expect(geocode[:search]).to eq('Denver, CO, USA')

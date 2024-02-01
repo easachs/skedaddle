@@ -103,7 +103,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'displays error' do
-      expect(page).to have_content("Not found.")
+      expect(page).to have_content('Not found.')
     end
   end
 

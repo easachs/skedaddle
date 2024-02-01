@@ -92,7 +92,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       end
     end
 
-    describe 'with no search', vcr: 'bad_search' do
+    describe 'with no search' do
       before do
         visit '/itineraries/new?search='
       end

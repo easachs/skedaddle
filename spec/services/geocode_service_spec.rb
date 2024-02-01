@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe GeocodeService do
-  describe 'gets geocode', vcr: 'denver_geocode' do
+  describe 'gets geocode', vcr: 'denver_search' do
     let(:response) { described_class.geocode('Denver') }
 
     it 'as hash with parks array' do

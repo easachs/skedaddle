@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ParkService do
-  describe 'gets parks', vcr: 'denver_parks' do
+  describe 'gets parks', vcr: 'denver_search' do
     key = ENV.fetch('RAPID_API_KEY', nil)
     let(:response) { described_class.new(key).near({ lat: 39.740959, lon: -104.985798 }) }
 

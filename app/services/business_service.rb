@@ -26,10 +26,16 @@ class BusinessService
     end
 
     def set_business_params(route, kind, options)
+      process_options(options)
       route.params['categories'] = kind
       route.params['price']      = options[:budget] if options[:budget]
       route.params['radius']     = options[:distance].to_i * 1_000
       route.params['sort_by']    = options[:sort] if options[:sort]
+    end
+
+    def process_options(options)
+      options[:distance] = 15 if options[:distance].to_i.zero?
+      options[:sort] = 'best_match' unless options[:sort]
     end
 
     def conn
