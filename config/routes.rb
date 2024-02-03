@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # dashboard
   root 'home#home'
   get 'about', to: 'home#about'
+  get 'demo', to: 'home#demo'
 
   # users
   devise_for :users, controllers: {

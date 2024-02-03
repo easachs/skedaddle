@@ -3,7 +3,7 @@
 class ItinerariesController < ApplicationController
   include Redirection
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[prepare new]
   before_action :geocode, :find_items, only: %i[new create]
 
   def index
