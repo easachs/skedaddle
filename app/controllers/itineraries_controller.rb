@@ -107,6 +107,6 @@ class ItinerariesController < ApplicationController
 
   def gpt_response
     key = current_user&.credit&.positive? ? ENV.fetch('OPENAI_API_KEY', nil) : current_user&.openai_key
-    @gpt_response ||= GptService.new(key).summary(@itinerary)
+    @gpt_response ||= GptService.new(key).summary(@itinerary.decorate)
   end
 end
