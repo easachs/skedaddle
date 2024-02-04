@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe PlaceService do
-  describe 'gets new places', vcr: 'denver_places' do
+  describe 'gets new places', vcr: 'denver_search' do
     let(:response) { described_class.near({ lat: 39.740959, lon: -104.985798 }, 'hospital') }
 
     it 'as hash with places array' do

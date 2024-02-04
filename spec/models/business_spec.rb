@@ -5,19 +5,27 @@
 # Table name: businesses
 #
 #  id           :bigint           not null, primary key
-#  name         :string
-#  rating       :string
-#  price        :string
 #  categories   :string
-#  location     :string
-#  phone        :string
-#  url          :string
-#  thumbnail    :string
-#  kind         :string
 #  group        :string
-#  itinerary_id :bigint           not null
+#  kind         :string
+#  location     :string
+#  name         :string
+#  phone        :string
+#  price        :string
+#  rating       :string
+#  thumbnail    :string
+#  url          :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  itinerary_id :bigint           not null
+#
+# Indexes
+#
+#  index_businesses_on_itinerary_id  (itinerary_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (itinerary_id => itineraries.id)
 #
 require 'rails_helper'
 

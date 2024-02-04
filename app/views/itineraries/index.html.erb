@@ -1,30 +1,33 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
-    <div class="p-4 text-center">
-      <h1 class="text-3xl font-bold">Itineraries</h1>
-    </div>
-
-    <% if @itineraries.blank? %>
-      <%= content_tag :div, class: 'text-center' do %>
-        Looks like your travel plans are still up in the air! Click
-        <%= link_to 'here', root_path, class: 'font-bold' %> to craft an itinerary.
-      <% end %>
-    <% end %>
-
-    <% @itineraries.each do |itinerary| %>
-      <div class="pl-4">
-        <h5 class="text-xl font-semibold">
-          <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
-        </h5>
-        <p class="text-sm text-slate-500">
-          Created <%= itinerary.date %>
-        </p>
-      </div>
-      <br class="p-2">
-    <% end %>
-
     <div class='p-4'>
-      <%= paginate @itineraries %>
+      <h1 class='text-3xl font-bold text-center'>Itineraries</h1>
+
+      <% if @itineraries.blank? %>
+        <%= content_tag :div, class: 'text-center p-4' do %>
+          Looks like your travel plans are still up in the air! Click
+          <%= link_to 'here', root_path, class: 'font-bold' %> to craft an itinerary.
+        <% end %>
+      <% end %>
+
+      <% @itineraries.each do |itinerary| %>
+        <div class=''>
+          <h5 class='text-xl font-semibold'>
+            <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
+          </h5>
+          <div class='flex justify-between'>
+            <% if itinerary.start_date && itinerary.end_date %>
+              <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+            <% end %>
+            <p class='text-sm text-slate-500'>Created <%= itinerary.created %></p>
+          </div>
+        </div>
+        <br class='p-2'>
+      <% end %>
+
+      <div class='pl-4'>
+        <%= paginate @itineraries %>
+      </div>
     </div>
   <% end %>
 <% end %>

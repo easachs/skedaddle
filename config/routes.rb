@@ -4,21 +4,26 @@ Rails.application.routes.draw do
   # dashboard
   root 'home#home'
   get 'about', to: 'home#about'
+  get 'demo', to: 'home#demo'
 
-  # devise
+  # users
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  # keys
+  get 'keys', to: 'keys#edit'
+  patch 'keys', to: 'keys#update'
+
   # itineraries
-  resources :itineraries, except: %i[edit update] do
+  resources :itineraries, except: %i[edit] do
     post 'prepare', on: :collection
   end
   resources :parks, only: %i[destroy]
   resources :businesses, only: %i[destroy]
 
   # contact
-  get 'contact', to: 'home#contact'
+  get 'contact',  to: 'home#contact'
   post 'contact', to: 'contact#create'
   get 'received', to: 'home#received'
 

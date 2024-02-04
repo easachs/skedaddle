@@ -4,11 +4,11 @@ class ParkPoro
   attr_reader :name, :location, :description, :directions
 
   def initialize(attributes)
-    @name = attributes&.dig(:name)
-    @location = format_location(attributes)
-    @description = attributes&.dig(:description)
-    @directions = attributes&.dig(:directions)
-    @object = attributes&.dig(:activities)
+    @name         = attributes&.dig(:name)
+    @location     = format_location(attributes)
+    @description  = sanitize(attributes&.dig(:description))
+    @directions   = sanitize(attributes&.dig(:directions))
+    @object       = attributes&.dig(:activities)
   end
 
   def format_location(attributes)
@@ -19,9 +19,13 @@ class ParkPoro
       .join(', ')
   end
 
-  def activities = @object&.keys&.join(', ')
-  def url = @object&.values&.dig(0, :url)
-  def thumbnail = @object&.values&.dig(0, :thumbnail)
+  def sanitize(string)
+    ActionView::Base.full_sanitizer.sanitize(string)
+  end
+
+  def activities  = @object&.keys&.join(', ')
+  def url         = @object&.values&.dig(0, :url)
+  def thumbnail   = @object&.values&.dig(0, :thumbnail)
 
   def serialized
     { name:, location:, description:, directions:,

@@ -4,11 +4,11 @@ module Core
   class CheckboxComponent < ViewComponent::Base
     attr_reader :data, :prefix, :size
 
-    def initialize(data:, prefix:, size:)
+    def initialize(data:, prefix:, size: 1)
       super
-      @data = data
+      @data   = data
       @prefix = prefix
-      @size = size
+      @size   = size
     end
   end
 end

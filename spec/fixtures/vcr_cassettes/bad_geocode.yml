@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.7.12
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 01:50:32 GMT
+      - Mon, 25 Dec 2023 10:37:45 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -29,13 +29,13 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.7.12
       Accept-Encoding:
       - gzip
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - ff1c8480-5b78-4094-8e79-af7d7345a0df
+      - 285488a8-5bcd-4203-b280-9088382dc1b6
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -45,66 +45,25 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24978'
+      - '24970'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.089'
+      - '0.069'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=RVf8y%2FixNXVFk19GluI0rYAPvVIrTxtkro4S%2BUv7mlgDSigV2ezwViGqBD9OHEFKcNFAajT7v3tzy2975dCRIIJ7rZWoLDAqmE9T7phjIvEJ1RJMVw6LDoxF%2FTqxiJERDqHhTxmHUc5KwCw%2FUgsNSngS9TM%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=e1%2BjzAZgHj6AFICpBGn4pbtwfOPmGsd57tnQzQQ%2Bc8tN4srWYgm0gp7cgYZBysJmafinjMcsp%2BV9lGu7gr1TErrpy4tV%2B6KU8HCrzJOHQmijacZuTSm5JAzc4%2FmS8ADVysBq0blluZmPfJaqmqmY3IhPtzw%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829d85ae5e461f2e-DEN
+      - 83b0735839311f2d-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: '{"data":[]}'
-  recorded_at: Wed, 22 Nov 2023 01:50:32 GMT
-- request:
-    method: get
-    uri: https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=50000&namePrefix=Nonexistent
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      X-Rapidapi-Key:
-      - "<RAPID_API_KEY>"
-      User-Agent:
-      - Faraday v2.7.11
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 429
-      message: Too Many Requests
-    headers:
-      Date:
-      - Wed, 22 Nov 2023 01:50:33 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      X-Rapidapi-Version:
-      - 1.2.8
-      X-Rapidapi-Region:
-      - AWS - us-west-2
-      X-Rapidapi-Proxy-Response:
-      - 'true'
-      Server:
-      - RapidAPI-1.2.8
-    body:
-      encoding: UTF-8
-      string: '{"message":"You have exceeded the rate limit per second for your plan,
-        BASIC, by the API provider"}'
-  recorded_at: Wed, 22 Nov 2023 01:50:33 GMT
+  recorded_at: Mon, 25 Dec 2023 10:37:45 GMT
 recorded_with: VCR 6.2.0

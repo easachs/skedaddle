@@ -1,7 +1,6 @@
 <%= turbo_frame_tag 'itinerary' do %>
-  <%= render Core::ItineraryComponent.new id: @itinerary.id,
-                                          search: @itinerary.search,
-                                          city: @itinerary.city,
+  <%= render Core::ItineraryComponent.new itinerary: @itinerary,
                                           saved: true,
-                                          items: @itinerary.items %>
+                                          tab: params[:tab],
+                                          current_user: %>
 <% end %>

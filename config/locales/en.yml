@@ -1,12 +1,14 @@
 en:
   flash:
-    errors:
-      no_results: "No results found."
-      too_broad: "Please be more specific."
-      something: "Something went wrong."
-      no_access: "You don't have access to this."
-      not_found: "Couldn't find itinerary."
-      send_failed: "Failed to send."
+    messages:
+      key_updated: 'Keys updated.'
+      no_access: "This isn't yours."
+      no_results: "No results."
+      not_found: "Not found."
+      openai_key: 'Invalid key.'
+      send_failed: "Send failed."
+      something: "Oops!"
+      too_broad: "Be more specific."
   mailers:
     contact:
       subject: "Skedaddle Contact"

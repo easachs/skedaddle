@@ -9,12 +9,12 @@ class GeocodePoro
               :lon
 
   def initialize(attributes)
-    @search = attributes&.dig(:label)
-    @city = attributes&.dig(:locality) || attributes&.dig(:city)
-    @region = attributes&.dig(:region)
-    @country = attributes&.dig(:country)
-    @lat = attributes&.dig(:latitude)
-    @lon = attributes&.dig(:longitude)
+    @search   = attributes&.dig(:label)
+    @city     = attributes&.dig(:locality) || attributes&.dig(:city)
+    @region   = attributes&.dig(:region)
+    @country  = attributes&.dig(:country)
+    @lat      = attributes&.dig(:latitude)
+    @lon      = attributes&.dig(:longitude)
   end
 
   def serialized

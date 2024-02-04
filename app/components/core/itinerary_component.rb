@@ -2,25 +2,39 @@
 
 module Core
   class ItineraryComponent < ViewComponent::Base
-    attr_reader :search, :city
+    attr_reader :itinerary, :geocode, :items
 
-    def initialize(search:, city:, items:, **options)
-      super
-      @search = search
-      @city = city
-      @items = items
-      @options = options
+    def initialize(itinerary: nil, geocode: nil, items: nil, **options)
+      super()
+      @itinerary    = itinerary
+      @geocode      = geocode
+      @items        = items || itinerary&.items
+      @options      = options
     end
 
     private
 
-    def id = @options.fetch(:id, nil)
-    def saved = @options.fetch(:saved, false)
+    def user        = @options.fetch(:current_user, nil)
+    def saved       = @options.fetch(:saved, false)
+    def tab         = @options.fetch(:tab, 'info')
 
-    def airports = @items&.dig(:airports)
-    def hospitals = @items&.dig(:hospitals)
-    def parks = @items&.dig(:parks)
-    def activities = @items&.dig(:activities)
-    def restaurants = @items&.dig(:restaurants)
+    def search      = @geocode&.dig(:search) || itinerary&.search
+    def city        = @geocode&.dig(:city) || itinerary&.city
+
+    def weather     = WeatherFacade.forecast(coordinates)
+    def airports    = items&.dig(:airports)
+    def hospitals   = items&.dig(:hospitals)
+    def parks       = items&.dig(:parks)
+    def activities  = items&.dig(:activities)
+    def restaurants = items&.dig(:restaurants)
+
+    # tab classes
+    def gpt_tab     = tab == 'gpt'
+    def info_btn    = gpt_tab ? '' : 'active'
+    def gpt_btn     = gpt_tab ? 'active' : ''
+    def info_class  = gpt_tab ? 'hidden' : 'mt-4 sm:mt-0'
+    def gpt_class   = gpt_tab ? 'mt-4 sm:mt-0' : 'hidden'
+
+    def coordinates = itinerary&.coordinates || @geocode
   end
 end

@@ -1,47 +1,95 @@
 <%= content_tag :div, class: 'row bg-white bg-opacity-70 rounded-xl' do %>
   <%= content_tag :div, class: 'col-lg p-4' do %>
-    <%= content_tag :h1, "#{city} Itinerary", class: 'text-3xl font-bold mb-2' %>
+    <%= content_tag :h1, city&.to_s, class: 'text-center text-3xl font-bold mb-2' %>
 
-    <% if airports.present? %>
-      <%= content_tag :h3, 'Airports', class: 'font-bold text-xl' %>
-      <%= content_tag :div, id: 'airports', class: 'flex flex-wrap text-sm' do %>
-        <%= render Sub::PlaceComponent.with_collection airports %>
-      <% end %>
-    <% end %>
+    <%= content_tag :div, data: { controller: 'tabs' } do %>
 
-    <% if hospitals.present? %>
-      <%= content_tag :h3, 'Hospitals', class: 'font-bold text-xl' %>
-      <%= content_tag :div, id: 'hospitals', class: 'flex flex-wrap text-sm' do %>
-        <%= render Sub::PlaceComponent.with_collection hospitals %>
-      <% end %>
-    <% end %>
-
-    <% if parks.present? %>
-      <%= content_tag :div, id: 'parks' do %>
-        <%= content_tag :h3, 'Parks', class: 'font-bold text-xl' %>
-        <%= render Sub::ParkComponent.with_collection(parks, saved:) %>
-      <% end %>
-    <% end %>
-
-    <% { Activities: activities, Restaurants: restaurants }.each do |title, collection| %>
-      <% if collection.present? %>
-        <%= content_tag :h3, title, class: 'py-2 font-bold text-xl' %>
-        <% collection.each do |category, items| %>
-          <%= render Sub::CategoryComponent.new(items:, category:, saved:) %>
+      <% if saved %>
+        <%= content_tag :div, class: 'text-center' do %>
+          <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
+                                 class: "tab-btn #{info_btn}" %>
+          <%= button_tag 'GPT',  type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' },
+                                 class: "tab-btn #{gpt_btn}" %>
         <% end %>
       <% end %>
-    <% end %>
 
-    <% if saved %>
-      <%= form_with url: itinerary_path(id), method: :delete do |form| %>
-        <%= form.submit 'Delete', class: 'blue-btn mb-2', data: { turbo: false } %>
+      <%= content_tag :div, class: 'mt-4 sm:mt-0' do %>
+        <%= content_tag :div, id: 'info', data: { tabs_target: 'info' }, class: info_class do %>
+          <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex text-sm p-2') do %>
+            <%= render Sub::WeatherComponent.new(weather:) %>
+          <% end %>
+
+          <% if airports.present? %>
+            <%= render Core::DropdownComponent.new(title: 'airports', box_class: 'flex flex-wrap text-sm') do %>
+              <%= render Sub::PlaceComponent.with_collection airports %>
+            <% end %>
+          <% end %>
+
+          <% if hospitals.present? %>
+            <%= render Core::DropdownComponent.new(title: 'hospitals', box_class: 'flex flex-wrap text-sm') do %>
+              <%= render Sub::PlaceComponent.with_collection hospitals %>
+            <% end %>
+          <% end %>
+
+          <% if parks.present? %>
+            <%= render Core::DropdownComponent.new(title: 'parks', box_class: 'p-2') do %>
+              <%= render Sub::ParkComponent.with_collection(parks, saved:) %>
+            <% end %>
+          <% end %>
+
+          <% { activities:, restaurants: }.each do |title, collection| %>
+            <% unless collection.blank? || collection.values.all?([]) %>
+              <%= render Core::DropdownComponent.new(title: title.capitalize, box_class: 'p-2') do %>
+                <% collection.each do |category, items| %>
+                  <%= render Sub::CategoryComponent.new(items:, category:, saved:) %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <% if saved %>
+            <%= form_with url: itinerary_path(itinerary), method: :delete do |form| %>
+              <p class='py-2 text-center'><%= form.submit 'Delete',
+                                                          data: { turbo: false },
+                                                          class: 'blue-btn' %></p>
+            <% end %>
+          <% else %>
+            <%= form_with url: itineraries_path, method: :post do |form| %>
+              <%= form.hidden_field :search, value: search %>
+              <p class='py-2 text-center'><%= form.submit 'Save',
+                                                          data: { turbo: false },
+                                                          class: 'blue-btn' %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if saved %>
+          <%= content_tag :div, id: 'gpt', data: { tabs_target: 'gpt' }, class: gpt_class do %>
+            <% if itinerary&.summary %>
+              <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
+                <%= itinerary.summary.response.html_safe %>
+              <% end %>
+            <% else %>
+              <%= content_tag :div, class: 'p-4 text-center' do %>
+                <p>You have not created a summary for this itinerary yet!</p>
+                <p>Click below to generate a play-by-play suggested outline for your trip using ChatGPT.</p>
+              <% end %>
+            <% end %>
+
+            <%= content_tag :div, class: 'p-4 text-center warning' do %>
+              <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}" %>
+              <%= content_tag :p, 'Add your own OpenAI key to continue.' if user.credit <= 0 && user.openai_key.blank? %>
+            <% end %>
+
+            <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
+            <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
+              <p class='py-2 text-center'><%= form.submit "#{button_text} Summary",
+                                                          data: { turbo: false },
+                                                          class: 'blue-btn' %></p>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= form_with url: itineraries_path, method: :post do |form| %>
-        <%= form.hidden_field :search, value: search %>
-        <%= form.submit 'Save', class: 'blue-btn mb-2', data: { turbo: false } %>
-      <% end %>
-      <%= link_to 'Search Again', root_path %>
     <% end %>
   <% end %>
 <% end %>

@@ -5,11 +5,12 @@ class GeocodeService
     def geocode(location = '')
       return if location.blank?
 
-      Rails.cache.fetch("GeocodeService/geocode/#{location}", expires_in: 1.hour) do
-        response = conn.get('/v1/forward') do |route|
-          route.params['query'] = location
+      Rails.cache.fetch("geocode/#{location}", expires_in: 1.hour) do
+        response = conn.get('/v1/forward') do |f|
+          f.params['query'] = location
         end
-        JSON.parse(response.body, symbolize_names: true)
+        parsed = JSON.parse(response.body, symbolize_names: true)
+        parsed.keys.include?(:error) ? nil : parsed
       end
     end
 

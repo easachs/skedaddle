@@ -1,3 +1,2 @@
-<%= render Core::ItineraryComponent.new search: params&.dig(:search),
-                                        city: @geocode&.dig(:city),
+<%= render Core::ItineraryComponent.new geocode: @geocode,
                                         items: @items %>

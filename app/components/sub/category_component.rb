@@ -6,9 +6,9 @@ module Sub
 
     def initialize(items:, category:, saved: false)
       super
-      @items = items
+      @items    = items
       @category = category
-      @saved = saved
+      @saved    = saved
     end
   end
 end

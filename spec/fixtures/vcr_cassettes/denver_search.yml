@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 03:41:51 GMT
+      - Thu, 01 Feb 2024 06:27:44 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -29,13 +29,13 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 2cc60697-1e67-42ab-8b42-e0a2b53fd8a5
+      - 21b5c9b7-6d9b-459f-bca5-d108d42ec506
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -45,21 +45,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24973'
+      - '24998'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.155'
+      - '0.130'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=EZW8T8UQUylcDujaJAmOSyk%2BDy7Gq898LhGh83dj5Sb6B8yQ9vS6ByJS0DZoQKiBOPne961%2F2Zm%2FF02aEtJXAKvuI%2FpXmqHTfJRSqRfXDk5VymrOWiSinHW4joaPY8cEYmbYgJnn%2Fkg5reANwfYPSTk77rI%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=jtyrpt6ugk7R0VTKqpoZ%2BXqBTnv%2FWHk0JAW1hYRTK9juiD2MsTlT2Uc2hZehfCifriEWepDWdCibQWJWEKNo3TYDz1Qi6zO2QSTT8JMMhr%2BWMu5ny7fnxxNAah0OmpixvUT%2BXZTmJUDTDmdF06FRQpFg0RI%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829e28b9095b51fd-DEN
+      - 84e82158289d1f35-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -96,7 +96,7 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Wed, 22 Nov 2023 03:41:51 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:44 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -109,7 +109,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
       Accept-Encoding:
@@ -128,7 +128,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 22 Nov 2023 03:41:51 GMT
+      - Thu, 01 Feb 2024 06:27:44 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -147,7 +147,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Wed, 22 Nov 2023 03:41:51 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:44 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -160,7 +160,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
       Accept-Encoding:
@@ -179,7 +179,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 22 Nov 2023 03:41:51 GMT
+      - Thu, 01 Feb 2024 06:27:45 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -236,7 +236,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Wed, 22 Nov 2023 03:41:51 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:45 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -247,7 +247,7 @@ http_interactions:
       X-Rapidapi-Key:
       - "<RAPID_API_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -258,7 +258,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 03:41:52 GMT
+      - Thu, 01 Feb 2024 06:27:46 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -266,26 +266,26 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Thu, 21 Nov 2024 03:41:52 GMT
+      - Fri, 31 Jan 2025 06:27:45 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829e28c11f80c3e9-SEA
+      - 84e821617e07c52d-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA06B25515164DF0F4503465C0981C9438E32971ABF2AE90AD017394E0358FB0BF;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA2E74A3DFA70646B785AC869C32F81DE5045F2D16180A1B4B6B09BF417E2E81E4;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA2E74A3DFA70646B785AC869C32F81DE5045F2D16180A1B4B6B09BF417E2E81E4;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=I3m99WCnzROdb7QsafZSIr%2BorDuP%2F2EcuGfZE4JLs0wrE1u7hoZex%2Focq0xtKos7n4IaUjKXDH69czeWIBj%2BFNG2w1gCaMBlijxAvi2ho79FEK%2FItRPYwAA%2Fb5aDLjFV5g0Nx99S"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2FmFnttOeQl8KWdEuS59bqKeCtaLlC66sdtrpflZlYViwE9a8sc20qvgW7G25d36RPP%2Fx1s6aWD6fDJxKmX6vl2mSWiYYrngHx2Y1jx5cP8Y44Zid0iyT5qh6TV5Ljq88l5fl%2B3mI"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -307,13 +307,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '85227'
+      - '75273'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '496'
+      - '497'
       X-Ratelimit-Regular-Requests-Reset:
-      - '85227'
+      - '75273'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -449,10 +449,10 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:52 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
 - request:
     method: get
-    uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
+    uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
     body:
       encoding: US-ASCII
       string: ''
@@ -460,7 +460,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -474,36 +474,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      X-Zipkin-Id:
+      - 78199bb2a82fe582
+      X-Routing-Service:
+      - routing-main--useast1-76b594794d-8g4k6; site=public_api_v3
       X-B3-Sampled:
       - '0'
-      Ratelimit-Dailylimit:
-      - '5000.0'
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-v8mk5; site=public_api_v3
-      Ratelimit-Remaining:
-      - '4991.0'
       Ratelimit-Resettime:
-      - '2023-11-23T00:00:00+00:00'
+      - '2024-02-02T00:00:00+00:00'
       Server:
       - envoy
-      X-Zipkin-Id:
-      - ddaac5a2138f6abd
+      Ratelimit-Remaining:
+      - '4962.0'
+      Ratelimit-Dailylimit:
+      - '5000.0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-152-214-useast1bprod
+      - 10-65-92-52-useast1aprod
       X-Extlb:
-      - 10-65-152-214-useast1bprod
+      - 10-65-92-52-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 22 Nov 2023 03:41:53 GMT
+      - Thu, 01 Feb 2024 06:27:46 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8260-DEN
+      - cache-den8253-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -519,7 +519,7 @@ http_interactions:
       string: '{"businesses": [{"id": "lzjoyf-Z0b4LwQzF0dtLrQ", "alias": "colorado-state-government-capitol-building-denver",
         "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/coU6IHXuDMebyyyk_lvdsQ/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/colorado-state-government-capitol-building-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 111, "categories": [{"alias": "museums", "title": "Museums"},
+        "review_count": 109, "categories": [{"alias": "museums", "title": "Museums"},
         {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}], "rating":
         4.0, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
         [], "location": {"address1": "200 E Colfax Ave", "address2": "Ste 136", "address3":
@@ -529,8 +529,8 @@ http_interactions:
         {"id": "z7wyDoef1yDBhb60F0SYGg", "alias": "united-states-mint-denver", "name":
         "United States Mint", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/tTOc59HIL3PAtkWiJgxJXw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/united-states-mint-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 111, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 3.5, "coordinates": {"latitude": 39.7392387390137,
+        "review_count": 112, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 4.0, "coordinates": {"latitude": 39.7392387390137,
         "longitude": -104.992301940918}, "transactions": [], "location": {"address1":
         "320 W Colfax Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80204", "country": "US", "state": "CO", "display_address": ["320 W Colfax
@@ -569,10 +569,10 @@ http_interactions:
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
         "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:53 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
 - request:
     method: get
-    uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
+    uri: https://api.yelp.com/v3/businesses/search?categories=bagels,bakeries,cupcakes,donuts&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
     body:
       encoding: US-ASCII
       string: ''
@@ -580,7 +580,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -596,34 +596,34 @@ http_interactions:
       - application/json
       X-B3-Sampled:
       - '0'
-      Ratelimit-Resettime:
-      - '2023-11-23T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-76b594794d-5vzls; site=public_api_v3
       Server:
       - envoy
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-k2k4x; site=public_api_v3
+      Ratelimit-Remaining:
+      - '4961.0'
+      X-Zipkin-Id:
+      - eead44ca2b53abee
       Ratelimit-Dailylimit:
       - '5000.0'
-      X-Zipkin-Id:
-      - accc7168657c6a53
-      Ratelimit-Remaining:
-      - '4990.0'
+      Ratelimit-Resettime:
+      - '2024-02-02T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-166-141-useast1bprod
+      - 10-65-172-176-useast1bprod
       X-Extlb:
-      - 10-65-166-141-useast1bprod
+      - 10-65-172-176-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 22 Nov 2023 03:41:53 GMT
+      - Thu, 01 Feb 2024 06:27:46 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8230-DEN
+      - cache-den8249-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -639,7 +639,7 @@ http_interactions:
       string: '{"businesses": [{"id": "XluydvQpT75gjiuRSclhcQ", "alias": "the-denver-central-market-denver-2",
         "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/T3il49tjzYbnKg59PyFwnA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/the-denver-central-market-denver-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 565, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 568, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "meats", "title": "Meat Shops"}, {"alias": "food_court", "title":
         "Food Court"}], "rating": 4.5, "coordinates": {"latitude": 39.75936357492905,
         "longitude": -104.98454807433254}, "transactions": [], "price": "$$", "location":
@@ -649,47 +649,98 @@ http_interactions:
         "distance": 2041.0193004532712}, {"id": "VQkLfjcM6qPoIbHDuOpZow", "alias":
         "lodough-bakery-denver", "name": "LoDough Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 48, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 53, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
         "title": "Patisserie/Cake Shop"}], "rating": 5.0, "coordinates": {"latitude":
         39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
         "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
         "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
         Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
-        "", "distance": 1668.850192727582}, {"id": "gXtTb3-jvyCjQzqWennfLg", "alias":
-        "izzio-bakery-denver", "name": "Izzio Bakery", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
+        "", "distance": 1668.850192727582}, {"id": "ZDMlxXUz6xEAXLezla7_nQ", "alias":
+        "voodoo-doughnut-denver-7", "name": "Voodoo Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 2041, "categories": [{"alias": "donuts", "title": "Donuts"},
+        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
+        "Coffee & Tea"}], "rating": 4.0, "coordinates": {"latitude": 39.73988438399763,
+        "longitude": -104.969173148037}, "transactions": ["delivery", "pickup"], "price":
+        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
+        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
+        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
+        "gXtTb3-jvyCjQzqWennfLg", "alias": "izzio-bakery-denver", "name": "Izzio Bakery",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 261, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 287, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
         "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
-        ["delivery", "pickup"], "price": "$", "location": {"address1": "2669 Larimer
+        ["delivery", "pickup"], "price": "$$", "location": {"address1": "2669 Larimer
         St", "address2": null, "address3": "The Denver Central Market", "city": "Denver",
         "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
         Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
         "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
-        "OJt3oJWYyiIIM4LQY0MGWg", "alias": "noisette-restaurant-and-bakery-denver",
-        "name": "Noisette Restaurant & Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/noisette-restaurant-and-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 57, "categories": [{"alias": "french", "title": "French"},
-        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.0, "coordinates":
-        {"latitude": 39.7631, "longitude": -105.00386}, "transactions": [], "location":
-        {"address1": "3254 Navajo St", "address2": "Ste 100", "address3": "", "city":
-        "Denver", "zip_code": "80211", "country": "US", "state": "CO", "display_address":
-        ["3254 Navajo St", "Ste 100", "Denver, CO 80211"]}, "phone": "+17207698103",
-        "display_phone": "(720) 769-8103", "distance": 2903.444792201384}, {"id":
-        "-NiqMIz4qkOwYXlb5CmywQ", "alias": "little-finch-denver", "name": "Little
-        Finch", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/bImeAUeRcl5J09cVex33zQ/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/little-finch-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 84, "categories": [{"alias": "bakeries", "title": "Bakeries"},
-        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cafes",
-        "title": "Cafes"}], "rating": 4.5, "coordinates": {"latitude": 39.75034, "longitude":
-        -104.99916}, "transactions": ["delivery", "pickup"], "price": "$$", "location":
-        {"address1": "1490 16th St", "address2": null, "address3": "", "city": "Denver",
-        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1490
-        16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
-        "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
-        {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:54 GMT
+        "Covs3T2juogDtgxjXnNGpQ", "alias": "toasts-n-roasts-denver", "name": "Toasts
+        n Roasts", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/sp3t2OxaxQL1zE2lVftMyA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/toasts-n-roasts-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 91, "categories": [{"alias": "coffee", "title": "Coffee &
+        Tea"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias":
+        "donuts", "title": "Donuts"}], "rating": 4.5, "coordinates": {"latitude":
+        39.743, "longitude": -104.98147}, "transactions": ["pickup"], "price": "$$",
+        "location": {"address1": "450 E 17th Ave", "address2": "Ste 106", "address3":
+        "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
+        "display_address": ["450 E 17th Ave", "Ste 106", "Denver, CO 80203"]}, "phone":
+        "+13034849602", "display_phone": "(303) 484-9602", "distance": 434.51370512183064}],
+        "total": 266, "region": {"center": {"longitude": -104.985798, "latitude":
+        39.740959}}}'
+  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 01 Feb 2024 06:27:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4255'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768867,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
+        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
+        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
+  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
 - request:
     method: get
     uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
@@ -698,7 +749,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -709,7 +760,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 03:41:54 GMT
+      - Thu, 01 Feb 2024 06:27:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -719,13 +770,13 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 3a8bed4b-a46c-491e-9feb-fb73c1c231a5
+      - 33dfb5b0-ff34-427c-89d9-0c37da8b0e0e
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -735,21 +786,21 @@ http_interactions:
       X-Quota-Limit:
       - '25000'
       X-Quota-Remaining:
-      - '24972'
+      - '24997'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.157'
+      - '0.133'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=UbdsFMHs65JLCZ6yN%2FgW8b3qXUri8ITv5SRmZmulf82975pa7CdDRMD%2Fxf1n%2FllnYscxRtOSS4tKtWv%2Fl5hrnxZ2AfE5HKsQUcfBsuvjTvjbHBo11OMzyHj6qPbLSogCeP6fyfn2HMsbkQN%2BV6%2FGEMF4PGk%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=P5y3jU862A%2B6r5PJG%2BQGf2%2BhOhclnPEJr4jZEma5rxFXnlS1MC5vfB7%2BTemJA4shD5rXSIUnJ356uwO37sx3mSlQgk1v5IzbpyNXW5gEscUQdO%2FNR%2Bz0hAGbzEsqL2cVKXbOYZZmyk1smEHJd2qclVsVuu0%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 829e28cd994f5390-DEN
+      - 84e8216bc84c51f4-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -786,7 +837,7 @@ http_interactions:
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Wed, 22 Nov 2023 03:41:54 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -799,7 +850,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
       Accept-Encoding:
@@ -818,7 +869,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 22 Nov 2023 03:41:54 GMT
+      - Thu, 01 Feb 2024 06:27:47 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -837,7 +888,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Wed, 22 Nov 2023 03:41:54 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -850,7 +901,7 @@ http_interactions:
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
       Accept-Encoding:
@@ -869,7 +920,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Wed, 22 Nov 2023 03:41:55 GMT
+      - Thu, 01 Feb 2024 06:27:47 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -926,7 +977,7 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Wed, 22 Nov 2023 03:41:55 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -937,7 +988,7 @@ http_interactions:
       X-Rapidapi-Key:
       - "<RAPID_API_KEY>"
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -948,7 +999,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 03:41:56 GMT
+      - Thu, 01 Feb 2024 06:27:48 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -956,26 +1007,26 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Thu, 21 Nov 2024 03:41:55 GMT
+      - Fri, 31 Jan 2025 06:27:48 GMT
       Cache-Control:
       - max-age=31536000, no-cache="set-cookie"
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
       Cf-Ray:
-      - 829e28d69fc016d8-SEA
+      - 84e821720c61c38b-SEA
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E08530217E118CC116EFB2D846440DDE0EECC4371B217B73ED223A2152580E81239;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE540D7B32588C3F72EBEE0608014928CC5;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE540D7B32588C3F72EBEE0608014928CC5;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5RHc4zbiLs%2BzA3YUpL3vU8KbAtl2rAis0H9ecOPiiuLhxVZlSyfpCw30aSIaEPjNB4fkGcazM%2FbCgookKBXQ1HcaqWvpbI04G4aHa1xyLcCeOoFJt5CWJhmfyvIwpqhkqVolEWze"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=GLnWfWiSTAD9QW25%2BuPJmiZvMBwJeXGlxZXrD6RhMb44MVgKrAWoMfb5vZKSZBGUse1arZoEKVHUVXBseywPrXX7JrMdQHfZ49VL%2F5eq7YMGtwtKvHtPW7JTiOpfVoszXQutFiZe"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -997,13 +1048,13 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '85223'
+      - '75271'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '495'
+      - '496'
       X-Ratelimit-Regular-Requests-Reset:
-      - '85223'
+      - '75271'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -1139,10 +1190,10 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:56 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:48 GMT
 - request:
     method: get
-    uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
+    uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
     body:
       encoding: US-ASCII
       string: ''
@@ -1150,7 +1201,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1164,36 +1215,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      Ratelimit-Resettime:
-      - '2023-11-23T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-76b594794d-4jj4b; site=public_api_v3
       Server:
       - envoy
-      X-B3-Sampled:
-      - '0'
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-zmblz; site=public_api_v3
       Ratelimit-Dailylimit:
       - '5000.0'
       Ratelimit-Remaining:
-      - '4989.0'
+      - '4960.0'
       X-Zipkin-Id:
-      - 31f15c69e960b305
+      - 48b053d19b55d335
+      Ratelimit-Resettime:
+      - '2024-02-02T00:00:00+00:00'
+      X-B3-Sampled:
+      - '0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-152-214-useast1bprod
+      - 10-65-172-176-useast1bprod
       X-Extlb:
-      - 10-65-152-214-useast1bprod
+      - 10-65-172-176-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 22 Nov 2023 03:41:56 GMT
+      - Thu, 01 Feb 2024 06:27:49 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8220-DEN
+      - cache-den8256-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1209,7 +1260,7 @@ http_interactions:
       string: '{"businesses": [{"id": "lzjoyf-Z0b4LwQzF0dtLrQ", "alias": "colorado-state-government-capitol-building-denver",
         "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/coU6IHXuDMebyyyk_lvdsQ/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/colorado-state-government-capitol-building-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 111, "categories": [{"alias": "museums", "title": "Museums"},
+        "review_count": 109, "categories": [{"alias": "museums", "title": "Museums"},
         {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}], "rating":
         4.0, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
         [], "location": {"address1": "200 E Colfax Ave", "address2": "Ste 136", "address3":
@@ -1219,8 +1270,8 @@ http_interactions:
         {"id": "z7wyDoef1yDBhb60F0SYGg", "alias": "united-states-mint-denver", "name":
         "United States Mint", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/tTOc59HIL3PAtkWiJgxJXw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/united-states-mint-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 111, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 3.5, "coordinates": {"latitude": 39.7392387390137,
+        "review_count": 112, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 4.0, "coordinates": {"latitude": 39.7392387390137,
         "longitude": -104.992301940918}, "transactions": [], "location": {"address1":
         "320 W Colfax Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80204", "country": "US", "state": "CO", "display_address": ["320 W Colfax
@@ -1259,10 +1310,10 @@ http_interactions:
         "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
         "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:56 GMT
+  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
 - request:
     method: get
-    uri: https://api.yelp.com/v3/businesses/search?categories=bakeries&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000
+    uri: https://api.yelp.com/v3/businesses/search?categories=bagels,bakeries,cupcakes,donuts&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
     body:
       encoding: US-ASCII
       string: ''
@@ -1270,7 +1321,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.7.11
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1284,36 +1335,36 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      X-Zipkin-Id:
-      - 9c2051df6dcc45c6
-      X-B3-Sampled:
-      - '0'
       Server:
       - envoy
+      X-Routing-Service:
+      - routing-main--useast1-76b594794d-bjjlr; site=public_api_v3
+      X-Zipkin-Id:
+      - 6597fa53a1a857bc
       Ratelimit-Dailylimit:
       - '5000.0'
-      Ratelimit-Resettime:
-      - '2023-11-23T00:00:00+00:00'
-      X-Routing-Service:
-      - routing-main--useast1-58d7765b64-s8g2w; site=public_api_v3
+      X-B3-Sampled:
+      - '0'
       Ratelimit-Remaining:
-      - '4988.0'
+      - '4959.0'
+      Ratelimit-Resettime:
+      - '2024-02-02T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-68-134-useast1aprod
+      - 10-65-79-132-useast1aprod
       X-Extlb:
-      - 10-65-68-134-useast1aprod
+      - 10-65-79-132-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 22 Nov 2023 03:41:56 GMT
+      - Thu, 01 Feb 2024 06:27:49 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8266-DEN
+      - cache-den8235-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1329,7 +1380,7 @@ http_interactions:
       string: '{"businesses": [{"id": "XluydvQpT75gjiuRSclhcQ", "alias": "the-denver-central-market-denver-2",
         "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/T3il49tjzYbnKg59PyFwnA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/the-denver-central-market-denver-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 565, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 568, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "meats", "title": "Meat Shops"}, {"alias": "food_court", "title":
         "Food Court"}], "rating": 4.5, "coordinates": {"latitude": 39.75936357492905,
         "longitude": -104.98454807433254}, "transactions": [], "price": "$$", "location":
@@ -1339,45 +1390,145 @@ http_interactions:
         "distance": 2041.0193004532712}, {"id": "VQkLfjcM6qPoIbHDuOpZow", "alias":
         "lodough-bakery-denver", "name": "LoDough Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 48, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 53, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
         "title": "Patisserie/Cake Shop"}], "rating": 5.0, "coordinates": {"latitude":
         39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
         "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
         "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
         Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
-        "", "distance": 1668.850192727582}, {"id": "gXtTb3-jvyCjQzqWennfLg", "alias":
-        "izzio-bakery-denver", "name": "Izzio Bakery", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
+        "", "distance": 1668.850192727582}, {"id": "ZDMlxXUz6xEAXLezla7_nQ", "alias":
+        "voodoo-doughnut-denver-7", "name": "Voodoo Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 2041, "categories": [{"alias": "donuts", "title": "Donuts"},
+        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
+        "Coffee & Tea"}], "rating": 4.0, "coordinates": {"latitude": 39.73988438399763,
+        "longitude": -104.969173148037}, "transactions": ["pickup", "delivery"], "price":
+        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
+        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
+        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
+        "gXtTb3-jvyCjQzqWennfLg", "alias": "izzio-bakery-denver", "name": "Izzio Bakery",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 261, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 287, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
         "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
-        ["delivery", "pickup"], "price": "$", "location": {"address1": "2669 Larimer
+        ["pickup", "delivery"], "price": "$$", "location": {"address1": "2669 Larimer
         St", "address2": null, "address3": "The Denver Central Market", "city": "Denver",
         "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
         Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
         "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
-        "OJt3oJWYyiIIM4LQY0MGWg", "alias": "noisette-restaurant-and-bakery-denver",
-        "name": "Noisette Restaurant & Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/noisette-restaurant-and-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 57, "categories": [{"alias": "french", "title": "French"},
-        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.0, "coordinates":
-        {"latitude": 39.7631, "longitude": -105.00386}, "transactions": [], "location":
-        {"address1": "3254 Navajo St", "address2": "Ste 100", "address3": "", "city":
-        "Denver", "zip_code": "80211", "country": "US", "state": "CO", "display_address":
-        ["3254 Navajo St", "Ste 100", "Denver, CO 80211"]}, "phone": "+17207698103",
-        "display_phone": "(720) 769-8103", "distance": 2903.444792201384}, {"id":
-        "-NiqMIz4qkOwYXlb5CmywQ", "alias": "little-finch-denver", "name": "Little
-        Finch", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/bImeAUeRcl5J09cVex33zQ/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/little-finch-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 84, "categories": [{"alias": "bakeries", "title": "Bakeries"},
-        {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cafes",
-        "title": "Cafes"}], "rating": 4.5, "coordinates": {"latitude": 39.75034, "longitude":
-        -104.99916}, "transactions": ["delivery", "pickup"], "price": "$$", "location":
-        {"address1": "1490 16th St", "address2": null, "address3": "", "city": "Denver",
-        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1490
-        16th St", "Denver, CO 80202"]}, "phone": "+13037289746", "display_phone":
-        "(303) 728-9746", "distance": 1539.5033967998518}], "total": 177, "region":
-        {"center": {"longitude": -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Wed, 22 Nov 2023 03:41:56 GMT
+        "Covs3T2juogDtgxjXnNGpQ", "alias": "toasts-n-roasts-denver", "name": "Toasts
+        n Roasts", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/sp3t2OxaxQL1zE2lVftMyA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/toasts-n-roasts-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 91, "categories": [{"alias": "coffee", "title": "Coffee &
+        Tea"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias":
+        "donuts", "title": "Donuts"}], "rating": 4.5, "coordinates": {"latitude":
+        39.743, "longitude": -104.98147}, "transactions": ["pickup"], "price": "$$",
+        "location": {"address1": "450 E 17th Ave", "address2": "Ste 106", "address3":
+        "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
+        "display_address": ["450 E 17th Ave", "Ste 106", "Denver, CO 80203"]}, "phone":
+        "+13034849602", "display_phone": "(303) 484-9602", "distance": 434.51370512183064}],
+        "total": 266, "region": {"center": {"longitude": -104.985798, "latitude":
+        39.740959}}}'
+  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 01 Feb 2024 06:27:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4255'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768869,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
+        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
+        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
+  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 01 Feb 2024 06:27:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4255'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768869,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
+        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
+        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
+        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
+        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
+  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
 recorded_with: VCR 6.2.0

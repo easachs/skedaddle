@@ -10,13 +10,12 @@ export default class extends Controller {
   initAutocomplete() {
     const input = this.element;
     const autocomplete = new google.maps.places.Autocomplete(input,{
-      types: ['(cities)'],
+      types: ['political'],
       fields: ['formatted_address']
     });
 
     autocomplete.addListener('place_changed', () => {
-      const place = autocomplete.getPlace();
-      console.log(place);
+      autocomplete.getPlace();
     });
   }
 

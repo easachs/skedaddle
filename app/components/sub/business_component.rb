@@ -7,7 +7,7 @@ module Sub
     def initialize(business:, saved: false)
       super
       @business = business
-      @saved = saved
+      @saved    = saved
     end
   end
 end

@@ -13,6 +13,6 @@ class ErrorsController < ApplicationController
   end
 
   def unprocessable
-    redirect_with_error
+    redirect_with_message
   end
 end

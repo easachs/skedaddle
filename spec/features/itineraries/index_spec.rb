@@ -17,7 +17,7 @@ RSpec.describe 'Itinerary Index' do
         } }
     )
     visit new_user_session_path
-    click_button('Sign In with GoogleOauth2')
+    click_on('Sign In with GoogleOauth2')
   end
 
   describe 'displays itineraries with', vcr: 'denver_search' do
@@ -25,8 +25,10 @@ RSpec.describe 'Itinerary Index' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      click_button 'SKEDADDLE'
-      click_button 'Save'
+      within '#search-btn' do
+        click_on 'SKEDADDLE'
+      end
+      click_on 'Save'
       visit itineraries_path
     end
 
@@ -35,14 +37,16 @@ RSpec.describe 'Itinerary Index' do
     end
 
     it 'links' do
-      click_link('Denver')
-      expect(page).to have_content('Denver Itinerary')
+      click_on('Denver')
+      expect(page).to have_content('Denver')
     end
   end
 
   describe 'signed out' do
     before do
-      click_button('Sign Out')
+      within '#dash' do
+        click_on('Sign Out')
+      end
       visit itineraries_path
     end
 
@@ -51,7 +55,7 @@ RSpec.describe 'Itinerary Index' do
     end
 
     it 'displays error' do
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      expect(page).to have_content('You need to sign in.')
     end
   end
 end

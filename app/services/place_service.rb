@@ -2,13 +2,13 @@
 
 class PlaceService
   class << self
-    def near(location = {}, group = '', radius = 5000)
+    def near(location = {}, group = '', radius = 5_000)
       return unless location.is_a?(Hash) && location.present? && group.present?
 
-      Rails.cache.fetch("PlaceService/#{group}/near/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-        response = conn.post('/v1/places:searchNearby') do |route|
-          route.headers['X-Goog-FieldMask'] = 'places.formattedAddress,places.displayName'
-          route.body = payload(location, group, radius)
+      Rails.cache.fetch("place/#{group}/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
+        response = conn.post('/v1/places:searchNearby') do |f|
+          f.headers['X-Goog-FieldMask'] = 'places.formattedAddress,places.displayName'
+          f.body = payload(location, group, radius)
         end
         JSON.parse(response.body, symbolize_names: true)
       end
