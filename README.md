@@ -3,13 +3,9 @@
 ## What is **Skedaddle**?
   * **Skedaddle** is a **Rails** travel app that creates a custom itinerary for a given location. It is the continued solo exploration of a past group project.
 
-  * This iteration of **Skedaddle** combines the group project's front and back end service-oriented architecture into a single Rails monolith.
+  * This iteration of **Skedaddle** combines the Mod 3 group project's front and back end service-oriented architecture into a single Rails 7 monolith using PostgreSQL, TailwindCSS, and Hotwire.
 
-  * It consumes API endpoints from **Google** (places), **Yelp** (businesses), **TrailAPI** (trails/parks), and **PositionStack** (geocoding).
-
-  * This app creates a **custom itinerary** with airports, hospitals, parks, restaurants and other businesses based on geodata.
-
-  * This application utilizes a **relational database** (Postgres) to store user and itinerary data.
+  * It consumes API endpoints from **Google** (airports and hospitals), **Yelp** (activities and restaurants), **TrailAPI** (trails and parks), **PositionStack** (geocoding), **OpenWeather** (forecast), and **OpenAI** (itinerary summary).
 
   * [Google OAuth 2](https://developers.google.com/identity/protocols/oauth2) is used to authenticate and authorize users.
 
@@ -25,19 +21,16 @@
   ![barna](https://github.com/easachs/skedaddle/assets/100792434/e4042da8-26cb-4de9-b621-edd232ee559d)
 
 ## Pitch
-  Skedaddle is a travel/exploration app that creates a custom travel itinerary for a given city, address or location. Results can return recommendations for parks, hiking, restaurant, museum, etc., as well as cultural information such as books, music and history. Itineraries could include maps or graphs. Other potential directions include adventure tourism, historical tourism, etc.
+  Skedaddle is a travel/exploration app that creates a custom travel itinerary for a given city, address or location. It will be a one stop shop of travel information with ecotourism, historical, outdoors, cultural themes, etc. Businesses could be recommended by various criteria such as budget, distance, rating, etc. Results can return recommendations for parks, hiking, restaurant, museum, etc, as well as cultural information such as literature, music and history.
 
 ## End User
-  Targeted towards people who want to travel but need help deciding where to go, or just someone interested in learning more about a given place.
-
-## Problem
-  This app will be a one stop shop of travel information and generate a short recommended itinerary. Could be budget, ecotourism, outdoors, cultural, etc. themed. Businesses could be recommended by budget, parks, museums, trails, etc. could be recommended based on search criteria.
+  This app is targeted towards people who want to travel but need help deciding where to go and what to do, or anyone interested in learning more about a certain place.
 
 ## MVP
   A user will be able to register and login from the homepage. They will have a dashboard with a nav bar ("Skedaddle", “Itineraries”, and “Log Out”). On the dashboard a user can see their saved itineraries with links to their show pages and to delete them. On the search page a user can search by location and receive a generated itinerary with nearby businesses and parks/trails, which is added to that user’s itineraries.
 
 ## Stretch
-  A user can edit an itinerary (selecting what they like, removing unwanted recommendations, adding new restaurants or parks/hikes) and invite other users to view and edit it. They can search for restaurants by budget, distance, and/or rating, or hikes and parks by activities or difficulty. The app could include top books, poetry, movies, music, historical information, and COL/pricing info. More pictures and links.
+  A user can edit an itinerary (selecting what they like, removing unwanted recommendations, adding new restaurants or parks/hikes) and invite other users to view and edit it. They can search for restaurants by budget, distance, and/or rating, or hikes and parks by activities or difficulty. The app could include top books, poetry, movies, music, historical information, and COL/pricing info. There could be more pictures and links on the itinerary.
 
 ## Big Stretch
   Users can share and vote on which itinerary to use. Maps are incorporated. Itineraries have other sections, such as events, museums, and breweries. A user can change the length of their trip (and so the length of their itinerary). Hotel and flight APIs could be incorporated, or links to AirBnB / booking / SkyScanner websites. ChatGPT itinerary generation could be incorporated.
@@ -47,17 +40,18 @@
   | - | - | - | - |
   | Ruby 3.2.2 | Rails 7.0.8 | PostgreSQL | View Components |
   | TailwindCSS | Stimulus | Turbo | Devise |
-  | OmniAuth | Faraday | Kaminari |
+  | OmniAuth | Faraday | Kaminari | Draper |
+  | Packwerk | Sentry
 
   | Dev | | | |
   | - | - | - | - |
-  | Rubocop | ERB Lint | Pry | Letter Opener |
-  | Dotenv |
+  | Rubocop | ERB Lint | Better Errors | Letter Opener |
+  | Dotenv | Annotate | Brakeman | Pry
 
   | Test | | | |
   | - | - | - | - |
-  | RSpec | SimpleCov | Faker | Factory Bot Rails |
-  | Capybara | Webmock | VCR | Shoulda-Matchers |
+  | RSpec | SimpleCov | Capybara | Shouldamatchers |
+  | Faker | Webmock | VCR | Factory Bot |
   | Launchy | Orderly |
 
 ## Files
@@ -83,6 +77,9 @@
 * **Errors**
     * Handles 404/500 errors
 
+* **Keys**
+    * API key creation and updates for TrailAPI and OpenAI
+
 * **Devise**
     * Handle user registrations, sessions, updates, and lost passwords
 
@@ -95,21 +92,30 @@
     * Scopes businesses into activities and restaurants
     * Scopes places into airports and hospitals
 
-* **Places/Parks/Businesses**
-    * Used to populate the itinerary
+* **Place/Park/Business**
+    * Used to populate the itinerary with hospitals, airports, parks, activities and restaurants
+
+* **Keys**
+    * API keys with encrypted values for OpenAI (ChatGPT) and TrailAPI (parks) access
+
+* **Summary**
+    * Added to an itinerary when requested and the user has sufficient credits or an OpenAI key added
 
 ### Components
 * **Core**
     * Carousel: formatting for pages with photo carousel and carousel logic
     * Checkbox: creates checkbox sections using type, size, and data representing different Yelp API business searches
     * Dashboard: layout for dashboard at top of page, logic for signed in/out
+    * Dropdown: sandwich button toggles display of a section of the search, itinerary, etc
     * Itinerary: formatting for itinerary layout with sub-components, separates businesses by activities/restaurants, logic for saved itineraries
+    * Search: all the logic for the search form used to customize params for an itinerary
 
 * **Sub**
     * Business: formatting for business information
     * Category: groups businesses by category within itinerary
     * Park: formatting for park information
     * Place: formatting for airports and hospitals
+    * Weather: formatting for the itinerary forecast
 
 ### Stimulus Controllers
 * **Address**
@@ -119,13 +125,19 @@
     * Controller for rotating photo carousel, changes every five seconds or upon clicking, persists across turbo
 
 * **Date**
-    * Changes earliest itinerary end date depending on start date
+    * Changes earliest possible itinerary end date depending on start date
 
 * **Dropdown**
     * Handles hiding and displaying dashboard dropdown element
 
 * **Error**
     * Errors disappear from dashboard display after three seconds
+
+* **Slider**
+    * Handles showing and changing value for radius range search field
+
+* **Tabs**
+    * Changes between INFO and GPT tabs on itinerary show (itinerary component)
 
 ### Spec
 * **Features**
@@ -145,6 +157,7 @@
   | - | - | - |
   | get | / | home#home |
   | get | /about | home#about |
+  | get | /demo | home#demo |
   | get | /contact | home#contact |
   | post | /contact | contact#create |
   | get | /received | home#received |
@@ -157,7 +170,10 @@
   | delete | /parks/:id | parks#destroy |
   | delete | /businesses/:id | businesses#destroy |
   | get | /404 | errors#not_found |
+  | get | /422 | errors#unprocessable |
   | get | /500 | errors#internal_server_error |
+  | get | /keys | keys#edit |
+  | patch | /keys | keys#update |
 
   | Devise | (/users) | users/devise |
   | - | - | - |
