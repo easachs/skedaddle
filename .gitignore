@@ -24,6 +24,6 @@
 
 /.env
 /coverage
-
 dump.rdb
 .reek.yml
+.VSCodeCounter
