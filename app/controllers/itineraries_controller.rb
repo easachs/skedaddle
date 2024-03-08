@@ -26,7 +26,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    return redirect_with_message(message: 'no_results') if [@items]&.all?(&:blank?)
+    return redirect_with_message(message: 'no_results') if [@items].all?(&:blank?)
 
     redirect_with_message(message: 'too_broad') if @geocode&.dig(:city).blank?
   end
@@ -57,7 +57,7 @@ class ItinerariesController < ApplicationController
 
   def initialize_session
     %i[search activities restaurants start end].each { |key| session[key] = params[key] }
-    session[:options] = params.slice(:budget, :distance, :count, :sort)
+    session[:options] = params.slice(:budget, :distance, :sort)
   end
 
   def clear_session

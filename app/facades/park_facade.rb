@@ -6,9 +6,9 @@ class ParkFacade
   end
 
   def near(location = {})
-    return unless @key.present? && location.is_a?(Hash) && location.present?
+    return unless @key.present? && location.is_a?(Hash)
 
     parks = ParkService.new(@key).near(location)
-    parks.values[0..2].map { |park| ParkPoro.new(park) } if parks.present?
+    parks.values[0..2].map { |park| ParkPoro.new(park) } unless parks&.key?(:message)
   end
 end
