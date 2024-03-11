@@ -39,5 +39,9 @@ class ItineraryService
         names[bus.name] ? bus.destroy : names[bus.name] = true
       end
     end
+
+    def format_date(date)
+      Date.parse(date).strftime('%m/%d/%y') if date.present?
+    end
   end
 end

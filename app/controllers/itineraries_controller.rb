@@ -67,12 +67,8 @@ class ItinerariesController < ApplicationController
 
   def geocode
     @geocode = GeocodeFacade.geocode(session[:search]&.delete("'"))
-                            &.merge!(start_date: format_date(session[:start]),
-                                     end_date: format_date(session[:end]))
-  end
-
-  def format_date(date)
-    Date.parse(date).strftime('%m/%d/%y') if date.present?
+                            &.merge!(start_date: ItineraryService.format_date(session[:start]),
+                                     end_date: ItineraryService.format_date(session[:end]))
   end
 
   def find_items

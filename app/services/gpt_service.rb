@@ -6,12 +6,11 @@ class GptService
   end
 
   def summary(itinerary)
-    return if itinerary.blank? || itinerary.prompt.blank?
+    return if itinerary&.prompt.blank?
 
     Rails.cache.fetch("gpt/#{itinerary.id}", expires_in: 1.hour) do
-      response = fetch_gpt(itinerary.prompt)
-      parsed = JSON.parse(response.body, symbolize_names: true)
-      parsed_response = parsed&.dig(:choices, 0, :message, :content)
+      response = JSON.parse(fetch_gpt(itinerary.prompt).body, symbolize_names: true)
+      parsed_response = response&.dig(:choices, 0, :message, :content)
       formatted(parsed_response) if parsed_response
     end
   end
@@ -19,11 +18,11 @@ class GptService
   private
 
   def fetch_gpt(prompt)
-    conn.post('v1/chat/completions') do |f|
-      f.body = { model: 'gpt-3.5-turbo',
-                 messages: [{ role: 'system', content: role },
-                            { role: 'user', content: prompt }],
-                 temperature: 0.5 }.to_json
+    conn.post('v1/chat/completions') do |route|
+      route.body = { model: 'gpt-3.5-turbo',
+                     messages: [{ role: 'system', content: role },
+                                { role: 'user', content: prompt }],
+                     temperature: 0.5 }.to_json
     end
   end
 
@@ -32,6 +31,7 @@ class GptService
             .map { |line| "<p>#{line}</p>" }
             .reject { |line| line == '<p></p>' }
             .join
+            .delete('*')
             .gsub(%r{(<p>Day \d+:.*?</p>)}, '\1<br>')
             .gsub(%r{(<p>Evening:.*?</p>)}, '\1<br>')
             .gsub(/<p>([^:]+):/, '<p><strong>\1:</strong>')
@@ -39,9 +39,9 @@ class GptService
   end
 
   def conn
-    Faraday.new(url: 'https://api.openai.com') do |f|
-      f.headers['Authorization']  = "Bearer #{@key}"
-      f.headers['Content-Type']   = 'application/json'
+    Faraday.new(url: 'https://api.openai.com') do |route|
+      route.headers['Authorization'] = "Bearer #{@key}"
+      route.headers['Content-Type']  = 'application/json'
     end
   end
 

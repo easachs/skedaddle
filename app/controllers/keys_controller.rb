@@ -15,6 +15,6 @@ class KeysController < ApplicationController
       user_key.value == '' ? user_key.destroy : user_key.save
     end
 
-    redirect_with_message(message: 'key_updated')
+    redirect_with_message(message: 'key_updated', path: keys_path)
   end
 end

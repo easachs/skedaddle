@@ -6,10 +6,8 @@ class GeocodeService
       return if location.blank?
 
       Rails.cache.fetch("geocode/#{location}", expires_in: 1.hour) do
-        response = conn.get('/v1/forward') do |f|
-          f.params['query'] = location
-        end
-        parsed = JSON.parse(response.body, symbolize_names: true)
+        response = conn.get("/v1/forward?query=#{location}").body
+        parsed = JSON.parse(response, symbolize_names: true)
         parsed.keys.include?(:error) ? nil : parsed
       end
     end
@@ -17,8 +15,8 @@ class GeocodeService
     private
 
     def conn
-      Faraday.new(url: 'http://api.positionstack.com') do |f|
-        f.params['access_key'] = ENV.fetch('GEOCODE_API_KEY', nil)
+      Faraday.new(url: 'http://api.positionstack.com') do |route|
+        route.params[:access_key] = ENV.fetch('GEOCODE_API_KEY', nil)
       end
     end
   end
