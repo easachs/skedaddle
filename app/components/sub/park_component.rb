@@ -2,12 +2,16 @@
 
 module Sub
   class ParkComponent < ViewComponent::Base
-    attr_reader :park, :saved
+    attr_reader :park
 
-    def initialize(park:, saved: false)
+    def initialize(park:, **options)
       super
-      @park   = park
-      @saved  = saved
+      @park    = park
+      @options = options
     end
+
+    private
+
+    def saved = @options.fetch(:saved, false)
   end
 end

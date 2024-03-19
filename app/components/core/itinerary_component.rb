@@ -5,10 +5,10 @@ module Core
     attr_reader :itinerary, :geocode, :items
 
     def initialize(itinerary: nil, geocode: nil, items: nil, **options)
-      super()
+      super
       @itinerary    = itinerary
       @geocode      = geocode
-      @items        = items || itinerary&.items
+      @items        = items
       @options      = options
     end
 

@@ -6,9 +6,8 @@ class PlaceService
       return unless location.is_a?(Hash) && location.present? && group.present?
 
       Rails.cache.fetch("place/#{group}/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-        response = conn.post('/v1/places:searchNearby') do |f|
-          f.headers['X-Goog-FieldMask'] = 'places.formattedAddress,places.displayName'
-          f.body = payload(location, group, radius)
+        response = conn.post('/v1/places:searchNearby') do |route|
+          route.body = payload(location, group, radius)
         end
         JSON.parse(response.body, symbolize_names: true)
       end
@@ -30,9 +29,12 @@ class PlaceService
     end
 
     def conn
-      Faraday.new(url: 'https://places.googleapis.com') do |f|
-        f.headers['Content-Type'] = 'application/json'
-        f.headers['X-Goog-Api-Key'] = ENV.fetch('GOOGLE_MAPS_KEY', nil)
+      Faraday.new(url: 'https://places.googleapis.com') do |route|
+        route.headers.merge!(
+          'Content-Type': 'application/json',
+          'X-Goog-Api-Key': ENV.fetch('GOOGLE_MAPS_KEY', nil),
+          'X-Goog-FieldMask': 'places.formattedAddress,places.displayName'
+        )
       end
     end
   end

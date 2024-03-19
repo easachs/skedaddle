@@ -1,7 +1,17 @@
-<% weather&.each do |day| %>
-  <%= content_tag :div, class: 'm-2' do %>
-    <p><b><%= day[:date] %></b></p>
-    <p><%= day[:temp].to_i %>&deg;F</p>
-    <p><%= day[:description] %></p>
+<% if weather&.any? %>
+  <% weather&.take(4)&.each do |day| %>
+    <%= content_tag :div, class: 'm-2' do %>
+      <p><b><%= day[:date] %></b></p>
+      <p><%= day[:temp].to_i %>&deg;F</p>
+      <p><%= day[:description] %></p>
+    <% end %>
+  <% end %>
+
+  <% weather&.last(3)&.each do |day| %>
+    <%= content_tag :div, class: 'm-2 hidden sm:block' do %>
+      <p><b><%= day[:date] %></b></p>
+      <p><%= day[:temp].to_i %>&deg;F</p>
+      <p><%= day[:description] %></p>
+    <% end %>
   <% end %>
 <% end %>

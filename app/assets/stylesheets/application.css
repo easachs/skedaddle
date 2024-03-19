@@ -43,7 +43,7 @@ a:hover, button:hover {
   color: #334155;
 }
 
-input {
+input + label {
   cursor: pointer;
 }
 
@@ -75,8 +75,13 @@ img {
   float: right;
 }
 
-.checkbox:checked + label {
+/* input[type='checkbox']:checked + label {
   color: black;
+} */
+
+input:checked + label {
+  font-weight: bold;
+  color: #334155;
 }
 
 .pagination a:hover {

@@ -2,12 +2,16 @@
 
 module Sub
   class BusinessComponent < ViewComponent::Base
-    attr_reader :business, :saved
+    attr_reader :business
 
-    def initialize(business:, saved: false)
+    def initialize(business:, **options)
       super
       @business = business
-      @saved    = saved
+      @options  = options
     end
+
+    private
+
+    def saved = @options.fetch(:saved, false)
   end
 end

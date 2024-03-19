@@ -3,8 +3,7 @@
 class PlaceFacade
   class << self
     def near(location = {}, group = '', radius = 5000)
-      return unless location.is_a?(Hash) && location.present?
-      return if group.blank?
+      return unless location.is_a?(Hash) && location.present? && group.present?
 
       places = PlaceService.near(location, group, radius)
       items = places[:places] if places.present?

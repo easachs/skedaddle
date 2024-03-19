@@ -28,7 +28,7 @@ RSpec.describe 'Itinerary Index' do
       within '#search-btn' do
         click_on 'SKEDADDLE'
       end
-      click_on 'Save'
+      click_on 'Save', match: :first
       visit itineraries_path
     end
 

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
 
   # keys
-  get 'keys', to: 'keys#edit'
+  get 'keys', to: 'keys#index'
   patch 'keys', to: 'keys#update'
 
   # itineraries

@@ -31,7 +31,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       within '#search-btn' do
         click_on 'SKEDADDLE'
       end
-      click_on 'Save'
+      click_on 'Save', match: :first
     end
 
     it 'parks' do
