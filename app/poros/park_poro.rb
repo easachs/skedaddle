@@ -4,6 +4,8 @@ class ParkPoro
   attr_reader :name, :location, :description, :directions
 
   def initialize(attributes)
+    return unless attributes.is_a?(Hash)
+
     @name         = attributes&.dig(:name)
     @location     = format_location(attributes)
     @description  = sanitize(attributes&.dig(:description))

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ItineraryDecorator < Draper::Decorator
   delegate_all
 
@@ -21,7 +23,7 @@ class ItineraryDecorator < Draper::Decorator
 
   def business_list
     [activities, restaurants].map do |group|
-      group.map { |k, v| "#{k} - #{v.map(&:name).join(', ')}" }.join(' / ')
+      group.map { |kind, bus| "#{kind} - #{bus.map(&:name).join(', ')}" }.join(' / ')
     end.join(' / ')
   end
 end

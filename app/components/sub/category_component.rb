@@ -2,13 +2,17 @@
 
 module Sub
   class CategoryComponent < ViewComponent::Base
-    attr_reader :items, :category, :saved
+    attr_reader :items, :category
 
-    def initialize(items:, category:, saved: false)
+    def initialize(items:, category:, **options)
       super
       @items    = items
       @category = category
-      @saved    = saved
+      @options  = options
     end
+
+    private
+
+    def saved = @options.fetch(:saved, false)
   end
 end

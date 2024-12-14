@@ -4,13 +4,13 @@
     <%= content_tag :div, class: 'w-1/2 sm:w-1/4' do %>
       <% slice.each do |name, value, title=nil| %>
         <%= content_tag :p, title: title || name do %>
-        <%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'checkbox', data: { checkbox_target: 'checkbox' } %>
-        <%= label_tag "#{prefix}[#{name}]", name %>
+          <%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'hidden', data: { checkbox_target: 'checkbox' } %>
+          <%= label_tag "#{prefix}[#{name}]", name %>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
-  <p><%= check_box_tag :select_all, true, false, class: 'checkbox', data: { checkbox_target: 'source',
-                                                                            action: 'change->checkbox#toggle' } %>
-  <%= label_tag :select_all %></p>
+  <p><%= check_box_tag "select_all_#{prefix}", true, false, class: 'hidden', data: { checkbox_target: 'source',
+                                                                                     action: 'change->checkbox#toggle' } %>
+  <%= label_tag "select_all_#{prefix}", 'Select all' %></p>
 <% end %>

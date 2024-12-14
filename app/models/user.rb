@@ -35,11 +35,11 @@ class User < ApplicationRecord
   has_many :keys, dependent: :destroy
 
   def self.from_omniauth(response)
-    find_or_create_by(uid: response[:uid]) do |u|
-      u.uid       = response[:uid]
-      u.name      = response[:info][:name]
-      u.email     = response[:info][:email]
-      u.password  = Devise.friendly_token[0, 20]
+    find_or_create_by(uid: response[:uid]) do |user|
+      user.uid       = response[:uid]
+      user.name      = response[:info][:name]
+      user.email     = response[:info][:email]
+      user.password  = Devise.friendly_token[0, 20]
     end
   end
 
