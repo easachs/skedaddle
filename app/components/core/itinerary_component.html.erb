@@ -29,8 +29,10 @@
 
       <%= content_tag :div, class: 'mt-4 sm:mt-0' do %>
         <%= content_tag :div, id: 'info', data: { tabs_target: 'info' }, class: info_class do %>
-          <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex text-sm p-2') do %>
-            <%= render Sub::WeatherComponent.new(weather:) %>
+          <% if weather.present? %>
+            <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex text-sm p-2') do %>
+              <%= render Sub::WeatherComponent.new(weather:) %>
+            <% end %>
           <% end %>
 
           <% if airports.present? %>
