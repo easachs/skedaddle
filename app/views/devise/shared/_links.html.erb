@@ -1,4 +1,4 @@
-<%= content_tag :div, class: 'font-bold' do %>
+<%= tag.div class: 'font-bold' do %>
   <%- if controller_name != 'sessions' %>
     <p><%= link_to 'Sign In', new_session_path(resource_name) %></p>
   <% end %>

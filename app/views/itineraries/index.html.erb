@@ -1,33 +1,33 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
-    <div class='p-4'>
-      <h1 class='text-3xl font-bold text-center'>Itineraries</h1>
+    <%= tag.div class: 'p-4' do %>
+      <%= tag.h1 'Itineraries', class: 'text-3xl font-bold text-center' %>
 
       <% if @itineraries.blank? %>
-        <%= content_tag :div, class: 'text-center p-4' do %>
+        <%= tag.div class: 'text-center p-4' do %>
           Looks like your travel plans are still up in the air! Click
           <%= link_to 'here', root_path, class: 'font-bold' %> to craft an itinerary.
         <% end %>
       <% end %>
 
       <% @itineraries.each do |itinerary| %>
-        <div class=''>
-          <h5 class='text-xl font-semibold'>
+        <%= tag.div do %>
+          <%= tag.h5 class: 'text-xl font-semibold' do %>
             <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
-          </h5>
-          <div class='flex justify-between'>
+          <% end %>
+          <%= tag.div class: 'flex justify-between' do %>
             <% if itinerary.start_date && itinerary.end_date %>
               <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
             <% end %>
             <p class='text-sm text-slate-500'>Created <%= itinerary.created %></p>
-          </div>
-        </div>
-        <br class='p-2'>
+          <% end %>
+        <% end %>
+        <%= tag.br class: 'p-2' %>
       <% end %>
 
-      <div class='pl-4'>
+      <%= tag.div class: 'pl-4' do %>
         <%= paginate @itineraries %>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

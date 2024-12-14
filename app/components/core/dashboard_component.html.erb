@@ -1,20 +1,20 @@
-<%= content_tag :div, class: 'fixed top-0 left-0 flex bg-white justify-between items-center w-full p-2' do %>
-  <%= content_tag :div, class: 'text-sm sm:text-base' do %>
+<%= tag.div class: 'fixed top-0 left-0 flex bg-white justify-between items-center w-full p-2' do %>
+  <%= tag.div class: 'text-sm sm:text-base' do %>
     <%= link_to root_path, data: { turbo_frame: 'home' } do %>
       <%= image_tag 'icon.png', alt: 'Skedaddle', class: 'h-5 w-5 mx-2' %>
     <% end %>
     <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' },
                                                  class: 'hidden sm:inline p-2' if current_user %>
 
-    <%= content_tag :span, class: 'text-sm', data: { controller: 'error' } do %>
+    <%= tag.span class: 'text-sm', data: { controller: 'error' } do %>
       <% flash.each do |name, msg| %>
-        <%= content_tag :span, msg, class: 'm-2 warning', data: { error_target: 'error' } %>
+        <%= tag.span msg, class: 'm-2 warning', data: { error_target: 'error' } %>
       <% end %>
     <% end %>
   <% end %>
 
-  <%= content_tag :div, class: 'hidden sm:flex justify-between items-center', data: { controller: 'dropdown' } do %>
-    <%= content_tag :div, id: 'dash', class: 'flex text-sm sm:text-base', data: { dropdown_target: 'content' } do %>
+  <%= tag.div class: 'hidden sm:flex justify-between items-center', data: { controller: 'dropdown' } do %>
+    <%= tag.div id: 'dash', class: 'flex text-sm sm:text-base', data: { dropdown_target: 'content' } do %>
       <%= link_to 'About', about_path, data: { turbo_frame: 'home' }, class: 'p-2' %>
       <%= link_to 'Settings',
                   edit_user_registration_path,
@@ -34,7 +34,7 @@
     </div>
   <% end %>
 
-  <%= content_tag :div, class: 'flex sm:hidden justify-between items-center text-sm p-2' do %>
+  <%= tag.div class: 'flex sm:hidden justify-between items-center text-sm p-2' do %>
     <% if current_user %>
       <%= link_to itineraries_path, data: { turbo_frame: 'home' } do %>
         <%= image_tag 'dash/itineraries.svg', alt: 'Itineraries', class: 'h-5 w-5 mx-2' %>

@@ -1,17 +1,17 @@
-<%= content_tag :div, class: 'row bg-white bg-opacity-70 rounded-xl' do %>
-  <%= content_tag :div, class: 'col-lg p-4' do %>
-    <%= content_tag :h1, city&.to_s, class: 'text-center text-3xl font-bold mb-2' %>
+<%= tag.div class: 'row bg-white bg-opacity-70 rounded-xl' do %>
+  <%= tag.div class: 'col-lg p-4' do %>
+    <%= tag.h1 city&.to_s, class: 'text-center text-3xl font-bold mb-2' %>
 
-    <%= content_tag :div, data: { controller: 'tabs' } do %>
+    <%= tag.div data: { controller: 'tabs' } do %>
 
-      <%= content_tag :div, class: 'text-center' do %>
+      <%= tag.div class: 'text-center' do %>
         <% if saved %>
             <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
                                    class: "tab-btn #{info_btn}" %>
-            <%= button_tag 'GPT', type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' },
-                                  class: "tab-btn #{gpt_btn}" %>
+            <%= button_tag 'GPT',  type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' },
+                                   class: "tab-btn #{gpt_btn}" %>
         <% elsif user %>
-          <div class='m-2 warning'>Save this itinerary to create a summary with ChatGPT.</div>
+          <%= tag.div 'Save this itinerary to create a summary with ChatGPT.', class: 'm-2 warning' %>
           <%= form_with url: itineraries_path, method: :post do |form| %>
             <%= form.hidden_field :search, value: search %>
             <p class='py-2 text-center'><%= form.submit 'Save',
@@ -19,16 +19,16 @@
                                                         class: 'blue-btn' %></p>
           <% end %>
         <% else %>
-          <div class='m-2 warning'>Sign in to save this itinerary and create a summary with ChatGPT.</div>
-          <%= content_tag :div, class: 'p-2' do %>
+          <%= tag.div 'Sign in to save this itinerary and create a summary with ChatGPT.', class: 'm-2 warning' %>
+          <%= tag.div class: 'p-2' do %>
             <span class='py-4 mr-2'><%= link_to 'Sign In', new_user_session_path, class: 'blue-btn' %></span>
             <span class='py-4 m-2'><%= link_to 'Sign Up', new_user_registration_path, class: 'blue-btn' %></span>
           <% end %>
         <% end %>
       <% end %>
 
-      <%= content_tag :div, class: 'mt-4 sm:mt-0' do %>
-        <%= content_tag :div, id: 'info', data: { tabs_target: 'info' }, class: info_class do %>
+      <%= tag.div class: 'mt-4 sm:mt-0' do %>
+        <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: info_class do %>
           <% if weather.present? %>
             <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex text-sm p-2') do %>
               <%= render Sub::WeatherComponent.new(weather:) %>
@@ -80,21 +80,21 @@
         <% end %>
 
         <% if saved %>
-          <%= content_tag :div, id: 'gpt', data: { tabs_target: 'gpt' }, class: gpt_class do %>
+          <%= tag.div id: 'gpt', data: { tabs_target: 'gpt' }, class: gpt_class do %>
             <% if itinerary&.summary %>
               <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
                 <%= itinerary.summary.response.html_safe %>
               <% end %>
             <% else %>
-              <%= content_tag :div, class: 'p-4 text-center' do %>
+              <%= tag.div class: 'p-4 text-center' do %>
                 <p>You have not created a summary for this itinerary yet!</p>
                 <p>Click below to generate a play-by-play suggested outline for your trip using ChatGPT.</p>
               <% end %>
             <% end %>
 
-            <%= content_tag :div, class: 'p-4 text-center warning' do %>
-              <%= content_tag :p, "Remaining GPT Credit: #{user&.credit}" %>
-              <%= content_tag :p, 'Add your own OpenAI key to continue.' if user.credit <= 0 && user.openai_key.blank? %>
+            <%= tag.div class: 'p-4 text-center warning' do %>
+              <%= tag.p "Remaining GPT Credit: #{user&.credit}" %>
+              <%= tag.p 'Add your own OpenAI key to continue.' if user.credit <= 0 && user.openai_key.blank? %>
             <% end %>
 
             <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>

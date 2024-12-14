@@ -1,7 +1,7 @@
-<%= content_tag :div, id: 'park', class: 'mb-4 sm:mb-6' do %>
+<%= tag.div id: 'park', class: 'mb-4 sm:mb-6' do %>
   <%= link_to park.name, park.url, class: 'font-bold m-2' %>
   <%= image_tag park.thumbnail, class: 'hidden sm:block image-format m-2' if park.thumbnail.present? %>
-  <%= content_tag :div, class: 'text-sm sm:text-base' do %>
+  <%= tag.div class: 'text-sm sm:text-base' do %>
     <p class="m-2"><b>Location: </b><%= park.location %></p>
     <p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
     <p class="m-2"><b>Directions: </b><%= park.directions %></p>
