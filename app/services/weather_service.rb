@@ -5,10 +5,10 @@ class WeatherService
     def forecast(location = nil)
       return if location.blank?
 
-      Rails.cache.fetch("weather/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-        response = fetch_weather(location).body
-        JSON.parse(response, symbolize_names: true)
-      end
+      # Rails.cache.fetch("weather/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
+      #   response = fetch_weather(location).body
+      #   JSON.parse(response, symbolize_names: true)
+      # end
     end
 
     private
