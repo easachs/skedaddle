@@ -1,0 +1,13 @@
+<%= tag.div data: { controller: 'modal' } do %>
+  <%= tag.div data: { action: 'click->modal#open' } do %>
+    <%= image_tag content&.strip, class: 'hidden sm:block image-format m-2' %>
+  <% end %>
+
+  <%= tag.div class: 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50', data: { action: 'click->modal#close' } do %>
+    <%= tag.div class: 'rounded shadow-md z-50 hidden',
+                style: 'top: 50%; left: 50%; transform: translate(-50%, -50%); position: fixed;',
+                data: { modal_target: 'modal' } do %>
+      <%= image_tag content&.strip, data: { action: 'click->modal#close' } %>
+    <% end %>
+  <% end %>
+<% end %>

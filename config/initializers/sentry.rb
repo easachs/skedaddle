@@ -13,5 +13,5 @@ Sentry.init do |config|
   #   true
   # end
 
-  config.enabled_environments = %w[development production]
+  config.enabled_environments = %w[production]
 end

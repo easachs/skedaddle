@@ -12,7 +12,7 @@ RSpec.describe GptService do
                      end_date: '12/27/2023').decorate
   end
 
-  let(:key) { ENV.fetch('OPENAI_API_KEY', nil) }
+  let(:key) { ENV.fetch('OPENAI_KEY', nil) }
   let(:response) { described_class.new(key).summary(itinerary) }
 
   describe 'gets summary', vcr: 'denver_update' do

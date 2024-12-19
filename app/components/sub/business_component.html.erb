@@ -1,6 +1,6 @@
 <%= tag.div id: 'business', class: 'mb-4 sm:mb-6' do %>
+  <%= render(Core::ZoomComponent.new) { business.thumbnail } if business.thumbnail.present? %>
   <%= link_to business.name, business.url, class: 'font-bold m-2' %>
-  <%= image_tag business.thumbnail, class: 'hidden sm:block image-format m-2' if business.thumbnail.present? %>
   <%= tag.div class: 'text-sm sm:text-base' do %>
     <p class="m-2"><b>Rating: </b><%= business.rating %></p>
     <%= tag.p safe_join([tag.b('Price: '), business.price]), class: 'm-2' if business.price.present? %>

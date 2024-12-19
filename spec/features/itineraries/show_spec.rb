@@ -20,7 +20,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     click_on('Sign In with GoogleOauth2')
 
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
-    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_API_KEY', nil))
+    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
   end
 
   describe 'removes' do
