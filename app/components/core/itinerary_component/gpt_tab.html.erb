@@ -1,24 +1,26 @@
-<% if itinerary&.summary %>
-  <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
-    <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-4' do %>
-      <%= itinerary.summary.response.html_safe %>
+<%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
+  <% if itinerary&.summary %>
+      <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-4' do %>
+        <%= itinerary.summary.response.html_safe %>
+        <%#= markdown_to_html(itinerary.summary.response).html_safe %>
+      <% end %>
+
+  <% else %>
+    <%= tag.div class: 'p-4 text-center' do %>
+      <p>You have not created a summary for this itinerary yet!</p>
+      <p>Click below to generate a play-by-play suggested outline for your trip using ChatGPT.</p>
     <% end %>
   <% end %>
-<% else %>
-  <%= tag.div class: 'p-4 text-center' do %>
-    <p>You have not created a summary for this itinerary yet!</p>
-    <p>Click below to generate a play-by-play suggested outline for your trip using ChatGPT.</p>
+
+  <%= tag.div class: 'p-4 text-center warning' do %>
+    <%= tag.p "Remaining GPT Credit: #{user&.credit}" %>
+    <%= tag.p 'Add your own OpenAI key to continue.' if user&.credit <= 0 && user&.openai_key.blank? %>
   <% end %>
-<% end %>
 
-<%= tag.div class: 'p-4 text-center warning' do %>
-  <%= tag.p "Remaining GPT Credit: #{user&.credit}" %>
-  <%= tag.p 'Add your own OpenAI key to continue.' if user&.credit <= 0 && user&.openai_key.blank? %>
-<% end %>
-
-<% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
-<%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
-  <p class='py-2 text-center'><%= form.submit "#{button_text} Summary",
-                                              data: { turbo: false },
-                                              class: 'blue-btn' %></p>
+  <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
+  <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
+    <p class='py-2 text-center'><%= form.submit "#{button_text} Summary",
+                                                data: { turbo: false },
+                                                class: 'blue-btn' %></p>
+  <% end %>
 <% end %>

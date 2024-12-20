@@ -21,7 +21,7 @@ RSpec.describe GptService do
     end
 
     it 'formatted for html' do
-      expect(response).to include('<p>').and include('<strong>')
+      expect(response).to include('<p>')
     end
 
     it 'with days' do

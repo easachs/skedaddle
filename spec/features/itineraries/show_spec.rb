@@ -35,21 +35,17 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'parks' do
-      within '#parks' do
-        within '#park-black-forest-regional-park' do
-          click_on('Remove')
-        end
-        expect(page).to have_no_content('Black Forest Regional Park')
+      within '#park-black-forest-regional-park' do
+        click_on('Remove')
       end
+      expect(page).to have_no_content('Black Forest Regional Park')
     end
 
     it 'restaurants' do
-      within '#bakeries' do
-        within '#business-lodough-bakery' do
-          click_on('Remove')
-        end
-        expect(page).to have_no_content('LoDough Bakery')
+      within '#business-lodough-bakery' do
+        click_on('Remove')
       end
+      expect(page).to have_no_content('LoDough Bakery')
     end
 
     describe 'itinerary and' do

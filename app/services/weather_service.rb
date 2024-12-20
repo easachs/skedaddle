@@ -3,7 +3,7 @@
 class WeatherService
   class << self
     def forecast(location = nil)
-      return if location.blank?
+      nil if location.blank?
 
       # Rails.cache.fetch("weather/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
       #   response = fetch_weather(location).body
