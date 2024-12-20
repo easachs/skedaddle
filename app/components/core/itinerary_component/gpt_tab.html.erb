@@ -2,7 +2,6 @@
   <% if itinerary&.summary %>
       <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-4' do %>
         <%= itinerary.summary.response.html_safe %>
-        <%#= markdown_to_html(itinerary.summary.response).html_safe %>
       <% end %>
 
   <% else %>
