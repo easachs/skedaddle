@@ -1,0 +1,49 @@
+<%= tag.div class: 'row bg-white bg-opacity-70 rounded-xl' do %>
+  <%= tag.div class: 'col-lg p-4' do %>
+    <%= tag.h1 city&.to_s, class: 'text-center text-3xl font-bold mb-4' %>
+
+    <%= tag.div data: { controller: 'tabs' } do %>
+
+      <%= tag.div class: 'text-center' do %>
+        <% if saved %>
+            <%= button_tag 'INFO', type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
+                                   class: "tab-btn #{'active' unless map_tab || gpt_tab}" %>
+            <%= button_tag 'MAP',  type: 'button', data: { action: 'tabs#showMap', tabs_target: 'tab' },
+                                   class: "hidden sm:inline tab-btn #{'active' if map_tab}" %>
+            <%= button_tag 'GPT',  type: 'button', data: { action: 'tabs#showGpt', tabs_target: 'tab' },
+                                   class: "tab-btn #{'active' if gpt_tab}" %>
+        <% elsif user %>
+          <%= tag.div 'Save this itinerary to create a summary with ChatGPT.', class: 'm-2 warning' %>
+          <%= form_with url: itineraries_path, method: :post do |form| %>
+            <%= form.hidden_field :search, value: search %>
+            <p class='py-2 text-center'><%= form.submit 'Save',
+                                                        data: { turbo: false },
+                                                        class: 'blue-btn' %></p>
+          <% end %>
+        <% else %>
+          <%= tag.div 'Sign in to save this itinerary and create a summary with ChatGPT.', class: 'm-2 warning' %>
+          <%= tag.div class: 'p-2' do %>
+            <span class='py-4 mr-2'><%= link_to 'Sign In', new_user_session_path, class: 'blue-btn' %></span>
+            <span class='py-4 m-2'><%= link_to 'Sign Up', new_user_registration_path, class: 'blue-btn' %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= tag.div class: 'mt-4 sm:mt-0' do %>
+        <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: "mt-4 sm:mt-0 #{'hidden' if map_tab || gpt_tab}" do %>
+          <%= render InfoTab.new(itinerary:, geocode:, items:, current_user: user, saved:) %>
+        <% end %>
+
+        <% if saved %>
+          <%= tag.div id: 'map', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
+            <%= render MapTab.new(itinerary:) %>
+          <% end %>
+
+          <%= tag.div id: 'gpt', data: { tabs_target: 'gpt' }, class: "mt-4 sm:mt-0 #{'hidden' unless gpt_tab}" do %>
+            <%= render GptTab.new(itinerary:, geocode:, items:, current_user: user) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

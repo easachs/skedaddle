@@ -22,7 +22,6 @@ class BusinessPoro
   end
 
   def serialized
-    { name:, rating:, price:, categories:,
-      location:, phone:, url:, thumbnail: }
+    { name:, rating:, price:, categories:, location:, phone:, url:, thumbnail: }
   end
 end

@@ -1,18 +1,26 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["info", "gpt", "tab"];
+  static targets = ["info", "map", "gpt", "tab"];
 
   showInfo() {
-    this.infoTarget.classList.remove('hidden');
-    this.gptTarget.classList.add('hidden');
+    this.toggleVisibility(this.infoTarget);
     this.setActiveTab(this.tabTargets[0]);
   }
 
-  showGpt() {
-    this.gptTarget.classList.remove('hidden');
-    this.infoTarget.classList.add('hidden');
+  showMap() {
+    this.toggleVisibility(this.mapTarget);
     this.setActiveTab(this.tabTargets[1]);
+  }
+
+  showGpt() {
+    this.toggleVisibility(this.gptTarget);
+    this.setActiveTab(this.tabTargets[2]);
+  }
+
+  toggleVisibility(visibleTarget) {
+    [this.infoTarget, this.gptTarget, this.mapTarget].forEach(target => target.classList.add('hidden'));
+    visibleTarget.classList.remove('hidden');
   }
 
   setActiveTab(activeTab) {

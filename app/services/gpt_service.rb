@@ -8,11 +8,9 @@ class GptService
   def summary(itinerary)
     return if itinerary&.prompt.blank?
 
-    Rails.cache.fetch("gpt/#{itinerary.id}", expires_in: 1.hour) do
-      response = JSON.parse(fetch_gpt(itinerary.prompt).body, symbolize_names: true)
-      parsed_response = response&.dig(:choices, 0, :message, :content)
-      formatted(parsed_response) if parsed_response
-    end
+    response = JSON.parse(fetch_gpt(itinerary.prompt).body, symbolize_names: true)
+    parsed_response = response&.dig(:choices, 0, :message, :content)
+    formatted(parsed_response) if parsed_response
   end
 
   private
@@ -27,15 +25,9 @@ class GptService
   end
 
   def formatted(response)
-    response.split("\n")
-            .map { |line| "<p>#{line}</p>" }
-            .reject { |line| line == '<p></p>' }
-            .join
-            .delete('*')
-            .gsub(%r{(<p>Day \d+:.*?</p>)}, '\1<br>')
-            .gsub(%r{(<p>Evening:.*?</p>)}, '\1<br>')
-            .gsub(/<p>([^:]+):/, '<p><strong>\1:</strong>')
-            .sub(/<br>\z/, '')
+    renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
+    markdown = Redcarpet::Markdown.new(renderer)
+    markdown.render(response)
   end
 
   def conn

@@ -1,11 +1,11 @@
-<%= content_tag :div, id: 'park', class: 'mb-4 sm:mb-6' do %>
-  <%= link_to park.name, park.url, class: 'font-bold m-2' %>
-  <%= image_tag park.thumbnail, class: 'hidden sm:block image-format m-2' if park.thumbnail.present? %>
-  <%= content_tag :div, class: 'text-sm sm:text-base' do %>
-    <p class="m-2"><b>Location: </b><%= park.location %></p>
-    <p class="m-2"><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
-    <p class="m-2"><b>Directions: </b><%= park.directions %></p>
-    <p class="m-2"><b>Activities: </b><%= park.activities %></p>
+<%= tag.div id: "park-#{park.name.parameterize}", class: 'relative mb-4 sm:mb-6 bg-white bg-opacity-50 rounded-lg shadow-lg p-4' do %>
+  <%= tag.div class: 'text-sm sm:text-base' do %>
+    <%= render(Core::ZoomComponent.new) { park.thumbnail } if park.thumbnail.present? %>
+    <%= link_to park.name, park.url, class: 'font-bold my-2' %>
+    <p class='my-2'><b>Location: </b><%= park.location %></p>
+    <p class='my-2'><b>Description: </b><%= truncate(park.description, length: 1000) %></p>
+    <p class='my-2'><b>Directions: </b><%= park.directions %></p>
+    <p class='my-2'><b>Activities: </b><%= park.activities %></p>
+    <%= button_to 'Remove', park_path(park), method: :delete, class: 'lg:mb-2 lg:p-4 lg:absolute bottom-0 right-0' if saved %>
   <% end %>
-  <%= button_to "Remove #{park.name}", park_path(park), method: :delete, class: 'm-2' if saved %>
 <% end %>

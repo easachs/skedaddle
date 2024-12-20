@@ -1,7 +1,7 @@
-<%= content_tag :div, class: 'p-4 sm:p-6' do %>
+<%= tag.div class: 'p-4 sm:p-6' do %>
   <%= form_with url: prepare_itineraries_path do |form| %>
-    <%= content_tag :div, class: 'py-2 text-sm' do %>
-      <%= content_tag :div, class: 'flex flex-wrap justify-between items-center mb-2' do %>
+    <%= tag.div class: 'py-2 text-sm' do %>
+      <%= tag.div class: 'flex flex-wrap justify-between items-center mb-2' do %>
         <%= search_field_tag  :search, nil,
                               placeholder: 'Enter a destination',
                               class: 'w-2/3 text-sm rounded sm:m-0',
@@ -17,17 +17,17 @@
                                    { selected: 'best' }, class: 'w-1/4 text-sm rounded' %>
       <% end %>
 
-      <%= content_tag :div, class: 'flex items-center', data: { controller: 'date' } do %>
+      <%= tag.div class: 'flex justify-between items-center space-x-2', data: { controller: 'date' } do %>
         <%= date_field_tag  :start, Time.zone.today,
                             min: Time.zone.today,
-                            class: 'w-1/2 mb-2 text-sm rounded',
+                            class: 'w-5/12 sm:w-1/2 mb-2 text-sm rounded',
                             autocomplete: 'off',
                             data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
 
-        <span class='m-2'>to</span>
+        <span class='sm:m-2'>to</span>
         <%= date_field_tag  :end, Time.zone.today,
                             min: Time.zone.today,
-                            class: 'w-1/2 mb-2 text-sm rounded',
+                            class: 'w-5/12 sm:w-1/2 mb-2 text-sm rounded',
                             autocomplete: 'off',
                             data: { date_target: 'end' } %>
       <% end %>
@@ -45,12 +45,12 @@
                                              size: 1 %>
     <% end %>
 
-    <%= content_tag :div, class: 'sm:flex flex-wrap justify-between items-center text-xs sm:text-sm px-2 mb-4 sm:m-0' do %>
-      <%= content_tag :div, class: 'flex justify-between items-center mb-2' do %>
+    <%= tag.div class: 'sm:flex flex-wrap justify-between items-center text-xs sm:text-sm px-2 mb-4 sm:m-0' do %>
+      <%= tag.div class: 'flex justify-between items-center mb-2' do %>
         <span class='font-bold mr-2'>BUDGET</span>
-        <%= content_tag :div, class: 'flex sm:justify-center text-sm' do %>
+        <%= tag.div class: 'flex sm:justify-center text-sm' do %>
           <% [['$', '1'], ['$$', '1,2'], ['$$$', '1,2,3'], ['$$$$', '1,2,3,4']].each do |(label, value)| %>
-            <%= content_tag :span, class: 'flex items-center' do %>
+            <%= tag.span class: 'flex items-center' do %>
               <%= radio_button_tag :budget, value, false, id: "budget_#{value[-1]}", class: 'hidden' %>
               <%= label_tag "budget_#{value[-1]}", label, class: 'text-slate-500 ml-2 sm:mr-2' %>
             <% end %>
@@ -58,10 +58,10 @@
         <% end %>
       <% end %>
 
-      <%= content_tag :div, class: 'flex items-center justify-between sm:justify-center mb-2',
+      <%= tag.div class: 'flex items-center justify-between sm:justify-center mb-2',
                             data: { controller: 'slider' } do %>
         <span class='sm:hidden font-bold'>RADIUS</span>
-        <%= content_tag :div, class: 'flex items-center justify-center' do %>
+        <%= tag.div class: 'flex items-center justify-center' do %>
           <span data-slider-target='output' class='sm:mr-2'>15 km</span>
           <%= range_field_tag :distance, 15, in: 5..40, step: 5, class: 'ml-2 sm:mx-2',
                               data: { action: 'input->slider#update', slider_target: 'input' } %>

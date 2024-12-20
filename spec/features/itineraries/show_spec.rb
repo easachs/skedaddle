@@ -20,7 +20,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     click_on('Sign In with GoogleOauth2')
 
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
-    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_API_KEY', nil))
+    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
   end
 
   describe 'removes' do
@@ -35,17 +35,17 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'parks' do
-      within '#parks' do
-        click_on('Remove Black Forest Regional Park')
-        expect(page).to have_no_content('Black Forest Regional Park')
+      within '#park-black-forest-regional-park' do
+        click_on('Remove')
       end
+      expect(page).to have_no_content('Black Forest Regional Park')
     end
 
     it 'restaurants' do
-      within '#bakeries' do
-        click_on('Remove LoDough Bakery')
-        expect(page).to have_no_content('LoDough Bakery')
+      within '#business-lodough-bakery' do
+        click_on('Remove')
       end
+      expect(page).to have_no_content('LoDough Bakery')
     end
 
     describe 'itinerary and' do

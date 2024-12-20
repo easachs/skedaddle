@@ -1,31 +1,31 @@
-<div class='p-4 text-center'>
+<%= tag.div class: 'p-4 text-center' do %>
   <%= form_with url: contact_path, method: :post do |form| %>
-    <h1 class='text-3xl font-bold mb-4'>Contact</h1>
-      <div>
+    <%= tag.h1 'Contact', class: 'text-3xl font-bold mb-4' %>
+      <%= tag.div do %>
         <%= form.text_field   :name,
                               value: current_user&.name,
                               placeholder: 'Name',
                               class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
                               readonly: current_user&.name,
                               required: true %>
-      </div>
-      <div>
+      <% end %>
+      <%= tag.div do %>
         <%= form.email_field  :email,
                               value: current_user&.email,
                               placeholder: 'Email',
                               class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
                               readonly: current_user,
                               required: true %>
-      </div>
-      <%= form.text_area        :message,
-                                value: nil,
-                                placeholder: 'Message',
-                                rows: 4,
-                                class: 'w-full sm:w-2/3 mb-2 rounded',
-                                required: true %>
+      <% end %>
+      <%= form.text_area      :message,
+                              value: nil,
+                              placeholder: 'Message',
+                              rows: 4,
+                              class: 'w-full sm:w-2/3 mb-2 rounded',
+                              required: true %>
 
-    <div>
+    <%= tag.div do %>
       <%= form.submit 'Send', class: 'blue-btn mt-4' %>
-    </div>
+    <% end %>
   <% end %>
-</div>
+<% end %>

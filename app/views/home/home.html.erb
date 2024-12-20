@@ -1,21 +1,23 @@
 <% if current_user %>
   <%= render Core::SearchComponent.new %>
 <% else %>
-  <div class='p-4 text-center'>
-    <h1 class='text-3xl'>Welcome to <b>Skedaddle</b></h1>
-    <br>
-    <p>We're here to help you find the best places to visit and plan your next trip.</p>
-    <br>
-    <p>Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering the
-      best destinations and crafting the perfect itinerary.</p>
-    <br>
-    <p>If you're new, sign up with
+  <%= tag.div class: 'p-4 text-center' do %>
+    <%= tag.h1 'Welcome to Skedaddle', class: 'text-3-xl font-bold' %>
+    <%= tag.br %>
+    <%= tag.p "We're here to help you find the best places to visit and plan your next trip." %>
+    <%= tag.br %>
+    <%= tag.p "Whether you're in search of hidden gems or popular hotspots, Skedaddle is your passport to discovering
+      the best destinations and crafting the perfect itinerary." %>
+    <%= tag.br %>
+    <%= tag.p do %>
+      If you're new, sign up with
       <%= link_to 'your email', new_user_registration_path, class: 'font-bold' %> or
       <%= button_to 'Google account',
                     user_google_oauth2_omniauth_authorize_path,
                     form: { style: 'display: inline;' },
                     class: 'font-bold', data: { turbo: false } %>, or try the
-      <%= link_to 'demo', demo_path, class: 'font-bold' %>.</p>
-    <p>If you've traveled with us before, welcome back!</p>
-  </div>
+      <%= link_to 'demo', demo_path, class: 'font-bold' %>.
+    <% end %>
+    <%= tag.p "If you've traveled with us before, welcome back!" %>
+  <% end %>
 <% end %>

@@ -1,16 +1,17 @@
-<div class='p-4 text-center'>
-  <h1 class='text-3xl'>What is <b>Skedaddle</b>?</h1>
-  <br>
-  <h3><b>Custom Itineraries</b></h3>
-  <p>Skedaddle provide personalized recommendations based on your preferences and interests, ensuring that you
-    have the best travel experience tailored to your needs.</p>
-  <br>
-  <h3><b>Save Time and Stress</b></h3>
-  <p>Skedaddle takes the hassle out of travel planning by providing you with all the information you need in one
+<%= tag.div class: 'p-4 text-center' do %>
+  <%= tag.h1 'What is Skedaddle?', class: 'text-3xl font-bold' %>
+  <%= tag.br %>
+  <%= tag.h3 'Custom Itineraries', class: 'font-bold' %>
+  <%= tag.p 'Skedaddle provide personalized recommendations based on your preferences and interests, ensuring that you
+    have the best travel experience tailored to your needs.' %>
+  <%= tag.br %>
+  <%= tag.h3 'Save Time and Stress', class: 'font-bold' %>
+  <%= tag.p 'Skedaddle takes the hassle out of travel planning by providing you with all the information you need in one
     place. Say goodbye to endless searching and scrolling - with Skedaddle, you can save time and stress and
-    focus on enjoying your trip.</p>
-  <br>
-  <p>Got any questions? Please don't hesitate to
-    <%= link_to 'contact', contact_path, class: 'font-bold text-slate-600 hover:text-slate-700' %>
-    us directly.</p>
-</div>
+    focus on enjoying your trip.' %>
+  <%= tag.br %>
+  <%= tag.p do %>
+    Got any questions? Please don't hesitate to
+    <%= link_to 'contact', contact_path, class: 'font-bold text-slate-600 hover:text-slate-700' %> us directly.
+  <% end %>
+<% end %>

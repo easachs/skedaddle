@@ -1,0 +1,10 @@
+<% lat = coordinates[:lat] %>
+<% lon = coordinates[:lon] %>
+<% key = ENV['GOOGLE_MAPS_KEY'] %>
+
+<%= render Core::DropdownComponent.new(title: 'map', box_class: 'p-4') do %>
+  <%= tag.div class: 'flex justify-center items-center w-full' do %>
+    <iframe height='450' class='w-full rounded-lg' loading='lazy' allowfullscreen
+            src="https://www.google.com/maps/embed/v1/view?zoom=10&center=<%= lat %>,<%= lon %>&key=<%= key %>"></iframe>
+  <% end %>
+<% end %>
