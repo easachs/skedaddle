@@ -1,0 +1,8 @@
+<% lat = coordinates[:lat] %>
+<% lon = coordinates[:lon] %>
+<% key = ENV['GOOGLE_MAPS_KEY'] %>
+
+<%= tag.div class: 'flex justify-center items-center w-full p-4' do %>
+<iframe height='450' class='w-full rounded-lg' loading='lazy' allowfullscreen
+        src="https://www.google.com/maps/embed/v1/view?zoom=10&center=<%= lat %>,<%= lon %>&key=<%= key %>"></iframe>
+<% end %>

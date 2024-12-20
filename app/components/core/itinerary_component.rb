@@ -29,12 +29,14 @@ module Core
     def restaurants = items&.dig(:restaurants)
 
     # tab classes
+    def info_tab    = tab == 'info'
+    def map_tab     = tab == 'map'
     def gpt_tab     = tab == 'gpt'
-    def info_btn    = gpt_tab ? '' : 'active'
-    def gpt_btn     = gpt_tab ? 'active' : ''
-    def info_class  = gpt_tab ? 'hidden' : 'mt-4 sm:mt-0'
-    def gpt_class   = gpt_tab ? 'mt-4 sm:mt-0' : 'hidden'
 
     def coordinates = itinerary&.coordinates || @geocode
+
+    class InfoTab < ItineraryComponent; end
+    class MapTab < ItineraryComponent; end
+    class GptTab < ItineraryComponent; end
   end
 end
