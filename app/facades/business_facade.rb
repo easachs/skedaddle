@@ -7,7 +7,7 @@ class BusinessFacade
       return if kind.blank?
 
       businesses = BusinessService.near(geo:, kind:, options:)[:businesses]
-      businesses[0..2].map { |bus| BusinessPoro.new(bus) } if businesses
+      businesses[0..3].map { |bus| BusinessPoro.new(bus) } if businesses
     end
   end
 end

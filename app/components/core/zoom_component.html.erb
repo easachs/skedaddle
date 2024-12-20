@@ -1,13 +1,13 @@
 <%= tag.div data: { controller: 'modal' } do %>
   <%= tag.div data: { action: 'click->modal#open' } do %>
-    <%= image_tag content&.strip, class: 'hidden sm:block image-format m-2' %>
+    <%= image_tag content&.strip, class: 'hidden sm:block w-32 h-32 float-right m-2 ml-6 mb-6' %>
   <% end %>
 
-  <%= tag.div class: 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50 hidden',
+  <%= tag.div class: 'fixed inset-0 z-20 bg-gray-900 bg-opacity-50 hidden',
               data: { modal_target: 'modal', action: 'click->modal#close' } do %>
     <%= tag.div style: 'top: 50%; left: 50%; transform: translate(-50%, -50%); position: fixed;',
-                class: 'rounded shadow-md z-50' do %>
-      <%= image_tag content&.strip, data: { action: 'click->modal#close' } %>
+                class: 'p-4 bg-white rounded-lg shadow-lg' do %>
+      <%= image_tag content&.strip, class: 'rounded-lg', data: { action: 'click->modal#close' } %>
     <% end %>
   <% end %>
 <% end %>

@@ -3,12 +3,12 @@ en:
     messages:
       key_updated: 'Keys updated.'
       no_access: "This isn't yours."
-      no_results: "No results."
-      not_found: "Not found."
+      no_results: 'No results.'
+      not_found: 'Not found.'
       openai_key: 'Invalid key.'
-      send_failed: "Send failed."
-      something: "Oops!"
-      too_broad: "Be more specific."
+      send_failed: 'Send failed.'
+      something: 'Oops!'
+      too_broad: 'Be more specific.'
   mailers:
     contact:
-      subject: "Skedaddle Contact"
+      subject: 'Skedaddle Contact'

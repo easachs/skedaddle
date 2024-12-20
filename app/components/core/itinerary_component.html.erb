@@ -83,7 +83,9 @@
           <%= tag.div id: 'gpt', data: { tabs_target: 'gpt' }, class: gpt_class do %>
             <% if itinerary&.summary %>
               <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
-                <%= itinerary.summary.response.html_safe %>
+                <%= tag.div class: 'md:bg-white md:bg-opacity-50 md:rounded-lg md:shadow-lg md:p-4' do %>
+                  <%= itinerary.summary.response.html_safe %>
+                <% end %>
               <% end %>
             <% else %>
               <%= tag.div class: 'p-4 text-center' do %>

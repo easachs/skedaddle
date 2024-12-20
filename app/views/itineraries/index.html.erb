@@ -19,7 +19,7 @@
             <% if itinerary.start_date && itinerary.end_date %>
               <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
             <% end %>
-            <p class='text-sm text-slate-500'>Created <%= itinerary.created %></p>
+            <p class='text-sm text-slate-500'><%= itinerary.created %></p>
           <% end %>
         <% end %>
         <%= tag.br class: 'p-2' %>

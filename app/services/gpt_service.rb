@@ -25,7 +25,7 @@ class GptService
   end
 
   def formatted(response)
-    response.split("\n")
+    response.split('\n')
             .map { |line| "<p>#{line}</p>" }
             .reject { |line| line == '<p></p>' }
             .join

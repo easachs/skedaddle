@@ -30,7 +30,6 @@ class ParkPoro
   def thumbnail   = @object&.values&.dig(0, :thumbnail)
 
   def serialized
-    { name:, location:, description:, directions:,
-      activities:, url:, thumbnail: }
+    { name:, location:, description:, directions:, activities:, url:, thumbnail: }
   end
 end

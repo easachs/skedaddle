@@ -1,6 +1,6 @@
 <% if items&.any? %>
-  <%= tag.div id: category.downcase do %>
-    <%= tag.h3 category.capitalize, class: 'font-bold p-2 mb-2' %>
+  <%= tag.h3 category.capitalize, class: 'font-bold p-2 mb-2' %>
+  <%= tag.div id: category.downcase, class: 'lg:grid grid-cols-2 gap-4' do %>
     <%= render Sub::BusinessComponent.with_collection(items, saved:) %>
   <% end %>
 <% end %>
