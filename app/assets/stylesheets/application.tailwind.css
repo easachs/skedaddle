@@ -44,6 +44,12 @@
     @apply bg-white bg-opacity-50 rounded-lg shadow-lg
   }
 
+  .summary {
+    p {
+      @apply mb-2
+    }
+  }
+
   .warning {
     @apply text-red-500
   }

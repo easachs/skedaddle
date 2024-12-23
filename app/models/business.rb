@@ -6,6 +6,7 @@
 #
 #  id           :bigint           not null, primary key
 #  categories   :string
+#  favorited    :boolean          default(FALSE)
 #  group        :string
 #  kind         :string
 #  location     :string
@@ -30,4 +31,5 @@
 class Business < ApplicationRecord
   validates :name, :rating, :categories, :location, :group, :kind, presence: true
   belongs_to :itinerary
+  scope :favorited, -> { where(favorited: true) }
 end

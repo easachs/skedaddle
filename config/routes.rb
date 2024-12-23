@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     post 'prepare', on: :collection
   end
   resources :parks, only: %i[destroy]
-  resources :businesses, only: %i[destroy]
+  resources :businesses, only: %i[destroy] do
+    patch :favorite, on: :member
+  end
 
   # contact
   get 'contact',  to: 'home#contact'

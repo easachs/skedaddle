@@ -34,7 +34,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'parks' do
       within '#park-black-forest-regional-park' do
-        click_on 'Remove', match: :first
+        click_on '✖', match: :first
         within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('Black Forest Regional Park')
@@ -42,7 +42,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'restaurants' do
       within '#business-lodough-bakery' do
-        click_on 'Remove', match: :first
+        click_on '✖', match: :first
         within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('LoDough Bakery')

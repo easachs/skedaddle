@@ -1,6 +1,6 @@
 <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
   <% if itinerary&.summary %>
-      <%= tag.div class: 'contentbox p-4' do %>
+      <%= tag.div class: 'contentbox summary p-4' do %>
         <%= itinerary.summary.response.html_safe %>
       <% end %>
 

@@ -1,4 +1,4 @@
-<%= render Core::ModalComponent.new trigger: (link_to 'Remove', '#', class: trigger_class) do %>
+<%= render Core::ModalComponent.new trigger: (link_to '✖', '#', class: trigger_class) do %>
   <%= tag.div 'Are you sure you want to remove this item?', class: 'text-center' %>
   <%= tag.div id: 'removal', class: 'flex justify-between mx-8 mt-2' do %>
     <%= button_to 'Remove', removal_path, method: :delete,

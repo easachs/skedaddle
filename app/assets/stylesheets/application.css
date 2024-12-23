@@ -61,3 +61,12 @@ input:checked + label {
 .pagination a:hover {
   color: #334155;
 }
+
+.favorite {
+  cursor: pointer;
+  color: goldenrod;
+
+  &:hover {
+    color: peru;
+  }
+}
