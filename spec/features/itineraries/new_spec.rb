@@ -27,9 +27,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
+      within('#search-btn') { click_on 'SKEDADDLE' }
     end
 
     it 'title' do
@@ -54,9 +52,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
+      within('#search-btn') { click_on 'SKEDADDLE' }
       click_on 'Save', match: :first
     end
 

@@ -18,16 +18,12 @@ RSpec.describe 'Home Page' do
           } }
       )
       visit root_path
-      within '#dash' do
-        click_on('Sign In')
-      end
+      within('#dash') { click_on 'Sign In' }
       click_on('Sign In with GoogleOauth2')
     end
 
     it 'and logs out' do
-      within '#dash' do
-        click_on('Sign Out')
-      end
+      within('#dash') { click_on 'Sign Out' }
       expect(page).to have_content('Welcome to Skedaddle')
     end
   end
@@ -47,9 +43,7 @@ RSpec.describe 'Home Page' do
           } }
       )
       visit root_path
-      within '#dash' do
-        click_on('Sign In')
-      end
+      within('#dash') { click_on 'Sign In' }
     end
 
     it 'redirects to log in if OAuth2 error' do

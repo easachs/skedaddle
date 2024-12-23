@@ -25,9 +25,7 @@ RSpec.describe 'Itinerary Index' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
+      within('#search-btn') { click_on 'SKEDADDLE' }
       click_on 'Save', match: :first
       visit itineraries_path
     end
@@ -44,9 +42,7 @@ RSpec.describe 'Itinerary Index' do
 
   describe 'signed out' do
     before do
-      within '#dash' do
-        click_on('Sign Out')
-      end
+      within('#dash') { click_on 'Sign Out' }
       visit itineraries_path
     end
 

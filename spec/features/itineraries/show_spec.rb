@@ -28,18 +28,14 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
+      within('#search-btn') { click_on 'SKEDADDLE' }
       click_on 'Save', match: :first
     end
 
     it 'parks' do
       within '#park-black-forest-regional-park' do
         click_on 'Remove', match: :first
-        within '#removal' do
-          click_on 'Remove'
-        end
+        within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('Black Forest Regional Park')
     end
@@ -47,9 +43,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'restaurants' do
       within '#business-lodough-bakery' do
         click_on 'Remove', match: :first
-        within '#removal' do
-          click_on 'Remove'
-        end
+        within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('LoDough Bakery')
     end
@@ -58,9 +52,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
       before do
         within '#itinerary-delete' do
           click_on 'Delete', match: :first
-          within '#modal' do
-            click_on('Delete')
-          end
+          within('#modal') { click_on 'Delete' }
         end
       end
 
