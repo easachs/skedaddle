@@ -10,19 +10,20 @@
         <% end %>
       <% end %>
 
-      <% @itineraries.each do |itinerary| %>
-        <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-2' do %>
-          <%= tag.h5 class: 'text-xl font-semibold' do %>
-            <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
-          <% end %>
-          <%= tag.div class: 'flex justify-between' do %>
-            <% if itinerary.start_date && itinerary.end_date %>
-              <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+      <%= tag.div class: 'grid h-[26rem] sm:h-full overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+        <% @itineraries.each do |itinerary| %>
+          <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-2' do %>
+            <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
+              <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
             <% end %>
-            <p class='text-sm text-slate-500'><%= itinerary.created %></p>
+            <%= tag.div class: 'flex justify-between' do %>
+              <% if itinerary.start_date && itinerary.end_date %>
+                <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+              <% end %>
+              <p class='text-sm text-slate-500'><%= itinerary.created %></p>
+            <% end %>
           <% end %>
         <% end %>
-        <%= tag.br class: 'p-2' %>
       <% end %>
 
       <%= tag.div class: 'pl-4' do %>

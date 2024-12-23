@@ -23,7 +23,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
   end
 
-  describe 'deletes' do
+  describe 'removes' do
     before do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
@@ -36,9 +36,9 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'parks' do
       within '#park-black-forest-regional-park' do
-        click_on 'Delete', match: :first
-        within '#modal' do
-          click_on('Delete')
+        click_on 'Remove', match: :first
+        within '#removal' do
+          click_on 'Remove'
         end
       end
       expect(page).to have_no_content('Black Forest Regional Park')
@@ -46,9 +46,9 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'restaurants' do
       within '#business-lodough-bakery' do
-        click_on'Delete', match: :first
-        within '#modal' do
-          click_on('Delete')
+        click_on 'Remove', match: :first
+        within '#removal' do
+          click_on 'Remove'
         end
       end
       expect(page).to have_no_content('LoDough Bakery')

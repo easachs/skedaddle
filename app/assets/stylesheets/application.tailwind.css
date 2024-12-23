@@ -5,7 +5,7 @@
 
 @layer components {
   h1 {
-    @apply text-3xl font-bold
+    @apply text-2xl sm:text-3xl font-bold
   }
 
   .btn {
