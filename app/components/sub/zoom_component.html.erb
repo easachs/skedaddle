@@ -1,0 +1,3 @@
+<%= render Core::ModalComponent.new trigger: (image_tag content&.strip, class: 'hidden sm:block w-32 h-32 float-right m-2 ml-6 mb-6') do %>
+  <%= image_tag content&.strip, class: 'rounded-lg' %>
+<% end %>

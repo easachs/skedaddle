@@ -1,6 +1,6 @@
 <%= tag.div class: 'p-4 sm:p-6' do %>
   <%= form_with url: prepare_itineraries_path do |form| %>
-    <%= tag.div class: 'py-2 text-sm' do %>
+    <%= tag.div class: 'py-2' do %>
       <%= tag.div class: 'flex flex-wrap justify-between items-center mb-2' do %>
         <%= search_field_tag  :search, nil,
                               placeholder: 'Enter a destination',
@@ -71,6 +71,6 @@
     <% end %>
 
     <p id='search-btn' class='py-2 text-center'><%= form.submit 'SKEDADDLE', data: { turbo: false },
-                                                                             class: 'blue-btn' %></p>
+                                                                             class: 'btn' %></p>
   <% end %>
 <% end %>

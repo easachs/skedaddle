@@ -1,6 +1,6 @@
 <%= render Core::DropdownComponent.new(title: 'summary', box_class: 'p-4') do %>
   <% if itinerary&.summary %>
-      <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-4' do %>
+      <%= tag.div class: 'contentbox p-4' do %>
         <%= itinerary.summary.response.html_safe %>
       <% end %>
 
@@ -18,8 +18,8 @@
 
   <% button_text = itinerary&.summary.present? ? 'Update' : 'Create' %>
   <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
-    <p class='py-2 text-center'><%= form.submit "#{button_text} Summary",
-                                                data: { turbo: false },
-                                                class: 'blue-btn' %></p>
+    <p class='text-center'><%= form.submit "#{button_text} Summary",
+                                            data: { turbo: false },
+                                            class: 'btn' %></p>
   <% end %>
 <% end %>

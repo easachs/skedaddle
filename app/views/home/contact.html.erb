@@ -1,6 +1,6 @@
 <%= tag.div class: 'p-4 text-center' do %>
   <%= form_with url: contact_path, method: :post do |form| %>
-    <%= tag.h1 'Contact', class: 'text-3xl font-bold mb-4' %>
+    <%= tag.h1 'Contact', class: 'mb-4' %>
       <%= tag.div do %>
         <%= form.text_field   :name,
                               value: current_user&.name,
@@ -25,7 +25,7 @@
                               required: true %>
 
     <%= tag.div do %>
-      <%= form.submit 'Send', class: 'blue-btn mt-4' %>
+      <%= form.submit 'Send', class: 'btn mt-4' %>
     <% end %>
   <% end %>
 <% end %>

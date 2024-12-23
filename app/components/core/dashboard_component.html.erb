@@ -1,7 +1,7 @@
 <%= tag.div class: 'fixed z-10 top-0 left-0 flex bg-white justify-between items-center w-full p-2' do %>
-  <%= tag.div class: 'text-sm sm:text-base' do %>
+  <%= tag.div do %>
     <%= link_to root_path, data: { turbo_frame: 'home' } do %>
-      <%= image_tag 'icon.png', alt: 'Skedaddle', class: 'h-5 w-5 mx-2' %>
+      <%= image_tag 'icon.png', alt: 'Skedaddle', class: 'h-5 w-5 mx-2 float-left' %>
     <% end %>
     <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' },
                                                  class: 'hidden sm:inline p-2' if current_user %>
@@ -14,7 +14,7 @@
   <% end %>
 
   <%= tag.div class: 'hidden sm:flex justify-between items-center', data: { controller: 'dropdown' } do %>
-    <%= tag.div id: 'dash', class: 'flex text-sm sm:text-base', data: { dropdown_target: 'content' } do %>
+    <%= tag.div id: 'dash', class: 'flex sm:text-base', data: { dropdown_target: 'content' } do %>
       <%= link_to 'About', about_path, data: { turbo_frame: 'home' }, class: 'p-2' %>
       <%= link_to 'Settings',
                   edit_user_registration_path,
@@ -34,12 +34,12 @@
     </div>
   <% end %>
 
-  <%= tag.div class: 'flex sm:hidden justify-between items-center text-sm p-2' do %>
+  <%= tag.div class: 'flex sm:hidden justify-between items-center p-2' do %>
     <% if current_user %>
       <%= link_to itineraries_path, data: { turbo_frame: 'home' } do %>
         <%= image_tag 'dash/itineraries.svg', alt: 'Itineraries', class: 'h-5 w-5 mx-2' %>
       <% end %>
-      <%= link_to keys_path, data: { turbo_frame: 'home' }, class: '' do %>
+      <%= link_to keys_path, data: { turbo_frame: 'home' } do %>
         <%= image_tag 'dash/keys.svg', alt: 'Keys', class: 'h-5 w-5 mx-2' %>
       <% end %>
       <%= button_to destroy_user_session_path, method: :delete, form: { style: 'display: flex;' } do %>

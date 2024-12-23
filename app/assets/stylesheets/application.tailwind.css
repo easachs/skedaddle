@@ -3,12 +3,48 @@
 @tailwind utilities;
 @tailwind screens;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  h1 {
+    @apply text-3xl font-bold
+  }
+
+  .btn {
+    @apply bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer transition-colors;
+
+    &:hover {
+      @apply bg-blue-800 text-white;
+    }
+
+    &.red-btn {
+      @apply bg-red-500;
+
+      &:hover {
+        @apply bg-red-600;
+      }
+    }
+
+    &.gray-btn {
+      @apply bg-gray-400;
+
+      &:hover {
+        @apply bg-gray-500;
+      }
+    }
+  }
+
+  .tab {
+    @apply bg-[#4cc9f0] text-white font-bold px-4 py-2 rounded-t cursor-pointer hover:bg-[#3a0ca3] hover:text-white;
+
+    &.active {
+      @apply bg-[#4361ee];
+    }
+  }
+
+  .contentbox {
+    @apply bg-white bg-opacity-50 rounded-lg shadow-lg
+  }
+
+  .warning {
+    @apply text-red-500
   }
 }
-
-*/
