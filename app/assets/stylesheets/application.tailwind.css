@@ -15,6 +15,10 @@
       @apply bg-blue-800 text-white;
     }
 
+    &:disabled {
+      @apply bg-blue-400;
+    }
+
     &.red-btn {
       @apply bg-red-500;
 

@@ -1,9 +1,12 @@
-<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4' do %>
-  <%= tag.h1 @post.title, class: 'text-center mb-4' %>
+<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[32rem] sm:h-[36rem]' do %>
+  <%= tag.h1 @post.title, class: 'text-center mb-2' %>
+  <p class='text-sm text-slate-500 text-center mb-4'>Posted <%= @post.created_at.strftime('%m/%d/%y') %></p>
 
-  <%= tag.div class: 'mt-4 sm:mt-0 h-[28rem] sm:h-[30rem] overflow-y-auto' do %>
-    <%= tag.div class: 'contentbox summary p-4' do %>
-      <%= @post.content.html_safe %>
+  <%= tag.div class: 'mt-4 sm:mt-0 h-[26rem] sm:h-[28rem] overflow-y-auto' do %>
+    <%= render Core::DropdownComponent.new(title: 'post', box_class: 'p-4') do %>
+      <%= tag.div class: 'contentbox summary p-4' do %>
+        <%= @post.content.html_safe %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

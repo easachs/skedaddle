@@ -34,7 +34,7 @@
 
 <% if saved %>
   <%= tag.div id: 'itinerary-delete', class: 'text-center py-2' do %>
-    <%= render Core::ModalComponent.new trigger: (link_to 'Delete', '#', class: 'btn') do %>
+    <%= render Core::ModalComponent.new trigger: (button_tag 'Delete', type: 'button', class: 'btn') do %>
       <%= tag.div "Are you sure you want to delete this item?", class: 'text-center' %>
       <%= tag.div class: 'flex justify-between mx-8 mt-2' do %>
         <%= button_to 'Delete', itinerary_path(itinerary), method: :delete, data: { turbo: false },
@@ -43,12 +43,5 @@
                     class: 'self-end bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 m-2' %>
       <% end %>
     <% end %>
-  <% end %>
-<% elsif user %>
-  <%= form_with url: itineraries_path, method: :post do |form| %>
-    <%= form.hidden_field :search, value: search %>
-    <p class='py-2 text-center'><%= form.submit 'Save',
-                                                data: { turbo: false },
-                                                class: 'btn' %></p>
   <% end %>
 <% end %>

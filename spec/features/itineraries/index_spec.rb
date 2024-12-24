@@ -25,7 +25,7 @@ RSpec.describe 'Itinerary Index' do
       fill_in 'search', with: 'Denver'
       check 'Landmarks'
       check 'Bakeries'
-      within('#search-btn') { click_on 'SKEDADDLE' }
+      click_on 'SKEDADDLE'
       click_on 'Save', match: :first
       visit itineraries_path
     end

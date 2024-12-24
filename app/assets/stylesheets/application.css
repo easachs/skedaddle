@@ -14,9 +14,11 @@
  *= require_self
  */
 
+@import 'loading';
+
 #background-image {
   width: auto;
-  background-image: url("mountains.jpg");
+  background-image: url('mountains.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
