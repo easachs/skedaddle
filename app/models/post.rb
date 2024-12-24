@@ -13,7 +13,11 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
-  validates :title, :city, presence: true
+  validates :city, presence: true
   scope :published, -> { where(published: true) }
   scope :draft, -> { where(published: false) }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[city content created_at id id_value published title updated_at]
+  end
 end

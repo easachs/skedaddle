@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
+gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'draper'
@@ -22,6 +23,7 @@ gem 'redcarpet'
 gem 'redis', '~> 4.0'
 gem 'redis-rails'
 gem 'ruby-openai'
+gem 'sass-rails'
 gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'sprockets-rails'

@@ -1,0 +1,9 @@
+<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4' do %>
+  <%= tag.h1 @post.title, class: 'text-center mb-4' %>
+
+  <%= tag.div class: 'mt-4 sm:mt-0 h-[28rem] sm:h-[30rem] overflow-y-auto' do %>
+    <%= tag.div class: 'contentbox summary p-4' do %>
+      <%= @post.content.html_safe %>
+    <% end %>
+  <% end %>
+<% end %>

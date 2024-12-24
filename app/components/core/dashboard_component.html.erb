@@ -5,6 +5,8 @@
     <% end %>
     <%= link_to 'Itineraries', itineraries_path, data: { turbo_frame: 'home' },
                                                  class: 'hidden sm:inline p-2' if current_user %>
+    <%= link_to 'Discover', posts_path, data: { turbo_frame: 'home' },
+                                                 class: 'hidden sm:inline p-2' %>
 
     <%= tag.span class: 'text-sm', data: { controller: 'error' } do %>
       <% flash.each do |name, msg| %>

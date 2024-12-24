@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  # admin
+  ActiveAdmin.routes(self)
+
   # keys
   get 'keys', to: 'keys#index'
   patch 'keys', to: 'keys#update'

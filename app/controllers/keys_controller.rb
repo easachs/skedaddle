@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class KeysController < ApplicationController
-  include Redirection
   layout 'home'
 
   before_action :authenticate_user!

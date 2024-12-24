@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ContactController < ApplicationController
-  include Redirection
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?

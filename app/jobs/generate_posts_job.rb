@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GenerateBlogPostsJob < ApplicationJob
+class GeneratePostsJob < ApplicationJob
   queue_as :default
 
   def perform
