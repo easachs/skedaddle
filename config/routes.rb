@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     patch :favorite, on: :member
   end
 
+  # posts
+  resources :posts, only: %i[index show]
+
   # contact
   get 'contact',  to: 'home#contact'
   post 'contact', to: 'contact#create'

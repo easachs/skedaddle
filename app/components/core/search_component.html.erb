@@ -24,7 +24,7 @@
                             autocomplete: 'off',
                             data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
 
-        <span class='sm:m-2'>to</span>
+        <span class='text-sm sm:text-base sm:m-2'>to</span>
         <%= date_field_tag  :end, Time.zone.today,
                             min: Time.zone.today,
                             class: 'w-5/12 sm:w-1/2 mb-2 text-xs sm:text-sm rounded',

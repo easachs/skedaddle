@@ -8,14 +8,22 @@ class GptService
   def summary(itinerary)
     return if itinerary&.prompt.blank?
 
-    response = JSON.parse(fetch_gpt(itinerary.prompt).body, symbolize_names: true)
+    response = JSON.parse(fetch_gpt(summary_role, itinerary.prompt).body, symbolize_names: true)
+    parsed_response = response&.dig(:choices, 0, :message, :content)
+    formatted(parsed_response) if parsed_response
+  end
+
+  def blogpost(city)
+    return if city.blank?
+
+    response = JSON.parse(fetch_gpt(blogpost_role, city).body, symbolize_names: true)
     parsed_response = response&.dig(:choices, 0, :message, :content)
     formatted(parsed_response) if parsed_response
   end
 
   private
 
-  def fetch_gpt(prompt)
+  def fetch_gpt(role, prompt)
     conn.post('v1/chat/completions') do |route|
       route.body = { model: 'gpt-3.5-turbo',
                      messages: [{ role: 'system', content: role },
@@ -37,7 +45,7 @@ class GptService
     end
   end
 
-  def role
+  def summary_role
     "You're a travel planner specializing in adventurous, eco-friendly trips for young explorers.
     Craft balanced, budget-friendly itineraries featuring historic sites, outdoor activities, and landmarks.
     Start with a brief, light-hearted introductory summary/description about the location provided.
@@ -45,5 +53,16 @@ class GptService
     Finish with a short conclusion about the itinerary you've created.
     Maintain a cheerful, casual tone with occasional humor, and be straightforward in day-to-day guides.
     Avoid clarifying questions and emojis."
+  end
+
+  def blogpost_role
+    "You're a creative travel blogger known for captivating storytelling and inspiring readers to explore.
+    Write a detailed, engaging, and unique travel blog post about the city provided.
+    Start with a vibrant introduction highlighting the city's unique charm and why it's worth visiting.
+    Explore topics like local history and culture, iconic landmarks and hidden gems, popular activities
+    and experiences, food and nightlife, and practical tips for travelers.
+    Use vivid language and include fun anecdotes or surprising facts about the city.
+    Maintain an enthusiastic tone that evokes wanderlust.
+    Conclude with a memorable takeaway or a call-to-action encouraging readers to visit the city."
   end
 end
