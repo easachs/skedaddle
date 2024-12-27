@@ -27,10 +27,8 @@
       <% end %>
 
       <% if saved %>
-        <% if itinerary.info.present? %>
-          <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: "mt-4 sm:mt-0 #{'hidden' unless info_tab}" do %>
-            <%= render InfoTab.new(itinerary:) %>
-          <% end %>
+        <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: "mt-4 sm:mt-0 #{'hidden' unless info_tab}" do %>
+          <%= render InfoTab.new(itinerary:) %>
         <% end %>
 
         <%= tag.div id: 'map', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
@@ -44,12 +42,14 @@
     <% end %>
 
     <% if !saved && user %>
-      <%= tag.div class: 'text-center mt-2' do %>
-        <%= form_with url: itineraries_path, method: :post do |form| %>
-          <%= form.hidden_field :search, value: search %>
-          <p class='py-2 text-center'><%= form.submit 'Save',
-                                                      data: { turbo: false },
-                                                      class: 'btn' %></p>
+      <%= tag.div class: 'py-2 text-center' do %>
+        <%= form_with url: itineraries_path do |form| %>
+          <%= render Core::ModalComponent.new(trigger: (form.submit 'Save',
+                                                        data: { turbo: false },
+                                                        class: 'btn'),
+                                              escape: false) do %>
+            <%= tag.div(class: 'lds-ellipsis') { 4.times.map { tag.div }.join.html_safe } %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>

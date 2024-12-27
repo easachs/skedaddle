@@ -40,7 +40,7 @@
     @apply bg-[#4cc9f0] text-white font-bold px-4 py-2 rounded-t cursor-pointer hover:bg-[#3a0ca3] hover:text-white;
 
     &.active {
-      @apply bg-[#4361ee];
+      @apply bg-[#4361ee] hover:bg-[#3a0ca3];
     }
   }
 
