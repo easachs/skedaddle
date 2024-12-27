@@ -4,7 +4,7 @@
 
   <%= tag.div class: 'mt-4 sm:mt-0 h-[26rem] sm:h-[28rem] overflow-y-auto' do %>
     <%= render Core::DropdownComponent.new(title: 'post', box_class: 'p-4') do %>
-      <%= tag.div class: 'contentbox summary p-4' do %>
+      <%= tag.div class: 'contentbox gpt p-4' do %>
         <%= @post.content.html_safe %>
       <% end %>
     <% end %>

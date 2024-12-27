@@ -34,15 +34,16 @@ class ItinerariesController < ApplicationController
   def create
     itinerary = current_user.itineraries.create!(@geocode)
     ItineraryService.populate(itinerary, @items) if itinerary.persisted?
+    itinerary&.summaries&.create!(response: gpt_info(itinerary&.city), kind: 'info')
     clear_session
     redirect_to itinerary_path(itinerary)
   end
 
   def update
     @itinerary = Itinerary.find(params[:id])
-    if gpt_response.present? && summary_eligible?
-      fresh_summary
-      redirect_to itinerary_path(@itinerary, tab: 'gpt')
+    if gpt_plan.present? && plan_eligible?
+      fresh_plan
+      redirect_to itinerary_path(@itinerary, tab: 'plan')
     else
       redirect_with_message(message: 'openai_key', path: itinerary_path(@itinerary))
     end
@@ -88,21 +89,27 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  def summary_eligible?
+  def plan_eligible?
     current_user&.credit&.positive? || current_user&.openai_key.present?
   end
 
-  def fresh_summary
+  def fresh_plan
     if current_user&.credit&.positive? && current_user&.openai_key.blank?
       current_user.credit -= 1
       current_user.save
     end
-    @itinerary.summary&.destroy
-    @itinerary.create_summary!(response: @gpt_response)
+    @itinerary.plan&.destroy
+    @itinerary.summaries.create!(response: @gpt_plan, kind: 'plan')
   end
 
-  def gpt_response
-    key = current_user&.openai_key.presence || ENV.fetch('OPENAI_KEY', nil)
-    @gpt_response ||= GptService.new(key).summary(@itinerary.decorate)
+  def gpt_info(city)
+    GptService.new(default_key).info(city)
   end
+
+  def gpt_plan
+    key = current_user&.openai_key.presence || default_key
+    @gpt_plan ||= GptService.new(key).plan(@itinerary.decorate)
+  end
+
+  def default_key = ENV.fetch('OPENAI_KEY', nil)
 end

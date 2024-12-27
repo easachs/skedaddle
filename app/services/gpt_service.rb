@@ -5,23 +5,19 @@ class GptService
     @key = key
   end
 
-  def summary(itinerary)
-    return if itinerary&.prompt.blank?
-
-    response = JSON.parse(fetch_gpt(summary_role, itinerary.prompt).body, symbolize_names: true)
-    parsed_response = response&.dig(:choices, 0, :message, :content)
-    formatted(parsed_response) if parsed_response
-  end
-
-  def blogpost(city)
-    return if city.blank?
-
-    response = JSON.parse(fetch_gpt(blogpost_role, city).body, symbolize_names: true)
-    parsed_response = response&.dig(:choices, 0, :message, :content)
-    formatted(parsed_response) if parsed_response
-  end
+  def plan(itinerary) = format_response(plan_role, itinerary&.prompt)
+  def info(city) = format_response(info_role, city)
+  def blogpost(city) = format_response(blogpost_role, city)
 
   private
+
+  def format_response(role, input)
+    return if input.blank?
+
+    response = JSON.parse(fetch_gpt(role, input).body, symbolize_names: true)
+    parsed_response = response&.dig(:choices, 0, :message, :content)
+    formatted(parsed_response) if parsed_response
+  end
 
   def fetch_gpt(role, prompt)
     conn.post('v1/chat/completions') do |route|
@@ -45,7 +41,7 @@ class GptService
     end
   end
 
-  def summary_role
+  def plan_role
     "You're a travel planner specializing in adventurous, eco-friendly trips for young explorers.
     Craft balanced, budget-friendly itineraries featuring historic sites, outdoor activities, and landmarks.
     Start with a brief, light-hearted introductory summary/description about the location provided.
@@ -53,6 +49,12 @@ class GptService
     Finish with a short conclusion about the itinerary you've created.
     Maintain a cheerful, casual tone with occasional humor, and be straightforward in day-to-day guides.
     Avoid clarifying questions and emojis."
+  end
+
+  def info_role
+    "Summarize the city provided with four headings/sections: History, Culture, Activities, and Food.
+    Format the summary in markdown, and for each section, use third-level headings (###).
+    Write a detailed paragraph for each in an informative, engaging tone, suitable for a first-time reader."
   end
 
   def blogpost_role

@@ -48,7 +48,11 @@
     @apply bg-white bg-opacity-50 rounded-lg shadow-lg
   }
 
-  .summary {
+  .gpt {
+    h3 {
+      @apply font-bold mb-2
+    }
+
     p {
       @apply mb-2
     }

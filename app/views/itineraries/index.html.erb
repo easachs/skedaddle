@@ -11,10 +11,10 @@
       <% end %>
 
       <%= tag.div class: 'grid h-[26rem] sm:h-full overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
-        <% @itineraries.each do |itinerary| %>
+        <% @itineraries.each_with_index do |itinerary, index| %>
           <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-2' do %>
             <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
-              <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
+              <%= link_to "#{index + 1}. #{itinerary.city}", itinerary_path(itinerary), data: { turbo: false } %>
             <% end %>
             <%= tag.div class: 'flex justify-between' do %>
               <% if itinerary.start_date && itinerary.end_date %>

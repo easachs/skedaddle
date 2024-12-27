@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Post do
   permit_params :title, :city, :content, :published
 

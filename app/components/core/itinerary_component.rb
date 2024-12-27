@@ -16,7 +16,7 @@ module Core
 
     def user        = @options.fetch(:current_user, nil)
     def saved       = @options.fetch(:saved, false)
-    def tab         = @options.fetch(:tab, 'info')
+    def tab         = @options.fetch(:tab, 'places')
 
     def search      = @geocode&.dig(:search) || itinerary&.search
     def city        = @geocode&.dig(:city) || itinerary&.city
@@ -29,14 +29,16 @@ module Core
     def restaurants = items&.dig(:restaurants)
 
     # tab classes
-    def info_tab    = tab == 'info'
+    def places_tab  = %w[info map plan].exclude?(tab)
+    def info_tab = itinerary&.info.present? && tab == 'info'
     def map_tab     = tab == 'map'
-    def gpt_tab     = tab == 'gpt'
+    def plan_tab    = tab == 'plan'
 
     def coordinates = itinerary&.coordinates || @geocode
 
+    class PlacesTab < ItineraryComponent; end
     class InfoTab < ItineraryComponent; end
     class MapTab < ItineraryComponent; end
-    class GptTab < ItineraryComponent; end
+    class PlanTab < ItineraryComponent; end
   end
 end

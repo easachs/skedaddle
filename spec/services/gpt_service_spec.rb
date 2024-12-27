@@ -13,9 +13,9 @@ RSpec.describe GptService do
   end
 
   let(:key) { ENV.fetch('OPENAI_KEY', nil) }
-  let(:response) { described_class.new(key).summary(itinerary) }
+  let(:response) { described_class.new(key).plan(itinerary) }
 
-  describe 'gets summary', vcr: 'denver_update' do
+  describe 'gets plan', vcr: 'denver_update' do
     it 'as string' do
       expect(response).to be_a(String)
     end
@@ -36,14 +36,14 @@ RSpec.describe GptService do
   describe 'sad path' do
     describe 'with bad key', vcr: 'bad_gptkey' do
       it 'errors gracefully' do
-        response = described_class.new.summary(itinerary)
+        response = described_class.new.plan(itinerary)
         expect(response).to be_nil
       end
     end
 
     describe 'with bad itinerary' do
       it 'errors gracefully' do
-        response = described_class.new(key).summary(nil)
+        response = described_class.new(key).plan(nil)
         expect(response).to be_nil
       end
     end
@@ -51,7 +51,7 @@ RSpec.describe GptService do
     describe 'with bad prompt' do
       it 'errors gracefully' do
         allow(itinerary).to receive(:prompt).and_return(nil)
-        response = described_class.new(key).summary(itinerary)
+        response = described_class.new(key).plan(itinerary)
         expect(response).to be_nil
       end
     end
