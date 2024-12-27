@@ -1,0 +1,14 @@
+<%= tag.span data: { controller: 'modal' } do %>
+  <%= tag.span data: { action: 'click->modal#open' } do %>
+    <%= trigger %>
+  <% end %>
+
+  <%= tag.div class: 'fixed inset-0 z-20 bg-gray-900 bg-opacity-50 hidden',
+              data: { modal_target: 'modal', action: escapable } do %>
+    <%= tag.div style: 'top: 50%; left: 50%; transform: translate(-50%, -50%); position: fixed;',
+                id: 'modal', class: 'p-4 bg-white rounded-lg shadow-lg',
+                data: { action: 'click->modal#stop:stop' } do %>
+      <%= content %>
+    <% end %>
+  <% end %>
+<% end %>

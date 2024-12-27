@@ -4,53 +4,36 @@ require 'rails_helper'
 
 RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
   before do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
-      { 'provider' => 'google_oauth2',
-        'uid' => '123456',
-        'info' => {
-          'name' => 'John Doe',
-          'email' => 'johndoe@example.com'
-        },
-        'credentials' => {
-          'token' => 'TOKEN'
-        } }
-    )
-    visit new_user_session_path
-    click_on('Sign In with GoogleOauth2')
-
+    mock_google_oauth2
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
     User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
   end
 
   describe 'removes' do
-    before do
-      fill_in 'search', with: 'Denver'
-      check 'Landmarks'
-      check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
-      click_on 'Save', match: :first
-    end
+    before { denver_search && click_on('Save', match: :first) }
 
     it 'parks' do
       within '#park-black-forest-regional-park' do
-        click_on('Remove')
+        click_on '✖', match: :first
+        within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('Black Forest Regional Park')
     end
 
     it 'restaurants' do
       within '#business-lodough-bakery' do
-        click_on('Remove')
+        click_on '✖', match: :first
+        within('#removal') { click_on 'Remove' }
       end
       expect(page).to have_no_content('LoDough Bakery')
     end
 
     describe 'itinerary and' do
       before do
-        click_on('Delete')
+        within '#itinerary-delete' do
+          click_on 'Delete', match: :first
+          within('#modal') { click_on 'Delete' }
+        end
       end
 
       it 'redirects' do
@@ -63,7 +46,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
   end
 
-  describe 'creates summary', vcr: 'denver_update' do
+  describe 'creates plan', vcr: 'denver_update' do
     before do
       current_user = User.last
       itinerary = current_user.itineraries.create(search: 'Denver, CO, USA',
@@ -76,27 +59,25 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
 
     it 'with days' do
-      click_on 'Create Summary'
+      click_on 'Create Plan'
       expect(page).to have_content('Day 1:')
     end
 
     it 'with day parts' do
-      click_on 'Create Summary'
+      click_on 'Create Plan'
       expect(page).to have_content('Morning:')
     end
 
     it 'with no key', vcr: 'bad_gptkey' do
       User.last.keys.find_by(name: 'openai').destroy
-      click_on 'Create Summary'
+      click_on 'Create Plan'
 
       expect(page).to have_content('Invalid key.')
     end
   end
 
   describe 'nonexistent itinerary' do
-    before do
-      visit itinerary_path(999)
-    end
+    before { visit itinerary_path(999) }
 
     it 'redirects to itineraries' do
       expect(page).to have_current_path(itineraries_path)

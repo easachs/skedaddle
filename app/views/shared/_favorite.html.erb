@@ -1,0 +1,6 @@
+<%= tag.span id: "favorite-#{business.name.parameterize}" do %>
+  <%= link_to favorite_business_path(business), method: :patch,
+              class: 'favorite', data: { turbo_method: :patch } do %>
+    <%= business.favorited ? '★' : '☆' %>
+  <% end %>
+<% end %>

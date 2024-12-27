@@ -6,6 +6,7 @@
 #
 #  id           :bigint           not null, primary key
 #  categories   :string
+#  favorited    :boolean          default(FALSE)
 #  group        :string
 #  kind         :string
 #  location     :string

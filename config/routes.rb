@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+  # admin
+  ActiveAdmin.routes(self)
+
   # keys
   get 'keys', to: 'keys#index'
   patch 'keys', to: 'keys#update'
@@ -20,7 +23,12 @@ Rails.application.routes.draw do
     post 'prepare', on: :collection
   end
   resources :parks, only: %i[destroy]
-  resources :businesses, only: %i[destroy]
+  resources :businesses, only: %i[destroy] do
+    patch :favorite, on: :member
+  end
+
+  # posts
+  resources :posts, only: %i[index show]
 
   # contact
   get 'contact',  to: 'home#contact'

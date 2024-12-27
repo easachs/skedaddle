@@ -1,0 +1,47 @@
+<% if weather.present? %>
+  <%= render Core::DropdownComponent.new(title: 'weather', box_class: 'flex p-2') do %>
+    <%= render Sub::WeatherComponent.new(weather:) %>
+  <% end %>
+<% end %>
+
+<% if airports.present? %>
+  <%= render Core::DropdownComponent.new(title: 'airports', box_class: 'flex flex-wrap') do %>
+    <%= render Sub::PlaceComponent.with_collection airports %>
+  <% end %>
+<% end %>
+
+<% if hospitals.present? %>
+  <%= render Core::DropdownComponent.new(title: 'hospitals', box_class: 'flex flex-wrap') do %>
+    <%= render Sub::PlaceComponent.with_collection hospitals %>
+  <% end %>
+<% end %>
+
+<% if parks.present? %>
+  <%= render Core::DropdownComponent.new(title: 'parks', box_class: 'p-2') do %>
+    <%= render Sub::ParkComponent.with_collection(parks, saved:) %>
+  <% end %>
+<% end %>
+
+<% { activities:, restaurants: }.each do |title, collection| %>
+  <% unless collection.blank? || collection.values.all?([]) %>
+    <%= render Core::DropdownComponent.new(title: title.capitalize, box_class: 'p-2') do %>
+      <% collection.each do |category, items| %>
+        <%= render Sub::CategoryComponent.new(items:, category:, saved:) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if saved %>
+  <%= tag.div id: 'itinerary-delete', class: 'text-center py-2' do %>
+    <%= render Core::ModalComponent.new trigger: (button_tag 'Delete', type: 'button', class: 'btn') do %>
+      <%= tag.div "Are you sure you want to delete this item?", class: 'text-center' %>
+      <%= tag.div class: 'flex justify-between mx-8 mt-2' do %>
+        <%= button_to 'Delete', itinerary_path(itinerary), method: :delete, data: { turbo: false },
+                      class: 'self-end bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 hover:text-white m-2' %>
+        <%= link_to 'Cancel', '#', data: { action: 'modal#close' },
+                    class: 'self-end bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 m-2' %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

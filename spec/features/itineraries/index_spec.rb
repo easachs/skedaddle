@@ -3,31 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Itinerary Index' do
-  before do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
-      { 'provider' => 'google_oauth2',
-        'uid' => '123456',
-        'info' => {
-          'name' => 'John Doe',
-          'email' => 'johndoe@example.com'
-        },
-        'credentials' => {
-          'token' => 'TOKEN'
-        } }
-    )
-    visit new_user_session_path
-    click_on('Sign In with GoogleOauth2')
-  end
+  before { mock_google_oauth2 }
 
   describe 'displays itineraries with', vcr: 'denver_search' do
     before do
-      fill_in 'search', with: 'Denver'
-      check 'Landmarks'
-      check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
+      denver_search
       click_on 'Save', match: :first
       visit itineraries_path
     end
@@ -44,9 +24,7 @@ RSpec.describe 'Itinerary Index' do
 
   describe 'signed out' do
     before do
-      within '#dash' do
-        click_on('Sign Out')
-      end
+      within('#dash') { click_on 'Sign Out' }
       visit itineraries_path
     end
 

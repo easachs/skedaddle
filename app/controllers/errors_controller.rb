@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ErrorsController < ApplicationController
-  include Redirection
   layout 'home'
 
   def not_found

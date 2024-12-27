@@ -4,30 +4,10 @@ require 'rails_helper'
 
 RSpec.describe 'Home Page' do
   describe 'logs in' do
-    before do
-      OmniAuth.config.test_mode = true
-      OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
-        { 'provider' => 'google_oauth2',
-          'uid' => '123456',
-          'info' => {
-            'name' => 'John Doe',
-            'email' => 'johndoe@example.com'
-          },
-          'credentials' => {
-            'token' => 'TOKEN'
-          } }
-      )
-      visit root_path
-      within '#dash' do
-        click_on('Sign In')
-      end
-      click_on('Sign In with GoogleOauth2')
-    end
+    before { mock_google_oauth2 }
 
     it 'and logs out' do
-      within '#dash' do
-        click_on('Sign Out')
-      end
+      within('#dash') { click_on 'Sign Out' }
       expect(page).to have_content('Welcome to Skedaddle')
     end
   end
@@ -47,9 +27,7 @@ RSpec.describe 'Home Page' do
           } }
       )
       visit root_path
-      within '#dash' do
-        click_on('Sign In')
-      end
+      within('#dash') { click_on 'Sign In' }
     end
 
     it 'redirects to log in if OAuth2 error' do

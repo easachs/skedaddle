@@ -1,6 +1,6 @@
 <%= tag.div class: 'p-4 text-center' do %>
   <%= form_with url: keys_path, method: :patch do |form| %>
-    <%= tag.h1 'Keys', class: 'text-3xl font-bold mb-4' %>
+    <%= tag.h1 'Keys', class: 'mb-4' %>
     <%= tag.p 'Rest assured, your keys will be securely stashed away.', class: 'mb-2' %>
     <%= tag.div do %>
       <p><%= form.label :trailapi, 'TrailAPI', class: 'font-bold' %></p>
@@ -18,7 +18,7 @@
     <% end %>
 
     <%= tag.div do %>
-      <%= form.submit 'Update', class: 'blue-btn mt-4', data: { turbo: false } %>
+      <%= form.submit 'Update', class: 'btn mt-4', data: { turbo: false } %>
     <% end %>
   <% end %>
 <% end %>

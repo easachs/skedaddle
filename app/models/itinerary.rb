@@ -31,7 +31,7 @@ class Itinerary < ApplicationRecord
   has_many :places, dependent: :destroy
   has_many :parks, dependent: :destroy
   has_many :businesses, dependent: :destroy
-  has_one :summary, dependent: :destroy
+  has_many :summaries, dependent: :destroy
 
   def created     = created_at.strftime('%m/%d/%y')
   def coordinates = { lat:, lon: }
@@ -42,4 +42,6 @@ class Itinerary < ApplicationRecord
   def restaurants = businesses.where(group: 'restaurants').group_by(&:kind)
 
   def items       = { airports:, hospitals:, parks:, activities:, restaurants: }
+  def info        = summaries.find_by(kind: 'info')
+  def plan        = summaries.find_by(kind: 'plan')
 end

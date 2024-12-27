@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,23 +19,23 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Feb 2024 06:27:44 GMT
+      - Fri, 27 Dec 2024 06:32:45 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      User-Agent:
+      - Faraday v2.12.2
       Accept:
       - "*/*"
-      User-Agent:
-      - Faraday v2.9.0
       Accept-Encoding:
       - gzip
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 21b5c9b7-6d9b-459f-bca5-d108d42ec506
+      - ff7d1c9c-efdf-4522-bf0d-388a9f21a553
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -43,25 +43,27 @@ http_interactions:
       Access-Control-Allow-Headers:
       - "*"
       X-Quota-Limit:
-      - '25000'
+      - '100'
       X-Quota-Remaining:
-      - '24998'
+      - '65'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.130'
+      - '0.165'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=jtyrpt6ugk7R0VTKqpoZ%2BXqBTnv%2FWHk0JAW1hYRTK9juiD2MsTlT2Uc2hZehfCifriEWepDWdCibQWJWEKNo3TYDz1Qi6zO2QSTT8JMMhr%2BWMu5ny7fnxxNAah0OmpixvUT%2BXZTmJUDTDmdF06FRQpFg0RI%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=098gvHmFcZ2rIdihG12X3rxge4GPQlc%2F76rRARSIk%2BdyBZ1aRumc6i3lrzSbEiMnpxddQfjskglfWvyC7WtJN95nVWw1cDhjaf%2FNjHxzXfKb6V70Bym28CJFsTaXF5JDdYA3V3iwykQaTC8bIB%2FkQY3yfW4%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 84e82158289d1f35-DEN
+      - 8f874670aed4e76b-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
+      Server-Timing:
+      - cfL4;desc="?proto=TCP&rtt=28412&min_rtt=28412&rtt_var=14206&sent=1&recv=3&lost=0&retrans=0&sent_bytes=0&recv_bytes=413&delivery_rate=0&cwnd=249&unsent_bytes=0&cid=0000000000000000&ts=0&x=0"
     body:
       encoding: ASCII-8BIT
       string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
@@ -71,7 +73,10 @@ http_interactions:
         City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
         County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver City,
-        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        TX, USA"},{"latitude":40.233658,"longitude":-76.137743,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Pennsylvania","region_code":"PA","county":"Lancaster
+        County","locality":"Denver","administrative_area":"Denver","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        PA, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
         Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
@@ -92,11 +97,8 @@ http_interactions:
         America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
-        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
-        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Thu, 01 Feb 2024 06:27:44 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:45 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -108,10 +110,10 @@ http_interactions:
       - application/json
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
-      User-Agent:
-      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
+      User-Agent:
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -128,17 +130,17 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Thu, 01 Feb 2024 06:27:44 GMT
+      - Fri, 27 Dec 2024 06:32:45 GMT
       Server:
       - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
       - nosniff
+      Server-Timing:
+      - gfet4t7; dur=236
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -146,8 +148,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Thu, 01 Feb 2024 06:27:44 GMT
+        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjI1MzUgUyBEb3duaW5nIFN0LCBEZW52ZXIsIENPIDgwMjEwLCBVU0EiLAogICAgICAiZGlzcGxheU5hbWUiOiB7CiAgICAgICAgInRleHQiOiAiUG9ydGVyIEFkdmVudGlzdCBIb3NwaXRhbCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfSwKICAgIHsKICAgICAgImZvcm1hdHRlZEFkZHJlc3MiOiAiODUwMCBQZcOxYSBCbHZkLCBEZW52ZXIsIENPIDgwMjQ5LCBVU0EiLAogICAgICAiZGlzcGxheU5hbWUiOiB7CiAgICAgICAgInRleHQiOiAiRElBIENlbnRyYWwgT2ZmaWNlIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9CiAgXQp9Cg==
+  recorded_at: Fri, 27 Dec 2024 06:32:45 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -159,10 +161,10 @@ http_interactions:
       - application/json
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
-      User-Agent:
-      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
+      User-Agent:
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -179,17 +181,17 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Thu, 01 Feb 2024 06:27:45 GMT
+      - Fri, 27 Dec 2024 06:32:45 GMT
       Server:
       - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
       - nosniff
+      Server-Timing:
+      - gfet4t7; dur=87
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -200,6 +202,13 @@ http_interactions:
         {
           "places": [
             {
+              "formattedAddress": "4567 E 9th Ave, Denver, CO 80220, USA",
+              "displayName": {
+                "text": "HCA HealthONE Rose",
+                "languageCode": "en"
+              }
+            },
+            {
               "formattedAddress": "777 Bannock St, Denver, CO 80204, USA",
               "displayName": {
                 "text": "Denver Health",
@@ -207,36 +216,29 @@ http_interactions:
               }
             },
             {
-              "formattedAddress": "1375 E 19th Ave, Denver, CO 80218, USA",
-              "displayName": {
-                "text": "Saint Joseph Hospital",
-                "languageCode": "en"
-              }
-            },
-            {
               "formattedAddress": "1719 E 19th Ave, Denver, CO 80218, USA",
               "displayName": {
-                "text": "Presbyterian St. Luke's Medical Center",
+                "text": "HCA HealthONE Presbyterian St. Luke's",
                 "languageCode": "en"
               }
             },
             {
-              "formattedAddress": "4567 E 9th Ave, Denver, CO 80220, USA",
+              "formattedAddress": "1375 E 19th Ave, Denver, CO 80218, USA",
               "displayName": {
-                "text": "Rose Medical Center",
+                "text": "Intermountain Health Saint Joseph Hospital",
                 "languageCode": "en"
               }
             },
             {
-              "formattedAddress": "1400 Jackson St, Denver, CO 80206, USA",
+              "formattedAddress": "777 Bannock St Pavilion A, Denver, CO 80204, USA",
               "displayName": {
-                "text": "National Jewish Health",
+                "text": "Denver Health Emergency Department",
                 "languageCode": "en"
               }
             }
           ]
         }
-  recorded_at: Thu, 01 Feb 2024 06:27:45 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:45 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -247,7 +249,7 @@ http_interactions:
       X-Rapidapi-Key:
       - "<RAPID_API_KEY>"
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -258,7 +260,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Feb 2024 06:27:46 GMT
+      - Fri, 27 Dec 2024 06:32:47 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -266,26 +268,28 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Fri, 31 Jan 2025 06:27:45 GMT
-      Cache-Control:
-      - max-age=31536000, no-cache="set-cookie"
+      - Sat, 27 Dec 2025 06:32:46 GMT
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
+      Cache-Control:
+      - max-age=31536000, no-cache="set-cookie"
       Cf-Ray:
-      - 84e821617e07c52d-SEA
+      - 8f8746797b6b387a-IAD
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA2E74A3DFA70646B785AC869C32F81DE5045F2D16180A1B4B6B09BF417E2E81E4;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDA2E74A3DFA70646B785AC869C32F81DE5045F2D16180A1B4B6B09BF417E2E81E4;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDAA5EA6FBE7FB9722DC012FFCCC318ED862D12105DFC0EBC026AF8538F4A82B5B9;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856ED4D3D7088ED729E2CBD2E44A3413BDAA5EA6FBE7FB9722DC012FFCCC318ED862D12105DFC0EBC026AF8538F4A82B5B9;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      Server-Timing:
+      - cfL4;desc="?proto=TCP&rtt=1977&min_rtt=1858&rtt_var=618&sent=5&recv=6&lost=0&retrans=0&sent_bytes=2992&recv_bytes=1433&delivery_rate=1571582&cwnd=252&unsent_bytes=0&cid=17d894cf5ee6313a&ts=1589&x=0"
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2FmFnttOeQl8KWdEuS59bqKeCtaLlC66sdtrpflZlYViwE9a8sc20qvgW7G25d36RPP%2Fx1s6aWD6fDJxKmX6vl2mSWiYYrngHx2Y1jx5cP8Y44Zid0iyT5qh6TV5Ljq88l5fl%2B3mI"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=xeIzW3bZQ4gujT5LRZnAPdXAFlhJ4LUBvydHVoOGwILxn9Csgh6qOJ4r%2Bhz3n8l2orK%2B9Mfa2uoA84k78UTL9XJ9oWnJtxeXgqdOgWetaaqGT29XDFYmKp%2FJn97PHmvUGBY4pccU"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -298,8 +302,6 @@ http_interactions:
       - origin,header
       Access-Control-Expose-Headers:
       - X-WP-Total, X-WP-TotalPages, Link
-      Access-Control-Allow-Origin:
-      - "*"
       Allow:
       - GET
       X-Ratelimit-Map-Data-Limit:
@@ -307,19 +309,21 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '75273'
+      - '74972'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '497'
+      - '498'
       X-Ratelimit-Regular-Requests-Reset:
-      - '75273'
+      - '74972'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
       - 1.2.8
       X-Rapidapi-Region:
-      - AWS - us-west-2
+      - AWS - us-east-1
+      X-Rapidapi-Request-Id:
+      - de056726c43e517be74555b9cfa83838e13b224706a6380ddb664acda5dfe981
     body:
       encoding: ASCII-8BIT
       string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
@@ -449,7 +453,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:47 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
@@ -460,7 +464,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -474,36 +478,51 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
-      X-Zipkin-Id:
-      - 78199bb2a82fe582
-      X-Routing-Service:
-      - routing-main--useast1-76b594794d-8g4k6; site=public_api_v3
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Tracing-Auth:
+      - 0uLbTazWTAV-rSFY3pwOuy3KTms0Zr8Rl1AucFyHgyZ9QvJDwDaBqqg962JRKeco
+      Access-Control-Max-Age:
+      - '1728000'
+      Set-Cookie:
+      - pid=; Domain=.yelp.com; Max-Age=0; Path=/; expires=Wed, 31-Dec-97 23:59:59
+        GMT
+      Ratelimit-Dailylimit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4998'
       X-B3-Sampled:
       - '0'
       Ratelimit-Resettime:
-      - '2024-02-02T00:00:00+00:00'
+      - '2024-12-28T00:00:00+00:00'
+      X-Routing-Service:
+      - routing-main--useast1-5d9799c497-rfcpb; site=public_api_v3
+      X-Zipkin-Id:
+      - 49e8b92e2423b58dc80461cf59840195
+      Access-Control-Allow-Origin:
+      - "*"
       Server:
       - envoy
-      Ratelimit-Remaining:
-      - '4962.0'
-      Ratelimit-Dailylimit:
-      - '5000.0'
+      Access-Control-Allow-Methods:
+      - POST,OPTIONS,GET,DELETE,PUT,PATCH
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-92-52-useast1aprod
+      - 10-65-126-95-useast1aprod
       X-Extlb:
-      - 10-65-92-52-useast1aprod
+      - 10-65-126-95-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 01 Feb 2024 06:27:46 GMT
+      - Fri, 27 Dec 2024 06:32:48 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8253-DEN
+      - cache-den-kden1300060-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -517,20 +536,20 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"businesses": [{"id": "lzjoyf-Z0b4LwQzF0dtLrQ", "alias": "colorado-state-government-capitol-building-denver",
-        "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/coU6IHXuDMebyyyk_lvdsQ/o.jpg",
+        "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/3zBN0xtBH8LODq7IJJ7VKw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/colorado-state-government-capitol-building-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 109, "categories": [{"alias": "museums", "title": "Museums"},
+        "review_count": 119, "categories": [{"alias": "museums", "title": "Museums"},
         {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}], "rating":
-        4.0, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
+        4.2, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
         [], "location": {"address1": "200 E Colfax Ave", "address2": "Ste 136", "address3":
         "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
         "display_address": ["200 E Colfax Ave", "Ste 136", "Denver, CO 80203"]}, "phone":
         "+13038662604", "display_phone": "(303) 866-2604", "distance": 189.02382781836118},
         {"id": "z7wyDoef1yDBhb60F0SYGg", "alias": "united-states-mint-denver", "name":
-        "United States Mint", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/tTOc59HIL3PAtkWiJgxJXw/o.jpg",
+        "United States Mint", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/_vT3CCb5Rnr14iDjQrOT-Q/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/united-states-mint-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 112, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 4.0, "coordinates": {"latitude": 39.7392387390137,
+        "review_count": 123, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 3.8, "coordinates": {"latitude": 39.7392387390137,
         "longitude": -104.992301940918}, "transactions": [], "location": {"address1":
         "320 W Colfax Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80204", "country": "US", "state": "CO", "display_address": ["320 W Colfax
@@ -540,36 +559,34 @@ http_interactions:
         Residence at the Boettcher Mansion", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/hVbgZiG-jc5psIoMqa8Dgw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/governors-residence-at-the-boettcher-mansion-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
         "review_count": 10, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 4.5, "coordinates": {"latitude": 39.72849,
+        & Historical Buildings"}], "rating": 4.6, "coordinates": {"latitude": 39.72849,
         "longitude": -104.98186}, "transactions": [], "location": {"address1": "400
         East 8th Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80203", "country": "US", "state": "CO", "display_address": ["400 East 8th
         Ave", "Denver, CO 80203"]}, "phone": "+13038665344", "display_phone": "(303)
-        866-5344", "distance": 1404.357812494085}, {"id": "DAaMrNr77AQPgKwYr64D0g",
+        866-5344", "distance": 1413.4717288376341}, {"id": "DAaMrNr77AQPgKwYr64D0g",
         "alias": "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow
         and Calf", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
         "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
+        & Historical Buildings"}], "rating": 4.9, "coordinates": {"latitude": 39.737243,
         "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
         W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
         "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
         ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
-        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
-        "alias": "doors-open-denver-denver", "name": "Doors Open Denver", "image_url":
-        "https://s3-media2.fl.yelpcdn.com/bphoto/cg8cynfrYlxsorGDy37D8A/o.jpg", "is_closed":
-        false, "url": "https://www.yelp.com/biz/doors-open-denver-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 11, "categories": [{"alias": "localflavor", "title": "Local
-        Flavor"}, {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}],
-        "rating": 4.5, "coordinates": {"latitude": 39.74077, "longitude": -104.99005},
-        "transactions": [], "location": {"address1": "Denver Office Of Cultural Affairs",
-        "address2": "", "address3": "201 W Colfax Ave, Fl 7, Dept. 1007", "city":
-        "Denver", "zip_code": "80202", "country": "US", "state": "CO", "display_address":
-        ["Denver Office Of Cultural Affairs", "201 W Colfax Ave, Fl 7, Dept. 1007",
-        "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
-        "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
+        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "JEpPkYAzqXx3Xd9NA9nYig",
+        "alias": "highland-bridge-denver", "name": "Highland Bridge", "image_url":
+        "https://s3-media2.fl.yelpcdn.com/bphoto/PPeji0e7BcAM-uXt9bwZmA/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/highland-bridge-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 18, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 4.6, "coordinates": {"latitude": 39.7566263097878,
+        "longitude": -105.006937980652}, "transactions": [], "location": {"address1":
+        "Over I-25 To Downtown", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80238", "country": "US", "state": "CO", "display_address": ["Over
+        I-25 To Downtown", "Denver, CO 80238"]}, "phone": "", "display_phone": "",
+        "distance": 2504.4452519967867}], "total": 68, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:48 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bagels,bakeries,cupcakes,donuts&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
@@ -580,7 +597,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -594,36 +611,51 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST,OPTIONS,GET,DELETE,PUT,PATCH
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '1728000'
+      X-Routing-Service:
+      - routing-main--useast1-5d9799c497-mvqbj; site=public_api_v3
+      Set-Cookie:
+      - pid=; Domain=.yelp.com; Max-Age=0; Path=/; expires=Wed, 31-Dec-97 23:59:59
+        GMT
+      Ratelimit-Dailylimit:
+      - '5000'
+      X-Zipkin-Id:
+      - 9c96a08bb9a9ee25211a11dfea146547
+      Ratelimit-Remaining:
+      - '4997'
+      X-Tracing-Auth:
+      - XbuDNFccvGi22ZJ9lBsPA5NqQwq7CXt66nDyJIc7INu4Sp3WQdagIwM_1sHQOd3j
       X-B3-Sampled:
       - '0'
-      X-Routing-Service:
-      - routing-main--useast1-76b594794d-5vzls; site=public_api_v3
       Server:
       - envoy
-      Ratelimit-Remaining:
-      - '4961.0'
-      X-Zipkin-Id:
-      - eead44ca2b53abee
-      Ratelimit-Dailylimit:
-      - '5000.0'
       Ratelimit-Resettime:
-      - '2024-02-02T00:00:00+00:00'
+      - '2024-12-28T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-172-176-useast1bprod
+      - 10-65-99-76-useast1aprod
       X-Extlb:
-      - 10-65-172-176-useast1bprod
+      - 10-65-99-76-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 01 Feb 2024 06:27:46 GMT
+      - Fri, 27 Dec 2024 06:32:48 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8249-DEN
+      - cache-den-kden1300076-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -637,11 +669,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"businesses": [{"id": "XluydvQpT75gjiuRSclhcQ", "alias": "the-denver-central-market-denver-2",
-        "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/T3il49tjzYbnKg59PyFwnA/o.jpg",
+        "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/pDd6uP5NWmNGkcyvxsedXw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/the-denver-central-market-denver-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 568, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 623, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "meats", "title": "Meat Shops"}, {"alias": "food_court", "title":
-        "Food Court"}], "rating": 4.5, "coordinates": {"latitude": 39.75936357492905,
+        "Food Court"}], "rating": 4.4, "coordinates": {"latitude": 39.75936357492905,
         "longitude": -104.98454807433254}, "transactions": [], "price": "$$", "location":
         {"address1": "2669 Larimer St", "address2": "", "address3": null, "city":
         "Denver", "zip_code": "80205", "country": "US", "state": "CO", "display_address":
@@ -649,28 +681,17 @@ http_interactions:
         "distance": 2041.0193004532712}, {"id": "VQkLfjcM6qPoIbHDuOpZow", "alias":
         "lodough-bakery-denver", "name": "LoDough Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 53, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 83, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
-        "title": "Patisserie/Cake Shop"}], "rating": 5.0, "coordinates": {"latitude":
+        "title": "Patisserie/Cake Shop"}], "rating": 4.8, "coordinates": {"latitude":
         39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
         "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
         "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
         Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
-        "", "distance": 1668.850192727582}, {"id": "ZDMlxXUz6xEAXLezla7_nQ", "alias":
-        "voodoo-doughnut-denver-7", "name": "Voodoo Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 2041, "categories": [{"alias": "donuts", "title": "Donuts"},
-        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
-        "Coffee & Tea"}], "rating": 4.0, "coordinates": {"latitude": 39.73988438399763,
-        "longitude": -104.969173148037}, "transactions": ["delivery", "pickup"], "price":
-        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
-        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
-        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
-        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
-        "gXtTb3-jvyCjQzqWennfLg", "alias": "izzio-bakery-denver", "name": "Izzio Bakery",
-        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
+        "", "distance": 1668.850192727582}, {"id": "gXtTb3-jvyCjQzqWennfLg", "alias":
+        "izzio-bakery-denver", "name": "Izzio Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/y1u0Vj041vFinBoaDdQwDw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 287, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 370, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
         "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
         ["delivery", "pickup"], "price": "$$", "location": {"address1": "2669 Larimer
@@ -678,69 +699,30 @@ http_interactions:
         "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
         Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
         "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
-        "Covs3T2juogDtgxjXnNGpQ", "alias": "toasts-n-roasts-denver", "name": "Toasts
-        n Roasts", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/sp3t2OxaxQL1zE2lVftMyA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/toasts-n-roasts-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 91, "categories": [{"alias": "coffee", "title": "Coffee &
-        Tea"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias":
-        "donuts", "title": "Donuts"}], "rating": 4.5, "coordinates": {"latitude":
-        39.743, "longitude": -104.98147}, "transactions": ["pickup"], "price": "$$",
-        "location": {"address1": "450 E 17th Ave", "address2": "Ste 106", "address3":
-        "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
-        "display_address": ["450 E 17th Ave", "Ste 106", "Denver, CO 80203"]}, "phone":
-        "+13034849602", "display_phone": "(303) 484-9602", "distance": 434.51370512183064}],
-        "total": 266, "region": {"center": {"longitude": -104.985798, "latitude":
+        "ZDMlxXUz6xEAXLezla7_nQ", "alias": "voodoo-doughnut-denver-7", "name": "Voodoo
+        Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 2114, "categories": [{"alias": "donuts", "title": "Donuts"},
+        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
+        "Coffee & Tea"}], "rating": 3.9, "coordinates": {"latitude": 39.73988438399763,
+        "longitude": -104.969173148037}, "transactions": ["delivery", "pickup"], "price":
+        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
+        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
+        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
+        "OJt3oJWYyiIIM4LQY0MGWg", "alias": "noisette-restaurant-and-bakery-denver",
+        "name": "Noisette Restaurant & Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/noisette-restaurant-and-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 84, "categories": [{"alias": "french", "title": "French"},
+        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.1, "coordinates":
+        {"latitude": 39.763142256941975, "longitude": -105.0039955}, "transactions":
+        [], "location": {"address1": "3254 Navajo St", "address2": "Ste 100", "address3":
+        "", "city": "Denver", "zip_code": "80211", "country": "US", "state": "CO",
+        "display_address": ["3254 Navajo St", "Ste 100", "Denver, CO 80211"]}, "phone":
+        "+17207698103", "display_phone": "(720) 769-8103", "distance": 2909.2074483761885}],
+        "total": 679, "region": {"center": {"longitude": -104.985798, "latitude":
         39.740959}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:46 GMT
-- request:
-    method: get
-    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.9.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - openresty
-      Date:
-      - Thu, 01 Feb 2024 06:27:47 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '4255'
-      Connection:
-      - keep-alive
-      X-Cache-Key:
-      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST
-    body:
-      encoding: UTF-8
-      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768867,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
-        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
-        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
-        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
-  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:48 GMT
 - request:
     method: get
     uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
@@ -749,7 +731,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -760,23 +742,23 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Feb 2024 06:27:47 GMT
+      - Fri, 27 Dec 2024 06:32:49 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      User-Agent:
+      - Faraday v2.12.2
       Accept:
       - "*/*"
-      User-Agent:
-      - Faraday v2.9.0
       Accept-Encoding:
       - gzip
       Cache-Control:
       - no-cache, private
       X-Apilayer-Transaction-Id:
-      - 33dfb5b0-ff34-427c-89d9-0c37da8b0e0e
+      - 61f090d5-8c6d-4114-a3a6-a7f56b1a269f
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Methods:
@@ -784,25 +766,27 @@ http_interactions:
       Access-Control-Allow-Headers:
       - "*"
       X-Quota-Limit:
-      - '25000'
+      - '100'
       X-Quota-Remaining:
-      - '24997'
+      - '64'
       X-Increment-Usage:
       - '1'
       X-Request-Time:
-      - '0.133'
+      - '0.140'
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=P5y3jU862A%2B6r5PJG%2BQGf2%2BhOhclnPEJr4jZEma5rxFXnlS1MC5vfB7%2BTemJA4shD5rXSIUnJ356uwO37sx3mSlQgk1v5IzbpyNXW5gEscUQdO%2FNR%2Bz0hAGbzEsqL2cVKXbOYZZmyk1smEHJd2qclVsVuu0%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=QpPe%2BQH9j%2By7EI85cYkYCXoEHHGWggauxnwosgK%2B9gn3H7eYdBMvHMw4X72QTXsEPzG798CgYZHlUssb3%2BOvKDRWUH%2BNyOxbN7gNdXziMr1PlHV%2B9tjFt0HAqUESSiV1sCKA%2F6BEK3G%2BCLT0yGreGr9UzP4%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 84e8216bc84c51f4-DEN
+      - 8f87468a591f7985-DEN
       Alt-Svc:
       - h3=":443"; ma=86400
+      Server-Timing:
+      - cfL4;desc="?proto=TCP&rtt=26909&min_rtt=26909&rtt_var=13454&sent=1&recv=3&lost=0&retrans=0&sent_bytes=0&recv_bytes=413&delivery_rate=0&cwnd=249&unsent_bytes=0&cid=0000000000000000&ts=0&x=0"
     body:
       encoding: ASCII-8BIT
       string: '{"data":[{"latitude":39.740959,"longitude":-104.985798,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Colorado","region_code":"CO","county":"Denver
@@ -812,7 +796,10 @@ http_interactions:
         City","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Texas","region_code":"TX","county":"Yoakum
         County","locality":"Denver City","administrative_area":null,"neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver City,
-        TX, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
+        TX, USA"},{"latitude":40.233658,"longitude":-76.137743,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Pennsylvania","region_code":"PA","county":"Lancaster
+        County","locality":"Denver","administrative_area":"Denver","neighbourhood":null,"country":"United
+        States","country_code":"USA","continent":"North America","label":"Denver,
+        PA, USA"},{"latitude":35.535494,"longitude":-81.033744,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"North
         Carolina","region_code":"NC","county":"Lincoln County","locality":"Denver","administrative_area":null,"neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
         NC, USA"},{"latitude":42.668816,"longitude":-92.334895,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Iowa","region_code":"IA","county":"Bremer
@@ -833,11 +820,8 @@ http_interactions:
         America","label":"Denver, ND, USA"},{"latitude":43.684519,"longitude":-84.667779,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Isabella
         County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
         States","country_code":"USA","continent":"North America","label":"Denver,
-        MI, USA"},{"latitude":43.597504,"longitude":-85.979469,"type":"locality","name":"Denver","number":null,"postal_code":null,"street":null,"confidence":1,"region":"Michigan","region_code":"MI","county":"Newaygo
-        County","locality":"Denver","administrative_area":"Denver Township","neighbourhood":null,"country":"United
-        States","country_code":"USA","continent":"North America","label":"Denver,
         MI, USA"}]}'
-  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:49 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -849,10 +833,10 @@ http_interactions:
       - application/json
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
-      User-Agent:
-      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
+      User-Agent:
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -869,17 +853,17 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Thu, 01 Feb 2024 06:27:47 GMT
+      - Fri, 27 Dec 2024 06:32:49 GMT
       Server:
       - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
       - nosniff
+      Server-Timing:
+      - gfet4t7; dur=177
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -887,8 +871,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQgKEtBUEEpIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9LAogICAgewogICAgICAiZm9ybWF0dGVkQWRkcmVzcyI6ICI4NTAwIFBlw7FhIEJsdmQsIERlbnZlciwgQ08gODAyNDksIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJESUEgQ2VudHJhbCBPZmZpY2UiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjkzOTcgQ3Jvd24gQ3Jlc3QgQmx2ZCwgUGFya2VyLCBDTyA4MDEzOCwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlBBSCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfQogIF0KfQo=
-  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
+        ewogICJwbGFjZXMiOiBbCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjg1MDAgUGXDsWEgQmx2ZCwgRGVudmVyLCBDTyA4MDI0OSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIkRlbnZlciBJbnRlcm5hdGlvbmFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjExNzU1IEFpcnBvcnQgV2F5LCBCcm9vbWZpZWxkLCBDTyA4MDAyMSwgVVNBIiwKICAgICAgImRpc3BsYXlOYW1lIjogewogICAgICAgICJ0ZXh0IjogIlJvY2t5IE1vdW50YWluIE1ldHJvcG9saXRhbiBBaXJwb3J0IChUZXJtaW5hbCkiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjc1NjUgUyBQZW9yaWEgU3QsIEVuZ2xld29vZCwgQ08gODAxMTIsIFVTQSIsCiAgICAgICJkaXNwbGF5TmFtZSI6IHsKICAgICAgICAidGV4dCI6ICJDZW50ZW5uaWFsIEFpcnBvcnQiLAogICAgICAgICJsYW5ndWFnZUNvZGUiOiAiZW4iCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJmb3JtYXR0ZWRBZGRyZXNzIjogIjI1MzUgUyBEb3duaW5nIFN0LCBEZW52ZXIsIENPIDgwMjEwLCBVU0EiLAogICAgICAiZGlzcGxheU5hbWUiOiB7CiAgICAgICAgInRleHQiOiAiUG9ydGVyIEFkdmVudGlzdCBIb3NwaXRhbCBIZWxpcG9ydCIsCiAgICAgICAgImxhbmd1YWdlQ29kZSI6ICJlbiIKICAgICAgfQogICAgfSwKICAgIHsKICAgICAgImZvcm1hdHRlZEFkZHJlc3MiOiAiODUwMCBQZcOxYSBCbHZkLCBEZW52ZXIsIENPIDgwMjQ5LCBVU0EiLAogICAgICAiZGlzcGxheU5hbWUiOiB7CiAgICAgICAgInRleHQiOiAiRElBIENlbnRyYWwgT2ZmaWNlIiwKICAgICAgICAibGFuZ3VhZ2VDb2RlIjogImVuIgogICAgICB9CiAgICB9CiAgXQp9Cg==
+  recorded_at: Fri, 27 Dec 2024 06:32:49 GMT
 - request:
     method: post
     uri: https://places.googleapis.com/v1/places:searchNearby
@@ -900,10 +884,10 @@ http_interactions:
       - application/json
       X-Goog-Api-Key:
       - "<GOOGLE_MAPS_KEY>"
-      User-Agent:
-      - Faraday v2.9.0
       X-Goog-Fieldmask:
       - places.formattedAddress,places.displayName
+      User-Agent:
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -920,17 +904,17 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Thu, 01 Feb 2024 06:27:47 GMT
+      - Fri, 27 Dec 2024 06:32:49 GMT
       Server:
       - scaffolding on HTTPServer2
-      Cache-Control:
-      - private
       X-Xss-Protection:
       - '0'
       X-Frame-Options:
       - SAMEORIGIN
       X-Content-Type-Options:
       - nosniff
+      Server-Timing:
+      - gfet4t7; dur=174
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -941,6 +925,13 @@ http_interactions:
         {
           "places": [
             {
+              "formattedAddress": "4567 E 9th Ave, Denver, CO 80220, USA",
+              "displayName": {
+                "text": "HCA HealthONE Rose",
+                "languageCode": "en"
+              }
+            },
+            {
               "formattedAddress": "777 Bannock St, Denver, CO 80204, USA",
               "displayName": {
                 "text": "Denver Health",
@@ -948,36 +939,29 @@ http_interactions:
               }
             },
             {
-              "formattedAddress": "1375 E 19th Ave, Denver, CO 80218, USA",
-              "displayName": {
-                "text": "Saint Joseph Hospital",
-                "languageCode": "en"
-              }
-            },
-            {
               "formattedAddress": "1719 E 19th Ave, Denver, CO 80218, USA",
               "displayName": {
-                "text": "Presbyterian St. Luke's Medical Center",
+                "text": "HCA HealthONE Presbyterian St. Luke's",
                 "languageCode": "en"
               }
             },
             {
-              "formattedAddress": "4567 E 9th Ave, Denver, CO 80220, USA",
+              "formattedAddress": "1375 E 19th Ave, Denver, CO 80218, USA",
               "displayName": {
-                "text": "Rose Medical Center",
+                "text": "Intermountain Health Saint Joseph Hospital",
                 "languageCode": "en"
               }
             },
             {
-              "formattedAddress": "1400 Jackson St, Denver, CO 80206, USA",
+              "formattedAddress": "777 Bannock St Pavilion A, Denver, CO 80204, USA",
               "displayName": {
-                "text": "National Jewish Health",
+                "text": "Denver Health Emergency Department",
                 "languageCode": "en"
               }
             }
           ]
         }
-  recorded_at: Thu, 01 Feb 2024 06:27:47 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:49 GMT
 - request:
     method: get
     uri: https://trailapi-trailapi.p.rapidapi.com/activity/?lat=39.740959&limit=5&lon=-104.985798&radius=100
@@ -988,7 +972,7 @@ http_interactions:
       X-Rapidapi-Key:
       - "<RAPID_API_KEY>"
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -999,7 +983,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Feb 2024 06:27:48 GMT
+      - Fri, 27 Dec 2024 06:32:51 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -1007,26 +991,28 @@ http_interactions:
       Connection:
       - keep-alive
       Expires:
-      - Fri, 31 Jan 2025 06:27:48 GMT
-      Cache-Control:
-      - max-age=31536000, no-cache="set-cookie"
+      - Sat, 27 Dec 2025 06:32:50 GMT
       Link:
       - <https://www.singletracks.com/wp-json/>; rel="https://api.w.org/"
+      Cache-Control:
+      - max-age=31536000, no-cache="set-cookie"
       Cf-Ray:
-      - 84e821720c61c38b-SEA
+      - 8f8746914dfbd630-IAD
       Cf-Cache-Status:
       - BYPASS
       Cf-Edge-Cache:
       - cache,platform=wordpress
       Set-Cookie:
-      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE540D7B32588C3F72EBEE0608014928CC5;PATH=/;MAX-AGE=300
-      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C7818561B8EF42CF88CF2A508013FFC20619E082E74A3DFA70646B785AC869C32F81DE540D7B32588C3F72EBEE0608014928CC5;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      - AWSELB=7FEB93771E9434A416BC6005803D1F7E6A0C781856E9E8B03286DEA090E31988B8E662E1D3A5EA6FBE7FB9722DC012FFCCC318ED862D12105DFC0EBC026AF8538F4A82B5B9;PATH=/;MAX-AGE=300
+      - AWSELBCORS=7FEB93771E9434A416BC6005803D1F7E6A0C781856E9E8B03286DEA090E31988B8E662E1D3A5EA6FBE7FB9722DC012FFCCC318ED862D12105DFC0EBC026AF8538F4A82B5B9;PATH=/;MAX-AGE=300;SECURE;SAMESITE=None
+      Server-Timing:
+      - cfL4;desc="?proto=TCP&rtt=1444&min_rtt=1263&rtt_var=498&sent=5&recv=6&lost=0&retrans=0&sent_bytes=2992&recv_bytes=1433&delivery_rate=2311955&cwnd=252&unsent_bytes=0&cid=49d40ca5e0127f77&ts=1600&x=0"
       Access-Control-Allow-Headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
       Vary:
       - Origin,Accept-Encoding
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=GLnWfWiSTAD9QW25%2BuPJmiZvMBwJeXGlxZXrD6RhMb44MVgKrAWoMfb5vZKSZBGUse1arZoEKVHUVXBseywPrXX7JrMdQHfZ49VL%2F5eq7YMGtwtKvHtPW7JTiOpfVoszXQutFiZe"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=l6VqzXnKgA8Q4BBRUAosV92pBDNYJCgh7Np0ueHTke9wpX0qZl69ST%2BN2sTgfP0g0bkc4gYugMr%2B%2BrUqgRB56NRPBE026wDiQBVZUxtxeFxyIOGI1RLlbs%2Bp%2FFPUPevgxISohVYL"}],"group":"cf-nel","max_age":604800}'
       X-Content-Type-Options:
       - nosniff
       Nel:
@@ -1039,8 +1025,6 @@ http_interactions:
       - origin,header
       Access-Control-Expose-Headers:
       - X-WP-Total, X-WP-TotalPages, Link
-      Access-Control-Allow-Origin:
-      - "*"
       Allow:
       - GET
       X-Ratelimit-Map-Data-Limit:
@@ -1048,19 +1032,21 @@ http_interactions:
       X-Ratelimit-Map-Data-Remaining:
       - '10'
       X-Ratelimit-Map-Data-Reset:
-      - '75271'
+      - '74968'
       X-Ratelimit-Regular-Requests-Limit:
       - '500'
       X-Ratelimit-Regular-Requests-Remaining:
-      - '496'
+      - '497'
       X-Ratelimit-Regular-Requests-Reset:
-      - '75271'
+      - '74968'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
       - 1.2.8
       X-Rapidapi-Region:
-      - AWS - us-west-2
+      - AWS - us-east-1
+      X-Rapidapi-Request-Id:
+      - c465f92c829652fd61aee8b94eb1b86c0bc539febfa25ea9c77d3cc55d43028a
     body:
       encoding: ASCII-8BIT
       string: '{"684":{"name":"Apex Park","city":"Golden","state":"Colorado","country":"United
@@ -1190,7 +1176,7 @@ http_interactions:
         tunnels and some high rock canyons.  Very scenic, very fast, and very fun.  Do
         the loop a couple times for a good workout.","name":"Captain Jack''s","rank":"0","rating":"4.27","thumbnail":"http:\/\/images.singletracks.com\/2009\/trails\/07\/7-1183243038.jpg","activity_type":"5","activity_type_name":"mountain
         biking","attribs":{"length":"5","nightride":"1"},"place_activity_id":"936399"}}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:48 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:51 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=landmarks&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
@@ -1201,7 +1187,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1215,36 +1201,51 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      Ratelimit-Resettime:
+      - '2024-12-28T00:00:00+00:00'
+      X-Zipkin-Id:
+      - 489645d6fb06ddaa8a15eeadbe33ca90
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST,OPTIONS,GET,DELETE,PUT,PATCH
+      Ratelimit-Remaining:
+      - '4996'
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '1728000'
       X-Routing-Service:
-      - routing-main--useast1-76b594794d-4jj4b; site=public_api_v3
+      - routing-canary--useast1-79b544c58d-57xn5; site=public_api_v3
+      X-Tracing-Auth:
+      - P1Pi5_2hxgm0u4OvwufoF0XU87wdP0avjZUuiazcQaTqcWcqEB3Ip9Pxn1QDfYmV
+      Set-Cookie:
+      - pid=; Domain=.yelp.com; Max-Age=0; Path=/; expires=Wed, 31-Dec-97 23:59:59
+        GMT
+      Ratelimit-Dailylimit:
+      - '5000'
       Server:
       - envoy
-      Ratelimit-Dailylimit:
-      - '5000.0'
-      Ratelimit-Remaining:
-      - '4960.0'
-      X-Zipkin-Id:
-      - 48b053d19b55d335
-      Ratelimit-Resettime:
-      - '2024-02-02T00:00:00+00:00'
       X-B3-Sampled:
       - '0'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-172-176-useast1bprod
+      - 10-65-141-98-useast1bprod
       X-Extlb:
-      - 10-65-172-176-useast1bprod
+      - 10-65-141-98-useast1bprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 01 Feb 2024 06:27:49 GMT
+      - Fri, 27 Dec 2024 06:32:52 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8256-DEN
+      - cache-den-kden1300071-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1258,20 +1259,20 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"businesses": [{"id": "lzjoyf-Z0b4LwQzF0dtLrQ", "alias": "colorado-state-government-capitol-building-denver",
-        "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/coU6IHXuDMebyyyk_lvdsQ/o.jpg",
+        "name": "Colorado State Government: Capitol Building", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/3zBN0xtBH8LODq7IJJ7VKw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/colorado-state-government-capitol-building-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 109, "categories": [{"alias": "museums", "title": "Museums"},
+        "review_count": 119, "categories": [{"alias": "museums", "title": "Museums"},
         {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}], "rating":
-        4.0, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
+        4.2, "coordinates": {"latitude": 39.73988, "longitude": -104.98457}, "transactions":
         [], "location": {"address1": "200 E Colfax Ave", "address2": "Ste 136", "address3":
         "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
         "display_address": ["200 E Colfax Ave", "Ste 136", "Denver, CO 80203"]}, "phone":
         "+13038662604", "display_phone": "(303) 866-2604", "distance": 189.02382781836118},
         {"id": "z7wyDoef1yDBhb60F0SYGg", "alias": "united-states-mint-denver", "name":
-        "United States Mint", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/tTOc59HIL3PAtkWiJgxJXw/o.jpg",
+        "United States Mint", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/_vT3CCb5Rnr14iDjQrOT-Q/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/united-states-mint-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 112, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 4.0, "coordinates": {"latitude": 39.7392387390137,
+        "review_count": 123, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 3.8, "coordinates": {"latitude": 39.7392387390137,
         "longitude": -104.992301940918}, "transactions": [], "location": {"address1":
         "320 W Colfax Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80204", "country": "US", "state": "CO", "display_address": ["320 W Colfax
@@ -1281,36 +1282,34 @@ http_interactions:
         Residence at the Boettcher Mansion", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/hVbgZiG-jc5psIoMqa8Dgw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/governors-residence-at-the-boettcher-mansion-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
         "review_count": 10, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 4.5, "coordinates": {"latitude": 39.72849,
+        & Historical Buildings"}], "rating": 4.6, "coordinates": {"latitude": 39.72849,
         "longitude": -104.98186}, "transactions": [], "location": {"address1": "400
         East 8th Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
         "80203", "country": "US", "state": "CO", "display_address": ["400 East 8th
         Ave", "Denver, CO 80203"]}, "phone": "+13038665344", "display_phone": "(303)
-        866-5344", "distance": 1404.357812494085}, {"id": "DAaMrNr77AQPgKwYr64D0g",
+        866-5344", "distance": 1413.4717288376341}, {"id": "DAaMrNr77AQPgKwYr64D0g",
         "alias": "scottish-angus-cow-and-calf-denver", "name": "Scottish Angus Cow
         and Calf", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/EbVP8NyxMcLojkPu5TR8nA/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/scottish-angus-cow-and-calf-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
         "review_count": 7, "categories": [{"alias": "landmarks", "title": "Landmarks
-        & Historical Buildings"}], "rating": 5.0, "coordinates": {"latitude": 39.737243,
+        & Historical Buildings"}], "rating": 4.9, "coordinates": {"latitude": 39.737243,
         "longitude": -104.989553}, "transactions": [], "location": {"address1": "100
         W 14th Ave Pkwy", "address2": "", "address3": "behind Denver Art Museum",
         "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
         ["100 W 14th Ave Pkwy", "behind Denver Art Museum", "Denver, CO 80204"]},
-        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "BQXicbn3TkZJ4m_2GlKCAg",
-        "alias": "doors-open-denver-denver", "name": "Doors Open Denver", "image_url":
-        "https://s3-media2.fl.yelpcdn.com/bphoto/cg8cynfrYlxsorGDy37D8A/o.jpg", "is_closed":
-        false, "url": "https://www.yelp.com/biz/doors-open-denver-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 11, "categories": [{"alias": "localflavor", "title": "Local
-        Flavor"}, {"alias": "landmarks", "title": "Landmarks & Historical Buildings"}],
-        "rating": 4.5, "coordinates": {"latitude": 39.74077, "longitude": -104.99005},
-        "transactions": [], "location": {"address1": "Denver Office Of Cultural Affairs",
-        "address2": "", "address3": "201 W Colfax Ave, Fl 7, Dept. 1007", "city":
-        "Denver", "zip_code": "80202", "country": "US", "state": "CO", "display_address":
-        ["Denver Office Of Cultural Affairs", "201 W Colfax Ave, Fl 7, Dept. 1007",
-        "Denver, CO 80202"]}, "phone": "+17208654323", "display_phone": "(720) 865-4323",
-        "distance": 813.8805269365123}], "total": 34, "region": {"center": {"longitude":
+        "phone": "", "display_phone": "", "distance": 521.0319402491014}, {"id": "JEpPkYAzqXx3Xd9NA9nYig",
+        "alias": "highland-bridge-denver", "name": "Highland Bridge", "image_url":
+        "https://s3-media2.fl.yelpcdn.com/bphoto/PPeji0e7BcAM-uXt9bwZmA/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/highland-bridge-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 18, "categories": [{"alias": "landmarks", "title": "Landmarks
+        & Historical Buildings"}], "rating": 4.6, "coordinates": {"latitude": 39.7566263097878,
+        "longitude": -105.006937980652}, "transactions": [], "location": {"address1":
+        "Over I-25 To Downtown", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80238", "country": "US", "state": "CO", "display_address": ["Over
+        I-25 To Downtown", "Denver, CO 80238"]}, "phone": "", "display_phone": "",
+        "distance": 2504.4452519967867}], "total": 68, "region": {"center": {"longitude":
         -104.985798, "latitude": 39.740959}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:52 GMT
 - request:
     method: get
     uri: https://api.yelp.com/v3/businesses/search?categories=bagels,bakeries,cupcakes,donuts&latitude=39.740959&limit=5&longitude=-104.985798&radius=15000&sort_by=best_match
@@ -1321,7 +1320,7 @@ http_interactions:
       Authorization:
       - Bearer <YELP_API_KEY>
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1335,36 +1334,51 @@ http_interactions:
       - keep-alive
       Content-Type:
       - application/json
+      Access-Control-Allow-Methods:
+      - POST,OPTIONS,GET,DELETE,PUT,PATCH
+      Set-Cookie:
+      - pid=; Domain=.yelp.com; Max-Age=0; Path=/; expires=Wed, 31-Dec-97 23:59:59
+        GMT
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      X-Tracing-Auth:
+      - dxNYEL1hlT4Zf7drALD3b8GsT1vCixqdr512Nigpbw6nwSeHGkrT6bYpRKPnIgjG
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '1728000'
       Server:
       - envoy
-      X-Routing-Service:
-      - routing-main--useast1-76b594794d-bjjlr; site=public_api_v3
+      Ratelimit-Remaining:
+      - '4995'
       X-Zipkin-Id:
-      - 6597fa53a1a857bc
-      Ratelimit-Dailylimit:
-      - '5000.0'
+      - 0e63fdc34c154b149de620abd91d4dcc
       X-B3-Sampled:
       - '0'
-      Ratelimit-Remaining:
-      - '4959.0'
+      X-Routing-Service:
+      - routing-main--useast1-5d9799c497-29s2l; site=public_api_v3
+      Ratelimit-Dailylimit:
+      - '5000'
+      Access-Control-Allow-Origin:
+      - "*"
       Ratelimit-Resettime:
-      - '2024-02-02T00:00:00+00:00'
+      - '2024-12-28T00:00:00+00:00'
       X-Mode:
       - ro
       X-Proxied:
-      - 10-65-79-132-useast1aprod
+      - 10-65-99-76-useast1aprod
       X-Extlb:
-      - 10-65-79-132-useast1aprod
+      - 10-65-99-76-useast1aprod
       Cache-Control:
       - max-age=0, no-store, private, no-transform
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 01 Feb 2024 06:27:49 GMT
+      - Fri, 27 Dec 2024 06:32:52 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-den8235-DEN
+      - cache-den-kden1300041-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
@@ -1378,11 +1392,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"businesses": [{"id": "XluydvQpT75gjiuRSclhcQ", "alias": "the-denver-central-market-denver-2",
-        "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/T3il49tjzYbnKg59PyFwnA/o.jpg",
+        "name": "The Denver Central Market", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/pDd6uP5NWmNGkcyvxsedXw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/the-denver-central-market-denver-2?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 568, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 623, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "meats", "title": "Meat Shops"}, {"alias": "food_court", "title":
-        "Food Court"}], "rating": 4.5, "coordinates": {"latitude": 39.75936357492905,
+        "Food Court"}], "rating": 4.4, "coordinates": {"latitude": 39.75936357492905,
         "longitude": -104.98454807433254}, "transactions": [], "price": "$$", "location":
         {"address1": "2669 Larimer St", "address2": "", "address3": null, "city":
         "Denver", "zip_code": "80205", "country": "US", "state": "CO", "display_address":
@@ -1390,58 +1404,65 @@ http_interactions:
         "distance": 2041.0193004532712}, {"id": "VQkLfjcM6qPoIbHDuOpZow", "alias":
         "lodough-bakery-denver", "name": "LoDough Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/u6cSq_jn-KE8nVtdIk79Kw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/lodough-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 53, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 83, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "cakeshop",
-        "title": "Patisserie/Cake Shop"}], "rating": 5.0, "coordinates": {"latitude":
+        "title": "Patisserie/Cake Shop"}], "rating": 4.8, "coordinates": {"latitude":
         39.753604, "longitude": -104.996362}, "transactions": [], "location": {"address1":
         "1850 Wazee St", "address2": "Ste 150", "address3": null, "city": "Denver",
         "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1850
         Wazee St", "Ste 150", "Denver, CO 80202"]}, "phone": "", "display_phone":
-        "", "distance": 1668.850192727582}, {"id": "ZDMlxXUz6xEAXLezla7_nQ", "alias":
-        "voodoo-doughnut-denver-7", "name": "Voodoo Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 2041, "categories": [{"alias": "donuts", "title": "Donuts"},
-        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
-        "Coffee & Tea"}], "rating": 4.0, "coordinates": {"latitude": 39.73988438399763,
-        "longitude": -104.969173148037}, "transactions": ["pickup", "delivery"], "price":
-        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
-        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
-        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
-        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
-        "gXtTb3-jvyCjQzqWennfLg", "alias": "izzio-bakery-denver", "name": "Izzio Bakery",
-        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5Ah99IW7kRR5WY_fuKpA6w/o.jpg",
+        "", "distance": 1668.850192727582}, {"id": "gXtTb3-jvyCjQzqWennfLg", "alias":
+        "izzio-bakery-denver", "name": "Izzio Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/y1u0Vj041vFinBoaDdQwDw/o.jpg",
         "is_closed": false, "url": "https://www.yelp.com/biz/izzio-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 287, "categories": [{"alias": "bakeries", "title": "Bakeries"},
+        "review_count": 370, "categories": [{"alias": "bakeries", "title": "Bakeries"},
         {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}], "rating": 4.5,
         "coordinates": {"latitude": 39.7593773, "longitude": -104.98458608}, "transactions":
-        ["pickup", "delivery"], "price": "$$", "location": {"address1": "2669 Larimer
+        ["delivery", "pickup"], "price": "$$", "location": {"address1": "2669 Larimer
         St", "address2": null, "address3": "The Denver Central Market", "city": "Denver",
         "zip_code": "80205", "country": "US", "state": "CO", "display_address": ["2669
         Larimer St", "The Denver Central Market", "Denver, CO 80205"]}, "phone": "+17203810260",
         "display_phone": "(720) 381-0260", "distance": 2042.3758007466597}, {"id":
-        "Covs3T2juogDtgxjXnNGpQ", "alias": "toasts-n-roasts-denver", "name": "Toasts
-        n Roasts", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/sp3t2OxaxQL1zE2lVftMyA/o.jpg",
-        "is_closed": false, "url": "https://www.yelp.com/biz/toasts-n-roasts-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
-        "review_count": 91, "categories": [{"alias": "coffee", "title": "Coffee &
-        Tea"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias":
-        "donuts", "title": "Donuts"}], "rating": 4.5, "coordinates": {"latitude":
-        39.743, "longitude": -104.98147}, "transactions": ["pickup"], "price": "$$",
-        "location": {"address1": "450 E 17th Ave", "address2": "Ste 106", "address3":
-        "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
-        "display_address": ["450 E 17th Ave", "Ste 106", "Denver, CO 80203"]}, "phone":
-        "+13034849602", "display_phone": "(303) 484-9602", "distance": 434.51370512183064}],
-        "total": 266, "region": {"center": {"longitude": -104.985798, "latitude":
+        "ZDMlxXUz6xEAXLezla7_nQ", "alias": "voodoo-doughnut-denver-7", "name": "Voodoo
+        Doughnut", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/TIlkytIdmC9VQcsmUXwHKg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/voodoo-doughnut-denver-7?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 2114, "categories": [{"alias": "donuts", "title": "Donuts"},
+        {"alias": "customcakes", "title": "Custom Cakes"}, {"alias": "coffee", "title":
+        "Coffee & Tea"}], "rating": 3.9, "coordinates": {"latitude": 39.73988438399763,
+        "longitude": -104.969173148037}, "transactions": ["delivery", "pickup"], "price":
+        "$$", "location": {"address1": "1520 E Colfax Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
+        "display_address": ["1520 E Colfax Ave", "Denver, CO 80218"]}, "phone": "+13035973666",
+        "display_phone": "(303) 597-3666", "distance": 1427.3042462710685}, {"id":
+        "OJt3oJWYyiIIM4LQY0MGWg", "alias": "noisette-restaurant-and-bakery-denver",
+        "name": "Noisette Restaurant & Bakery", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/DXu3GaU0gpslftnBF1WrCA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/noisette-restaurant-and-bakery-denver?adjust_creative=3gRykLgv5-_vxngoRlAFrQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3gRykLgv5-_vxngoRlAFrQ",
+        "review_count": 84, "categories": [{"alias": "french", "title": "French"},
+        {"alias": "bakeries", "title": "Bakeries"}], "rating": 4.1, "coordinates":
+        {"latitude": 39.763142256941975, "longitude": -105.0039955}, "transactions":
+        [], "location": {"address1": "3254 Navajo St", "address2": "Ste 100", "address3":
+        "", "city": "Denver", "zip_code": "80211", "country": "US", "state": "CO",
+        "display_address": ["3254 Navajo St", "Ste 100", "Denver, CO 80211"]}, "phone":
+        "+17207698103", "display_phone": "(720) 769-8103", "distance": 2909.2074483761885}],
+        "total": 679, "region": {"center": {"longitude": -104.985798, "latitude":
         39.740959}}}'
-  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
+  recorded_at: Fri, 27 Dec 2024 06:32:52 GMT
 - request:
-    method: get
-    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"system","content":"Summarize
+        the city provided with four headings/sections: History, Culture, Activities,
+        and Food.\n    Format the summary in markdown, and for each section, use third-level
+        headings (###).\n    Write a detailed paragraph for each in an informative,
+        engaging tone, suitable for a first-time reader."},{"role":"user","content":"Denver"}],"temperature":0.5}'
     headers:
+      Authorization:
+      - Bearer <OPENAI_KEY>
+      Content-Type:
+      - application/json
       User-Agent:
-      - Faraday v2.9.0
+      - Faraday v2.12.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1451,84 +1472,90 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - openresty
       Date:
-      - Thu, 01 Feb 2024 06:27:49 GMT
+      - Fri, 27 Dec 2024 06:32:56 GMT
       Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '4255'
+      - application/json
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      X-Cache-Key:
-      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST
-    body:
-      encoding: UTF-8
-      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768869,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
-        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
-        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
-        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
-  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
-- request:
-    method: get
-    uri: http://api.openweathermap.org/data/2.5/onecall?appid=<WEATHER_API_KEY>&exclude=minutely,hourly,alerts&lat=39.740959&lon=-104.985798&units=imperial
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.9.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-z6jzvqlz13sfpt9qzpbijhbj
+      Openai-Processing-Ms:
+      - '3244'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '200000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '199907'
+      X-Ratelimit-Reset-Requests:
+      - 8.64s
+      X-Ratelimit-Reset-Tokens:
+      - 27ms
+      X-Request-Id:
+      - req_aea453277757331e0631b350a0b29dcc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=t5xV.xbHZNjbcK0R39Nt5M.ojcW3qbhVjHxSXCGrRLU-1735281176-1.0.1.1-VHQE5xl.mMb5n5zWxYKc3xm_9xMUtEma2D53oG5brsriDlXtEyVL9zmZ4djqRwgKXA5IK2wTuAUJSwTSLZqJfQ;
+        path=/; expires=Fri, 27-Dec-24 07:02:56 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=CzxwxWj9TNyU2dcwI6Mr6aV6elZjKPRNDLnVc35NF_o-1735281176209-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
       Server:
-      - openresty
-      Date:
-      - Thu, 01 Feb 2024 06:27:49 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '4255'
-      Connection:
-      - keep-alive
-      X-Cache-Key:
-      - "/data/2.5/onecall?exclude=minutely%2Chourly%2Calerts&lat=39.74&lon=-104.99&units=imperial"
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST
+      - cloudflare
+      Cf-Ray:
+      - 8f8746a28c6ee66e-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"lat":39.741,"lon":-104.9858,"timezone":"America/Denver","timezone_offset":-25200,"current":{"dt":1706768869,"sunrise":1706710152,"sunset":1706746639,"temp":44.62,"feels_like":44.62,"pressure":1011,"humidity":40,"dew_point":22.96,"uvi":0,"clouds":100,"visibility":10000,"wind_speed":1.01,"wind_deg":0,"wind_gust":3,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04n"}]},"daily":[{"dt":1706727600,"sunrise":1706710152,"sunset":1706746639,"moonrise":1706767920,"moonset":1706720220,"moon_phase":0.68,"temp":{"day":53.53,"min":39.47,"max":56.37,"night":44.62,"eve":51.6,"morn":39.76},"feels_like":{"day":49.28,"night":44.62,"eve":47.3,"morn":37.29},"pressure":1015,"humidity":15,"dew_point":6.26,"wind_speed":4.85,"wind_deg":210,"wind_gust":4.92,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":25,"pop":0,"uvi":2.58},{"dt":1706814000,"sunrise":1706796499,"sunset":1706833111,"moonrise":0,"moonset":1706807820,"moon_phase":0.71,"temp":{"day":55.44,"min":41.92,"max":59.09,"night":45.75,"eve":52.39,"morn":42.62},"feels_like":{"day":51.85,"night":45.75,"eve":48.7,"morn":39.4},"pressure":1007,"humidity":25,"dew_point":19.99,"wind_speed":5.5,"wind_deg":205,"wind_gust":8.21,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":1,"pop":0,"uvi":2.6},{"dt":1706900400,"sunrise":1706882844,"sunset":1706919584,"moonrise":1706857980,"moonset":1706895660,"moon_phase":0.75,"temp":{"day":47.68,"min":41.02,"max":50.07,"night":43.2,"eve":47.14,"morn":41.5},"feels_like":{"day":45.64,"night":38.35,"eve":43.2,"morn":41.5},"pressure":997,"humidity":37,"dew_point":22.32,"wind_speed":9.46,"wind_deg":343,"wind_gust":16.93,"weather":[{"id":804,"main":"Clouds","description":"overcast
-        clouds","icon":"04d"}],"clouds":100,"pop":0.27,"uvi":2.09},{"dt":1706986800,"sunrise":1706969187,"sunset":1707006056,"moonrise":1706948280,"moonset":1706983800,"moon_phase":0.78,"temp":{"day":39.22,"min":35.33,"max":42.22,"night":35.33,"eve":37.11,"morn":37.81},"feels_like":{"day":33.85,"night":35.33,"eve":32.41,"morn":30.49},"pressure":997,"humidity":89,"dew_point":35.76,"wind_speed":11.03,"wind_deg":0,"wind_gust":20.04,"weather":[{"id":616,"main":"Snow","description":"rain
-        and snow","icon":"13d"}],"clouds":98,"pop":0.95,"rain":7.65,"snow":3.81,"uvi":0.59},{"dt":1707073200,"sunrise":1707055529,"sunset":1707092529,"moonrise":1707038760,"moonset":1707072360,"moon_phase":0.81,"temp":{"day":39.65,"min":32.29,"max":44.44,"night":34.45,"eve":42.93,"morn":33.01},"feels_like":{"day":39.65,"night":29.77,"eve":40.26,"morn":27.12},"pressure":1011,"humidity":32,"dew_point":11.61,"wind_speed":6.58,"wind_deg":236,"wind_gust":11.65,"weather":[{"id":802,"main":"Clouds","description":"scattered
-        clouds","icon":"03d"}],"clouds":31,"pop":0,"uvi":2.47},{"dt":1707159600,"sunrise":1707141869,"sunset":1707179001,"moonrise":1707129300,"moonset":1707161460,"moon_phase":0.84,"temp":{"day":38.93,"min":30.74,"max":45.5,"night":38.71,"eve":44.96,"morn":30.74},"feels_like":{"day":36.84,"night":36.57,"eve":43.45,"morn":25.77},"pressure":1020,"humidity":24,"dew_point":5.04,"wind_speed":5.26,"wind_deg":193,"wind_gust":7.96,"weather":[{"id":800,"main":"Clear","description":"clear
-        sky","icon":"01d"}],"clouds":9,"pop":0,"uvi":3},{"dt":1707246000,"sunrise":1707228208,"sunset":1707265473,"moonrise":1707219660,"moonset":1707251340,"moon_phase":0.88,"temp":{"day":47.98,"min":36.18,"max":52.88,"night":42.6,"eve":50.16,"morn":36.18},"feels_like":{"day":47.98,"night":40.28,"eve":46.29,"morn":32.85},"pressure":1008,"humidity":32,"dew_point":19.51,"wind_speed":5.21,"wind_deg":194,"wind_gust":6.55,"weather":[{"id":801,"main":"Clouds","description":"few
-        clouds","icon":"02d"}],"clouds":15,"pop":0,"uvi":3},{"dt":1707332400,"sunrise":1707314545,"sunset":1707351945,"moonrise":1707309720,"moonset":1707341880,"moon_phase":0.92,"temp":{"day":43.43,"min":39.36,"max":51.98,"night":41.2,"eve":46.06,"morn":39.7},"feels_like":{"day":41.14,"night":41.2,"eve":41.36,"morn":39.7},"pressure":998,"humidity":54,"dew_point":27.46,"wind_speed":9.46,"wind_deg":338,"wind_gust":14.74,"weather":[{"id":500,"main":"Rain","description":"light
-        rain","icon":"10d"}],"clouds":99,"pop":0.92,"rain":1.26,"uvi":3}]}'
-  recorded_at: Thu, 01 Feb 2024 06:27:49 GMT
-recorded_with: VCR 6.2.0
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-AiyBwf1HNQAQ2JeQdhxTiTqdOfAAd",
+          "object": "chat.completion",
+          "created": 1735281172,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "### History\nDenver, the capital of Colorado, has a rich history dating back to the Old West days of the mid-19th century. Founded in 1858 during the Pike's Peak Gold Rush, the city quickly grew into a bustling mining town. Denver became a major transportation hub with the arrival of the railroad, further fueling its growth. Over the years, Denver has evolved into a vibrant metropolitan area known for its blend of historic and modern architecture.\n\n### Culture\nDenver boasts a diverse cultural scene that appeals to art enthusiasts, outdoor enthusiasts, and history buffs alike. The city is home to a thriving arts community, with numerous galleries, museums, and theaters showcasing local and international talent. Outdoor activities are also a big part of Denver's culture, with easy access to the Rocky Mountains for hiking, skiing, and other outdoor adventures. Additionally, Denver has a rich culinary scene, with a wide range of restaurants offering everything from farm-to-table cuisine to international flavors.\n\n### Activities\nThere is no shortage of things to do in Denver, making it a perfect destination for visitors of all interests. Outdoor enthusiasts can explore the nearby Rocky Mountain National Park or take a scenic drive along the Mount Evans Scenic Byway. History buffs can visit the Denver Art Museum or take a tour of the Molly Brown House Museum. For those looking for a more urban experience, Denver's vibrant downtown area offers shopping, dining, and entertainment options to suit every taste.\n\n### Food\nDenver's food scene is a melting pot of flavors, drawing inspiration from various culinary traditions to create a unique dining experience. From upscale restaurants serving gourmet cuisine to food trucks dishing out delicious street food, Denver has something for every palate. The city is known for its craft beer scene, with numerous breweries offering a wide selection of locally brewed beers. Additionally, Denver's proximity to fresh produce from nearby farms ensures that diners can enjoy farm-to-table dining experiences at many restaurants throughout the city.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 73,
+            "completion_tokens": 392,
+            "total_tokens": 465,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+  recorded_at: Fri, 27 Dec 2024 06:32:56 GMT
+recorded_with: VCR 6.3.1

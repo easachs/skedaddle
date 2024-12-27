@@ -39,6 +39,6 @@ RSpec.describe Itinerary do
     it { is_expected.to have_many(:businesses) }
     it { is_expected.to have_many(:parks) }
     it { is_expected.to have_many(:places) }
-    it { is_expected.to have_one(:summary) }
+    it { is_expected.to have_many(:summaries) }
   end
 end

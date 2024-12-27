@@ -1,4 +1,4 @@
-<%= tag.div id: place.group, class: 'w-full lg:w-1/4 p-4 bg-white bg-opacity-50 rounded-lg shadow-lg m-2' do %>
-  <p class='font-bold'><%= place.name %></p>
-  <p><%= place.address %></p>
+<%= tag.div id: place.group, class: 'contentbox w-full lg:w-1/3 p-4 m-2' do %>
+  <%= tag.p place.name, class: 'font-bold sm:mb-2' %>
+  <%= tag.p place.address, class: 'text-xs sm:text-sm' %>
 <% end %>

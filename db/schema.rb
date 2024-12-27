@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_044842) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_27_034735) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -28,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_044842) do
     t.bigint "itinerary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "favorited", default: false
     t.index ["itinerary_id"], name: "index_businesses_on_itinerary_id"
   end
 
@@ -79,11 +94,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_044842) do
     t.index ["itinerary_id"], name: "index_places_on_itinerary_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "city"
+    t.text "content"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "summaries", force: :cascade do |t|
     t.text "response"
     t.bigint "itinerary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kind", default: 0, null: false
     t.index ["itinerary_id"], name: "index_summaries_on_itinerary_id"
   end
 
@@ -98,6 +123,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_044842) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "credit", default: 10
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

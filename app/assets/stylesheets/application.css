@@ -14,9 +14,11 @@
  *= require_self
  */
 
+@import 'loading';
+
 #background-image {
   width: auto;
-  background-image: url("mountains.jpg");
+  background-image: url('mountains.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -24,18 +26,15 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: -1;
-  overflow: hidden;
 }
 
-/* @media (max-width: 640px) {
+@media (max-width: 640px) {
   #background-image {
     background-image: linear-gradient(#006d77, #83c5be, #e29578);
     background-attachment: scroll;
   }
-} */
+}
 
 a, button {
   font-weight: bold;
@@ -51,36 +50,10 @@ input + label {
 }
 
 img {
-  float: left;
   width: 800px;
   height: 600px;
   object-fit: cover;
 }
-
-.blue-btn {
-  background-color: #4361ee;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.blue-btn:hover {
-  background-color: #3a0ca3;
-  color: #ffffff;
-}
-
-.image-format {
-  width: 125px;
-  height: 125px;
-  object-fit: contain;
-  float: right;
-}
-
-/* input[type='checkbox']:checked + label {
-  color: black;
-} */
 
 input:checked + label {
   font-weight: bold;
@@ -91,24 +64,11 @@ input:checked + label {
   color: #334155;
 }
 
-.warning {
-color: red;
-}
-
-.tab-btn {
-  background-color: #4cc9f0;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem 0.25rem 0 0;
+.favorite {
   cursor: pointer;
-}
+  color: goldenrod;
 
-.tab-btn.active {
-  background-color: #4361ee;
-}
-
-.tab-btn:hover {
-  background-color: #3a0ca3;
-  color: #ffffff;
+  &:hover {
+    color: peru;
+  }
 }

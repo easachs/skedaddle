@@ -5,6 +5,7 @@
 # Table name: summaries
 #
 #  id           :bigint           not null, primary key
+#  kind         :integer          default("plan"), not null
 #  response     :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

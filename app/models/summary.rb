@@ -5,6 +5,7 @@
 # Table name: summaries
 #
 #  id           :bigint           not null, primary key
+#  kind         :integer          default("plan"), not null
 #  response     :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -19,6 +20,7 @@
 #  fk_rails_...  (itinerary_id => itineraries.id)
 #
 class Summary < ApplicationRecord
-  validates :response, presence: true
+  enum :kind, { plan: 0, info: 1 }
+  validates :response, :kind, presence: true
   belongs_to :itinerary
 end

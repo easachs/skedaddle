@@ -1,0 +1,30 @@
+<%= render Core::CarouselComponent.new do %>
+  <%= turbo_frame_tag 'home' do %>
+    <%= tag.div class: 'p-4' do %>
+      <%= tag.h1 'Destinations', class: 'text-center mb-4' %>
+
+      <% if @posts.blank? %>
+        <%= tag.div class: 'text-center p-4' do %>
+          Looks like there's nothing here yet! Check back later.
+        <% end %>
+      <% end %>
+
+      <%= tag.div class: 'grid h-[26rem] sm:h-full overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+        <% @posts.each do |post| %>
+          <%= tag.div class: 'contentbox p-2' do %>
+            <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
+              <%= link_to post.title, post_path(post), data: { turbo: false } %>
+            <% end %>
+            <%= tag.div class: 'flex justify-between' do %>
+              <p class='text-sm text-slate-500'>Posted <%= post.created_at.strftime('%m/%d/%y') %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= tag.div class: 'pl-4' do %>
+        <%= paginate @posts %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

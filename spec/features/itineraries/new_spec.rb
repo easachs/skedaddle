@@ -4,33 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'Itinerary New', vcr: 'denver_search' do
   before do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
-      { 'provider' => 'google_oauth2',
-        'uid' => '123456',
-        'info' => {
-          'name' => 'John Doe',
-          'email' => 'johndoe@example.com'
-        },
-        'credentials' => {
-          'token' => 'TOKEN'
-        } }
-    )
-    visit new_user_session_path
-    click_on('Sign In with GoogleOauth2')
-
+    mock_google_oauth2
     User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
   end
 
   describe 'displays new itinerary with' do
-    before do
-      fill_in 'search', with: 'Denver'
-      check 'Landmarks'
-      check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
-    end
+    before { denver_search }
 
     it 'title' do
       expect(page).to have_content('Denver')
@@ -50,15 +29,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
   end
 
   describe 'saves new itinerary with' do
-    before do
-      fill_in 'search', with: 'Denver'
-      check 'Landmarks'
-      check 'Bakeries'
-      within '#search-btn' do
-        click_on 'SKEDADDLE'
-      end
-      click_on 'Save', match: :first
-    end
+    before { denver_search && click_on('Save', match: :first) }
 
     it 'title' do
       expect(page).to have_content('Denver')
@@ -79,9 +50,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
 
   describe 'sad path' do
     describe 'with no results', vcr: 'bad_geocode' do
-      before do
-        visit '/itineraries/new?search=Nonexistent'
-      end
+      before { visit '/itineraries/new?search=Nonexistent' }
 
       it 'redirects' do
         expect(page).to have_current_path(root_path)
@@ -93,9 +62,7 @@ RSpec.describe 'Itinerary New', vcr: 'denver_search' do
     end
 
     describe 'with no search' do
-      before do
-        visit '/itineraries/new?search='
-      end
+      before { visit '/itineraries/new?search=' }
 
       it 'redirects' do
         expect(page).to have_current_path(root_path)
