@@ -24,9 +24,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    if [@items].all?(&:blank?) || %i[parks activities restaurants].all? { |key| @items[key].nil? }
-      return redirect_with_message(message: 'no_results')
-    end
+    return redirect_with_message(message: 'no_results') if [@items].all?(&:blank?)
 
     redirect_with_message(message: 'too_broad') if @geocode&.dig(:city).blank?
   end

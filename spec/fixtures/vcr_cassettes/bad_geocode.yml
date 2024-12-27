@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Nonexistent
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_KEY>&query=Nonexistent
     body:
       encoding: US-ASCII
       string: ''

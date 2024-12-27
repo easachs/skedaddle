@@ -16,7 +16,7 @@ class GeocodeService
 
     def conn
       Faraday.new(url: 'http://api.positionstack.com') do |route|
-        route.params[:access_key] = ENV.fetch('GEOCODE_API_KEY', nil)
+        route.params[:access_key] = ENV.fetch('GEOCODE_KEY', nil)
       end
     end
   end

@@ -232,7 +232,7 @@
     $ rails db:{create,migrate}
 
   5. Create a .env file and add ENV variables:
-    `GEOCODE_API_KEY`, `RAPID_API_KEY`, `YELP_API_KEY` and `GOOGLE_MAPS_KEY` (Functionality), `DEVISE_SECRET_KEY` and `DEVISE_PEPPER` (Devise), `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (Google Analytics).
+    `GEOCODE_KEY`, `RAPID_API_KEY`, `YELP_API_KEY` and `GOOGLE_MAPS_KEY` (Functionality), `DEVISE_SECRET_KEY` and `DEVISE_PEPPER` (Devise), `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (Google Analytics).
 
   6. Run the application locally:
 

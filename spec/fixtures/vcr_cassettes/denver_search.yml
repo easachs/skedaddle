@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_KEY>&query=Denver
     body:
       encoding: US-ASCII
       string: ''
@@ -725,7 +725,7 @@ http_interactions:
   recorded_at: Fri, 27 Dec 2024 06:32:48 GMT
 - request:
     method: get
-    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_API_KEY>&query=Denver
+    uri: http://api.positionstack.com/v1/forward?access_key=<GEOCODE_KEY>&query=Denver
     body:
       encoding: US-ASCII
       string: ''
