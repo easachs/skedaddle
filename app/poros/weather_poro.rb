@@ -2,16 +2,23 @@
 
 class WeatherPoro
   def initialize(attributes)
-    @daily = attributes&.dig(:daily)
+    @attributes = attributes
   end
 
   def days
-    return [] if @daily.blank?
+    return [] unless @attributes&.dig(:list) && @attributes.dig(:city, :timezone)
 
-    @daily[0..6].map do |day|
-      { date: Time.zone.at(day[:dt]).strftime('%a'),
-        temp: day[:temp][:day],
-        description: day[:weather].first[:main] }
+    timezone_offset = @attributes[:city][:timezone] || 0
+    daily_forecasts.map do |day|
+      { date: Time.zone.at(day[:dt] + timezone_offset).strftime('%a'),
+        temp: day.dig(:main, :temp),
+        description: day.dig(:weather, 0, :main) }
     end
+  rescue StandardError
+    []
   end
+
+  private
+
+  def daily_forecasts = @attributes[:list].each_slice(8).map(&:first)[0..4]
 end

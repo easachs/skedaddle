@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"system","content":"You''re
+        a travel planner specializing in adventurous, eco-friendly trips for young
+        explorers.\n    Craft balanced, budget-friendly itineraries featuring historic
+        sites, outdoor activities, and landmarks.\n    Start with a brief, light-hearted
+        introductory summary/description about the location provided.\n    Provide
+        daily plans with themed titles and concise morning/afternoon/evening suggestions.\n    Finish
+        with a short conclusion about the itinerary you''ve created.\n    Maintain
+        a cheerful, casual tone with occasional humor, and be straightforward in day-to-day
+        guides.\n    Avoid clarifying questions and emojis."},{"role":"user","content":"Create
+        a 3 day itinerary for a trip to Denver, CO, USA incorporating some of the
+        following:\n    Parks -  /  / . Prioritize these: .\n    Also include other
+        important sites or landmarks that could be worth visiting."}],"temperature":0.5}'
+    headers:
+      Authorization:
+      - Bearer
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v2.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Sat, 28 Dec 2024 04:37:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '496'
+      Connection:
+      - keep-alive
+      Vary:
+      - Origin
+      X-Request-Id:
+      - req_f82f9f2f903b08f9bc61067e6d73e2bb
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ZZ3nbokJ6I8tN6rGz7a0BuZb0_zL1PmNXY6PA.6WbSA-1735360663-1.0.1.1-SqZBXDBZWHEOH1pJT6avV.XWT7duVbpYx7u12Sr65Gjm9mSL034KfvOOwMK_HmFCs.eUvXvX3u3ViWgBVkuP.Q;
+        path=/; expires=Sat, 28-Dec-24 05:07:43 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=qWjU1iqzuyqo5XFTdG160coL30N6LMXG04kAT53LQMY-1735360663768-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8f8edb534cd25179-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {
+            "error": {
+                "message": "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.",
+                "type": "invalid_request_error",
+                "param": null,
+                "code": null
+            }
+        }
+  recorded_at: Sat, 28 Dec 2024 04:37:43 GMT
+recorded_with: VCR 6.3.1

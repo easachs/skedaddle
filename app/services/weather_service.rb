@@ -3,22 +3,21 @@
 class WeatherService
   class << self
     def forecast(location = nil)
-      nil if location.blank?
+      return if location.blank?
 
-      # Rails.cache.fetch("weather/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
-      #   response = fetch_weather(location).body
-      #   JSON.parse(response, symbolize_names: true)
-      # end
+      Rails.cache.fetch("weather/#{location[:lat]}/#{location[:lon]}", expires_in: 1.hour) do
+        response = fetch_weather(location).body
+        JSON.parse(response, symbolize_names: true)
+      end
     end
 
     private
 
     def fetch_weather(location)
-      conn.get('onecall') do |route|
+      conn.get('forecast') do |route|
         route.params.merge!(
           lat: location[:lat],
           lon: location[:lon],
-          exclude: 'minutely,hourly,alerts',
           units: 'imperial'
         )
       end
