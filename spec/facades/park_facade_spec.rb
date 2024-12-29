@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ParkFacade do
   it 'returns parks', vcr: 'denver_search' do
     key = ENV.fetch('RAPID_API_KEY', nil)
-    parks = described_class.new(key).near({ lat: 39.740959, lon: -104.985798 })
+    parks = described_class.new(key).near({ lat: 39.7392358, lon: -104.990251 })
     expect(parks).to be_all(ParkPoro)
   end
 

@@ -17,9 +17,12 @@
   <% end %>
 
   <% button_text = itinerary&.plan.present? ? 'Update' : 'Create' %>
-  <%= form_with url: itinerary_path(itinerary), method: :patch do |form| %>
-    <p class='text-center'><%= form.submit "#{button_text} Plan",
-                                            data: { turbo: false },
-                                            class: 'btn' %></p>
+  <%= form_with url: itinerary_path(itinerary), method: :patch, class: 'text-center' do |form| %>
+    <%= render Core::ModalComponent.new(trigger: (form.submit "#{button_text} Plan",
+                                                  data: { turbo: false },
+                                                  class: 'btn'),
+                                        escape: false) do %>
+      <%= tag.div(class: 'lds-ellipsis') { 4.times.map { tag.div }.join.html_safe } %>
+    <% end %>
   <% end %>
 <% end %>

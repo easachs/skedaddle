@@ -19,7 +19,10 @@ Rails.application.configure do
 
   config.log_tags = [:request_id]
 
-  config.cache_store = :redis_cache_store, { url: ENV.fetch('REDIS_URL', nil) }
+  config.cache_store = :redis_cache_store, {
+    url: ENV.fetch('REDIS_URL', nil),
+    ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
+  }
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp

@@ -70,6 +70,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'with no key', vcr: 'bad_gptkey' do
       User.last.keys.find_by(name: 'openai').destroy
+      User.last.update!(credit: 0)
       click_on 'Create Plan'
 
       expect(page).to have_content('Invalid key.')

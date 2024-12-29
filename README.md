@@ -1,11 +1,11 @@
 # Skedaddle
 
 ## What is **Skedaddle**?
-  * **Skedaddle** is a **Rails** travel app that creates a custom itinerary for a given location. It is the continued solo exploration of a past group project.
+  * **Skedaddle** is a **Rails** travel app that creates a custom itinerary for a given location. It is the continued solo exploration of a group project.
 
-  * This iteration of **Skedaddle** combines the Mod 3 group project's front and back end service-oriented architecture into a single Rails 7 monolith using PostgreSQL, TailwindCSS, and Hotwire.
+  * This iteration of **Skedaddle** combines the Mod 3 group project's front and back end service-oriented architecture into a Rails 7 monolith using PostgreSQL, TailwindCSS, and Hotwire.
 
-  * It consumes API endpoints from **Google** (airports and hospitals), **Yelp** (activities and restaurants), **TrailAPI** (trails and parks), **PositionStack** (geocoding), **OpenWeather** (forecast), and **OpenAI** (itinerary summary).
+  * It consumes API endpoints from **Google** (geocoding, airports and hospitals), **Yelp** (activities and restaurants), **TrailAPI** (trails and parks), **OpenWeather** (forecast), and **OpenAI** (itinerary info and plan).
 
   * [Google OAuth 2](https://developers.google.com/identity/protocols/oauth2) is used to authenticate and authorize users.
 
@@ -218,21 +218,20 @@
 * Authorization: X-RapidAPI-Key HEADER
 * Params: q-activities_activity_type_name_eq (search activities), lat, lon, limit, country_cont (search country), state_cont (search state), radius (from lat/lon), q-city_cont (city search)
 
-### [POSITIONSTACK](https://positionstack.com/documentation)
+### [GOOGLE GEOCODING](https://developers.google.com/maps/documentation/geocoding/requests-geocoding)
 * Example query:
 
-  `GET http://api.positionstack.com/v1/forward?query=Denver`
+  `GET http://maps.googleapis.com/geocode/json?address=Denver`
 
-* Authorization: access_key
-* Params: query
-	@@ -123,13 +224,16 @@
+* Authorization: key
+* Params: address
 
   4. Run migrations:
 
     $ rails db:{create,migrate}
 
   5. Create a .env file and add ENV variables:
-    `GEOCODE_API_KEY`, `RAPID_API_KEY`, `YELP_API_KEY` and `GOOGLE_MAPS_KEY` (Functionality), `DEVISE_SECRET_KEY` and `DEVISE_PEPPER` (Devise), `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (Google Analytics).
+    `RAPID_API_KEY`, `YELP_API_KEY` and `GOOGLE_MAPS_KEY` (Functionality), `DEVISE_SECRET_KEY` and `DEVISE_PEPPER` (Devise), `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (Google Analytics).
 
   6. Run the application locally:
 
