@@ -18,12 +18,7 @@ class ParkService
 
   def fetch_parks(location)
     conn.get('/activity/') do |route|
-      route.params.merge!(
-        limit: 5,
-        lat: location[:lat],
-        lon: location[:lon],
-        radius: 100
-      )
+      route.params.merge!(limit: 5, lat: location[:lat], lon: location[:lon], radius: 100)
     end
   end
 

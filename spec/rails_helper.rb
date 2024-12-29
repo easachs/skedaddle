@@ -35,7 +35,6 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('<GEOCODE_KEY>') { ENV.fetch('GEOCODE_KEY', nil) }
   config.filter_sensitive_data('<RAPID_API_KEY>') { ENV.fetch('RAPID_API_KEY', nil) }
   config.filter_sensitive_data('<YELP_API_KEY>') { ENV.fetch('YELP_API_KEY', nil) }
   config.filter_sensitive_data('<GOOGLE_MAPS_KEY>') { ENV.fetch('GOOGLE_MAPS_KEY', nil) }
