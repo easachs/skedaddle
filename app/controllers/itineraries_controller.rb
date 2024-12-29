@@ -24,7 +24,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    return redirect_with_message(message: 'no_results') if [@items].all?(&:blank?)
+    return redirect_with_message(message: 'no_results') if [@items].all?(&:blank?) || searched_but_no_results
 
     redirect_with_message(message: 'too_broad') if @geocode&.dig(:city).blank?
   end
@@ -86,6 +86,15 @@ class ItinerariesController < ApplicationController
       BusinessFacade.near(geo: @geocode, kind:, options:)
     end
   end
+
+  def searched_but_no_results
+    (searched_but_no_activities && searched_but_no_restaurants) ||
+      (@items[:activities].blank? && searched_but_no_restaurants) ||
+      (@items[:restaurants].blank? && searched_but_no_activities)
+  end
+
+  def searched_but_no_activities = @items[:activities]&.all? { |_k, v| v.empty? }
+  def searched_but_no_restaurants = @items[:restaurants]&.all? { |_k, v| v.empty? }
 
   def plan_eligible?
     current_user&.credit&.positive? || current_user&.openai_key.present?
