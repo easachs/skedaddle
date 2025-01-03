@@ -8,5 +8,37 @@
         <%= @post.content.html_safe %>
       <% end %>
     <% end %>
+
+    <%= turbo_frame_tag 'comments' do %>
+      <%= render Core::DropdownComponent.new(title: "comments (#{@post.comments.count})", box_class: 'p-4') do %>
+        <%= tag.div class: 'contentbox p-4' do %>
+
+          <% @post.comments.each do |comment| %>
+            <%= tag.div class: 'relative my-2' do %>
+              <%= tag.div "#{tag.b(comment.user.email)}: #{h(comment.content)}".html_safe, class: 'break-all' %>
+              <% if comment.user == current_user %>
+                  <%= render Sub::RemovalModalComponent.new(trigger_class: 'absolute bottom-0 right-0',
+                                                            removal_path: post_comment_path(@post, comment)) %>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <%= tag.div class: 'text-center mt-4' do %>
+            <% if current_user %>
+              <%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+                <%= tag.div do %>
+                  <%= form.text_area :content, placeholder: 'Write a comment...',
+                                               class: 'border-gray-300 text-sm resize-none w-full rounded' %>
+                  <%= form.submit 'Post', class: 'btn my-2' %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>You must be logged in to comment.</p>
+            <% end %>
+          <% end %>
+
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

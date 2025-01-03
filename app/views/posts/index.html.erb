@@ -16,7 +16,7 @@
               <%= link_to post.title, post_path(post), data: { turbo: false } %>
             <% end %>
             <%= tag.div class: 'flex justify-between' do %>
-              <p class='text-sm text-slate-500'>Posted <%= post.created_at.strftime('%m/%d/%y') %></p>
+              <p class='text-sm text-slate-500'>Posted <%= post.updated_at.strftime('%m/%d/%y') %></p>
             <% end %>
           <% end %>
         <% end %>

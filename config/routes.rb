@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   # posts
-  resources :posts, only: %i[index show]
+  resources :posts, only: %i[index show] do
+    resources :comments, only: %i[create destroy]
+  end
 
   # contact
   get 'contact',  to: 'home#contact'

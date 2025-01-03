@@ -34,6 +34,7 @@ class User < ApplicationRecord
   has_many :parks, through: :itineraries
   has_many :businesses, through: :itineraries
   has_many :keys, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |user|
