@@ -2,44 +2,39 @@
 
 class ItineraryService
   class << self
-    def find_items(geocode)
+
+    # prepare
+    def prepare_items(geocode, session)
       return unless geocode
 
       { airports: PlaceFacade.near(geocode, 'airport', 50_000),
-        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000) }
+        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000),
+        parks: ParkFacade.near(geocode),
+        activities: prepare_businesses(:activities, geocode, session),
+        restaurants: prepare_businesses(:restaurants, geocode, session)}
     end
 
-    def populate(itinerary, items)
-      items&.each do |group, resources|
-        if %i[airports hospitals parks].include?(group)
-          create_places(itinerary, group, resources)
-        else
-          create_businesses(itinerary, group, resources)
-        end
-      end
-      remove_duplicate_businesses(itinerary)
-    end
+    def prepare_businesses(group, geocode, session)
+      return if group.blank? || session[group].blank?
 
-    def create_places(itinerary, group, resources)
-      resources&.each { |item| itinerary.send(group).create!(item.serialized) }
-    end
-
-    def create_businesses(itinerary, group, resources)
-      resources&.each do |kind, businesses|
-        businesses&.each do |bus|
-          itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, kind:))
-        end
+      options = session[:options].transform_keys(&:to_sym)
+      session[group].transform_values do |kind|
+        options[:budget] = nil if group == :activities
+        BusinessFacade.near(geocode:, kind:, options:)
       end
     end
 
-    def remove_duplicate_businesses(itinerary)
-      names = {}
+    # new
+    def no_results?(items)
+      no_activities = items[:activities]&.all? { |_k, v| v.empty? }
+      no_restaurants = items[:restaurants]&.all? { |_k, v| v.empty? }
 
-      itinerary.businesses.each do |bus|
-        names[bus.name] ? bus.destroy : names[bus.name] = true
-      end
+      (no_activities && no_restaurants) ||
+        (items[:activities].blank? && no_restaurants) ||
+        (items[:restaurants].blank? && no_activities)
     end
 
+    # other
     def format_date(date)
       Date.parse(date).strftime('%m/%d/%y') if date.present?
     end

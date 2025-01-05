@@ -27,8 +27,8 @@ module Core
     def restaurant_data
       [['African', 'african'], ['Bakeries', 'bagels,bakeries,cupcakes,donuts'], ['Barbeque', 'bbq'],
        ['Breweries', 'breweries'], ['Brunch', 'breakfast_brunch'], ['Cafes', 'cafes,coffee'],
-       ['Caribbean', 'caribbean'], ['Chinese', 'chinese,dimsum,wok'],
-       ['Italian', 'italian'], ['Indian', 'indpak'], ['Japanese', 'japanese,sushi'], ['Mexican', 'mexican'],
+       ['Caribbean', 'caribbean'], ['Chinese', 'chinese,dimsum,wok'], ['Italian', 'italian'],
+       ['Indian', 'indpak'], ['Japanese', 'japanese,sushi'], ['Mexican', 'mexican'],
        ['Seafood', 'seafood'], ['Steak', 'steak'], ['Vegetarian', 'vegan,vegetarian']]
     end
   end

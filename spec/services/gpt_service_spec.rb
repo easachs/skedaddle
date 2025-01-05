@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe GptService do
+RSpec.describe GptService, vcr: 'denver_search' do
   let(:itinerary) do
     Itinerary.create(search: 'Denver, CO, USA',
                      city: 'Denver',
@@ -13,23 +13,20 @@ RSpec.describe GptService do
   end
 
   let(:key) { ENV.fetch('OPENAI_KEY', nil) }
-  let(:response) { described_class.plan(itinerary) }
+  let(:info_response) { described_class.info(itinerary) }
+  let(:plan_response) { described_class.plan(itinerary) }
 
-  describe 'gets plan', vcr: 'denver_update' do
+  describe 'gets info' do
     it 'as string' do
-      expect(response).to be_a(String)
+      expect(info_response).to be_a(String)
     end
 
     it 'formatted for html' do
-      expect(response).to include('<p>')
+      expect(info_response).to include('<p>')
     end
 
-    it 'with days' do
-      expect(response).to include('Day 1:')
-    end
-
-    it 'with day parts' do
-      expect(response).to include('Morning:')
+    it 'with headings' do
+      expect(info_response).to include('<h3>History</h3>')
     end
   end
 

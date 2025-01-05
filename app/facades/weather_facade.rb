@@ -6,7 +6,7 @@ class WeatherFacade
       return if location.blank?
 
       weather = WeatherService.forecast(location)
-      WeatherPoro.new(weather)&.days
+      WeatherPoro.new(weather).days
     end
   end
 end

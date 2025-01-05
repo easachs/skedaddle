@@ -44,4 +44,52 @@ class Itinerary < ApplicationRecord
   def items       = { airports:, hospitals:, parks:, activities:, restaurants: }
   def info        = summaries.find_by(kind: 'info')
   def plan        = summaries.find_by(kind: 'plan')
+
+  # create
+  def self.create_for_user!(user, geocode, items)
+    itinerary = user.itineraries.create!(geocode)
+    itinerary.populate(items) if itinerary.persisted?
+    itinerary.summaries.create!(response: GptService.info(itinerary.city), kind: 'info')
+    itinerary
+  end
+
+  def populate(items)
+    items&.each do |group, resources|
+      if %i[airports hospitals parks].include?(group)
+        create_places(group, resources)
+      else
+        create_businesses(group, resources)
+      end
+    end
+    remove_duplicate_businesses
+  end
+
+  def create_places(group, resources)
+    resources&.each { |item| send(group).create!(item.serialized) }
+  end
+
+  def create_businesses(group, resources)
+    resources&.each do |kind, buss|
+      buss&.each do |bus|
+        businesses.create!(bus.serialized.merge!(group: group.to_s, kind:))
+      end
+    end
+  end
+
+  def remove_duplicate_businesses
+    names = {}
+
+    businesses.each do |bus|
+      names[bus.name] ? bus.destroy : names[bus.name] = true
+    end
+  end
+
+  # update
+  def fresh_plan!
+    return unless user.credit_left?
+
+    user.spend_credit!
+    plan&.destroy
+    summaries.create!(response: GptService.plan(decorate), kind: 'plan')
+  end
 end

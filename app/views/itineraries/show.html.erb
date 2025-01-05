@@ -5,3 +5,7 @@
                                           tab: params[:tab],
                                           current_user: %>
 <% end %>
+
+<% if (!current_user.subscribed? || current_user.credit <= 2) %>
+  <%= render Sub::StripePopupComponent.new(current_user:) %>
+<% end %>

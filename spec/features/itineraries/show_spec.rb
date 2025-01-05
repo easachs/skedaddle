@@ -11,7 +11,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'parks' do
       within '#park-black-forest-regional-park' do
         click_on '✖', match: :first
-        within('#removal') { click_on 'Remove' }
+        within('#removal') { click_on 'Delete' }
       end
       expect(page).to have_no_content('Black Forest Regional Park')
     end
@@ -19,7 +19,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'restaurants' do
       within '#business-lodough-bakery' do
         click_on '✖', match: :first
-        within('#removal') { click_on 'Remove' }
+        within('#removal') { click_on 'Delete' }
       end
       expect(page).to have_no_content('LoDough Bakery')
     end
@@ -42,17 +42,8 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
   end
 
-  describe 'creates plan', vcr: 'denver_update' do
-    before do
-      current_user = User.last
-      itinerary = current_user.itineraries.create(search: 'Denver, CO, USA',
-                                                  city: 'Denver',
-                                                  lat: 39.740959,
-                                                  lon: -104.985798,
-                                                  start_date: '12/25/23',
-                                                  end_date: '12/27/23')
-      visit itinerary_path(itinerary)
-    end
+  describe 'creates plan' do
+    before { denver_search && click_on('Save', match: :first) }
 
     it 'with days' do
       click_on 'Create Plan'

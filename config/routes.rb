@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     patch :favorite, on: :member
   end
 
+  # stripe
+  post 'checkout', to: 'stripe#checkout'
+  post 'webhooks', to: 'webhooks#receive'
+
   # posts
   resources :posts, only: %i[index show] do
     resources :comments, only: %i[create destroy]

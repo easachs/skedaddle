@@ -18,17 +18,17 @@
                                    { selected: 'best' }, class: 'w-1/4 text-xs sm:text-sm rounded' %>
       <% end %>
 
-      <%= tag.div class: 'flex justify-between items-center space-x-2', data: { controller: 'date' } do %>
+      <%= tag.div class: 'flex justify-between items-center space-x-2 mb-2', data: { controller: 'date' } do %>
         <%= date_field_tag  :start, Time.zone.today,
                             min: Time.zone.today,
-                            class: 'w-5/12 sm:w-1/2 mb-2 text-xs sm:text-sm rounded',
+                            class: 'w-5/12 sm:w-1/2 text-xs sm:text-sm rounded',
                             autocomplete: 'off',
                             data: { date_target: 'start', action: 'change->date#updateEndDate' } %>
 
         <span class='text-sm sm:m-2'>to</span>
-        <%= date_field_tag  :end, Time.zone.today,
+        <%= date_field_tag  :end, Time.zone.tomorrow,
                             min: Time.zone.today,
-                            class: 'w-5/12 sm:w-1/2 mb-2 text-xs sm:text-sm rounded',
+                            class: 'w-5/12 sm:w-1/2 text-xs sm:text-sm rounded',
                             autocomplete: 'off',
                             data: { date_target: 'end' } %>
       <% end %>
@@ -72,12 +72,9 @@
     <% end %>
 
     <%= tag.div id: 'search-btn', class: 'py-2 text-center' do %>
-      <%= render Core::ModalComponent.new(trigger: (form.submit 'SKEDADDLE',
-                                                    data: { search_target: 'button', turbo: false },
-                                                    class: 'btn'),
-                                          escape: false) do %>
-        <%= tag.div(class: 'lds-ellipsis') { 4.times.map { tag.div }.join.html_safe } %>
-      <% end %>
+      <%= render Sub::LoadingModalComponent.new(trigger: (form.submit 'SKEDADDLE',
+                                                          data: { search_target: 'button', turbo: false },
+                                                          class: 'btn')) %>
     <% end %>
   <% end %>
 <% end %>

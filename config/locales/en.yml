@@ -2,11 +2,11 @@ en:
   flash:
     messages:
       no_access: "This isn't yours."
-      no_credit: 'You have used all your free credits.'
+      no_credit: 'You have used all your credits.'
       no_results: 'No results.'
       not_found: 'Not found.'
       send_failed: 'Send failed.'
-      something: 'Oops!'
+      something: 'Something went wrong.'
       too_broad: 'Be more specific.'
   mailers:
     contact:

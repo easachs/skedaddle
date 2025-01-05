@@ -18,8 +18,8 @@ module Core
     def saved       = @options.fetch(:saved, false)
     def tab         = @options.fetch(:tab, 'places')
 
-    def search      = @geocode&.dig(:search) || itinerary&.search
-    def city        = @geocode&.dig(:city) || itinerary&.city
+    def search      = @geocode&.dig(:search) || itinerary.search
+    def city        = @geocode&.dig(:city) || itinerary.city
 
     def weather     = WeatherFacade.forecast(coordinates)
     def airports    = items&.dig(:airports)

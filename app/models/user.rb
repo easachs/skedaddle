@@ -13,6 +13,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  subscribed             :boolean          default(FALSE), not null
 #  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -34,6 +35,7 @@ class User < ApplicationRecord
   has_many :parks, through: :itineraries
   has_many :businesses, through: :itineraries
   has_many :comments, dependent: :destroy
+  has_many :payments, dependent: :destroy
 
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |user|
@@ -43,4 +45,12 @@ class User < ApplicationRecord
       user.password  = Devise.friendly_token[0, 20]
     end
   end
+
+  def credit_left? = subscribed? || credit.positive?
+
+  def spend_credit!
+    update!(credit: credit - 1) unless subscribed?
+  end
+
+  def add_credits(amount) = update!(credit: credit + amount)
 end
