@@ -4,17 +4,22 @@ class GeneratePostsJob < ApplicationJob
   queue_as :default
 
   def perform
-    api_key = ENV.fetch('OPENAI_KEY')
-    service = GptService.new(api_key)
-
     post = Post.draft.order(:created_at).first
     return unless post
 
-    content = service.blogpost(post.city)
+    content = create_post(post.city)
     return unless content
 
     post.update!(title: "Discover #{post.city}",
                  content: content,
                  published: true)
+  end
+
+  private
+
+  def create_post(city)
+    return unless city
+
+    GptService.blogpost(city)
   end
 end

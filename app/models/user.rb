@@ -33,7 +33,6 @@ class User < ApplicationRecord
   has_many :places, through: :itineraries
   has_many :parks, through: :itineraries
   has_many :businesses, through: :itineraries
-  has_many :keys, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   def self.from_omniauth(response)
@@ -44,7 +43,4 @@ class User < ApplicationRecord
       user.password  = Devise.friendly_token[0, 20]
     end
   end
-
-  def openai_key = keys.find_by(name: 'openai')&.value
-  def trailapi_key = keys.find_by(name: 'trailapi')&.value
 end

@@ -10,6 +10,7 @@ ActiveAdmin.register Post do
     column :title
     column :published
     column :created_at
+    column :updated_at
     actions
   end
 

@@ -14,10 +14,6 @@ Rails.application.routes.draw do
   # admin
   ActiveAdmin.routes(self)
 
-  # keys
-  get 'keys', to: 'keys#index'
-  patch 'keys', to: 'keys#update'
-
   # itineraries
   resources :itineraries, except: %i[edit] do
     post 'prepare', on: :collection

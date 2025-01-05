@@ -43,7 +43,7 @@ class ItinerariesController < ApplicationController
       fresh_plan
       redirect_to itinerary_path(@itinerary, tab: 'plan')
     else
-      redirect_with_message(message: 'openai_key', path: itinerary_path(@itinerary))
+      redirect_with_message(message: 'no_credit', path: itinerary_path(@itinerary))
     end
   end
 
@@ -72,7 +72,7 @@ class ItinerariesController < ApplicationController
 
   def find_items
     @items = ItineraryService.find_items(@geocode)
-                             &.merge!(parks: ParkFacade.new(current_user&.trailapi_key).near(@geocode),
+                             &.merge!(parks: ParkFacade.near(@geocode),
                                       activities: find_businesses(:activities),
                                       restaurants: find_businesses(:restaurants))
   end
@@ -97,11 +97,11 @@ class ItinerariesController < ApplicationController
   def searched_but_no_restaurants = @items[:restaurants]&.all? { |_k, v| v.empty? }
 
   def plan_eligible?
-    current_user&.credit&.positive? || current_user&.openai_key.present?
+    current_user&.credit&.positive?
   end
 
   def fresh_plan
-    if current_user&.credit&.positive? && current_user&.openai_key.blank?
+    if current_user&.credit&.positive?
       current_user.credit -= 1
       current_user.save
     end
@@ -110,13 +110,11 @@ class ItinerariesController < ApplicationController
   end
 
   def gpt_info(city)
-    GptService.new(default_key).info(city)
+    GptService.info(city)
   end
 
   def gpt_plan
-    key = current_user&.openai_key.presence || default_key
-    @gpt_plan ||= GptService.new(key).plan(@itinerary.decorate)
+    key = ENV.fetch('OPENAI_KEY', nil)
+    @gpt_plan ||= GptService.plan(@itinerary.decorate)
   end
-
-  def default_key = ENV.fetch('OPENAI_KEY', nil)
 end

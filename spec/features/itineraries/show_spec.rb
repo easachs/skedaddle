@@ -3,11 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
-  before do
-    mock_google_oauth2
-    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
-    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
-  end
+  before { mock_google_oauth2 }
 
   describe 'removes' do
     before { denver_search && click_on('Save', match: :first) }
@@ -66,14 +62,6 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'with day parts' do
       click_on 'Create Plan'
       expect(page).to have_content('Morning:')
-    end
-
-    it 'with no key', vcr: 'bad_gptkey' do
-      User.last.keys.find_by(name: 'openai').destroy
-      User.last.update!(credit: 0)
-      click_on 'Create Plan'
-
-      expect(page).to have_content('Invalid key.')
     end
   end
 
