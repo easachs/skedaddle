@@ -6,6 +6,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
+#  canceled               :boolean          default(FALSE), not null
 #  credit                 :integer          default(10)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -13,9 +14,11 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  subscribed             :boolean          default(FALSE), not null
 #  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  subscription_id        :string
 #
 # Indexes
 #
@@ -33,7 +36,8 @@ class User < ApplicationRecord
   has_many :places, through: :itineraries
   has_many :parks, through: :itineraries
   has_many :businesses, through: :itineraries
-  has_many :keys, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :payments, dependent: :destroy
 
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |user|
@@ -44,6 +48,29 @@ class User < ApplicationRecord
     end
   end
 
-  def openai_key = keys.find_by(name: 'openai')&.value
-  def trailapi_key = keys.find_by(name: 'trailapi')&.value
+  def credit_left? = subscribed? || credit.positive?
+
+  def spend_credit!
+    update!(credit: credit - 1) unless subscribed?
+  end
+
+  def add_credits(amount) = update!(credit: credit + amount)
+
+  def cancel_subscription!
+    return if subscription_id.blank?
+
+    Stripe::Subscription.update(subscription_id, cancel_at_period_end: true)
+  rescue Stripe::InvalidRequestError => e
+    Rails.logger.error "Subscription Cancellation Failed: #{e.message}"
+    false
+  end
+
+  def resume_subscription!
+    return if subscription_id.blank?
+
+    Stripe::Subscription.update(subscription_id, cancel_at_period_end: false)
+  rescue Stripe::InvalidRequestError => e
+    Rails.logger.error "Failed to resume subscription: #{e.message}"
+    false
+  end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BusinessPoro
-  attr_reader :name, :rating, :price, :categories,:location, :phone, :url, :thumbnail
+  attr_reader :name, :rating, :price, :categories, :location, :phone, :url, :thumbnail
 
   def initialize(attributes = {})
     @name       = attributes&.dig(:name)

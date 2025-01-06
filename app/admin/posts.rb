@@ -10,6 +10,7 @@ ActiveAdmin.register Post do
     column :title
     column :published
     column :created_at
+    column :updated_at
     actions
   end
 
@@ -33,7 +34,7 @@ ActiveAdmin.register Post do
       row :city
       row :title
       row :content do |post|
-        post.content.html_safe
+        post.content&.html_safe
       end
       row :published
       row :created_at

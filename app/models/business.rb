@@ -31,5 +31,6 @@
 class Business < ApplicationRecord
   validates :name, :rating, :categories, :location, :group, :kind, presence: true
   belongs_to :itinerary
+  has_one :user, through: :itinerary
   scope :favorited, -> { where(favorited: true) }
 end

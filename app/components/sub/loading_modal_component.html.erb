@@ -1,0 +1,3 @@
+<%= render Core::ModalComponent.new(trigger:, escape: false) do %>
+  <%= tag.div(class: 'lds-ellipsis') { 4.times.map { tag.div }.join.html_safe } %>
+<% end %>

@@ -1,5 +1,5 @@
 <% if weather&.any? %>
-  <% weather&.take(4)&.each do |day| %>
+  <% weather.take(4).each do |day| %>
     <%= tag.div class: 'm-2' do %>
       <p><b><%= day[:date] %></b></p>
       <p><%= day[:temp].to_i %>&deg;F</p>

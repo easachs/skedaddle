@@ -83,6 +83,14 @@ RSpec.describe ParkPoro do
     it 'thumbnail' do
       expect(park.thumbnail).to eq('http://images.singletracks.com/2009/trails/01/14-1180981080.jpg')
     end
+
+    it 'serialized' do
+      expected = { name: 'Green Mountain', location: 'Denver, Colorado, United States',
+                   description: park.description, activities: 'mountain biking, hiking',
+                   url: 'http://www.singletracks.com/item.php?c=1&i=14', directions: park.directions,
+                   thumbnail: 'http://images.singletracks.com/2009/trails/01/14-1180981080.jpg' }
+      expect(park.serialized).to eq(expected)
+    end
   end
 
   describe 'errors gracefully' do

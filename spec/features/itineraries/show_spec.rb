@@ -3,10 +3,45 @@
 require 'rails_helper'
 
 RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
-  before do
-    mock_google_oauth2
-    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
-    User.last.keys.create!(name: 'openai', value: ENV.fetch('OPENAI_KEY', nil))
+  before { mock_google_oauth2 }
+
+  describe 'has tab for' do
+    before { denver_search && click_on('Save', match: :first) }
+
+    it 'places' do
+      expect(page).to have_selector(:button, 'PLACES')
+    end
+
+    it 'info' do
+      expect(page).to have_selector(:button, 'INFO')
+    end
+
+    it 'map' do
+      expect(page).to have_selector(:button, 'MAP')
+    end
+
+    it 'plan' do
+      expect(page).to have_selector(:button, 'PLAN')
+    end
+  end
+
+  describe 'features' do
+    before { denver_search && click_on('Save', match: :first) }
+
+    describe 'favorite' do
+      let(:bakery) { Business.find_by(name: 'LoDough Bakery') }
+
+      it 'begins unfavorited' do
+        expect(bakery.favorited?).to be(false)
+      end
+
+      it 'can favorite a business' do
+        within '#business-lodough-bakery' do
+          click_on '☆'
+        end
+        expect(bakery.favorited?).to be(true)
+      end
+    end
   end
 
   describe 'removes' do
@@ -15,7 +50,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'parks' do
       within '#park-black-forest-regional-park' do
         click_on '✖', match: :first
-        within('#removal') { click_on 'Remove' }
+        within('#removal') { click_on 'Delete' }
       end
       expect(page).to have_no_content('Black Forest Regional Park')
     end
@@ -23,7 +58,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'restaurants' do
       within '#business-lodough-bakery' do
         click_on '✖', match: :first
-        within('#removal') { click_on 'Remove' }
+        within('#removal') { click_on 'Delete' }
       end
       expect(page).to have_no_content('LoDough Bakery')
     end
@@ -46,17 +81,8 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
   end
 
-  describe 'creates plan', vcr: 'denver_update' do
-    before do
-      current_user = User.last
-      itinerary = current_user.itineraries.create(search: 'Denver, CO, USA',
-                                                  city: 'Denver',
-                                                  lat: 39.740959,
-                                                  lon: -104.985798,
-                                                  start_date: '12/25/23',
-                                                  end_date: '12/27/23')
-      visit itinerary_path(itinerary)
-    end
+  describe 'creates plan' do
+    before { denver_search && click_on('Save', match: :first) }
 
     it 'with days' do
       click_on 'Create Plan'
@@ -66,14 +92,6 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     it 'with day parts' do
       click_on 'Create Plan'
       expect(page).to have_content('Morning:')
-    end
-
-    it 'with no key', vcr: 'bad_gptkey' do
-      User.last.keys.find_by(name: 'openai').destroy
-      User.last.update!(credit: 0)
-      click_on 'Create Plan'
-
-      expect(page).to have_content('Invalid key.')
     end
   end
 

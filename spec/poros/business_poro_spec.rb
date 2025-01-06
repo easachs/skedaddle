@@ -90,6 +90,14 @@ RSpec.describe BusinessPoro do
     it 'thumbnail' do
       expect(business.thumbnail).to eq('https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg')
     end
+
+    it 'serialized' do
+      expected = { name: "Spinelli's Market", rating: 4.5, price: '$$',
+                   categories: 'Delis, Specialty Food, Grocery', location: '4621 E 23rd Ave, Denver, CO 80207',
+                   phone: '(303) 329-8143', url: business.url,
+                   thumbnail: 'https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg' }
+      expect(business.serialized).to eq(expected)
+    end
   end
 
   describe 'errors gracefully' do

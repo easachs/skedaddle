@@ -25,6 +25,13 @@ RSpec.describe PlacePoro do
     it 'group' do
       expect(place.group).to eq('airport')
     end
+
+    it 'serialized' do
+      expected = { name: 'Denver International Airport',
+                   address: '8500 Pena Boulevard',
+                   group: 'airport' }
+      expect(place.serialized).to eq(expected)
+    end
   end
 
   describe 'errors gracefully' do

@@ -14,10 +14,6 @@ Rails.application.routes.draw do
   # admin
   ActiveAdmin.routes(self)
 
-  # keys
-  get 'keys', to: 'keys#index'
-  patch 'keys', to: 'keys#update'
-
   # itineraries
   resources :itineraries, except: %i[edit] do
     post 'prepare', on: :collection
@@ -27,13 +23,21 @@ Rails.application.routes.draw do
     patch :favorite, on: :member
   end
 
+  # stripe
+  post 'checkout', to: 'stripe#checkout'
+  post 'cancel', to: 'stripe#cancel'
+  post 'resub', to: 'stripe#resub'
+  post 'webhooks', to: 'webhooks#receive'
+
   # posts
-  resources :posts, only: %i[index show]
+  resources :posts, only: %i[index show] do
+    resources :comments, only: %i[create destroy]
+  end
 
   # contact
   get 'contact',  to: 'home#contact'
   post 'contact', to: 'contact#create'
-  get 'received', to: 'home#received'
+  get 'received', to: 'contact#received'
 
   # errors
   get '/404', to: 'errors#not_found'

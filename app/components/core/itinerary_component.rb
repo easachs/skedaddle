@@ -18,8 +18,8 @@ module Core
     def saved       = @options.fetch(:saved, false)
     def tab         = @options.fetch(:tab, 'places')
 
-    def search      = @geocode&.dig(:search) || itinerary&.search
-    def city        = @geocode&.dig(:city) || itinerary&.city
+    def search      = @geocode&.dig(:search) || itinerary.search
+    def city        = @geocode&.dig(:city) || itinerary.city
 
     def weather     = WeatherFacade.forecast(coordinates)
     def airports    = items&.dig(:airports)
@@ -30,7 +30,7 @@ module Core
 
     # tab classes
     def places_tab  = %w[info map plan].exclude?(tab)
-    def info_tab = itinerary&.info.present? && tab == 'info'
+    def info_tab    = itinerary&.info.present? && tab == 'info'
     def map_tab     = tab == 'map'
     def plan_tab    = tab == 'plan'
 

@@ -2,48 +2,37 @@
 
 require 'rails_helper'
 
-RSpec.describe GptService do
+RSpec.describe GptService, vcr: 'denver_search' do
   let(:itinerary) do
     Itinerary.create(search: 'Denver, CO, USA',
                      city: 'Denver',
-                     lat: 39.740959,
-                     lon: -104.985798,
+                     lat: 39.7392358,
+                     lon: -104.990251,
                      start_date: '12/25/2023',
                      end_date: '12/27/2023').decorate
   end
 
-  let(:key) { ENV.fetch('OPENAI_KEY', nil) }
-  let(:response) { described_class.new(key).plan(itinerary) }
+  let(:info_response) { described_class.info(itinerary) }
+  let(:plan_response) { described_class.plan(itinerary) }
 
-  describe 'gets plan', vcr: 'denver_update' do
+  describe 'gets info' do
     it 'as string' do
-      expect(response).to be_a(String)
+      expect(info_response).to be_a(String)
     end
 
     it 'formatted for html' do
-      expect(response).to include('<p>')
+      expect(info_response).to include('<p>')
     end
 
-    it 'with days' do
-      expect(response).to include('Day 1:')
-    end
-
-    it 'with day parts' do
-      expect(response).to include('Morning:')
+    it 'with headings' do
+      expect(info_response).to include('<h3>History</h3>')
     end
   end
 
   describe 'sad path' do
-    describe 'with bad key', vcr: 'no_gptkey' do
-      it 'errors gracefully' do
-        response = described_class.new.plan(itinerary)
-        expect(response).to be_nil
-      end
-    end
-
     describe 'with bad itinerary' do
       it 'errors gracefully' do
-        response = described_class.new(key).plan(nil)
+        response = described_class.plan(nil)
         expect(response).to be_nil
       end
     end
@@ -51,7 +40,7 @@ RSpec.describe GptService do
     describe 'with bad prompt' do
       it 'errors gracefully' do
         allow(itinerary).to receive(:prompt).and_return(nil)
-        response = described_class.new(key).plan(itinerary)
+        response = described_class.plan(itinerary)
         expect(response).to be_nil
       end
     end

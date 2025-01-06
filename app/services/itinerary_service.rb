@@ -2,46 +2,44 @@
 
 class ItineraryService
   class << self
-    def find_items(geocode)
+    # prepare
+    def prepare_items(geocode, session)
       return unless geocode
 
       { airports: PlaceFacade.near(geocode, 'airport', 50_000),
-        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000) }
+        hospitals: PlaceFacade.near(geocode, 'hospital', 5_000),
+        parks: ParkFacade.near(geocode),
+        activities: prepare_businesses(:activities, geocode, session),
+        restaurants: prepare_businesses(:restaurants, geocode, session) }
     end
 
-    def populate(itinerary, items)
-      items&.each do |group, resources|
-        if %i[airports hospitals parks].include?(group)
-          create_places(itinerary, group, resources)
-        else
-          create_businesses(itinerary, group, resources)
-        end
-      end
-      remove_duplicate_businesses(itinerary)
+    # new
+    def no_results?(items)
+      no_activities = no_results_for?(items[:activities])
+      no_restaurants = no_results_for?(items[:restaurants])
+
+      (no_activities && no_restaurants) ||
+        (items[:activities].blank? && no_restaurants) ||
+        (items[:restaurants].blank? && no_activities)
     end
 
-    def create_places(itinerary, group, resources)
-      resources&.each { |item| itinerary.send(group).create!(item.serialized) }
-    end
-
-    def create_businesses(itinerary, group, resources)
-      resources&.each do |kind, businesses|
-        businesses&.each do |bus|
-          itinerary.businesses.create!(bus.serialized.merge!(group: group.to_s, kind:))
-        end
-      end
-    end
-
-    def remove_duplicate_businesses(itinerary)
-      names = {}
-
-      itinerary.businesses.each do |bus|
-        names[bus.name] ? bus.destroy : names[bus.name] = true
-      end
-    end
-
+    # other
     def format_date(date)
       Date.parse(date).strftime('%m/%d/%y') if date.present?
     end
+
+    private
+
+    def prepare_businesses(group, geocode, session)
+      return if group.blank? || session[group].blank?
+
+      options = session[:options].transform_keys(&:to_sym)
+      session[group].transform_values do |kind|
+        options[:budget] = nil if group == :activities
+        BusinessFacade.near(geocode:, kind:, options:)
+      end
+    end
+
+    def no_results_for?(group) = group&.all? { |_k, v| v.empty? }
   end
 end

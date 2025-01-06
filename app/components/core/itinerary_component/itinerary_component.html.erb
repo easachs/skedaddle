@@ -1,5 +1,5 @@
 <%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[32rem] sm:h-[36rem]' do %>
-  <%= tag.h1 city&.to_s, class: 'text-center mb-4' %>
+  <%= tag.h1 city.to_s, class: 'text-center mb-4' %>
 
   <%= tag.div data: (saved ? { controller: 'tabs' } : {}) do %>
     <%= tag.div class: 'text-center' do %>
@@ -13,7 +13,7 @@
           <%= button_tag 'PLAN',    type: 'button', data: { action: 'tabs#showPlan', tabs_target: 'tab' },
                                     class: "tab #{'active' if plan_tab}" %>
       <% elsif !user %>
-        <%= tag.div 'Sign in to save this itinerary and create a recommended plan with ChatGPT.', class: 'm-2 warning' %>
+        <%= tag.div 'Sign in to save this itinerary and create a recommended plan.', class: 'm-2 warning' %>
         <%= tag.div class: 'p-2' do %>
           <span class='py-4 mr-2'><%= link_to 'Sign In', new_user_session_path, class: 'btn' %></span>
           <span class='py-4 m-2'><%= link_to 'Sign Up', new_user_registration_path, class: 'btn' %></span>
@@ -41,15 +41,12 @@
       <% end %>
     <% end %>
 
-    <% if !saved && user %>
+    <% if !saved && user && user.credit_left? %>
       <%= tag.div class: 'py-2 text-center' do %>
         <%= form_with url: itineraries_path do |form| %>
-          <%= render Core::ModalComponent.new(trigger: (form.submit 'Save',
-                                                        data: { turbo: false },
-                                                        class: 'btn'),
-                                              escape: false) do %>
-            <%= tag.div(class: 'lds-ellipsis') { 4.times.map { tag.div }.join.html_safe } %>
-          <% end %>
+          <%= render Sub::LoadingModalComponent.new(trigger: (form.submit 'Save',
+                                                              data: { turbo: false },
+                                                              class: 'btn')) %>
         <% end %>
       <% end %>
     <% end %>

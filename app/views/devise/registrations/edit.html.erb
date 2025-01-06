@@ -1,52 +1,60 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
     <div class='p-4 text-center'>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
-        <div class='mb-2'>
-          <%= render 'devise/shared/error_messages', resource: %>
-        </div>
+      <h1 class='text-3xl font-bold mb-4'>Account</h1>
+      <% if current_user.uid.blank? %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
+          <div class='mb-2'>
+            <%= render 'devise/shared/error_messages', resource: %>
+          </div>
 
-        <h1 class='text-3xl font-bold mb-4'>Edit User</h1>
-        <div>
-          <%= form.text_field       :name,
-                                    placeholder: 'Name',
-                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
-                                    autofocus: true,
-                                    autocomplete: 'name' %>
-        </div>
-        <div>
-          <%= form.password_field   :current_password,
-                                    placeholder: 'Current password',
-                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
-                                    autocomplete: 'current-password',
-                                    required: true %>
-        </div>
-        <div>
-          <%= form.password_field   :password,
-                                    placeholder: 'New password',
-                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
-                                    autocomplete: 'new-password' %>
-        </div>
-        <div>
-          <%= form.password_field   :password_confirmation,
-                                    placeholder: 'New password confirmation',
-                                    class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
-                                    autocomplete: 'new-password' %>
-        </div>
+          <div>
+            <%= form.password_field   :current_password,
+                                      placeholder: 'Current password',
+                                      class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                      autocomplete: 'current-password',
+                                      required: true %>
+          </div>
+          <div>
+            <%= form.password_field   :password,
+                                      placeholder: 'New password',
+                                      class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                      autocomplete: 'new-password' %>
+          </div>
+          <div>
+            <%= form.password_field   :password_confirmation,
+                                      placeholder: 'New password confirmation',
+                                      class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
+                                      autocomplete: 'new-password' %>
+          </div>
 
-        <div>
-          <%= form.submit 'Update', class: 'btn mt-4' %>
-        </div>
+          <div>
+            <%= form.submit 'Update', class: 'btn mt-4' %>
+          </div>
+        <% end %>
       <% end %>
 
-      <div class='m-2'>
-        <div>Unhappy? <%= button_to 'Cancel my account',
-                                    registration_path(resource_name),
-                                    data: { confirm: 'Are you sure?', turbo_confirm: 'Are you sure?' },
-                                    method: :delete %></div>
-
-        <%= link_to 'Back', :back %>
-      </div>
+      <% if current_user.subscribed? && !current_user.canceled? %>
+        <%= tag.div class: 'justify-center m-4' do %>
+          <%= button_to 'Unsubscribe', cancel_path,
+                                     class: 'btn red-btn', data: { turbo: false } %>
+        <% end %>
+      <% elsif current_user.subscribed? && current_user.canceled? %>
+        <%= tag.div class: 'justify-center m-4' do %>
+          <%= tag.p "Your subscription's been canceled, but your journey isn't over yet!" %>
+          <%= tag.p 'You still have full access until the end of the billing period.' %>
+          <%= tag.p 'Safe travels!' %>
+          <%= button_to 'Resume Subscription', resub_path,
+                        class: 'btn text-nowrap mt-4', data: { turbo: false } %>
+        <% end %>
+      <% else %>
+        <%= tag.div class: 'sm:flex justify-center sm:space-x-2 m-4' do %>
+          <%= button_to '+10 Credit', checkout_path(mode: 'payment', email: current_user.email),
+                                      class: 'btn text-nowrap mb-2 sm:mb-0', data: { turbo: false } %>
+          <%= button_to 'Subscribe', checkout_path(mode: 'subscription', email: current_user.email),
+                                     class: 'btn', data: { turbo: false } %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 <% end %>

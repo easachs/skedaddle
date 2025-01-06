@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Home Page' do
+RSpec.describe 'Dashboard' do
   describe 'logs in' do
     before { mock_google_oauth2 }
 

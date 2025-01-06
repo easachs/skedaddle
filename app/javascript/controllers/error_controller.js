@@ -7,7 +7,7 @@ export default class extends Controller {
     if (this.hasErrorTarget) {
       setTimeout(() => {
         this.errorTarget.classList.add("hidden");
-      }, 3000);
+      }, 5000);
     }
   }
 }

@@ -3,10 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Itinerary New', vcr: 'denver_search' do
-  before do
-    mock_google_oauth2
-    User.last.keys.create!(name: 'trailapi', value: ENV.fetch('RAPID_API_KEY', nil))
-  end
+  before { mock_google_oauth2 }
 
   describe 'displays new itinerary with' do
     before { denver_search }

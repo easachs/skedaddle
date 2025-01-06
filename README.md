@@ -77,9 +77,6 @@
 * **Errors**
     * Handles 404/500 errors
 
-* **Keys**
-    * API key creation and updates for TrailAPI and OpenAI
-
 * **Devise**
     * Handle user registrations, sessions, updates, and lost passwords
 
@@ -95,11 +92,8 @@
 * **Place/Park/Business**
     * Used to populate the itinerary with hospitals, airports, parks, activities and restaurants
 
-* **Keys**
-    * API keys with encrypted values for OpenAI (ChatGPT) and TrailAPI (parks) access
-
 * **Summary**
-    * Added to an itinerary when requested and the user has sufficient credits or an OpenAI key added
+    * Added to an itinerary when requested and the user has sufficient credits
 
 ### Components
 * **Core**
@@ -172,8 +166,6 @@
   | get | /404 | errors#not_found |
   | get | /422 | errors#unprocessable |
   | get | /500 | errors#internal_server_error |
-  | get | /keys | keys#edit |
-  | patch | /keys | keys#update |
 
   | Devise | (/users) | users/devise |
   | - | - | - |

@@ -13,6 +13,8 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
   validates :city, presence: true
   scope :published, -> { where(published: true) }
   scope :draft, -> { where(published: false) }
