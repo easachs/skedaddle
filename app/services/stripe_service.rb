@@ -7,8 +7,8 @@ class StripeService
         payment_method_types: ['card'],
         mode:,
         line_items: [{ price: price_id(mode), quantity: 1 }],
-        success_url: "#{root_url}?success=true",
-        cancel_url: "#{root_url}success=false",
+        success_url: URI.join(root_url, '?success=true').to_s,
+        cancel_url: URI.join(root_url, '?success=false').to_s,
         customer_email: email
       )
     end
