@@ -2,7 +2,6 @@
 
 class ItineraryService
   class << self
-
     # prepare
     def prepare_items(geocode, session)
       return unless geocode
@@ -11,7 +10,7 @@ class ItineraryService
         hospitals: PlaceFacade.near(geocode, 'hospital', 5_000),
         parks: ParkFacade.near(geocode),
         activities: prepare_businesses(:activities, geocode, session),
-        restaurants: prepare_businesses(:restaurants, geocode, session)}
+        restaurants: prepare_businesses(:restaurants, geocode, session) }
     end
 
     def prepare_businesses(group, geocode, session)
@@ -26,8 +25,8 @@ class ItineraryService
 
     # new
     def no_results?(items)
-      no_activities = items[:activities]&.all? { |_k, v| v.empty? }
-      no_restaurants = items[:restaurants]&.all? { |_k, v| v.empty? }
+      no_activities = no_results_for?(items[:activities])
+      no_restaurants = no_results_for?(items[:restaurants])
 
       (no_activities && no_restaurants) ||
         (items[:activities].blank? && no_restaurants) ||
@@ -38,5 +37,9 @@ class ItineraryService
     def format_date(date)
       Date.parse(date).strftime('%m/%d/%y') if date.present?
     end
+
+    private
+
+    def no_results_for?(group) = group&.all? { |_k, v| v.empty? }
   end
 end

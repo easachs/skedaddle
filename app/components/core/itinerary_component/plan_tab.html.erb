@@ -1,19 +1,21 @@
 <%= render Core::DropdownComponent.new(title: 'plan', box_class: 'p-4') do %>
   <% if itinerary.plan %>
-      <%= tag.div class: 'contentbox gpt p-4' do %>
+      <%= tag.div class: 'contentbox gpt p-4 mb-6' do %>
         <%= itinerary.plan.response.html_safe %>
       <% end %>
 
   <% else %>
-    <%= tag.div class: 'p-4 text-center' do %>
+    <%= tag.div class: 'p-4 text-center mb-6' do %>
       <p>You have not created a trip plan for this itinerary yet!</p>
       <%= tag.p 'Click below to generate a day-by-day play-by-play suggested outline for your trip.' if user.credit_left? %>
     <% end %>
   <% end %>
 
-  <%= tag.div class: 'p-4 text-center warning' do %>
-    <%= tag.p "Remaining Credit: #{user.credit}" %>
-    <%= tag.p 'Become a member or purchase credit to continue.' if !user.credit_left? %>
+  <% if !user.subscribed? %>
+    <%= tag.div class: 'p-4 text-center warning mb-6' do %>
+      <%= tag.p "Remaining Credit: #{user.credit}" %>
+      <%= tag.p 'Become a member or purchase credit to continue.' if !user.credit_left? %>
+    <% end %>
   <% end %>
 
   <% if user.credit_left? %>
@@ -25,7 +27,7 @@
 
     <% end %>
   <% else %>
-    <%= tag.div class: 'sm:flex justify-center sm:space-x-2 m-4' do %>
+    <%= tag.div class: 'flex justify-center space-x-2' do %>
       <%= button_to '+10 Credit', checkout_path(mode: 'payment', email: user.email),
                                   class: 'btn text-nowrap mb-2 sm:mb-0', data: { turbo: false } %>
       <%= button_to 'Subscribe', checkout_path(mode: 'subscription', email: user.email),

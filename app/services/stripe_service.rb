@@ -8,7 +8,7 @@ class StripeService
         mode:,
         line_items: [{ price: price_id(mode), quantity: 1 }],
         success_url: "#{root_url}?success=true",
-        cancel_url: "#{root_url}?canceled=true",
+        cancel_url: "#{root_url}success=false",
         customer_email: email
       )
     end

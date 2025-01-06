@@ -6,6 +6,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
+#  canceled               :boolean          default(FALSE), not null
 #  credit                 :integer          default(10)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -17,6 +18,7 @@
 #  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  subscription_id        :string
 #
 # Indexes
 #
@@ -53,4 +55,22 @@ class User < ApplicationRecord
   end
 
   def add_credits(amount) = update!(credit: credit + amount)
+
+  def cancel_subscription!
+    return if subscription_id.blank?
+
+    Stripe::Subscription.update(subscription_id, cancel_at_period_end: true)
+  rescue Stripe::InvalidRequestError => e
+    Rails.logger.error "Subscription Cancellation Failed: #{e.message}"
+    false
+  end
+
+  def resume_subscription!
+    return if subscription_id.blank?
+
+    Stripe::Subscription.update(subscription_id, cancel_at_period_end: false)
+  rescue Stripe::InvalidRequestError => e
+    Rails.logger.error "Failed to resume subscription: #{e.message}"
+    false
+  end
 end

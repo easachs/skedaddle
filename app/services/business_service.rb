@@ -5,7 +5,9 @@ class BusinessService
     def near(geocode: nil, kind: '', options: {})
       return unless geocode.is_a?(Hash) && geocode.present? && kind.present?
 
-      Rails.cache.fetch("business/#{kind}/#{geocode[:lat]}/#{geocode[:lon]}/#{options.values.join}", expires_in: 1.hour) do
+      cache_path = "business/#{kind}/#{geocode[:lat]}/#{geocode[:lon]}/#{options.values.join}"
+
+      Rails.cache.fetch(cache_path, expires_in: 1.hour) do
         response = fetch_businesses(geocode:, kind:, options:).body
         JSON.parse(response, symbolize_names: true)
       end

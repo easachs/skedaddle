@@ -19,9 +19,9 @@ class GptService
     def fetch_gpt(role, prompt)
       conn.post('v1/chat/completions') do |route|
         route.body = { model: 'gpt-3.5-turbo',
-                      messages: [{ role: 'system', content: role },
+                       messages: [{ role: 'system', content: role },
                                   { role: 'user', content: prompt }],
-                      temperature: 0.5 }.to_json
+                       temperature: 0.5 }.to_json
       end
     end
 

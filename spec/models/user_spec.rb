@@ -6,6 +6,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE), not null
+#  canceled               :boolean          default(FALSE), not null
 #  credit                 :integer          default(10)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -17,6 +18,7 @@
 #  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  subscription_id        :string
 #
 # Indexes
 #

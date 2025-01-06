@@ -7,5 +7,4 @@ class HomeController < ApplicationController
   def about; end
   def demo; end
   def contact; end
-  def received; end
 end

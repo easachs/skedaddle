@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   # stripe
   post 'checkout', to: 'stripe#checkout'
+  post 'cancel', to: 'stripe#cancel'
+  post 'resub', to: 'stripe#resub'
   post 'webhooks', to: 'webhooks#receive'
 
   # posts
@@ -35,7 +37,7 @@ Rails.application.routes.draw do
   # contact
   get 'contact',  to: 'home#contact'
   post 'contact', to: 'contact#create'
-  get 'received', to: 'home#received'
+  get 'received', to: 'contact#received'
 
   # errors
   get '/404', to: 'errors#not_found'

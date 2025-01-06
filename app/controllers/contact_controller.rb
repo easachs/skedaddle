@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ContactController < ApplicationController
+  layout 'home'
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?
@@ -10,6 +12,8 @@ class ContactController < ApplicationController
       redirect_with_message(message: 'send_failed', path: contact_path)
     end
   end
+
+  def received; end
 
   private
 

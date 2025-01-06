@@ -3,7 +3,7 @@
                                         current_user: %>
 
 <% if params[:prompt].present? %>
-<% if (current_user&.subscribed? || current_user&.credit <= 2) %>
-  <%= render Sub::StripePopupComponent.new(current_user:, delay: 1000) %>
-<% end %>
+  <% if (!current_user&.subscribed? && current_user&.credit <= 2) %>
+    <%= render Sub::StripePopupComponent.new(current_user:, delay: 1000) %>
+  <% end %>
 <% end %>
