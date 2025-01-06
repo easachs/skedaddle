@@ -5,6 +5,45 @@ require 'rails_helper'
 RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
   before { mock_google_oauth2 }
 
+  describe 'has tab for' do
+    before { denver_search && click_on('Save', match: :first) }
+
+    it 'places' do
+      expect(page).to have_selector(:button, 'PLACES')
+    end
+
+    it 'info' do
+      expect(page).to have_selector(:button, 'INFO')
+    end
+
+    it 'map' do
+      expect(page).to have_selector(:button, 'MAP')
+    end
+
+    it 'plan' do
+      expect(page).to have_selector(:button, 'PLAN')
+    end
+  end
+
+  describe 'features' do
+    before { denver_search && click_on('Save', match: :first) }
+
+    describe 'favorite' do
+      let(:bakery) { Business.find_by(name: 'LoDough Bakery') }
+
+      it 'begins unfavorited' do
+        expect(bakery.favorited?).to be(false)
+      end
+
+      it 'can favorite a business' do
+        within '#business-lodough-bakery' do
+          click_on '☆'
+        end
+        expect(bakery.favorited?).to be(true)
+      end
+    end
+  end
+
   describe 'removes' do
     before { denver_search && click_on('Save', match: :first) }
 

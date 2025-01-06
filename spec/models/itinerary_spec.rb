@@ -35,10 +35,25 @@ RSpec.describe Itinerary do
     it { is_expected.to validate_presence_of(:lon) }
     it { is_expected.to validate_presence_of(:start_date) }
     it { is_expected.to validate_presence_of(:end_date) }
+  end
+
+  describe 'relations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:businesses) }
     it { is_expected.to have_many(:parks) }
     it { is_expected.to have_many(:places) }
     it { is_expected.to have_many(:summaries) }
+  end
+
+  describe 'instance methods' do
+    let!(:itinerary) { create(:itinerary) }
+
+    it 'coordinates' do
+      expect(itinerary.coordinates).to include(:lat, :lon)
+    end
+
+    it 'items' do
+      expect(itinerary.items).to be_a(Hash)
+    end
   end
 end

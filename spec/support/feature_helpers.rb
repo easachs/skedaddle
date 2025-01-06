@@ -24,4 +24,9 @@ module FeatureHelpers
     check 'Bakeries'
     click_on 'SKEDADDLE'
   end
+
+  def nav_to_admin
+    User.last.update!(admin: true)
+    visit admin_root_path
+  end
 end

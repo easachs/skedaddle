@@ -6,13 +6,12 @@ RSpec.describe GptService, vcr: 'denver_search' do
   let(:itinerary) do
     Itinerary.create(search: 'Denver, CO, USA',
                      city: 'Denver',
-                     lat: 39.740959,
-                     lon: -104.985798,
+                     lat: 39.7392358,
+                     lon: -104.990251,
                      start_date: '12/25/2023',
                      end_date: '12/27/2023').decorate
   end
 
-  let(:key) { ENV.fetch('OPENAI_KEY', nil) }
   let(:info_response) { described_class.info(itinerary) }
   let(:plan_response) { described_class.plan(itinerary) }
 

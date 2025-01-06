@@ -34,7 +34,7 @@ ActiveAdmin.register Post do
       row :city
       row :title
       row :content do |post|
-        post.content.html_safe
+        post.content&.html_safe
       end
       row :published
       row :created_at

@@ -27,6 +27,9 @@ RSpec.describe Place do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_presence_of(:group) }
+  end
+
+  describe 'relations' do
     it { is_expected.to belong_to(:itinerary) }
   end
 end

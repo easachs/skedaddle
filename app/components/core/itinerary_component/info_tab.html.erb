@@ -1,5 +1,7 @@
-<%= render Core::DropdownComponent.new(title: 'info', box_class: 'p-4') do %>
-  <%= tag.div class: 'contentbox gpt p-4' do %>
-    <%= itinerary.info.response.html_safe %>
+<% if itinerary.info.present? %>
+  <%= render Core::DropdownComponent.new(title: 'info', box_class: 'p-4') do %>
+    <%= tag.div class: 'contentbox gpt p-4' do %>
+      <%= itinerary.info.response.html_safe %>
+    <% end %>
   <% end %>
 <% end %>

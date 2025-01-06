@@ -36,8 +36,12 @@ RSpec.describe Business do
     it { is_expected.to validate_presence_of(:rating) }
     it { is_expected.to validate_presence_of(:categories) }
     it { is_expected.to validate_presence_of(:location) }
-    it { is_expected.to validate_presence_of(:kind) }
     it { is_expected.to validate_presence_of(:group) }
+    it { is_expected.to validate_presence_of(:kind) }
+  end
+
+  describe 'relations' do
     it { is_expected.to belong_to(:itinerary) }
+    it { is_expected.to have_one(:user).through(:itinerary) }
   end
 end

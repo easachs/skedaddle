@@ -13,16 +13,6 @@ class ItineraryService
         restaurants: prepare_businesses(:restaurants, geocode, session) }
     end
 
-    def prepare_businesses(group, geocode, session)
-      return if group.blank? || session[group].blank?
-
-      options = session[:options].transform_keys(&:to_sym)
-      session[group].transform_values do |kind|
-        options[:budget] = nil if group == :activities
-        BusinessFacade.near(geocode:, kind:, options:)
-      end
-    end
-
     # new
     def no_results?(items)
       no_activities = no_results_for?(items[:activities])
@@ -39,6 +29,16 @@ class ItineraryService
     end
 
     private
+
+    def prepare_businesses(group, geocode, session)
+      return if group.blank? || session[group].blank?
+
+      options = session[:options].transform_keys(&:to_sym)
+      session[group].transform_values do |kind|
+        options[:budget] = nil if group == :activities
+        BusinessFacade.near(geocode:, kind:, options:)
+      end
+    end
 
     def no_results_for?(group) = group&.all? { |_k, v| v.empty? }
   end

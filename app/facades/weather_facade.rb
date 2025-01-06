@@ -3,7 +3,7 @@
 class WeatherFacade
   class << self
     def forecast(location = {})
-      return if location.blank?
+      return if location.blank? || !location.is_a?(Hash)
 
       weather = WeatherService.forecast(location)
       WeatherPoro.new(weather).days
