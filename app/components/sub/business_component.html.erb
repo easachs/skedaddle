@@ -1,4 +1,4 @@
-<%= tag.div id: "business-#{business.name.parameterize}", class: 'contentbox relative mb-4 sm:mb-6 p-4 lg:min-h-72' do %>
+<%= tag.div id: "business-#{business.name.parameterize}", class: 'contentbox relative mb-2 p-4 lg:min-h-72' do %>
   <%= tag.div class: 'sm:text-base' do %>
     <%= render(Sub::ZoomComponent.new) { business.thumbnail } if business.thumbnail.present? %>
     <%= render('shared/favorite', business: business) if saved %>

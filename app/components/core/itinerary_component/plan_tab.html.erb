@@ -1,18 +1,17 @@
-<%= render Core::DropdownComponent.new(title: 'plan', box_class: 'p-4') do %>
+<%= tag.div class: 'mt-4 sm:mt-0 h-[65vh] sm:h-[75vh] overflow-y-auto p-2 sm:pt-4' do %>
   <% if itinerary.plan %>
-      <%= tag.div class: 'contentbox gpt p-4 mb-6' do %>
-        <%= itinerary.plan.response.html_safe %>
-      <% end %>
-
+    <%= tag.div class: 'contentbox gpt p-4 mb-4' do %>
+      <%= itinerary.plan.response.html_safe %>
+    <% end %>
   <% else %>
-    <%= tag.div class: 'p-4 text-center mb-6' do %>
+    <%= tag.div class: 'p-4 text-center mb-4' do %>
       <p>You have not created a trip plan for this itinerary yet!</p>
       <%= tag.p 'Click below to generate a day-by-day play-by-play suggested outline for your trip.' if user.credit_left? %>
     <% end %>
   <% end %>
 
-  <% if !user.subscribed? %>
-    <%= tag.div class: 'p-4 text-center warning mb-6' do %>
+  <% if !user.subscribed? || user.canceled? %>
+    <%= tag.div class: 'p-2 text-center warning mb-2' do %>
       <%= tag.p "Remaining Credit: #{user.credit}" %>
       <%= tag.p 'Become a member or purchase credit to continue.' if !user.credit_left? %>
     <% end %>

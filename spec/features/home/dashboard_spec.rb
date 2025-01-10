@@ -32,7 +32,7 @@ RSpec.describe 'Dashboard' do
 
     it 'redirects to log in if OAuth2 error' do
       click_on('Sign In with GoogleOauth2')
-      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("Username can't be blank")
     end
   end
 end

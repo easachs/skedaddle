@@ -1,10 +1,10 @@
-<%= turbo_frame_tag 'itinerary' do %>
+
   <%= render Core::ItineraryComponent.new itinerary: @itinerary,
                                           items: @itinerary&.items,
                                           saved: true,
                                           tab: params[:tab],
                                           current_user: %>
-<% end %>
+
 
 <% if (!current_user.subscribed? || current_user.credit <= 2) %>
   <%= render Sub::StripePopupComponent.new(current_user:) %>

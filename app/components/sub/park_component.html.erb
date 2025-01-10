@@ -1,4 +1,4 @@
-<%= tag.div id: "park-#{park.name.parameterize}", class: 'contentbox relative mb-4 sm:mb-6 p-4' do %>
+<%= tag.div id: "park-#{park.name.parameterize}", class: 'contentbox relative mb-4 p-4' do %>
   <%= tag.div class: 'sm:text-base' do %>
     <%= render(Sub::ZoomComponent.new) { park.thumbnail } if park.thumbnail.present? %>
     <%= link_to park.name, park.url, class: 'font-bold my-2' %>

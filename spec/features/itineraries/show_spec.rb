@@ -95,6 +95,23 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
     end
   end
 
+  describe "doesn't create plan if no credit" do
+    before do
+      denver_search && click_on('Save', match: :first)
+      User.last.update!(credit: 0)
+    end
+
+    it 'redirects' do
+      click_on 'Create Plan'
+      expect(page).to have_current_path(itinerary_path(Itinerary.last))
+    end
+
+    it 'displays error' do
+      click_on 'Create Plan'
+      expect(page).to have_content('Add credit to continue.')
+    end
+  end
+
   describe 'nonexistent itinerary' do
     before { visit itinerary_path(999) }
 
