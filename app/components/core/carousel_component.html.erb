@@ -1,12 +1,14 @@
 <%= tag.div class: 'lg:flex items-center' do %>
   <%= tag.div class: 'w-full lg:w-3/5' do %>
-    <%= tag.div class: 'bg-white bg-opacity-70 rounded-xl sm:rounded-none sm:rounded-tl-xl' do %>
-      <%= content %>
+    <%= tag.div class: 'bg-white bg-opacity-70 rounded-xl lg:rounded-none lg:rounded-tl-xl' do %>
+      <%=tag.div class: 'max-h-[85vh] overflow-y-auto' do %>
+        <%= content %>
+      <% end %>
     <% end %>
   <% end %>
   <%= tag.div class: 'hidden lg:block lg:w-2/5' do %>
     <%= tag.div data: { controller: 'carousel' } do %>
-      <% (1..8).to_a.each do |num| %>
+      <% (1..7).to_a.each do |num| %>
         <%= tag.div data: { carousel_target: 'photo', action: 'click->carousel#nextSlide' } do %>
           <%= image_tag "carousel/slide-#{num}.jpg", class: 'w-100', style: 'border-bottom-right-radius: 12px;' %>
         <% end %>

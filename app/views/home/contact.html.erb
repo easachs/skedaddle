@@ -2,14 +2,6 @@
   <%= form_with url: contact_path, method: :post do |form| %>
     <%= tag.h1 'Contact', class: 'mb-4' %>
       <%= tag.div do %>
-        <%= form.text_field   :name,
-                              value: current_user&.name,
-                              placeholder: 'Name',
-                              class: 'w-full sm:w-2/3 h-8 mb-2 rounded',
-                              readonly: current_user&.name,
-                              required: true %>
-      <% end %>
-      <%= tag.div do %>
         <%= form.email_field  :email,
                               value: current_user&.email,
                               placeholder: 'Email',

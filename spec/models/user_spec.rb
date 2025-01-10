@@ -10,12 +10,12 @@
 #  credit                 :integer          default(10)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  name                   :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  subscribed             :boolean          default(FALSE), not null
 #  uid                    :string
+#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  subscription_id        :string
@@ -30,7 +30,7 @@ require 'rails_helper'
 RSpec.describe User do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:email) }
-    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_numericality_of(:credit) }
   end
 
@@ -55,8 +55,8 @@ RSpec.describe User do
         expect(described_class.last.uid).to eq('123456')
       end
 
-      it 'returns name' do
-        expect(described_class.last.name).to eq('John Doe')
+      it 'returns username' do
+        expect(described_class.last.username).to eq('johndoe')
       end
 
       it 'returns email' do
@@ -85,6 +85,50 @@ RSpec.describe User do
     it 'has no credit' do
       10.times { user.spend_credit! }
       expect(user.credit).to be(0)
+    end
+  end
+
+  describe 'stripe methods' do
+    let(:user) { create(:user, subscription_id: 'sub_123') }
+
+    before { allow(Stripe::Subscription).to receive(:update) }
+
+    describe 'cancels subscription' do
+      it 'when subscription_id is present' do
+        user.cancel_subscription!
+        expect(Stripe::Subscription).to have_received(:update).with('sub_123', cancel_at_period_end: true)
+      end
+
+      it 'does not call stripe when subscription_id is blank' do
+        user.update(subscription_id: nil)
+        user.cancel_subscription!
+        expect(Stripe::Subscription).not_to have_received(:update)
+      end
+
+      it 'returns false when stripe raises error' do
+        allow(Stripe::Subscription).to receive(:update).and_raise(Stripe::InvalidRequestError.new('Error', 'param'))
+        result = user.cancel_subscription!
+        expect(result).to be_falsey
+      end
+    end
+
+    describe 'resumes subscription' do
+      it 'when subscription_id is present' do
+        user.resume_subscription!
+        expect(Stripe::Subscription).to have_received(:update).with('sub_123', cancel_at_period_end: false)
+      end
+
+      it 'does not call stripe when subscription_id is blank' do
+        user.update(subscription_id: nil)
+        user.resume_subscription!
+        expect(Stripe::Subscription).not_to have_received(:update)
+      end
+
+      it 'returns false when stripe raises error' do
+        allow(Stripe::Subscription).to receive(:update).and_raise(Stripe::InvalidRequestError.new('Error', 'param'))
+        result = user.resume_subscription!
+        expect(result).to be_falsey
+      end
     end
   end
 end

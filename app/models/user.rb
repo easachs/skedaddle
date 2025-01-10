@@ -10,12 +10,12 @@
 #  credit                 :integer          default(10)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  name                   :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  subscribed             :boolean          default(FALSE), not null
 #  uid                    :string
+#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  subscription_id        :string
@@ -30,7 +30,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
-  validates :email, :name, presence: true
+  validates :email, :username, presence: true
   validates :credit, numericality: { greater_than_or_equal_to: 0 }
   has_many :itineraries, dependent: :destroy
   has_many :places, through: :itineraries
@@ -42,7 +42,7 @@ class User < ApplicationRecord
   def self.from_omniauth(response)
     find_or_create_by(uid: response[:uid]) do |user|
       user.uid       = response[:uid]
-      user.name      = response[:info][:name]
+      user.username  = response[:info][:email].split('@').first
       user.email     = response[:info][:email]
       user.password  = Devise.friendly_token[0, 20]
     end

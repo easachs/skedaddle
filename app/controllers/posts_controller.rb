@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.published
                  .order(created_at: :desc)
                  .page(params[:page])
-                 .per(8)
+                 .per(10)
   end
 
   def show

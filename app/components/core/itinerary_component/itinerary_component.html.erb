@@ -1,53 +1,51 @@
-<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[32rem] sm:h-[36rem]' do %>
-  <%= tag.h1 city.to_s, class: 'text-center mb-4' %>
-
+<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[85vh]' do %>
   <%= tag.div data: (saved ? { controller: 'tabs' } : {}) do %>
-    <%= tag.div class: 'text-center' do %>
-      <% if saved %>
-          <%= button_tag 'PLACES',  type: 'button', data: { action: 'tabs#showPlaces', tabs_target: 'tab' },
-                                    class: "tab #{'active' unless info_tab || map_tab || plan_tab}" %>
-          <%= button_tag 'INFO',    type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
-                                    class: "tab #{'active' if info_tab} #{'hidden' if itinerary.info.blank?}" %>
-          <%= button_tag 'MAP',     type: 'button', data: { action: 'tabs#showMap', tabs_target: 'tab' },
-                                    class: "hidden sm:inline tab #{'active' if map_tab}" %>
-          <%= button_tag 'PLAN',    type: 'button', data: { action: 'tabs#showPlan', tabs_target: 'tab' },
-                                    class: "tab #{'active' if plan_tab}" %>
-      <% elsif !user %>
-        <%= tag.div 'Sign in to save this itinerary and create a recommended plan.', class: 'm-2 warning' %>
-        <%= tag.div class: 'p-2' do %>
-          <span class='py-4 mr-2'><%= link_to 'Sign In', new_user_session_path, class: 'btn' %></span>
-          <span class='py-4 m-2'><%= link_to 'Sign Up', new_user_registration_path, class: 'btn' %></span>
+    <%= tag.div class: 'sm:flex justify-between mx-2' do %>
+      <%= tag.h1 city.to_s, class: 'text-center mb-2' %>
+
+      <%= tag.div class: 'sm:flex sm:gap-1 text-center' do %>
+        <% if saved %>
+            <%= button_tag 'PLACES',  type: 'button', data: { action: 'tabs#showPlaces', tabs_target: 'tab' },
+                                      class: "tab #{'active' unless info_tab || map_tab || plan_tab}" %>
+            <%= button_tag 'INFO',    type: 'button', data: { action: 'tabs#showInfo', tabs_target: 'tab' },
+                                      class: "tab #{'active' if info_tab} #{'hidden' if itinerary.info.blank?}" %>
+            <%= button_tag 'MAP',     type: 'button', data: { action: 'tabs#showMap', tabs_target: 'tab' },
+                                      class: "tab #{'active' if map_tab}" %>
+            <%= button_tag 'PLAN',    type: 'button', data: { action: 'tabs#showPlan', tabs_target: 'tab' },
+                                      class: "tab #{'active' if plan_tab}" %>
+        <% elsif !user %>
+          <%= tag.div 'Sign in to save this itinerary.', class: 'm-2 warning' %>
+          <%= tag.div class: 'pt-2 hidden sm:block' do %>
+            <span class='py-4 mr-2'><%= link_to 'Sign In', new_user_session_path, class: 'btn' %></span>
+            <span class='py-4 ml-2'><%= link_to 'Sign Up', new_user_registration_path, class: 'btn' %></span>
+          <% end %>
+        <% else %>
+          <%= tag.div class: 'pt-1' do %>
+            <%= form_with url: itineraries_path do |form| %>
+              <%= render Sub::LoadingModalComponent.new(trigger: (form.submit 'Save',
+                                                                  data: { turbo: false },
+                                                                  class: 'btn')) %>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
 
-    <%= tag.div class: 'mt-4 sm:mt-0 h-96 sm:h-[28rem] overflow-y-auto' do %>
-      <%= tag.div id: 'places', data: { tabs_target: 'places' }, class: "mt-4 sm:mt-0 #{'hidden' if info_tab || map_tab || plan_tab}" do %>
-        <%= render PlacesTab.new(itinerary:, geocode:, items:, current_user: user, saved:) %>
-      <% end %>
-
-      <% if saved %>
-        <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: "mt-4 sm:mt-0 #{'hidden' unless info_tab}" do %>
-          <%= render InfoTab.new(itinerary:) %>
-        <% end %>
-
-        <%= tag.div id: 'map', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
-          <%= render MapTab.new(itinerary:) %>
-        <% end %>
-
-        <%= tag.div id: 'plan', data: { tabs_target: 'plan' }, class: "mt-4 sm:mt-0 #{'hidden' unless plan_tab}" do %>
-          <%= render PlanTab.new(itinerary:, current_user: user) %>
-        <% end %>
-      <% end %>
+    <%= tag.div id: 'places', data: { tabs_target: 'places' }, class: "mt-4 sm:mt-0 #{'hidden' if info_tab || map_tab || plan_tab}" do %>
+      <%= render PlacesTab.new(itinerary:, geocode:, items:, current_user: user, saved:) %>
     <% end %>
 
-    <% if !saved && user && user.credit_left? %>
-      <%= tag.div class: 'py-2 text-center' do %>
-        <%= form_with url: itineraries_path do |form| %>
-          <%= render Sub::LoadingModalComponent.new(trigger: (form.submit 'Save',
-                                                              data: { turbo: false },
-                                                              class: 'btn')) %>
-        <% end %>
+    <% if saved %>
+      <%= tag.div id: 'info', data: { tabs_target: 'info' }, class: "mt-4 sm:mt-0 #{'hidden' unless info_tab}" do %>
+        <%= render InfoTab.new(itinerary:) %>
+      <% end %>
+
+      <%= tag.div id: 'map', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
+        <%= render MapTab.new(itinerary:) %>
+      <% end %>
+
+      <%= tag.div id: 'plan', data: { tabs_target: 'plan' }, class: "mt-4 sm:mt-0 #{'hidden' unless plan_tab}" do %>
+        <%= render PlanTab.new(itinerary:, current_user: user) %>
       <% end %>
     <% end %>
   <% end %>

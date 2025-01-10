@@ -1,8 +1,8 @@
-<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[32rem] sm:h-[36rem]' do %>
+<%= tag.div class: 'bg-white bg-opacity-70 rounded-xl p-4 h-[85vh]' do %>
   <%= tag.h1 @post.title, class: 'text-center mb-2' %>
   <p class='text-sm text-slate-500 text-center mb-4'>Posted <%= @post.updated_at.strftime('%m/%d/%y') %></p>
 
-  <%= tag.div class: 'mt-4 sm:mt-0 h-[26rem] sm:h-[28rem] overflow-y-auto' do %>
+  <%= tag.div class: 'mt-4 sm:mt-0 h-[65vh] sm:h-[32rem] overflow-y-auto' do %>
     <%= render Core::DropdownComponent.new(title: 'post', box_class: 'p-4') do %>
       <%= tag.div class: 'contentbox gpt p-4' do %>
         <%= @post.content.html_safe %>
@@ -15,7 +15,7 @@
 
           <% @post.comments.each do |comment| %>
             <%= tag.div class: 'relative my-2' do %>
-              <%= tag.div "#{tag.b(comment.user.email)}: #{h(comment.content)}".html_safe, class: 'break-all' %>
+              <%= tag.div "#{tag.b(comment.user.username)}: #{h(comment.content)}".html_safe, class: 'break-all' %>
               <% if comment.user == current_user %>
                   <%= render Sub::RemovalModalComponent.new(trigger_class: 'absolute bottom-0 right-0',
                                                             removal_path: post_comment_path(@post, comment)) %>

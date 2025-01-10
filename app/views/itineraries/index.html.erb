@@ -1,6 +1,6 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
-    <%= tag.div class: 'p-4' do %>
+    <%= tag.div class: 'p-4 max-h-[85vh]' do %>
       <%= tag.h1 'Itineraries', class: 'text-center mb-4' %>
 
       <% if @itineraries.blank? %>
@@ -10,7 +10,7 @@
         <% end %>
       <% end %>
 
-      <%= tag.div class: 'grid h-[26rem] sm:h-full overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+      <%= tag.div class: 'grid max-h-[65vh] overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
         <% @itineraries.each do |itinerary| %>
           <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-2' do %>
             <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
