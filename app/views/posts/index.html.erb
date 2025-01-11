@@ -8,14 +8,15 @@
           Looks like there's nothing here yet! Check back later.
         <% end %>
       <% else %>
-        <%= tag.div class: 'grid h-[65vh] sm:h-[60vh] content-start overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+        <%= tag.div class: 'grid h-[65vh] sm:h-[60vh] content-start text-slate-500 overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
           <% @posts.each do |post| %>
             <%= tag.div class: 'contentbox p-2' do %>
               <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
                 <%= link_to post.title, post_path(post), data: { turbo: false } %>
               <% end %>
+              <%= tag.p post.country %>
               <%= tag.div class: 'flex justify-between' do %>
-                <p class='text-sm text-slate-500'>Posted <%= post.updated_at.strftime('%m/%d/%y') %></p>
+                <p class='text-sm'>Posted <%= post.updated_at.strftime('%m/%d/%y') %></p>
               <% end %>
             <% end %>
           <% end %>

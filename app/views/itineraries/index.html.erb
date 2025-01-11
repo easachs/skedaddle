@@ -10,17 +10,18 @@
         <% end %>
       <% end %>
 
-      <%= tag.div class: 'grid h-[65vh] sm:h-[60vh] content-start overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+      <%= tag.div class: 'grid h-[65vh] sm:h-[60vh] content-start text-slate-500 overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
         <% @itineraries.each do |itinerary| %>
           <%= tag.div class: 'contentbox p-2' do %>
             <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
               <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
             <% end %>
+            <%= tag.p itinerary.country %>
             <%= tag.div class: 'flex justify-between' do %>
               <% if itinerary.start_date && itinerary.end_date %>
-                <p class='text-sm text-slate-500'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+                <p class='text-sm'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
               <% end %>
-              <p class='text-sm text-slate-500'><%= itinerary.created %></p>
+              <p class='text-sm'><%= itinerary.created %></p>
             <% end %>
           <% end %>
         <% end %>
