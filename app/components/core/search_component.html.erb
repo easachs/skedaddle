@@ -51,7 +51,7 @@
     <% end %>
 
     <%= tag.div class: 'sm:flex flex-wrap justify-between items-center text-xs sm:text-sm px-2 sm:mb-4 sm:m-0' do %>
-      <%= tag.div class: 'hidden sm:flex justify-between items-center mb-2' do %>
+      <%= tag.div class: 'flex justify-between items-center mb-2' do %>
         <span class='font-bold mr-2'>BUDGET</span>
         <%= tag.div class: 'flex sm:justify-center text-sm' do %>
           <% [['$', '1'], ['$$', '1,2'], ['$$$', '1,2,3'], ['$$$$', '1,2,3,4']].each do |(label, value)| %>
@@ -63,7 +63,7 @@
         <% end %>
       <% end %>
 
-      <%= tag.div class: 'hidden sm:flex items-center justify-between sm:justify-center mb-2',
+      <%= tag.div class: 'flex items-center justify-between sm:justify-center mb-2',
                             data: { controller: 'slider' } do %>
         <span class='sm:hidden font-bold'>RADIUS</span>
         <%= tag.div class: 'flex items-center justify-center' do %>

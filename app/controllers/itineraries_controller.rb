@@ -9,7 +9,7 @@ class ItinerariesController < ApplicationController
     @itineraries = current_user.itineraries
                                .order(updated_at: :desc)
                                .page(params[:page])
-                               .per(10)
+                               .per(12)
   end
 
   def show

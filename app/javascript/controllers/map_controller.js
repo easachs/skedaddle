@@ -25,13 +25,36 @@ export default class extends Controller {
         zoom: 12,
         center: position,
         mapId: "MAP_ID",
+        keyboardShortcuts: false,
+        streetViewControl: false
       });
 
-      Object.entries(items).forEach(([name, location]) => {
-        new AdvancedMarkerElement({
+      const infoWindow = new google.maps.InfoWindow();
+
+      Object.entries(items).forEach(([name, details]) => {
+
+        // const mapTag = document.createElement("div");
+        // mapTag.className = "map-tag";
+        // mapTag.textContent = name;
+
+        const marker = new AdvancedMarkerElement({
           map: map,
-          position: { lat: location.lat, lng: location.lon },
-          title: name,
+          position: { lat: details.lat, lng: details.lon },
+          title: name//,
+          // content: mapTag
+        });
+
+        const content = `
+          <div class="info-window">
+            <strong>${name}</strong>
+            <p>${details.location}</p>
+          </div>
+        `;
+
+        marker.addListener("click", () => {
+          infoWindow.close();
+          infoWindow.setContent(content);
+          infoWindow.open(map, marker);
         });
       });
     }

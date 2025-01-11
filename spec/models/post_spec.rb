@@ -7,6 +7,7 @@
 #  id         :bigint           not null, primary key
 #  city       :string
 #  content    :text
+#  country    :string
 #  published  :boolean
 #  title      :string
 #  created_at :datetime         not null

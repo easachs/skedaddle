@@ -1,6 +1,6 @@
 <%= render Core::CarouselComponent.new do %>
   <%= turbo_frame_tag 'home' do %>
-    <%= tag.div class: 'p-4 max-h-[85vh]' do %>
+    <%= tag.div class: 'p-4 h-[85vh] sm:h-[75vh]' do %>
       <%= tag.h1 'Itineraries', class: 'text-center mb-4' %>
 
       <% if @itineraries.blank? %>
@@ -10,9 +10,9 @@
         <% end %>
       <% end %>
 
-      <%= tag.div class: 'grid max-h-[65vh] overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
+      <%= tag.div class: 'grid h-[65vh] sm:h-[60vh] content-start overflow-y-auto grid-cols-1 sm:grid-cols-2 gap-4 mb-4' do %>
         <% @itineraries.each do |itinerary| %>
-          <%= tag.div class: 'bg-white bg-opacity-50 rounded-lg shadow-lg p-2' do %>
+          <%= tag.div class: 'contentbox p-2' do %>
             <%= tag.h5 class: 'text-lg font-semibold truncate' do %>
               <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
             <% end %>
@@ -26,9 +26,7 @@
         <% end %>
       <% end %>
 
-      <%= tag.div class: 'pl-4' do %>
-        <%= paginate @itineraries %>
-      <% end %>
+      <%= paginate @itineraries %>
     <% end %>
   <% end %>
 <% end %>

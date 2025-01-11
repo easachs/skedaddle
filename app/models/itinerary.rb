@@ -45,12 +45,14 @@ class Itinerary < ApplicationRecord
   def info        = summaries.find_by(kind: 'info')
   def plan        = summaries.find_by(kind: 'plan')
 
+  # show
   def map_items
     items = businesses + parks
     points = {}
     items.map do |item|
       next if item.lat.nil? || item.lon.nil?
-      points[item.name] = { lat: item.lat, lon: item.lon }
+
+      points[item.name] = { location: item.location, lat: item.lat, lon: item.lon }
     end
     points.to_json
   end

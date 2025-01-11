@@ -1,13 +1,13 @@
 en:
   flash:
     messages:
-      cancel_error: 'Error canceling subscription.'
+      cancel_error: 'Error canceling.'
       canceled: 'Subscription canceled.'
       no_access: "This isn't yours."
-      no_credit: 'Add credit to continue.'
+      no_credit: 'No credit.'
       no_results: 'No results.'
       not_found: 'Not found.'
-      resub_error: 'Error resuming subscription.'
+      resub_error: 'Error resuming.'
       resubbed: 'Subscription resumed.'
       send_failed: 'Send failed.'
       something: 'Something went wrong.'

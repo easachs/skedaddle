@@ -57,4 +57,12 @@
   #map {
     @apply w-full h-[65vh] sm:h-[70vh] rounded-lg
   }
+
+  .info-window {
+    @apply max-w-[200px]
+  }
+
+  .map-tag {
+    @apply bg-blue-500 text-white rounded p-2 relative text-sm
+  }
 }

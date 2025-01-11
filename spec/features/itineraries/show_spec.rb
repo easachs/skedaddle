@@ -108,7 +108,7 @@ RSpec.describe 'Itinerary Show', vcr: 'denver_search' do
 
     it 'displays error' do
       click_on 'Create Plan'
-      expect(page).to have_content('Add credit to continue.')
+      expect(page).to have_content('No credit.')
     end
   end
 
