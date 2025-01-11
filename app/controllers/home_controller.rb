@@ -4,6 +4,5 @@ class HomeController < ApplicationController
   layout 'home'
 
   def home; end
-  def demo; end
   def contact; end
 end

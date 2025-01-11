@@ -53,4 +53,8 @@
   .warning {
     @apply text-red-500
   }
+
+  #map {
+    @apply w-full h-[65vh] sm:h-[70vh] rounded-lg
+  }
 }

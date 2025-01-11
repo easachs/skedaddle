@@ -8,7 +8,9 @@
 #  activities   :string
 #  description  :string
 #  directions   :string
+#  lat          :float
 #  location     :string
+#  lon          :float
 #  name         :string
 #  thumbnail    :string
 #  url          :string

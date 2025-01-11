@@ -9,7 +9,9 @@
 #  favorited    :boolean          default(FALSE)
 #  group        :string
 #  kind         :string
+#  lat          :float
 #  location     :string
+#  lon          :float
 #  name         :string
 #  phone        :string
 #  price        :string

@@ -1,3 +1,7 @@
+<% key = ENV.fetch('GOOGLE_MAPS_KEY', nil) %>
+<%= tag.script(nil, src: "https://maps.googleapis.com/maps/api/js?key=#{key}&libraries=places&callback=initAutocomplete",
+               defer: true, data: { turbo: false }) %>
+
 <%= tag.div class: 'overflow-y-auto p-4' do %>
   <%= form_with url: prepare_itineraries_path, data: { controller: 'search' } do |form| %>
     <%= tag.div class: 'py-2' do %>
@@ -9,7 +13,7 @@
                               autofocus: true,
                               autocomplete: 'off',
                               data: { controller: 'address', search_target: 'field',
-                                      action: 'google-maps-callback@window->address#initAutocomplete
+                                      action: 'autocomplete-callback@window->address#autocomplete
                                               input->search#onFieldChange
                                               keydown->address#keydown' } %>
 

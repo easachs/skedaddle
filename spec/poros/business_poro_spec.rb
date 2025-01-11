@@ -91,11 +91,19 @@ RSpec.describe BusinessPoro do
       expect(business.thumbnail).to eq('https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg')
     end
 
+    it 'lat' do
+      expect(business.lat).to eq(39.751168)
+    end
+
+    it 'lon' do
+      expect(business.lon).to eq(-104.933227)
+    end
+
     it 'serialized' do
-      expected = { name: "Spinelli's Market", rating: 4.5, price: '$$',
-                   categories: 'Delis, Specialty Food, Grocery', location: '4621 E 23rd Ave, Denver, CO 80207',
-                   phone: '(303) 329-8143', url: business.url,
-                   thumbnail: 'https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg' }
+      expected = { name: "Spinelli's Market", rating: 4.5, price: '$$', categories: 'Delis, Specialty Food, Grocery',
+                   location: '4621 E 23rd Ave, Denver, CO 80207', phone: '(303) 329-8143', url: business.url,
+                   thumbnail: 'https://s3-media4.fl.yelpcdn.com/bphoto/I41o6sGOiWJwgO5yxxQFwg/o.jpg',
+                   lat: 39.751168, lon: -104.933227 }
       expect(business.serialized).to eq(expected)
     end
   end
@@ -133,6 +141,14 @@ RSpec.describe BusinessPoro do
 
     it 'thumbnail' do
       expect(bad_business.thumbnail).to be_nil
+    end
+
+    it 'lat' do
+      expect(bad_business.lat).to be_nil
+    end
+
+    it 'lon' do
+      expect(bad_business.lon).to be_nil
     end
   end
 end

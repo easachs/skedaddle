@@ -45,6 +45,16 @@ class Itinerary < ApplicationRecord
   def info        = summaries.find_by(kind: 'info')
   def plan        = summaries.find_by(kind: 'plan')
 
+  def map_items
+    items = businesses + parks
+    points = {}
+    items.map do |item|
+      next if item.lat.nil? || item.lon.nil?
+      points[item.name] = { lat: item.lat, lon: item.lon }
+    end
+    points.to_json
+  end
+
   # create
   def self.create_for_user!(user, geocode, items)
     itinerary = user.itineraries.create!(geocode)

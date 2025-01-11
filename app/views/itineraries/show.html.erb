@@ -1,11 +1,9 @@
+<%= render Core::ItineraryComponent.new itinerary: @itinerary,
+                                        items: @itinerary&.items,
+                                        saved: true,
+                                        tab: params[:tab],
+                                        current_user: %>
 
-  <%= render Core::ItineraryComponent.new itinerary: @itinerary,
-                                          items: @itinerary&.items,
-                                          saved: true,
-                                          tab: params[:tab],
-                                          current_user: %>
-
-
-<% if (!current_user.subscribed? || current_user.credit <= 2) %>
+<% if (!current_user.subscribed? && current_user.credit <= 3) %>
   <%= render Sub::StripePopupComponent.new(current_user:) %>
 <% end %>

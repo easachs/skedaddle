@@ -3,11 +3,11 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   connect() {
     if (typeof google !== "undefined") {
-      this.initAutocomplete();
+      this.autocomplete();
     }
   }
   
-  initAutocomplete() {
+  autocomplete() {
     const input = this.element;
     const autocomplete = new google.maps.places.Autocomplete(input,{
       types: ['political'],

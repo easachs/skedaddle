@@ -40,7 +40,7 @@
         <%= render InfoTab.new(itinerary:) %>
       <% end %>
 
-      <%= tag.div id: 'map', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
+      <%= tag.div id: 'gmap', data: { tabs_target: 'map' }, class: "mt-4 sm:mt-0 #{'hidden' unless map_tab}" do %>
         <%= render MapTab.new(itinerary:) %>
       <% end %>
 

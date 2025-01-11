@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ParkPoro
-  attr_reader :name, :location, :description, :directions
+  attr_reader :name, :location, :description, :directions, :lat, :lon
 
   def initialize(attributes)
     return unless attributes.is_a?(Hash)
@@ -11,6 +11,8 @@ class ParkPoro
     @description  = sanitize(attributes&.dig(:description))
     @directions   = sanitize(attributes&.dig(:directions))
     @object       = attributes&.dig(:activities)
+    @lat          = attributes&.dig(:lat)&.to_f
+    @lon          = attributes&.dig(:lon)&.to_f
   end
 
   def format_location(attributes)
@@ -30,6 +32,6 @@ class ParkPoro
   def thumbnail   = @object&.values&.dig(0, :thumbnail)
 
   def serialized
-    { name:, location:, description:, directions:, activities:, url:, thumbnail: }
+    { name:, location:, description:, directions:, activities:, url:, thumbnail:, lat:, lon: }
   end
 end

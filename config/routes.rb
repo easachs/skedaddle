@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # dashboard
+  # home
   root 'home#home'
-  get 'demo', to: 'home#demo'
 
   # users
   devise_for :users, controllers: {

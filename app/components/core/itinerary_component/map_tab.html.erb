@@ -1,8 +1,11 @@
-<% lat = coordinates[:lat] %>
-<% lon = coordinates[:lon] %>
 <% key = ENV['GOOGLE_MAPS_KEY'] %>
+<%= tag.script(nil, src: "https://maps.googleapis.com/maps/api/js?key=#{key}&v=weekly&callback=initMap",
+               defer: true, data: { turbo: false }) %>
 
 <%= tag.div class: 'flex justify-center items-center w-full h-[65vh] sm:h-[75vh] p-2 sm:pt-4' do %>
-  <iframe class='w-full h-[65vh] sm:h-[70vh] rounded-lg' loading='lazy' allowfullscreen
-          src="https://www.google.com/maps/embed/v1/view?zoom=10&center=<%= lat %>,<%= lon %>&key=<%= key %>"></iframe>
+  <%= tag.div id: 'map', data: { controller: 'map',
+                                 map_lat_value: coordinates[:lat],
+                                 map_lon_value: coordinates[:lon],
+                                 map_items_value: map_items,
+                                 action: 'map-callback@window->map#map' } %>
 <% end %>

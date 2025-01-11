@@ -150,7 +150,6 @@
   | Routes | | |
   | - | - | - |
   | get | / | home#home |
-  | get | /demo | home#demo |
   | get | /contact | home#contact |
   | post | /contact | contact#create |
   | get | /received | home#received |

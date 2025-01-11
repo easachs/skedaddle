@@ -84,11 +84,19 @@ RSpec.describe ParkPoro do
       expect(park.thumbnail).to eq('http://images.singletracks.com/2009/trails/01/14-1180981080.jpg')
     end
 
+    it 'lat' do
+      expect(park.lat).to eq(39.6967)
+    end
+
+    it 'lon' do
+      expect(park.lon).to eq(-105.1922)
+    end
+
     it 'serialized' do
-      expected = { name: 'Green Mountain', location: 'Denver, Colorado, United States',
-                   description: park.description, activities: 'mountain biking, hiking',
-                   url: 'http://www.singletracks.com/item.php?c=1&i=14', directions: park.directions,
-                   thumbnail: 'http://images.singletracks.com/2009/trails/01/14-1180981080.jpg' }
+      expected = { name: 'Green Mountain', location: 'Denver, Colorado, United States', description: park.description,
+                   activities: 'mountain biking, hiking', url: 'http://www.singletracks.com/item.php?c=1&i=14',
+                   directions: park.directions, thumbnail: 'http://images.singletracks.com/2009/trails/01/14-1180981080.jpg',
+                   lat: 39.6967, lon: -105.1922 }
       expect(park.serialized).to eq(expected)
     end
   end
@@ -122,6 +130,14 @@ RSpec.describe ParkPoro do
 
     it 'thumbnail' do
       expect(bad_park.thumbnail).to be_nil
+    end
+
+    it 'lat' do
+      expect(bad_park.lat).to be_nil
+    end
+
+    it 'lon' do
+      expect(bad_park.lon).to be_nil
     end
   end
 end

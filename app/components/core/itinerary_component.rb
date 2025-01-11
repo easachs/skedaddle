@@ -35,6 +35,7 @@ module Core
     def plan_tab    = tab == 'plan'
 
     def coordinates = itinerary&.coordinates || @geocode
+    def map_items   = itinerary&.map_items
 
     class PlacesTab < ItineraryComponent; end
     class InfoTab < ItineraryComponent; end
