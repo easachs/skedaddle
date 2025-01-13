@@ -1,9 +1,9 @@
-<%= tag.div class: 'flex flex-wrap text-xs sm:text-sm text-slate-500 p-2 sm:px-10',
+<%= tag.div class: 'grid grid-cols-3 sm:grid-cols-5 text-xs sm:text-sm text-slate-500 p-2 sm:px-10',
                       data: { controller: 'checkbox' } do %>
   <% data.each_slice(size).each do |slice| %>
     <%= tag.div class: 'w-1/2 sm:w-1/4' do %>
-      <% slice.each do |name, value, title=nil| %>
-        <%= tag.p title: title || name do %>
+      <% slice.each do |name, value| %>
+        <%= tag.p title: name do %>
           <%= check_box_tag "#{prefix}[#{name}]", value, false, class: 'hidden', data: { checkbox_target: 'checkbox' } %>
           <%= label_tag "#{prefix}[#{name}]", name %>
         <% end %>

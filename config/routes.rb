@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   # home
   root 'home#home'
+  get 'test', to: 'test#test'
 
   # users
   devise_for :users, controllers: {
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   # contact
-  get 'contact',  to: 'home#contact'
+  get 'contact',  to: 'contact#contact'
   post 'contact', to: 'contact#create'
   get 'received', to: 'contact#received'
 

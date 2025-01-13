@@ -14,18 +14,16 @@ module Core
     # end
 
     def activity_data
-      [['Beaches', 'beaches,lakes', 'Sand, Sun & Surf'], ['Festivals', 'festivals,yelpevents', 'Bonne fete'],
-       ['Landmarks', 'landmarks', 'History, but photogenic'],
-       ['Markets', 'farmersmarket,fleamarkets', 'Bargains, Beets, Battlestar Galactica'],
-       ['Museums', 'museums', 'Get cultured, not bored'],
-       ['Nightlife', 'barcrawl,clubcrawl,comedyclubs,danceclubs,musicvenues', 'Neon nights, city lights'],
-       ['Parks', 'parks,gardens', 'Green and Serene'], ['Skiing', 'skiing,skiresorts', 'Send it!'],
-       ['Spas', 'spas,saunas,massage,hotsprings', 'Destination Relaxation'],
-       ['Tours', 'tours', 'Trail Tales'], ['Zoos', 'zoos,aquariums', 'Creature Comforts']]
+      [['Beaches', 'beaches'], ['Comedy', 'comedyclubs'], ['Festivals', 'festivals,yelpevents'],
+       ['Gardens', 'gardens'], ['Lakes', 'lakes'], ['Landmarks', 'landmarks'],
+       ['Markets', 'farmersmarket,fleamarkets'], ['Museums', 'museums'],
+       ['Nightlife', 'barcrawl,clubcrawl,danceclubs,musicvenues'], ['Parks', 'parks,hiking'],
+       ['Skiing', 'skiing,skiresorts'], ['Spas', 'spas,saunas,massage,hotsprings'],
+       ['Tours', 'tours'], ['Zoos', 'zoos,aquariums']]
     end
 
     def restaurant_data
-      [['African', 'african'], ['Bakeries', 'bagels,bakeries,cupcakes,donuts'], ['Barbeque', 'bbq'],
+      [['Bakeries', 'bagels,bakeries,cupcakes,donuts'], ['Barbeque', 'bbq'],
        ['Breweries', 'breweries'], ['Brunch', 'breakfast_brunch'], ['Cafes', 'cafes,coffee'],
        ['Caribbean', 'caribbean'], ['Chinese', 'chinese,dimsum,wok'], ['Italian', 'italian'],
        ['Indian', 'indpak'], ['Japanese', 'japanese,sushi'], ['Mexican', 'mexican'],

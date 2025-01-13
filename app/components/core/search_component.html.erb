@@ -10,7 +10,6 @@
                               placeholder: 'Enter a destination',
                               class: 'w-2/3 text-xs sm:text-sm rounded sm:m-0',
                               required: true,
-                              autofocus: true,
                               autocomplete: 'off',
                               data: { controller: 'address', search_target: 'field',
                                       action: 'autocomplete-callback@window->address#autocomplete
@@ -38,19 +37,19 @@
       <% end %>
     <% end %>
 
-    <%= render Core::DropdownComponent.new(title: 'Where would you like to go?') do %>
+    <%= tag.div do %>
+      <%= tag.h3 'What would you like to do?', class: 'font-bold text-base sm:text-lg ml-2' %>
       <%= render Core::CheckboxComponent.new data: activity_data,
                                              prefix: 'activities',
                                              size: 1 %>
-    <% end %>
 
-    <%= render Core::DropdownComponent.new(title: 'Where would you like to eat?') do %>
+      <%= tag.h3 'What would you like to do?', class: 'font-bold text-base sm:text-lg ml-2' %>
       <%= render Core::CheckboxComponent.new data: restaurant_data,
                                              prefix: 'restaurants',
                                              size: 1 %>
     <% end %>
 
-    <%= tag.div class: 'sm:flex flex-wrap justify-between items-center text-xs sm:text-sm px-2 sm:mb-4 sm:m-0' do %>
+    <%= tag.div class: 'sm:flex flex-wrap justify-between items-center text-xs sm:text-sm p-2' do %>
       <%= tag.div class: 'flex justify-between items-center mb-2' do %>
         <span class='font-bold mr-2'>BUDGET</span>
         <%= tag.div class: 'flex sm:justify-center text-sm' do %>
@@ -75,7 +74,7 @@
       <% end %>
     <% end %>
 
-    <%= tag.div id: 'search-btn', class: 'py-2 text-center' do %>
+    <%= tag.div id: 'search-btn', class: 'py-2 justify-self-center' do %>
       <%= render Sub::LoadingModalComponent.new(trigger: (form.submit 'SKEDADDLE',
                                                           data: { search_target: 'button', turbo: false },
                                                           class: 'btn')) %>

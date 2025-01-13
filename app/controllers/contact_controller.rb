@@ -3,6 +3,8 @@
 class ContactController < ApplicationController
   layout 'home'
 
+  def contact; end
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?

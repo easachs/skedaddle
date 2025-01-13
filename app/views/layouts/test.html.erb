@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'shared/head' %>
+
+  <body class='text-slate-700 text-sm sm:text-base'>
+    <%= render Core::DashboardComponent.new current_user: %>
+
+      <%= yield %>
+
+  </body>
+</html>

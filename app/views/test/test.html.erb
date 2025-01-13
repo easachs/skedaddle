@@ -1,0 +1,121 @@
+<%= tag.div class: 'relative w-full' do %>
+  <%= image_tag "carousel/slide-4.jpg", class: 'w-full h-[300px] sm:h-[500px]' %>
+  <%= tag.div class: 'absolute inset-0 bg-opacity-50 text-white p-4' do %>
+    <%= tag.div class: 'text-slate-500 mt-8 sm:mt-10' do %>
+      <%= tag.h1 'skedaddle', class: 'sm:ml-2' %>
+      <%= tag.p "explore more, plan less", class: 'text-xs sm:text-sm ml-4 sm:ml-8' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= tag.div class: 'text-sm sm:text-base bg-[rgba(0,109,119,0.3)] h-full p-4 sm:p-8 text-center' do %>
+  <%= tag.h1 "Seamless Travel, Tailored for You", class: 'text-center text-lg sm:text-xl font-bold' %>
+  <%= tag.p class: 'mt-2' do %>
+    From hidden gems to popular hotspots, Skedaddle is your passport to crafting the perfect itinerary.
+  <% end %>
+  <%= tag.div class: 'grid grid-cols-1 sm:grid-cols-2 mt-2 hidden' do %>
+    <%= tag.div do %>
+      <%= tag.h3 'Adventure Your Way', class: 'font-bold mt-2' %>
+      <%= tag.p class: 'text-sm' do %>
+        Personalized recommendations, so you can have the best time possible.
+      <% end %>
+    <% end %>
+    <%= tag.div do %>
+      <%= tag.h3 'Save Time and Stress', class: 'font-bold mt-2' %>
+      <%= tag.p class: 'text-sm' do %>
+        Skip the hassle with all of the information you need in one place.
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% unless current_user %>
+    <%= tag.div class: 'flex justify-center gap-4 my-4' do %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'btn white-btn big-btn', data: { turbo: false } %>
+      <%= link_to 'Register', new_user_registration_path, class: 'btn white-btn big-btn', data: { turbo: false } %>
+
+      <%= button_to user_google_oauth2_omniauth_authorize_path,
+                    form: { class: 'inline-block' },
+                    data: { turbo: false },
+                    class: 'btn white-btn big-btn' do %>
+        <%= image_tag 'google.svg', alt: 'Google', class: 'h-3 w-3 sm:h-5 sm:w-5' %>
+        <span>Sign In</span>
+      <% end %>
+    <% end %>
+
+    <%= tag.p 'Sign up with your email or Google account to begin planning your next adventure.' %>
+  <% end %>
+<% end %>
+
+<%= tag.div class: 'bg-gradient-to-b from-[rgba(0,109,119,0.3)] via-[rgba(131,197,190,0.3)] to-[rgba(226,149,120,0.3)]' do %>
+  <%= tag.div class: 'text-sm sm:text-base h-full p-4 sm:p-8' do %>
+    <%= tag.div class: 'text-sm sm:text-base h-full p-4 bg-white bg-opacity-50 rounded shadow-lg sm:w-3/5 mx-auto' do %>
+      <%= tag.h1 'Your Next Adventure Starts Here', class: 'text-center text-lg sm:text-xl font-bold pt-2' %>
+      <%= render Core::SearchComponent.new %>
+      <% end %>
+  <% end %>
+
+  <% if current_user %>
+    <%= tag.div class: 'text-sm sm:text-base h-full p-4 sm:p-8 text-center sm:px-10' do %>
+      <%= tag.h1 'Your Itineraries', class: 'text-center text-lg sm:text-xl mb-4' %>
+      <%= turbo_frame_tag 'itineraries' do %>
+        <%= tag.div class: 'grid grid-cols-2 sm:grid-cols-4 gap-2' do %>
+          <% @itineraries.each do |itinerary| %>
+            <%= tag.div class: 'bg-white bg-opacity-50 rounded shadow-lg p-2' do %>
+              <%= tag.h5 class: 'font-semibold truncate' do %>
+                <%= link_to itinerary.city, itinerary_path(itinerary), data: { turbo: false } %>
+              <% end %>
+              <%= tag.p itinerary.country %>
+              <%= tag.div do %>
+                <% if itinerary.start_date && itinerary.end_date %>
+                  <p class='text-sm'><%= itinerary.start_date %> - <%= itinerary.end_date %></p>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= tag.div class: 'text-center mt-4' do %>
+          <%= paginate @itineraries %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= tag.div class: 'bg-[rgba(226,149,120,0.3)]' do %>
+  <%= tag.div class: 'text-sm sm:text-base p-4 sm:p-8 sm:px-10' do %>
+    <%= tag.h1 'Discover', class: 'text-center text-lg sm:text-xl mb-4' %>
+    <%= turbo_frame_tag 'posts' do %>
+      <%= tag.div class: 'grid grid-cols-2 sm:grid-cols-4 gap-2' do %>
+        <% @posts.each do |post| %>
+          <%= tag.div class: 'bg-white bg-opacity-50 rounded shadow-lg p-2 text-center' do %>
+            <%= tag.h5 class: 'font-semibold truncate' do %>
+              <%= link_to post.city, post_path(post), data: { turbo: false } %>
+            <% end %>
+            <%= tag.p post.country %>
+            <%= tag.div do %>
+              <p class='text-sm'>Posted <%= post.updated_at.strftime('%m/%d/%y') %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= tag.div class: 'text-center mt-4' do %>
+        <%= paginate @posts %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= tag.footer class: 'text-xs sm:text-sm bg-[rgba(226,149,120,0.3)] h-full p-4' do %>
+  <%= tag.div class: 'container mx-auto grid grid-cols-2' do %>
+    <%= tag.div do %>
+      <%= tag.h3 'skedaddle', class: 'font-bold text-lg' %>
+      <%= tag.p 'explore more, plan less' %>
+    <% end %>
+
+    <%= tag.div class: 'justify-items-end space-x-2' do %>
+      <%= tag.h3 'quick links', class: 'font-bold text-lg' %>
+      <%= link_to 'discover', posts_path, class: 'font-bold' %>
+      <%= link_to 'contact', contact_path, class: 'font-bold' %>
+    <% end %>
+  <% end %>
+<% end %>
